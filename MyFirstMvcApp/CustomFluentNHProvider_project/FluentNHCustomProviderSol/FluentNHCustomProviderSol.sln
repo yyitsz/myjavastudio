@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Web Developer Express 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{89ED8F0A-5384-4916-AC47-67C606DE8240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNHCustomProviders", "..\FNHMembershipProvider\FNHCustomProviders.csproj", "{B5DC808A-6E91-4B9E-A139-8DAD135C64B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNHCustomProviders.SampleApp", "..\FNHCustomProviders.SampleApp\FNHCustomProviders.SampleApp.csproj", "{B99A6787-EC82-4F64-BD2B-D60C3816BFD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5DC808A-6E91-4B9E-A139-8DAD135C64B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5DC808A-6E91-4B9E-A139-8DAD135C64B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5DC808A-6E91-4B9E-A139-8DAD135C64B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5DC808A-6E91-4B9E-A139-8DAD135C64B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99A6787-EC82-4F64-BD2B-D60C3816BFD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99A6787-EC82-4F64-BD2B-D60C3816BFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99A6787-EC82-4F64-BD2B-D60C3816BFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99A6787-EC82-4F64-BD2B-D60C3816BFD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

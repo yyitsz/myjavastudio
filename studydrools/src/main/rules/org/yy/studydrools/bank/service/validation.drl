@@ -1,0 +1,53 @@
+package org.yy.studydrools.bank.service;
+import org.drools.runtime.rule.RuleContext;
+import org.yy.studydrools.bank.model.*;
+import org.yy.studydrools.bank.service.*;
+import org.yy.studydrools.bank.service.impl.*;
+
+global ReportFactory reportFactory;
+global DefaultValidationReport validationReport;
+global BankingInquiryService inquiryService;
+
+import function org.yy.studydrools.bank.service.ValidationHelper.error;
+import function org.yy.studydrools.bank.service.ValidationHelper.warning;
+
+rule "addressRequired"
+    when Customer(address == null)
+    then
+      warning(kcontext);
+end
+
+rule "phoneNumberRequired"
+	when Customer(phoneNumber == null || phoneNumber == "")
+	then
+	  error(kcontext);
+end
+
+rule "accountOwnerRequired"
+    when 
+      $account: Account(owner == null)
+    then
+      error(kcontext, $account);
+end
+
+rule "accountBalanceAtLeast"
+    when 
+      $account: Account(balance < 100)
+    then
+      warning(kcontext, $account);
+end
+
+rule "studentAccountCustomerAgeLessThan"
+    when 
+      $account: Account(type == Account.Type.STUDENT && owner.getAge() >= 27)
+    then
+      warning(kcontext, $account);
+end
+
+
+rule "accountNumberUnique"
+    when 
+      $account: Account(inquiryService.isAccountUnique(this) == false)
+    then
+      warning(kcontext, $account);
+end

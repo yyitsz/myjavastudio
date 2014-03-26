@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://studyapp.org/order" xmlns:tns="http://studyapp.org/order" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="OrderDto" type="tns:OrderDto"/>
+
+  <xs:complexType name="OrderDto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="instrumentCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="lot" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="price" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="accountId" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

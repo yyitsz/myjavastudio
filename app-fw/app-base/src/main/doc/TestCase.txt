@@ -1,0 +1,106 @@
+select * from account a
+@where {
+	@and{
+		{a.acid=:id},
+                {a.name = :name},
+                 @or{a.name like 'a?' or a.name like 'b?'}
+	}
+
+}
+
+select * from account a
+@where {
+	@and{
+		{a.acid=:id},
+                {a.name = :name},
+                 @or{{a.name like 'a?' or a.name like 'b?'}}
+	}
+
+}
+
+select * from account a
+@where {
+	@and{
+                @if(a){a.date > to_date(:date)}
+                @elseif(b){a.date < to_date(:date)}
+                @else{a.date = to_date(:date)},
+		{a.acid=:id},
+                {a.name = :name}
+	}
+
+}
+
+select * from account a
+@where {
+	@and{
+                @if(a){a.date > to_date(:date)}
+                @elseif(b){a.date < to_date(:date)}
+                @else{
+                   @and{
+                        {a.date = to_date(:date)},
+                        {a.date >= cd}
+                       }
+                 },
+		{a.acid=:id},
+                {a.name = :name}
+	}
+
+}
+
+select * from account a
+@where {
+	@and{
+		{a.acid=:id},
+                {a.name = :name},
+                 @in(a.name,names)
+	}
+
+}
+
+SELECT * FROM person
+ @where{
+    @and{
+      { p.id exists (select id from user
+          @where {
+            @and{
+               @if(a>0){ C LIKE :C } ,
+               {A like :A} ,
+               @or{
+                {lastName = :lastName},
+                {firstName = :firstName} ,
+                {B = :B}
+               }
+            }
+          }
+      }
+    }
+}
+
+
+SELECT * FROM person
+ WHERE   p.id exists (select id from user
+          @where {
+            @and{
+               @if(a>0){ C LIKE :C } ,
+               {A like :A} ,
+               @or{
+                {lastName = :lastName},
+                {firstName = :firstName} ,
+                {B = :B}
+               }
+            }
+          }
+
+
+SELECT * FROM person
+ WHERE   p.id exists (select id from user
+          WHERE 
+            @and{
+               @if(a>0){ C LIKE :C } ,
+               {A like :A} ,
+               @or{
+                {lastName = :lastName},
+                {firstName = :firstName} ,
+                {B = :B}
+               }
+            }          

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd ">
+	<persistence-unit name="obfuscation" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>org.yy.obfuscation.model.User</class>
+		<class>org.yy.obfuscation.model.Profile</class>
+		<class>org.yy.obfuscation.model.Assembly</class>
+		<properties>
+			<property name="show_sql" value="true"/>
+			<property name="hbm2ddl.auto" value="drop-create" />
+			<property name="dialect" value="org.hiberante.dialect.H2Dialect"/>
+		</properties>
+	</persistence-unit>
+</persistence>

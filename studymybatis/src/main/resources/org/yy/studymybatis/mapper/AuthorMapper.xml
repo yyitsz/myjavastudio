@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.yy.studymybatis.mapper.AuthorMapper" >
+  <resultMap id="authorResultMap" type="author" >
+    <id column="author_id" property="id" jdbcType="INTEGER" />
+    <result column="author_name" property="name" jdbcType="VARCHAR" />
+    <result column="author_email" property="email" jdbcType="VARCHAR" />
+  </resultMap>
+ 
+  <sql id="Base_Column_List" >
+    id as author_id, name as author_name, email as author_email
+  </sql>
+  
+  <select id="findById" resultMap="authorResultMap" parameterType="int" >
+    select 
+    <include refid="Base_Column_List" />
+    from author
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="findAll" resultMap="authorResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from author
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from author
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+ <delete id="delete" parameterType="author" >
+    delete from author
+    where id = #{id,jdbcType=INTEGER}
+  </delete> 
+  <insert id="insert" parameterType="author" >
+    <selectKey  keyProperty="id" order="AFTER" resultType="int">
+      SELECT last_insert_id() AS id
+    </selectKey>
+    insert into author (name, email)
+    values (#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="update" parameterType="author" >
+    update author
+    set name = #{name,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

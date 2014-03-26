@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="aggressiveLazyLoading" value="true" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="useGeneratedKeys" value="true" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="org.yy.studymybatis.model.Contact" alias="Contact" />
+		<typeAlias type="org.yy.studymybatis.model.BaseModel" alias="BaseModel" />
+		<typeAlias type="org.yy.studymybatis.model.VersionableBaseModel"
+			alias="VersionableBaseModel" />
+		<typeAlias type="org.yy.studymybatis.model.Blog" alias="Blog" />
+		<typeAlias type="org.yy.studymybatis.model.Author" alias="Author" />
+		<typeAlias type="org.yy.studymybatis.model.Post" alias="Post" />
+		<typeAlias type="org.yy.studymybatis.model.Tag" alias="Tag" />
+	</typeAliases>
+	<plugins>
+		<plugin interceptor="org.yy.studymybatis.extend.AuditInterceptor">
+			<property name="test" value="test" />
+		</plugin>
+		<plugin interceptor="org.yy.studymybatis.extend.OptimisticLockInterceptor">
+			<property name="test" value="test" />
+		</plugin>
+
+	</plugins>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/studymybatis" />
+				<property name="username" value="root" />
+				<property name="password" value="" />
+			</dataSource>
+
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="org/yy/studymybatis/mapper/Contact.xml" />
+		<mapper resource="org/yy/studymybatis/mapper/PostMapper.xml" />
+		<mapper resource="org/yy/studymybatis/mapper/AuthorMapper.xml" />
+		<mapper resource="org/yy/studymybatis/mapper/BlogMapper.xml" />
+		<mapper resource="org/yy/studymybatis/mapper/TagMapper.xml" />
+	</mappers>
+
+</configuration>

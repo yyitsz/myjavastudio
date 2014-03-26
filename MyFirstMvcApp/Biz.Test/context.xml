@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<castle>
+
+  <properties>
+    <testdb>TestDb</testdb>
+  </properties>
+  <facilities>
+    <!--<facility id="txManager"
+             type="Framework.Transaction.TransactionManagerFacility, Framework"
+             transaction="Requires" isolation="ReadCommitted" distributed="false">
+      <classes>
+        <class name="Biz.Test.Services.*" />
+      </classes>
+      --><!--transaction:  Unspecified, Requires,NotSupported,RequiresNew,Supported
+    isolation:  Unspecified, Chaos, ReadCommitted,  ReadUncommitted, RepeatableRead ,  Serializable  --><!--
+      <methods>
+        <method name="Save*" transaction="Requires" isolation="ReadCommitted" distributed="false"  />
+        <method name="Update*" transaction="Requires" />
+        <method name="Delete*" transaction="Requires" />
+        <method name="Load*" transaction="Supported" />
+        <method name="Find*" transaction="Supported" />
+        <method name="*" transaction="Supported" />
+      </methods>
+    </facility>-->
+
+    <facility id="nhibernatefacility" isWeb="false"
+              type="Castle.Facilities.NHibernateIntegration.NHibernateFacility, Castle.Facilities.NHibernateIntegration"
+              configurationBuilder="Framework.Windsor.NHConfigurationBuilder, Framework">
+
+      <factory id="TestDb.factory" alias="#{testdb}">
+        <!--<settings>
+          <item key="connection.provider">
+            NHibernate.Connection.DriverConnectionProvider
+          </item>
+          <item key="connection.driver_class">
+            NHibernate.Driver.SqlClientDriver
+          </item>
+          <item key="connection.connection_string">
+            Data Source=.;Initial Catalog=test;Integrated Security=SSPI
+          </item>
+          <item key="dialect">
+            NHibernate.Dialect.MsSql2000Dialect
+          </item>
+          <item key="proxyfactory.factory_class">
+            NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle
+          </item>
+        </settings>-->
+        <!--<assemblies>
+          <assembly>
+            Castle.Facilities.NHibernateIntegration.Tests
+          </assembly>
+        </assemblies>-->
+      </factory>
+    </facility>
+  </facilities>
+</castle>

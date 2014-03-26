@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions id="definitions"
+	xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" targetNamespace="Examples">
+
+	<process name="ForkJoin" id="ForkJoin" isExecutable="false">
+		<startEvent id="Start" name="Start" />
+		<userTask id="Task_0" name="Task 0" />
+		<parallelGateway gatewayDirection="Diverging" id="Fork_AB"
+			name="Fork AB" />
+		<userTask id="Task_A" name="Task A" />
+		<userTask id="Task_B" name="Task B" />
+		<parallelGateway gatewayDirection="Diverging" id="Fork_B"
+			name="Fork B" />
+		<userTask id="Task_B1" name="Task B1" />
+		<parallelGateway gatewayDirection="Converging" id="Join_B"
+			name="Join B" />
+		<userTask id="Task_B2" name="Task B2" />
+		<parallelGateway gatewayDirection="Converging" id="Join_AB"
+			name="Join AB" />
+		<userTask id="Task_C" name="Task C" />
+		<endEvent id="End" name="End" />
+
+		<sequenceFlow id="Flow_2" name="" sourceRef="Fork_AB"
+			targetRef="Task_A" />
+		<sequenceFlow id="Flow_5" name="" sourceRef="Fork_AB"
+			targetRef="Task_B" />
+		<sequenceFlow id="Flow_7" name="" sourceRef="Task_B"
+			targetRef="Fork_B" />
+		<sequenceFlow id="Flow_0" name="" sourceRef="Fork_B"
+			targetRef="Task_B1" />
+		<sequenceFlow id="Flow_1" name="" sourceRef="Fork_B"
+			targetRef="Task_B2" />
+		<sequenceFlow id="Flow_11" name="" sourceRef="Task_B1"
+			targetRef="Join_AB" />
+		<sequenceFlow id="Flow_10" name="" sourceRef="Task_B2"
+			targetRef="Join_AB" />
+		<sequenceFlow id="Flow_4" name="" sourceRef="Task_A"
+			targetRef="Join_AB" />
+		<sequenceFlow id="Flow_8" name="" sourceRef="Join_AB"
+			targetRef="Task_C" />
+		<sequenceFlow id="Flow_12" name="" sourceRef="Task_C"
+			targetRef="End" />
+		<sequenceFlow id="Flow_9" name="" sourceRef="Start"
+			targetRef="Task_0" />
+		<sequenceFlow id="Flow_6" name="" sourceRef="Task_0"
+			targetRef="Fork_AB" />
+	</process>
+
+</definitions>

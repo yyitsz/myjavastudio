@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.yy.studymybatis.mapper.BlogMapper" >
+  <resultMap id="blogResultMap" type="Blog" >
+    <id column="id" property="id" jdbcType="INTEGER" />	
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <association property="author" column="author_id" javaType="Author" select="org.yy.studymybatis.mapper.AuthorMapper.findById"></association>
+    <collection property="posts" javaType="ArrayList" ofType="Post" column="id" select="org.yy.studymybatis.mapper.PostMapper.findByBlogId"></collection>
+  </resultMap>
+  <sql id="columnList"> id, name, url,author_id </sql>
+  <select id="selectBlog" resultMap="blogResultMap">
+  	SELECT 
+  	<include refid="columnList"/>
+  	 FROM blog
+  </select>
+  
+  <select id="findById"  parameterType="Int" resultMap="blogResultMap">
+  	SELECT 
+  	<include refid="columnList"/>
+  	 FROM blog
+  	 WHERE id=#{id}
+  </select>
+  
+   <select id="findAll"  resultMap="blogResultMap">
+  	SELECT 
+  	<include refid="columnList"/>
+  	 FROM blog
+  </select>
+  
+  <insert id="insert" parameterType="Blog" >
+  <selectKey keyProperty="id" order="AFTER" resultType="int">
+      SELECT last_insert_id() AS id
+    </selectKey>
+  	INSERT INTO blog(id, name, url, author_id) values(#{id},#{name},#{url},#{author.id})
+  </insert>
+  <update id="update" parameterType="Blog">
+  	UPDATE blog SET name=#{name}, url = #{url}, author_id=#{author.id} WHERE id=#{id}
+  </update>
+  <delete id="deleteById" parameterType="int">
+  	DELETE FROM blog WHERE id=#{id}
+  </delete>
+  <delete id="delete" parameterType="Blog">
+  	DELETE FROM blog WHERE id=#{id}
+  </delete>
+</mapper>

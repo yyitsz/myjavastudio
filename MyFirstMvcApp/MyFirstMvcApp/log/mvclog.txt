@@ -1,0 +1,576 @@
+2011-03-07 11:55:34,699 [5] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-03-07 11:55:34,792 [5] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-03-07 11:55:35,901 [5] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-03-07 11:55:35,901 [5] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-03-07 11:55:35,901 [5] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-03-07 11:55:35,917 [5] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-03-07 11:55:36,714 [5] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-03-07 11:55:36,807 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-03-07 11:55:36,839 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 11:55:36,885 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 11:55:36,901 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-03-07 11:55:36,901 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 11:55:36,901 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-03-07 11:55:36,901 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 11:55:36,917 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-03-07 11:55:36,932 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-03-07 11:55:36,932 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 11:55:36,932 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 11:55:36,932 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 11:55:36,932 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 11:55:36,948 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-03-07 11:55:36,948 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 11:55:36,948 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 11:55:37,135 [5] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-03-07 11:55:42,759 [5] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-03-07 11:59:45,274 [12] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-03-07 11:59:45,274 [12] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application
+2011-03-07 11:59:54,866 [5] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-03-07 11:59:54,944 [5] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-03-07 11:59:55,522 [5] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-03-07 11:59:55,522 [5] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-03-07 11:59:55,522 [5] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-03-07 11:59:55,537 [5] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-03-07 11:59:56,225 [5] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-03-07 11:59:56,303 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-03-07 11:59:56,334 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 11:59:56,381 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 11:59:56,397 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-03-07 11:59:56,397 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 11:59:56,397 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-03-07 11:59:56,397 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 11:59:56,412 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 11:59:56,428 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-03-07 11:59:56,428 [5] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 11:59:56,428 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 11:59:56,443 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 11:59:56,443 [5] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 11:59:56,584 [5] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-03-07 11:59:57,318 [5] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-03-07 12:02:56,042 [12] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-03-07 12:02:56,042 [12] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application
+2011-03-07 12:03:28,473 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-03-07 12:03:28,536 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-03-07 12:03:29,786 [4] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-03-07 12:03:29,786 [4] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-03-07 12:03:29,786 [4] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-03-07 12:03:29,786 [4] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-03-07 12:03:30,457 [4] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-03-07 12:03:30,551 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-03-07 12:03:30,582 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:03:30,629 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-03-07 12:03:30,629 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:03:30,629 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-03-07 12:03:30,629 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 12:03:30,629 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-03-07 12:03:30,629 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-03-07 12:03:30,629 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:03:30,645 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-03-07 12:03:30,645 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:03:30,676 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:03:30,692 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-03-07 12:03:30,692 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:03:30,692 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:03:30,879 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-03-07 12:03:34,832 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-03-07 12:12:07,054 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-03-07 12:12:07,054 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application
+2011-03-07 12:12:17,865 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-03-07 12:12:17,943 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-03-07 12:12:18,583 [4] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-03-07 12:12:18,583 [4] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-03-07 12:12:18,583 [4] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-03-07 12:12:18,583 [4] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-03-07 12:12:19,255 [4] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-03-07 12:12:19,333 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-03-07 12:12:19,365 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:12:19,411 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:12:19,427 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-03-07 12:12:19,427 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:12:19,427 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-03-07 12:12:19,427 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:12:19,443 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:12:19,458 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-03-07 12:12:19,458 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-03-07 12:12:19,458 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-03-07 12:12:19,474 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:12:19,474 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:12:19,474 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:12:19,474 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:12:19,614 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-03-07 12:12:20,364 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-03-07 12:46:03,338 [9] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-03-07 12:46:03,338 [9] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application
+2011-03-07 12:47:10,813 [14] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-03-07 12:47:10,891 [14] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-03-07 12:47:11,687 [14] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-03-07 12:47:11,687 [14] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-03-07 12:47:11,687 [14] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-03-07 12:47:11,687 [14] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-03-07 12:47:12,390 [14] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-03-07 12:47:12,469 [14] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-03-07 12:47:12,500 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-03-07 12:47:12,547 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:47:12,562 [14] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-03-07 12:47:12,562 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:47:12,594 [14] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:47:12,609 [14] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-03-07 12:47:12,609 [14] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 12:47:12,609 [14] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 12:47:12,765 [14] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-03-07 12:47:13,531 [14] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-03-07 13:15:12,760 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-03-07 13:15:12,760 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application
+2011-03-07 13:17:35,474 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-03-07 13:17:35,552 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-03-07 13:17:36,177 [10] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-03-07 13:17:36,177 [10] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-03-07 13:17:36,177 [10] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-03-07 13:17:36,177 [10] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-03-07 13:17:36,895 [10] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-03-07 13:17:36,973 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-03-07 13:17:37,020 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 13:17:37,098 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-03-07 13:17:37,098 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 13:17:37,114 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-03-07 13:17:37,114 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 13:17:37,145 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 13:17:37,161 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-03-07 13:17:37,161 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 13:17:37,161 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 13:17:37,317 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-03-07 13:17:38,067 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-03-07 14:05:15,135 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-03-07 14:05:15,135 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application
+2011-03-07 14:05:27,508 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-03-07 14:05:27,586 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-03-07 14:05:28,227 [10] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-03-07 14:05:28,227 [10] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-03-07 14:05:28,227 [10] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-03-07 14:05:28,227 [10] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-03-07 14:05:28,945 [10] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-03-07 14:05:29,039 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-03-07 14:05:29,070 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-03-07 14:05:29,117 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-03-07 14:05:29,133 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-03-07 14:05:29,133 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 14:05:29,133 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 14:05:29,133 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 14:05:29,133 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 14:05:29,133 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-03-07 14:05:29,133 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 14:05:29,133 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-03-07 14:05:29,133 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 14:05:29,148 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 14:05:29,164 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-03-07 14:05:29,164 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-03-07 14:05:29,179 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 14:05:29,179 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 14:05:29,336 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-03-07 14:05:30,132 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-03-07 14:06:45,228 [9] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-03-07 14:06:45,228 [9] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application
+2011-03-07 14:06:57,398 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-03-07 14:06:57,461 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-03-07 14:06:58,054 [10] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-03-07 14:06:58,054 [10] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-03-07 14:06:58,054 [10] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-03-07 14:06:58,054 [10] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-03-07 14:06:58,757 [10] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-03-07 14:06:58,851 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-03-07 14:06:58,882 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-03-07 14:06:58,929 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 14:06:58,945 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-03-07 14:06:58,945 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 14:06:58,960 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 14:06:58,991 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-03-07 14:06:58,991 [10] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedAt -> CreatedAt, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedAt -> UpdatedAt, type: DateTime
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreatedBy -> CreatedBy, type: String
+2011-03-07 14:06:58,991 [10] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UpdatedBy -> UpdatedBy, type: String
+2011-03-07 14:06:59,132 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-03-07 14:06:59,913 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-03-07 14:45:16,966 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-03-07 14:45:16,966 [10] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application

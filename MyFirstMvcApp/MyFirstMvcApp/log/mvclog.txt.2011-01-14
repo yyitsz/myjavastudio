@@ -1,0 +1,679 @@
+2011-01-14 13:37:59,001 [20] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-01-14 13:37:59,063 [20] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-01-14 13:38:06,625 [20] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-01-14 13:38:06,640 [20] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-01-14 13:38:06,640 [20] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-01-14 13:38:06,640 [20] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-01-14 13:38:07,390 [20] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-01-14 13:38:07,500 [20] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-01-14 13:38:07,531 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-01-14 13:38:07,578 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-01-14 13:38:07,578 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-01-14 13:38:07,593 [20] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-01-14 13:38:07,593 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-01-14 13:38:07,609 [20] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-01-14 13:38:07,640 [20] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-01-14 13:38:07,640 [20] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-01-14 13:38:07,640 [20] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-01-14 13:39:27,757 [20] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-01-14 13:39:27,757 [20] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application
+2011-01-14 13:40:11,549 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Starting Application
+2011-01-14 13:40:11,737 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Creating Container
+2011-01-14 13:40:16,455 [4] INFO  NHibernate.Cfg.Environment [(null)] - NHibernate 3.0.0.4000 (3.0.0.4000)
+2011-01-14 13:40:16,455 [4] INFO  NHibernate.Cfg.Environment [(null)] - hibernate-configuration section not found in application configuration file
+2011-01-14 13:40:16,471 [4] INFO  NHibernate.Cfg.Environment [(null)] - Bytecode provider name : lcg
+2011-01-14 13:40:16,471 [4] INFO  NHibernate.Cfg.Environment [(null)] - Using reflection optimizer
+2011-01-14 13:40:17,283 [4] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-01-14 13:40:17,393 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Profile -> Profile
+2011-01-14 13:40:17,440 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UserId -> UserId, type: Int32
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsAnonymous -> IsAnonymous, type: Boolean
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastUpdatedDate -> LastUpdatedDate, type: DateTime
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Subscription -> Subscription, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Language -> Language, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FirstName -> FirstName, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastName -> LastName, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Gender -> Gender, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: BirthDate -> BirthDate, type: DateTime
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Occupation -> Occupation, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Website -> Website, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Street -> Street, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: City -> City, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: State -> State, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Zip -> Zip, type: String
+2011-01-14 13:40:17,486 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Country -> Country, type: String
+2011-01-14 13:40:17,502 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.Role -> Role
+2011-01-14 13:40:17,502 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-01-14 13:40:17,502 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: RoleName -> RoleName, type: String
+2011-01-14 13:40:17,502 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-01-14 13:40:17,518 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.Role.UsersInRole -> UserRole
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: UsersInRole, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.User, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.Role.UsersInRole)
+2011-01-14 13:40:17,549 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping class: NHMembershipProvider.Entities.User -> User
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Id -> Id, type: Int32
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Username -> Username, type: String
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: ApplicationName -> ApplicationName, type: String
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Email -> Email, type: String
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Comment -> Comment, type: String
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Password -> Password, type: String
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordQuestion -> PasswordQuestion, type: String
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: PasswordAnswer -> PasswordAnswer, type: String
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsApproved -> IsApproved, type: Boolean
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastActivityDate -> LastActivityDate, type: DateTime
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLoginDate -> LastLoginDate, type: DateTime
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastPasswordChangedDate -> LastPasswordChangedDate, type: DateTime
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: CreationDate -> CreationDate, type: DateTime
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsOnLine -> IsOnLine, type: Boolean
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: IsLockedOut -> IsLockedOut, type: Boolean
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: LastLockedOutDate -> LastLockedOutDate, type: DateTime
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptCount -> FailedPasswordAttemptCount, type: Int32
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptCount -> FailedPasswordAnswerAttemptCount, type: Int32
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAttemptWindowStart -> FailedPasswordAttemptWindowStart, type: DateTime
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: FailedPasswordAnswerAttemptWindowStart -> FailedPasswordAnswerAttemptWindowStart, type: DateTime
+2011-01-14 13:40:17,549 [4] INFO  NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapping collection: NHMembershipProvider.Entities.User.Roles -> UserRole
+2011-01-14 13:40:17,549 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped property: Roles, type: System.Collections.Generic.IList`1[[NHMembershipProvider.Entities.Role, NHMembershipProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](NHMembershipProvider.Entities.User.Roles)
+2011-01-14 13:40:17,783 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Create Custom Controller Factory
+2011-01-14 13:40:23,486 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Register Routers
+2011-01-14 13:40:44,281 [4] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - DefaultTransactionManager created.
+2011-01-14 13:41:34,338 [4] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction "Tx #13147299" created. 
+2011-01-14 13:41:34,354 [4] INFO  NHibernate.Cfg.Configuration [(null)] - checking mappings queue
+2011-01-14 13:41:34,354 [4] INFO  NHibernate.Cfg.Configuration [(null)] - processing one-to-many association mappings
+2011-01-14 13:41:34,354 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Second pass for collection: NHMembershipProvider.Entities.Role.UsersInRole
+2011-01-14 13:41:34,385 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped collection key: role_key, index: idx, element: user_key, type: NHMembershipProvider.Entities.User
+2011-01-14 13:41:34,385 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Second pass for collection: NHMembershipProvider.Entities.User.Roles
+2011-01-14 13:41:34,400 [4] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder [(null)] - Mapped collection key: user_key, index: idx, element: role_key, type: NHMembershipProvider.Entities.Role
+2011-01-14 13:41:34,400 [4] INFO  NHibernate.Cfg.Configuration [(null)] - processing one-to-one association property references
+2011-01-14 13:41:34,400 [4] INFO  NHibernate.Cfg.Configuration [(null)] - processing foreign key constraints
+2011-01-14 13:41:34,400 [4] DEBUG NHibernate.Cfg.Configuration [(null)] - resolving reference to class: NHMembershipProvider.Entities.User
+2011-01-14 13:41:34,400 [4] DEBUG NHibernate.Cfg.Configuration [(null)] - resolving reference to class: NHMembershipProvider.Entities.Role
+2011-01-14 13:41:34,400 [4] INFO  NHibernate.Cfg.Configuration [(null)] - processing filters (second pass)
+2011-01-14 13:41:34,463 [4] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-01-14 13:41:34,525 [4] INFO  NHibernate.Exceptions.SQLExceptionConverterFactory [(null)] - Using dialect defined converter
+2011-01-14 13:41:34,525 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Generate SQL with comments: enabled
+2011-01-14 13:41:34,525 [4] INFO  NHibernate.Connection.ConnectionProvider [(null)] - Configuring ConnectionProvider
+2011-01-14 13:41:34,713 [4] ERROR NHibernate.Util.ReflectHelper [(null)] - Could not load type MySql.Data.MySqlClient.MySqlConnection, MySql.Data.
+System.IO.FileNotFoundException: Could not load file or assembly 'MySql.Data' or one of its dependencies. 系统找不到指定的文件。
+File name: 'MySql.Data'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) in d:\CSharp\NH\nhibernate\src\NHibernate\Util\ReflectHelper.cs:line 267
+
+=== Pre-bind state information ===
+LOG: User = ITSZ\yyi
+LOG: DisplayName = MySql.Data
+ (Partial)
+WRN: Partial binding information was supplied for an assembly:
+WRN: Assembly Name: MySql.Data | Domain ID: 2
+WRN: A partial bind occurs when only part of the assembly display name is provided.
+WRN: This might result in the binder loading an incorrect assembly.
+WRN: It is recommended to provide a fully specified textual identity for the assembly,
+WRN: that consists of the simple name, version, culture, and public key token.
+WRN: See whitepaper http://go.microsoft.com/fwlink/?LinkId=109270 for more information and common solutions to this issue.
+LOG: Appbase = file:///D:/JavaProject/myjavastudio/MyFirstMvcApp/MyFirstMvcApp/
+LOG: Initial PrivatePath = D:\JavaProject\myjavastudio\MyFirstMvcApp\MyFirstMvcApp\bin
+Calling assembly : NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: D:\JavaProject\myjavastudio\MyFirstMvcApp\MyFirstMvcApp\web.config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Policy not being applied to reference at this time (private, custom, partial, or location-based assembly bind).
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+2011-01-14 13:41:34,869 [4] ERROR NHibernate.Util.ReflectHelper [(null)] - Could not load type MySql.Data.MySqlClient.MySqlCommand, MySql.Data.
+System.IO.FileNotFoundException: Could not load file or assembly 'MySql.Data' or one of its dependencies. 系统找不到指定的文件。
+File name: 'MySql.Data'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) in d:\CSharp\NH\nhibernate\src\NHibernate\Util\ReflectHelper.cs:line 267
+
+=== Pre-bind state information ===
+LOG: User = ITSZ\yyi
+LOG: DisplayName = MySql.Data
+ (Partial)
+WRN: Partial binding information was supplied for an assembly:
+WRN: Assembly Name: MySql.Data | Domain ID: 2
+WRN: A partial bind occurs when only part of the assembly display name is provided.
+WRN: This might result in the binder loading an incorrect assembly.
+WRN: It is recommended to provide a fully specified textual identity for the assembly,
+WRN: that consists of the simple name, version, culture, and public key token.
+WRN: See whitepaper http://go.microsoft.com/fwlink/?LinkId=109270 for more information and common solutions to this issue.
+LOG: Appbase = file:///D:/JavaProject/myjavastudio/MyFirstMvcApp/MyFirstMvcApp/
+LOG: Initial PrivatePath = D:\JavaProject\myjavastudio\MyFirstMvcApp\MyFirstMvcApp\bin
+Calling assembly : NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: D:\JavaProject\myjavastudio\MyFirstMvcApp\MyFirstMvcApp\web.config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Policy not being applied to reference at this time (private, custom, partial, or location-based assembly bind).
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+2011-01-14 13:41:35,135 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+2011-01-14 13:41:35,150 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Optimize cache for minimal puts: False
+2011-01-14 13:41:35,150 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Connection release mode: after_transaction
+2011-01-14 13:41:35,150 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Default batch fetch size: 1
+2011-01-14 13:41:35,150 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - echoing all SQL to stdout
+2011-01-14 13:41:35,150 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Statistics: disabled
+2011-01-14 13:41:35,150 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Deleted entity synthetic identifier rollback: disabled
+2011-01-14 13:41:35,150 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+2011-01-14 13:41:35,166 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Query language substitutions: {}
+2011-01-14 13:41:35,166 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2011-01-14 13:41:35,182 [4] DEBUG NHibernate.Cfg.SettingsFactory [(null)] - Wrap result sets: disabled
+2011-01-14 13:41:35,182 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Batcher factory: NHibernate.AdoNet.NonBatchingBatcherFactory, NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2011-01-14 13:41:35,182 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Default entity-mode: Poco
+2011-01-14 13:41:35,182 [4] INFO  NHibernate.Cfg.SettingsFactory [(null)] - Named query checking : enabled
+2011-01-14 13:41:35,213 [4] INFO  NHibernate.Impl.SessionFactoryImpl [(null)] - building session factory
+2011-01-14 13:41:35,213 [4] DEBUG NHibernate.Impl.SessionFactoryImpl [(null)] - Session factory constructed with filter configurations : {}
+2011-01-14 13:41:35,213 [4] DEBUG NHibernate.Impl.SessionFactoryImpl [(null)] - instantiating session factory with properties: {'use_reflection_optimizer'='True', 'session_factory_name'='Demo', 'proxyfactory.factory_class'='NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'dialect'='NHibernate.Dialect.MySQL5Dialect, NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'show_sql'='true', 'hbm2ddl.auto'='update', 'adonet.batch_size'='100', 'connection.driver_class'='NHibernate.Driver.MySqlDataDriver, NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'connection.release_mode'='after_transaction', 'connection.connection_string_name'='TestDb', 'use_sql_comments'='true'}
+2011-01-14 13:41:35,213 [4] DEBUG NHibernate.Connection.DriverConnectionProvider [(null)] - Obtaining IDbConnection from Driver
+2011-01-14 13:41:35,619 [4] DEBUG NHibernate.Connection.ConnectionProvider [(null)] - Closing connection
+2011-01-14 13:41:35,931 [4] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer [(null)] - No custom accessors found for entity: NHMembershipProvider.Entities.Profile
+2011-01-14 13:41:35,947 [4] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer [(null)] - No custom accessors found for entity: NHMembershipProvider.Entities.Profile
+2011-01-14 13:41:35,963 [4] DEBUG NHibernate.Tuple.Entity.PocoEntityTuplizer [(null)] - Create Instantiator without optimizer for:NHMembershipProvider.Entities.Profile
+2011-01-14 13:41:36,025 [4] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer [(null)] - No custom accessors found for entity: NHMembershipProvider.Entities.Role
+2011-01-14 13:41:36,025 [4] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer [(null)] - No custom accessors found for entity: NHMembershipProvider.Entities.Role
+2011-01-14 13:41:36,025 [4] DEBUG NHibernate.Tuple.Entity.PocoEntityTuplizer [(null)] - Create Instantiator without optimizer for:NHMembershipProvider.Entities.Role
+2011-01-14 13:41:36,041 [4] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer [(null)] - No custom accessors found for entity: NHMembershipProvider.Entities.User
+2011-01-14 13:41:36,041 [4] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer [(null)] - No custom accessors found for entity: NHMembershipProvider.Entities.User
+2011-01-14 13:41:36,041 [4] DEBUG NHibernate.Tuple.Entity.PocoEntityTuplizer [(null)] - Create Instantiator without optimizer for:NHMembershipProvider.Entities.User
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] - Static SQL for collection: NHMembershipProvider.Entities.Role.UsersInRole
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] -  Row insert: /* insert collection row NHMembershipProvider.Entities.Role.UsersInRole */ INSERT INTO UserRole (role_key, idx, user_key) VALUES (?, ?, ?)
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] -  Row update: /* update collection row NHMembershipProvider.Entities.Role.UsersInRole */ UPDATE UserRole SET user_key = ? WHERE role_key = ? AND idx = ?
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] -  Row delete: /* delete collection row NHMembershipProvider.Entities.Role.UsersInRole */ DELETE FROM UserRole WHERE role_key = ? AND idx = ?
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] -  One-shot delete: /* delete collection NHMembershipProvider.Entities.Role.UsersInRole */ DELETE FROM UserRole WHERE role_key = ?
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] - Static SQL for collection: NHMembershipProvider.Entities.User.Roles
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] -  Row insert: /* insert collection row NHMembershipProvider.Entities.User.Roles */ INSERT INTO UserRole (user_key, idx, role_key) VALUES (?, ?, ?)
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] -  Row update: /* update collection row NHMembershipProvider.Entities.User.Roles */ UPDATE UserRole SET role_key = ? WHERE user_key = ? AND idx = ?
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] -  Row delete: /* delete collection row NHMembershipProvider.Entities.User.Roles */ DELETE FROM UserRole WHERE user_key = ? AND idx = ?
+2011-01-14 13:41:36,119 [4] DEBUG NHibernate.Persister.Collection.ICollectionPersister [(null)] -  One-shot delete: /* delete collection NHMembershipProvider.Entities.User.Roles */ DELETE FROM UserRole WHERE user_key = ?
+2011-01-14 13:41:36,166 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - Static SQL for entity: NHMembershipProvider.Entities.Profile
+2011-01-14 13:41:36,166 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Version select: /* get version NHMembershipProvider.Entities.Profile */ SELECT Id FROM Profile WHERE Id = ?
+2011-01-14 13:41:36,166 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Snapshot select: /* get current state NHMembershipProvider.Entities.Profile */ SELECT profile_.Id, profile_.UserId as UserId0_, profile_.ApplicationName as Applicat3_0_, profile_.IsAnonymous as IsAnonym4_0_, profile_.LastActivityDate as LastActi5_0_, profile_.LastUpdatedDate as LastUpda6_0_, profile_.Subscription as Subscrip7_0_, profile_.Language as Language0_, profile_.FirstName as FirstName0_, profile_.LastName as LastName0_, profile_.Gender as Gender0_, profile_.BirthDate as BirthDate0_, profile_.Occupation as Occupation0_, profile_.Website as Website0_, profile_.Street as Street0_, profile_.City as City0_, profile_.State as State0_, profile_.Zip as Zip0_, profile_.Country as Country0_ FROM Profile profile_ WHERE profile_.Id=?
+2011-01-14 13:41:36,181 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Insert 0: /* insert NHMembershipProvider.Entities.Profile */ INSERT INTO Profile (UserId, ApplicationName, IsAnonymous, LastActivityDate, LastUpdatedDate, Subscription, Language, FirstName, LastName, Gender, BirthDate, Occupation, Website, Street, City, State, Zip, Country, Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2011-01-14 13:41:36,181 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Update 0: /* update NHMembershipProvider.Entities.Profile */ UPDATE Profile SET UserId = ?, ApplicationName = ?, IsAnonymous = ?, LastActivityDate = ?, LastUpdatedDate = ?, Subscription = ?, Language = ?, FirstName = ?, LastName = ?, Gender = ?, BirthDate = ?, Occupation = ?, Website = ?, Street = ?, City = ?, State = ?, Zip = ?, Country = ? WHERE Id = ?
+2011-01-14 13:41:36,181 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Delete 0: /* delete NHMembershipProvider.Entities.Profile */ DELETE FROM Profile WHERE Id = ?
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Profile: /* load NHMembershipProvider.Entities.Profile */ SELECT profile0_.Id as Id0_0_, profile0_.UserId as UserId0_0_, profile0_.ApplicationName as Applicat3_0_0_, profile0_.IsAnonymous as IsAnonym4_0_0_, profile0_.LastActivityDate as LastActi5_0_0_, profile0_.LastUpdatedDate as LastUpda6_0_0_, profile0_.Subscription as Subscrip7_0_0_, profile0_.Language as Language0_0_, profile0_.FirstName as FirstName0_0_, profile0_.LastName as LastName0_0_, profile0_.Gender as Gender0_0_, profile0_.BirthDate as BirthDate0_0_, profile0_.Occupation as Occupation0_0_, profile0_.Website as Website0_0_, profile0_.Street as Street0_0_, profile0_.City as City0_0_, profile0_.State as State0_0_, profile0_.Zip as Zip0_0_, profile0_.Country as Country0_0_ FROM Profile profile0_ WHERE profile0_.Id=?
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Profile: /* load NHMembershipProvider.Entities.Profile */ SELECT profile0_.Id as Id0_0_, profile0_.UserId as UserId0_0_, profile0_.ApplicationName as Applicat3_0_0_, profile0_.IsAnonymous as IsAnonym4_0_0_, profile0_.LastActivityDate as LastActi5_0_0_, profile0_.LastUpdatedDate as LastUpda6_0_0_, profile0_.Subscription as Subscrip7_0_0_, profile0_.Language as Language0_0_, profile0_.FirstName as FirstName0_0_, profile0_.LastName as LastName0_0_, profile0_.Gender as Gender0_0_, profile0_.BirthDate as BirthDate0_0_, profile0_.Occupation as Occupation0_0_, profile0_.Website as Website0_0_, profile0_.Street as Street0_0_, profile0_.City as City0_0_, profile0_.State as State0_0_, profile0_.Zip as Zip0_0_, profile0_.Country as Country0_0_ FROM Profile profile0_ WHERE profile0_.Id=?
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table Profile profile0_
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Profile: /* load NHMembershipProvider.Entities.Profile */ SELECT profile0_.Id as Id0_0_, profile0_.UserId as UserId0_0_, profile0_.ApplicationName as Applicat3_0_0_, profile0_.IsAnonymous as IsAnonym4_0_0_, profile0_.LastActivityDate as LastActi5_0_0_, profile0_.LastUpdatedDate as LastUpda6_0_0_, profile0_.Subscription as Subscrip7_0_0_, profile0_.Language as Language0_0_, profile0_.FirstName as FirstName0_0_, profile0_.LastName as LastName0_0_, profile0_.Gender as Gender0_0_, profile0_.BirthDate as BirthDate0_0_, profile0_.Occupation as Occupation0_0_, profile0_.Website as Website0_0_, profile0_.Street as Street0_0_, profile0_.City as City0_0_, profile0_.State as State0_0_, profile0_.Zip as Zip0_0_, profile0_.Country as Country0_0_ FROM Profile profile0_ WHERE profile0_.Id=? for update
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table Profile profile0_
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Profile: /* load NHMembershipProvider.Entities.Profile */ SELECT profile0_.Id as Id0_0_, profile0_.UserId as UserId0_0_, profile0_.ApplicationName as Applicat3_0_0_, profile0_.IsAnonymous as IsAnonym4_0_0_, profile0_.LastActivityDate as LastActi5_0_0_, profile0_.LastUpdatedDate as LastUpda6_0_0_, profile0_.Subscription as Subscrip7_0_0_, profile0_.Language as Language0_0_, profile0_.FirstName as FirstName0_0_, profile0_.LastName as LastName0_0_, profile0_.Gender as Gender0_0_, profile0_.BirthDate as BirthDate0_0_, profile0_.Occupation as Occupation0_0_, profile0_.Website as Website0_0_, profile0_.Street as Street0_0_, profile0_.City as City0_0_, profile0_.State as State0_0_, profile0_.Zip as Zip0_0_, profile0_.Country as Country0_0_ FROM Profile profile0_ WHERE profile0_.Id=? for update
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table Profile profile0_
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Profile: /* load NHMembershipProvider.Entities.Profile */ SELECT profile0_.Id as Id0_0_, profile0_.UserId as UserId0_0_, profile0_.ApplicationName as Applicat3_0_0_, profile0_.IsAnonymous as IsAnonym4_0_0_, profile0_.LastActivityDate as LastActi5_0_0_, profile0_.LastUpdatedDate as LastUpda6_0_0_, profile0_.Subscription as Subscrip7_0_0_, profile0_.Language as Language0_0_, profile0_.FirstName as FirstName0_0_, profile0_.LastName as LastName0_0_, profile0_.Gender as Gender0_0_, profile0_.BirthDate as BirthDate0_0_, profile0_.Occupation as Occupation0_0_, profile0_.Website as Website0_0_, profile0_.Street as Street0_0_, profile0_.City as City0_0_, profile0_.State as State0_0_, profile0_.Zip as Zip0_0_, profile0_.Country as Country0_0_ FROM Profile profile0_ WHERE profile0_.Id=? for update
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity NHMembershipProvider.Entities.Profile: /* load NHMembershipProvider.Entities.Profile */ SELECT profile0_.Id as Id0_0_, profile0_.UserId as UserId0_0_, profile0_.ApplicationName as Applicat3_0_0_, profile0_.IsAnonymous as IsAnonym4_0_0_, profile0_.LastActivityDate as LastActi5_0_0_, profile0_.LastUpdatedDate as LastUpda6_0_0_, profile0_.Subscription as Subscrip7_0_0_, profile0_.Language as Language0_0_, profile0_.FirstName as FirstName0_0_, profile0_.LastName as LastName0_0_, profile0_.Gender as Gender0_0_, profile0_.BirthDate as BirthDate0_0_, profile0_.Occupation as Occupation0_0_, profile0_.Website as Website0_0_, profile0_.Street as Street0_0_, profile0_.City as City0_0_, profile0_.State as State0_0_, profile0_.Zip as Zip0_0_, profile0_.Country as Country0_0_ FROM Profile profile0_ WHERE profile0_.Id=?
+2011-01-14 13:41:36,260 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity NHMembershipProvider.Entities.Profile: /* load NHMembershipProvider.Entities.Profile */ SELECT profile0_.Id as Id0_0_, profile0_.UserId as UserId0_0_, profile0_.ApplicationName as Applicat3_0_0_, profile0_.IsAnonymous as IsAnonym4_0_0_, profile0_.LastActivityDate as LastActi5_0_0_, profile0_.LastUpdatedDate as LastUpda6_0_0_, profile0_.Subscription as Subscrip7_0_0_, profile0_.Language as Language0_0_, profile0_.FirstName as FirstName0_0_, profile0_.LastName as LastName0_0_, profile0_.Gender as Gender0_0_, profile0_.BirthDate as BirthDate0_0_, profile0_.Occupation as Occupation0_0_, profile0_.Website as Website0_0_, profile0_.Street as Street0_0_, profile0_.City as City0_0_, profile0_.State as State0_0_, profile0_.Zip as Zip0_0_, profile0_.Country as Country0_0_ FROM Profile profile0_ WHERE profile0_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - Static SQL for entity: NHMembershipProvider.Entities.Role
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Version select: /* get version NHMembershipProvider.Entities.Role */ SELECT Id FROM Role WHERE Id = ?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Snapshot select: /* get current state NHMembershipProvider.Entities.Role */ SELECT role_.Id, role_.RoleName as RoleName1_, role_.ApplicationName as Applicat3_1_ FROM Role role_ WHERE role_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Insert 0: /* insert NHMembershipProvider.Entities.Role */ INSERT INTO Role (RoleName, ApplicationName, Id) VALUES (?, ?, ?)
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Update 0: /* update NHMembershipProvider.Entities.Role */ UPDATE Role SET RoleName = ?, ApplicationName = ? WHERE Id = ?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Delete 0: /* delete NHMembershipProvider.Entities.Role */ DELETE FROM Role WHERE Id = ?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Role: /* load NHMembershipProvider.Entities.Role */ SELECT role0_.Id as Id1_0_, role0_.RoleName as RoleName1_0_, role0_.ApplicationName as Applicat3_1_0_ FROM Role role0_ WHERE role0_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Role: /* load NHMembershipProvider.Entities.Role */ SELECT role0_.Id as Id1_0_, role0_.RoleName as RoleName1_0_, role0_.ApplicationName as Applicat3_1_0_ FROM Role role0_ WHERE role0_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table Role role0_
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Role: /* load NHMembershipProvider.Entities.Role */ SELECT role0_.Id as Id1_0_, role0_.RoleName as RoleName1_0_, role0_.ApplicationName as Applicat3_1_0_ FROM Role role0_ WHERE role0_.Id=? for update
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table Role role0_
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Role: /* load NHMembershipProvider.Entities.Role */ SELECT role0_.Id as Id1_0_, role0_.RoleName as RoleName1_0_, role0_.ApplicationName as Applicat3_1_0_ FROM Role role0_ WHERE role0_.Id=? for update
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table Role role0_
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.Role: /* load NHMembershipProvider.Entities.Role */ SELECT role0_.Id as Id1_0_, role0_.RoleName as RoleName1_0_, role0_.ApplicationName as Applicat3_1_0_ FROM Role role0_ WHERE role0_.Id=? for update
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity NHMembershipProvider.Entities.Role: /* load NHMembershipProvider.Entities.Role */ SELECT role0_.Id as Id1_0_, role0_.RoleName as RoleName1_0_, role0_.ApplicationName as Applicat3_1_0_ FROM Role role0_ WHERE role0_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity NHMembershipProvider.Entities.Role: /* load NHMembershipProvider.Entities.Role */ SELECT role0_.Id as Id1_0_, role0_.RoleName as RoleName1_0_, role0_.ApplicationName as Applicat3_1_0_ FROM Role role0_ WHERE role0_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - Static SQL for entity: NHMembershipProvider.Entities.User
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Version select: /* get version NHMembershipProvider.Entities.User */ SELECT Id FROM User WHERE Id = ?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Snapshot select: /* get current state NHMembershipProvider.Entities.User */ SELECT user_.Id, user_.Username as Username3_, user_.ApplicationName as Applicat3_3_, user_.Email as Email3_, user_.Comment as Comment3_, user_.Password as Password3_, user_.PasswordQuestion as Password7_3_, user_.PasswordAnswer as Password8_3_, user_.IsApproved as IsApproved3_, user_.LastActivityDate as LastAct10_3_, user_.LastLoginDate as LastLog11_3_, user_.LastPasswordChangedDate as LastPas12_3_, user_.CreationDate as Creatio13_3_, user_.IsOnLine as IsOnLine3_, user_.IsLockedOut as IsLocke15_3_, user_.LastLockedOutDate as LastLoc16_3_, user_.FailedPasswordAttemptCount as FailedP17_3_, user_.FailedPasswordAnswerAttemptCount as FailedP18_3_, user_.FailedPasswordAttemptWindowStart as FailedP19_3_, user_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_ FROM User user_ WHERE user_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Insert 0: /* insert NHMembershipProvider.Entities.User */ INSERT INTO User (Username, ApplicationName, Email, Comment, Password, PasswordQuestion, PasswordAnswer, IsApproved, LastActivityDate, LastLoginDate, LastPasswordChangedDate, CreationDate, IsOnLine, IsLockedOut, LastLockedOutDate, FailedPasswordAttemptCount, FailedPasswordAnswerAttemptCount, FailedPasswordAttemptWindowStart, FailedPasswordAnswerAttemptWindowStart, Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Update 0: /* update NHMembershipProvider.Entities.User */ UPDATE User SET Username = ?, ApplicationName = ?, Email = ?, Comment = ?, Password = ?, PasswordQuestion = ?, PasswordAnswer = ?, IsApproved = ?, LastActivityDate = ?, LastLoginDate = ?, LastPasswordChangedDate = ?, CreationDate = ?, IsOnLine = ?, IsLockedOut = ?, LastLockedOutDate = ?, FailedPasswordAttemptCount = ?, FailedPasswordAnswerAttemptCount = ?, FailedPasswordAttemptWindowStart = ?, FailedPasswordAnswerAttemptWindowStart = ? WHERE Id = ?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] -  Delete 0: /* delete NHMembershipProvider.Entities.User */ DELETE FROM User WHERE Id = ?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.User: /* load NHMembershipProvider.Entities.User */ SELECT user0_.Id as Id3_0_, user0_.Username as Username3_0_, user0_.ApplicationName as Applicat3_3_0_, user0_.Email as Email3_0_, user0_.Comment as Comment3_0_, user0_.Password as Password3_0_, user0_.PasswordQuestion as Password7_3_0_, user0_.PasswordAnswer as Password8_3_0_, user0_.IsApproved as IsApproved3_0_, user0_.LastActivityDate as LastAct10_3_0_, user0_.LastLoginDate as LastLog11_3_0_, user0_.LastPasswordChangedDate as LastPas12_3_0_, user0_.CreationDate as Creatio13_3_0_, user0_.IsOnLine as IsOnLine3_0_, user0_.IsLockedOut as IsLocke15_3_0_, user0_.LastLockedOutDate as LastLoc16_3_0_, user0_.FailedPasswordAttemptCount as FailedP17_3_0_, user0_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, user0_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, user0_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User user0_ WHERE user0_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.User: /* load NHMembershipProvider.Entities.User */ SELECT user0_.Id as Id3_0_, user0_.Username as Username3_0_, user0_.ApplicationName as Applicat3_3_0_, user0_.Email as Email3_0_, user0_.Comment as Comment3_0_, user0_.Password as Password3_0_, user0_.PasswordQuestion as Password7_3_0_, user0_.PasswordAnswer as Password8_3_0_, user0_.IsApproved as IsApproved3_0_, user0_.LastActivityDate as LastAct10_3_0_, user0_.LastLoginDate as LastLog11_3_0_, user0_.LastPasswordChangedDate as LastPas12_3_0_, user0_.CreationDate as Creatio13_3_0_, user0_.IsOnLine as IsOnLine3_0_, user0_.IsLockedOut as IsLocke15_3_0_, user0_.LastLockedOutDate as LastLoc16_3_0_, user0_.FailedPasswordAttemptCount as FailedP17_3_0_, user0_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, user0_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, user0_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User user0_ WHERE user0_.Id=?
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table User user0_
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.User: /* load NHMembershipProvider.Entities.User */ SELECT user0_.Id as Id3_0_, user0_.Username as Username3_0_, user0_.ApplicationName as Applicat3_3_0_, user0_.Email as Email3_0_, user0_.Comment as Comment3_0_, user0_.Password as Password3_0_, user0_.PasswordQuestion as Password7_3_0_, user0_.PasswordAnswer as Password8_3_0_, user0_.IsApproved as IsApproved3_0_, user0_.LastActivityDate as LastAct10_3_0_, user0_.LastLoginDate as LastLog11_3_0_, user0_.LastPasswordChangedDate as LastPas12_3_0_, user0_.CreationDate as Creatio13_3_0_, user0_.IsOnLine as IsOnLine3_0_, user0_.IsLockedOut as IsLocke15_3_0_, user0_.LastLockedOutDate as LastLoc16_3_0_, user0_.FailedPasswordAttemptCount as FailedP17_3_0_, user0_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, user0_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, user0_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User user0_ WHERE user0_.Id=? for update
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table User user0_
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.User: /* load NHMembershipProvider.Entities.User */ SELECT user0_.Id as Id3_0_, user0_.Username as Username3_0_, user0_.ApplicationName as Applicat3_3_0_, user0_.Email as Email3_0_, user0_.Comment as Comment3_0_, user0_.Password as Password3_0_, user0_.PasswordQuestion as Password7_3_0_, user0_.PasswordAnswer as Password8_3_0_, user0_.IsApproved as IsApproved3_0_, user0_.LastActivityDate as LastAct10_3_0_, user0_.LastLoginDate as LastLog11_3_0_, user0_.LastPasswordChangedDate as LastPas12_3_0_, user0_.CreationDate as Creatio13_3_0_, user0_.IsOnLine as IsOnLine3_0_, user0_.IsLockedOut as IsLocke15_3_0_, user0_.LastLockedOutDate as LastLoc16_3_0_, user0_.FailedPasswordAttemptCount as FailedP17_3_0_, user0_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, user0_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, user0_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User user0_ WHERE user0_.Id=? for update
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 10 for the table User user0_
+2011-01-14 13:41:36,275 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for entity NHMembershipProvider.Entities.User: /* load NHMembershipProvider.Entities.User */ SELECT user0_.Id as Id3_0_, user0_.Username as Username3_0_, user0_.ApplicationName as Applicat3_3_0_, user0_.Email as Email3_0_, user0_.Comment as Comment3_0_, user0_.Password as Password3_0_, user0_.PasswordQuestion as Password7_3_0_, user0_.PasswordAnswer as Password8_3_0_, user0_.IsApproved as IsApproved3_0_, user0_.LastActivityDate as LastAct10_3_0_, user0_.LastLoginDate as LastLog11_3_0_, user0_.LastPasswordChangedDate as LastPas12_3_0_, user0_.CreationDate as Creatio13_3_0_, user0_.IsOnLine as IsOnLine3_0_, user0_.IsLockedOut as IsLocke15_3_0_, user0_.LastLockedOutDate as LastLoc16_3_0_, user0_.FailedPasswordAttemptCount as FailedP17_3_0_, user0_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, user0_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, user0_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User user0_ WHERE user0_.Id=? for update
+2011-01-14 13:41:36,306 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity NHMembershipProvider.Entities.User: /* load NHMembershipProvider.Entities.User */ SELECT user0_.Id as Id3_1_, user0_.Username as Username3_1_, user0_.ApplicationName as Applicat3_3_1_, user0_.Email as Email3_1_, user0_.Comment as Comment3_1_, user0_.Password as Password3_1_, user0_.PasswordQuestion as Password7_3_1_, user0_.PasswordAnswer as Password8_3_1_, user0_.IsApproved as IsApproved3_1_, user0_.LastActivityDate as LastAct10_3_1_, user0_.LastLoginDate as LastLog11_3_1_, user0_.LastPasswordChangedDate as LastPas12_3_1_, user0_.CreationDate as Creatio13_3_1_, user0_.IsOnLine as IsOnLine3_1_, user0_.IsLockedOut as IsLocke15_3_1_, user0_.LastLockedOutDate as LastLoc16_3_1_, user0_.FailedPasswordAttemptCount as FailedP17_3_1_, user0_.FailedPasswordAnswerAttemptCount as FailedP18_3_1_, user0_.FailedPasswordAttemptWindowStart as FailedP19_3_1_, user0_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_1_, roles1_.user_key as user2_3_, role2_.Id as role1_3_, roles1_.idx as idx3_, role2_.Id as Id1_0_, role2_.RoleName as RoleName1_0_, role2_.ApplicationName as Applicat3_1_0_ FROM User user0_ left outer join UserRole roles1_ on user0_.Id=roles1_.user_key left outer join Role role2_ on roles1_.role_key=role2_.Id WHERE user0_.Id=?
+2011-01-14 13:41:36,306 [4] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader [(null)] - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity NHMembershipProvider.Entities.User: /* load NHMembershipProvider.Entities.User */ SELECT user0_.Id as Id3_1_, user0_.Username as Username3_1_, user0_.ApplicationName as Applicat3_3_1_, user0_.Email as Email3_1_, user0_.Comment as Comment3_1_, user0_.Password as Password3_1_, user0_.PasswordQuestion as Password7_3_1_, user0_.PasswordAnswer as Password8_3_1_, user0_.IsApproved as IsApproved3_1_, user0_.LastActivityDate as LastAct10_3_1_, user0_.LastLoginDate as LastLog11_3_1_, user0_.LastPasswordChangedDate as LastPas12_3_1_, user0_.CreationDate as Creatio13_3_1_, user0_.IsOnLine as IsOnLine3_1_, user0_.IsLockedOut as IsLocke15_3_1_, user0_.LastLockedOutDate as LastLoc16_3_1_, user0_.FailedPasswordAttemptCount as FailedP17_3_1_, user0_.FailedPasswordAnswerAttemptCount as FailedP18_3_1_, user0_.FailedPasswordAttemptWindowStart as FailedP19_3_1_, user0_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_1_, roles1_.user_key as user2_3_, role2_.Id as role1_3_, roles1_.idx as idx3_, role2_.Id as Id1_0_, role2_.RoleName as RoleName1_0_, role2_.ApplicationName as Applicat3_1_0_ FROM User user0_ left outer join UserRole roles1_ on user0_.Id=roles1_.user_key left outer join Role role2_ on roles1_.role_key=role2_.Id WHERE user0_.Id=?
+2011-01-14 13:41:36,322 [4] DEBUG NHibernate.Loader.Collection.BasicCollectionLoader [(null)] - Static select for collection NHMembershipProvider.Entities.Role.UsersInRole: /* load collection NHMembershipProvider.Entities.Role.UsersInRole */ SELECT usersinrol0_.role_key as role1_1_, usersinrol0_.user_key as user2_1_, usersinrol0_.idx as idx1_, user1_.Id as Id3_0_, user1_.Username as Username3_0_, user1_.ApplicationName as Applicat3_3_0_, user1_.Email as Email3_0_, user1_.Comment as Comment3_0_, user1_.Password as Password3_0_, user1_.PasswordQuestion as Password7_3_0_, user1_.PasswordAnswer as Password8_3_0_, user1_.IsApproved as IsApproved3_0_, user1_.LastActivityDate as LastAct10_3_0_, user1_.LastLoginDate as LastLog11_3_0_, user1_.LastPasswordChangedDate as LastPas12_3_0_, user1_.CreationDate as Creatio13_3_0_, user1_.IsOnLine as IsOnLine3_0_, user1_.IsLockedOut as IsLocke15_3_0_, user1_.LastLockedOutDate as LastLoc16_3_0_, user1_.FailedPasswordAttemptCount as FailedP17_3_0_, user1_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, user1_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, user1_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM UserRole usersinrol0_ left outer join User user1_ on usersinrol0_.user_key=user1_.Id WHERE usersinrol0_.role_key=?
+2011-01-14 13:41:36,322 [4] DEBUG NHibernate.Loader.Collection.BasicCollectionLoader [(null)] - Static select for collection NHMembershipProvider.Entities.User.Roles: /* load collection NHMembershipProvider.Entities.User.Roles */ SELECT roles0_.user_key as user2_1_, roles0_.role_key as role1_1_, roles0_.idx as idx1_, role1_.Id as Id1_0_, role1_.RoleName as RoleName1_0_, role1_.ApplicationName as Applicat3_1_0_ FROM UserRole roles0_ left outer join Role role1_ on roles0_.role_key=role1_.Id WHERE roles0_.user_key=?
+2011-01-14 13:41:36,322 [4] DEBUG NHibernate.Impl.SessionFactoryObjectFactory [(null)] - initializing class SessionFactoryObjectFactory
+2011-01-14 13:41:36,322 [4] DEBUG NHibernate.Impl.SessionFactoryObjectFactory [(null)] - registered: bf8f7fddadca4263a3cc3d29db523e48(Demo)
+2011-01-14 13:41:36,322 [4] INFO  NHibernate.Impl.SessionFactoryObjectFactory [(null)] - Factory name:Demo
+2011-01-14 13:41:36,322 [4] DEBUG NHibernate.Impl.SessionFactoryImpl [(null)] - Instantiated session factory
+2011-01-14 13:41:36,338 [4] INFO  NHibernate.Dialect.Dialect [(null)] - Using dialect: NHibernate.Dialect.MySQL5Dialect
+2011-01-14 13:41:36,338 [4] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate [(null)] - Running hbm2ddl schema update
+2011-01-14 13:41:36,338 [4] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate [(null)] - fetching database metadata
+2011-01-14 13:41:36,338 [4] INFO  NHibernate.Connection.ConnectionProvider [(null)] - Configuring ConnectionProvider
+2011-01-14 13:41:36,478 [4] ERROR NHibernate.Util.ReflectHelper [(null)] - Could not load type MySql.Data.MySqlClient.MySqlConnection, MySql.Data.
+System.IO.FileNotFoundException: Could not load file or assembly 'MySql.Data' or one of its dependencies. 系统找不到指定的文件。
+File name: 'MySql.Data'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) in d:\CSharp\NH\nhibernate\src\NHibernate\Util\ReflectHelper.cs:line 267
+
+=== Pre-bind state information ===
+LOG: User = ITSZ\yyi
+LOG: DisplayName = MySql.Data
+ (Partial)
+WRN: Partial binding information was supplied for an assembly:
+WRN: Assembly Name: MySql.Data | Domain ID: 2
+WRN: A partial bind occurs when only part of the assembly display name is provided.
+WRN: This might result in the binder loading an incorrect assembly.
+WRN: It is recommended to provide a fully specified textual identity for the assembly,
+WRN: that consists of the simple name, version, culture, and public key token.
+WRN: See whitepaper http://go.microsoft.com/fwlink/?LinkId=109270 for more information and common solutions to this issue.
+LOG: Appbase = file:///D:/JavaProject/myjavastudio/MyFirstMvcApp/MyFirstMvcApp/
+LOG: Initial PrivatePath = D:\JavaProject\myjavastudio\MyFirstMvcApp\MyFirstMvcApp\bin
+Calling assembly : NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: D:\JavaProject\myjavastudio\MyFirstMvcApp\MyFirstMvcApp\web.config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Policy not being applied to reference at this time (private, custom, partial, or location-based assembly bind).
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+2011-01-14 13:41:36,603 [4] ERROR NHibernate.Util.ReflectHelper [(null)] - Could not load type MySql.Data.MySqlClient.MySqlCommand, MySql.Data.
+System.IO.FileNotFoundException: Could not load file or assembly 'MySql.Data' or one of its dependencies. 系统找不到指定的文件。
+File name: 'MySql.Data'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) in d:\CSharp\NH\nhibernate\src\NHibernate\Util\ReflectHelper.cs:line 267
+
+=== Pre-bind state information ===
+LOG: User = ITSZ\yyi
+LOG: DisplayName = MySql.Data
+ (Partial)
+WRN: Partial binding information was supplied for an assembly:
+WRN: Assembly Name: MySql.Data | Domain ID: 2
+WRN: A partial bind occurs when only part of the assembly display name is provided.
+WRN: This might result in the binder loading an incorrect assembly.
+WRN: It is recommended to provide a fully specified textual identity for the assembly,
+WRN: that consists of the simple name, version, culture, and public key token.
+WRN: See whitepaper http://go.microsoft.com/fwlink/?LinkId=109270 for more information and common solutions to this issue.
+LOG: Appbase = file:///D:/JavaProject/myjavastudio/MyFirstMvcApp/MyFirstMvcApp/
+LOG: Initial PrivatePath = D:\JavaProject\myjavastudio\MyFirstMvcApp\MyFirstMvcApp\bin
+Calling assembly : NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: D:\JavaProject\myjavastudio\MyFirstMvcApp\MyFirstMvcApp\web.config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Policy not being applied to reference at this time (private, custom, partial, or location-based assembly bind).
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+2011-01-14 13:41:36,603 [4] DEBUG NHibernate.Connection.DriverConnectionProvider [(null)] - Obtaining IDbConnection from Driver
+2011-01-14 13:41:36,619 [4] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate [(null)] - updating schema
+2011-01-14 13:41:36,619 [4] INFO  NHibernate.Cfg.Configuration [(null)] - checking mappings queue
+2011-01-14 13:41:36,619 [4] INFO  NHibernate.Cfg.Configuration [(null)] - processing one-to-many association mappings
+2011-01-14 13:41:36,619 [4] INFO  NHibernate.Cfg.Configuration [(null)] - processing one-to-one association property references
+2011-01-14 13:41:36,619 [4] INFO  NHibernate.Cfg.Configuration [(null)] - processing foreign key constraints
+2011-01-14 13:41:36,619 [4] DEBUG NHibernate.Cfg.Configuration [(null)] - resolving reference to class: NHMembershipProvider.Entities.User
+2011-01-14 13:41:36,619 [4] DEBUG NHibernate.Cfg.Configuration [(null)] - resolving reference to class: NHMembershipProvider.Entities.Role
+2011-01-14 13:41:36,619 [4] INFO  NHibernate.Cfg.Configuration [(null)] - processing filters (second pass)
+2011-01-14 13:41:36,900 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - table found: testdb.profile
+2011-01-14 13:41:36,900 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - columns: id, users_id, applicationname, isanonymous, lastactivitydate, lastupdateddate, subscription, language, firstname, lastname, gender, birthdate, occupation, website, street, city, state, zip, country
+2011-01-14 13:41:36,900 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - foreign keys: 
+2011-01-14 13:41:36,900 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - indexes: primary
+2011-01-14 13:41:37,041 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - table found: testdb.role
+2011-01-14 13:41:37,041 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - columns: id, rolename, applicationname
+2011-01-14 13:41:37,041 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - foreign keys: 
+2011-01-14 13:41:37,041 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - indexes: primary
+2011-01-14 13:41:37,228 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - table found: testdb.userrole
+2011-01-14 13:41:37,228 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - columns: role_key, user_key, idx
+2011-01-14 13:41:37,228 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - foreign keys: fk297c0bde3d909b9e, fk297c0bded280e784
+2011-01-14 13:41:37,228 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - indexes: primary, user_key, role_key
+2011-01-14 13:41:37,353 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - table found: testdb.user
+2011-01-14 13:41:37,353 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - columns: id, username, applicationname, email, comment, password, passwordquestion, passwordanswer, isapproved, lastactivitydate, lastlogindate, lastpasswordchangeddate, creationdate, isonline, islockedout, lastlockedoutdate, failedpasswordattemptcount, failedpasswordanswerattemptcount, failedpasswordattemptwindowstart, failedpasswordanswerattemptwindowstart
+2011-01-14 13:41:37,353 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - foreign keys: 
+2011-01-14 13:41:37,353 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - indexes: primary
+2011-01-14 13:41:37,463 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - table found: testdb.hibernate_unique_key
+2011-01-14 13:41:37,463 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - columns: next_hi
+2011-01-14 13:41:37,463 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - foreign keys: 
+2011-01-14 13:41:37,463 [4] INFO  NHibernate.Dialect.Schema.ITableMetadata [(null)] - indexes: 
+2011-01-14 13:41:37,478 [4] DEBUG NHibernate.Tool.hbm2ddl.SchemaUpdate [(null)] - alter table Profile add column UserId INTEGER
+2011-01-14 13:41:37,666 [4] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate [(null)] - schema update complete
+2011-01-14 13:41:37,666 [4] DEBUG NHibernate.Connection.ConnectionProvider [(null)] - Closing connection
+2011-01-14 13:41:37,666 [4] DEBUG NHibernate.Impl.SessionFactoryImpl [(null)] - Checking 0 named HQL queries
+2011-01-14 13:41:37,666 [4] DEBUG NHibernate.Impl.SessionFactoryImpl [(null)] - Checking 0 named SQL queries
+2011-01-14 13:41:37,697 [4] DEBUG NHibernate.Impl.SessionImpl [(null)] - [session-id=9ff4b9e6-0a68-4891-b55d-311f65be582b] opened session at timestamp: 634306092976, for session factory: [Demo/bf8f7fddadca4263a3cc3d29db523e48]
+2011-01-14 13:41:37,713 [4] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Begin (ReadCommitted)
+2011-01-14 13:41:37,713 [4] DEBUG NHibernate.Connection.DriverConnectionProvider [(null)] - Obtaining IDbConnection from Driver
+2011-01-14 13:41:37,759 [4] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - put criteria=Username = yy and ApplicationName = / alias=this0_
+2011-01-14 13:41:37,791 [4] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - returning alias=this_ for criteria=Username = yy and ApplicationName = /
+2011-01-14 13:41:37,791 [4] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - returning alias=this_ for criteria=Username = yy and ApplicationName = /
+2011-01-14 13:41:37,791 [4] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 13 for the table User this_
+2011-01-14 13:41:37,869 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Opened new IDbCommand, open IDbCommands: 1
+2011-01-14 13:41:37,869 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Building an IDbCommand object for the SqlString: /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ? and this_.ApplicationName = ?
+2011-01-14 13:41:37,869 [4] DEBUG NHibernate.Engine.QueryParameters [(null)] - BindParameters(Positional0:NHibernate.Type.StringType) yy -> [0]
+2011-01-14 13:41:37,884 [4] DEBUG NHibernate.Type.StringType [(null)] - binding 'yy' to parameter: 0
+2011-01-14 13:41:37,884 [4] DEBUG NHibernate.Engine.QueryParameters [(null)] - BindParameters(Positional1:NHibernate.Type.StringType) / -> [1]
+2011-01-14 13:41:37,884 [4] DEBUG NHibernate.Type.StringType [(null)] - binding '/' to parameter: 1
+2011-01-14 13:41:37,884 [4] INFO  NHibernate.Loader.Loader [(null)] - /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ?p0 and this_.ApplicationName = ?p1
+2011-01-14 13:41:37,884 [4] DEBUG NHibernate.SQL [(null)] - /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ?p0 and this_.ApplicationName = ?p1;?p0 = 'yy' [Type: String (2)], ?p1 = '/' [Type: String (1)]
+2011-01-14 13:41:37,900 [4] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Enlist Command
+2011-01-14 13:41:37,900 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - ExecuteReader took 6 ms
+2011-01-14 13:41:37,900 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Opened IDataReader, open IDataReaders: 1
+2011-01-14 13:41:37,916 [4] DEBUG NHibernate.Loader.Loader [(null)] - processing result set
+2011-01-14 13:41:37,916 [4] DEBUG NHibernate.Loader.Loader [(null)] - result set row: 0
+2011-01-14 13:41:37,916 [4] DEBUG NHibernate.Type.Int32Type [(null)] - returning '32768' as column: Id3_0_
+2011-01-14 13:41:37,916 [4] DEBUG NHibernate.Loader.Loader [(null)] - result row: EntityKey[NHMembershipProvider.Entities.User#32768]
+2011-01-14 13:41:37,931 [4] DEBUG NHibernate.Loader.Loader [(null)] - Initializing object from DataReader: [NHMembershipProvider.Entities.User#32768]
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - Hydrating entity: [NHMembershipProvider.Entities.User#32768]
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.StringType [(null)] - returning 'yy' as column: Username3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.StringType [(null)] - returning '/' as column: Applicat3_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.StringType [(null)] - returning 'yy@fsdaf.com' as column: Email3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.StringType [(null)] - returning '' as column: Comment3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.StringType [(null)] - returning 'Nua6tL+PVYXVGnbnJAUOv0/k5gk=' as column: Password3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.StringType [(null)] - returning null as column: Password7_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.StringType [(null)] - returning null as column: Password8_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.BooleanType [(null)] - returning 'True' as column: IsApproved3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - returning '2011-1-6 18:10:22' as column: LastAct10_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - returning '2011-1-12 13:41:09' as column: LastLog11_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - returning '2011-1-6 18:10:22' as column: LastPas12_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - returning '2011-1-6 18:10:22' as column: Creatio13_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.BooleanType [(null)] - returning 'False' as column: IsOnLine3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.BooleanType [(null)] - returning 'False' as column: IsLocke15_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - returning '2011-1-6 18:10:22' as column: LastLoc16_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.Int32Type [(null)] - returning '1' as column: FailedP17_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.Int32Type [(null)] - returning '0' as column: FailedP18_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - returning '2011-1-11 18:07:08' as column: FailedP19_3_0_
+2011-01-14 13:41:37,947 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - returning '2011-1-6 18:10:22' as column: FailedP20_3_0_
+2011-01-14 13:41:37,963 [4] DEBUG NHibernate.Loader.Loader [(null)] - done processing result set (1 rows)
+2011-01-14 13:41:37,963 [4] DEBUG NHibernate.Driver.NHybridDataReader [(null)] - running NHybridDataReader.Dispose()
+2011-01-14 13:41:37,963 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Closed IDataReader, open IDataReaders :0
+2011-01-14 13:41:37,963 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - DataReader was closed after 63 ms
+2011-01-14 13:41:37,963 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Closed IDbCommand, open IDbCommands: 0
+2011-01-14 13:41:37,963 [4] DEBUG NHibernate.Loader.Loader [(null)] - total objects hydrated: 1
+2011-01-14 13:41:37,963 [4] DEBUG NHibernate.Engine.TwoPhaseLoad [(null)] - resolving associations for [NHMembershipProvider.Entities.User#32768]
+2011-01-14 13:41:37,978 [4] DEBUG NHibernate.Engine.Loading.LoadContexts [(null)] - creating collection wrapper:[NHMembershipProvider.Entities.User.Roles#32768]
+2011-01-14 13:41:37,994 [4] DEBUG NHibernate.Engine.TwoPhaseLoad [(null)] - done materializing entity [NHMembershipProvider.Entities.User#32768]
+2011-01-14 13:41:37,994 [4] DEBUG NHibernate.Engine.StatefulPersistenceContext [(null)] - initializing non-lazy collections
+2011-01-14 13:41:38,025 [4] DEBUG Framework.Transaction.TransactionTemplate [(null)] - Committing transaction 13147299
+2011-01-14 13:41:38,025 [4] DEBUG Castle.Services.Transaction.TransactionBase [(null)] - Resource: Castle.Facilities.NHibernateIntegration.Internal.ResourceAdapter
+2011-01-14 13:41:38,025 [4] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Start Commit
+2011-01-14 13:41:38,025 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - flushing session
+2011-01-14 13:41:38,025 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - processing flush-time cascades
+2011-01-14 13:41:38,041 [4] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:41:38,041 [4] INFO  NHibernate.Engine.Cascade [(null)] - cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for collection: NHMembershipProvider.Entities.User.Roles
+2011-01-14 13:41:38,041 [4] INFO  NHibernate.Engine.Cascade [(null)] - done cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for collection: NHMembershipProvider.Entities.User.Roles
+2011-01-14 13:41:38,041 [4] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:41:38,041 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - dirty checking collections
+2011-01-14 13:41:38,056 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushing entities and processing referenced collections
+2011-01-14 13:41:38,072 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - NHMembershipProvider.Entities.User.LastLoginDate is dirty
+2011-01-14 13:41:38,072 [4] DEBUG NHibernate.Event.Default.DefaultFlushEntityEventListener [(null)] - Updating entity: [NHMembershipProvider.Entities.User#32768]
+2011-01-14 13:41:38,088 [4] DEBUG NHibernate.Engine.Collections [(null)] - Collection found: [NHMembershipProvider.Entities.User.Roles#32768], was: [NHMembershipProvider.Entities.User.Roles#32768] (uninitialized)
+2011-01-14 13:41:38,088 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Processing unreferenced collections
+2011-01-14 13:41:38,088 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Scheduling collection removes/(re)creates/updates
+2011-01-14 13:41:38,088 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushed: 0 insertions, 1 updates, 0 deletions to 1 objects
+2011-01-14 13:41:38,088 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushed: 0 (re)creations, 0 updates, 0 removals to 1 collections
+2011-01-14 13:41:38,103 [4] DEBUG NHibernate.Impl.Printer [(null)] - listing entities:
+2011-01-14 13:41:38,103 [4] DEBUG NHibernate.Impl.Printer [(null)] - NHMembershipProvider.Entities.User{'Id'='32768', 'Username'='yy', 'ApplicationName'='/', 'Email'='yy@fsdaf.com', 'Comment'='', 'Password'='Nua6tL+PVYXVGnbnJAUOv0/k5gk=', 'PasswordQuestion'=null, 'PasswordAnswer'=null, 'IsApproved'='True', 'LastActivityDate'='2011-1-6 18:10:22', 'LastLoginDate'='2011-1-14 13:41:38', 'LastPasswordChangedDate'='2011-1-6 18:10:22', 'CreationDate'='2011-1-6 18:10:22', 'IsOnLine'='False', 'IsLockedOut'='False', 'LastLockedOutDate'='2011-1-6 18:10:22', 'FailedPasswordAttemptCount'='1', 'FailedPasswordAnswerAttemptCount'='0', 'FailedPasswordAttemptWindowStart'='2011-1-11 18:07:08', 'FailedPasswordAnswerAttemptWindowStart'='2011-1-6 18:10:22', 'Roles'='<uninitialized>'}
+2011-01-14 13:41:38,103 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - executing flush
+2011-01-14 13:41:38,103 [4] DEBUG NHibernate.AdoNet.ConnectionManager [(null)] - registering flush begin
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - Updating entity: [NHMembershipProvider.Entities.User#32768]
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Opened new IDbCommand, open IDbCommands: 1
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Building an IDbCommand object for the SqlString: /* update NHMembershipProvider.Entities.User */ UPDATE User SET Username = ?, ApplicationName = ?, Email = ?, Comment = ?, Password = ?, PasswordQuestion = ?, PasswordAnswer = ?, IsApproved = ?, LastActivityDate = ?, LastLoginDate = ?, LastPasswordChangedDate = ?, CreationDate = ?, IsOnLine = ?, IsLockedOut = ?, LastLockedOutDate = ?, FailedPasswordAttemptCount = ?, FailedPasswordAnswerAttemptCount = ?, FailedPasswordAttemptWindowStart = ?, FailedPasswordAnswerAttemptWindowStart = ? WHERE Id = ?
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - Dehydrating entity: [NHMembershipProvider.Entities.User#32768]
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.StringType [(null)] - binding 'yy' to parameter: 0
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.StringType [(null)] - binding '/' to parameter: 1
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.StringType [(null)] - binding 'yy@fsdaf.com' to parameter: 2
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.StringType [(null)] - binding '' to parameter: 3
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.StringType [(null)] - binding 'Nua6tL+PVYXVGnbnJAUOv0/k5gk=' to parameter: 4
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.StringType [(null)] - binding null to parameter: 5
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.StringType [(null)] - binding null to parameter: 6
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.BooleanType [(null)] - binding 'True' to parameter: 7
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-6 18:10:22' to parameter: 8
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-14 13:41:38' to parameter: 9
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-6 18:10:22' to parameter: 10
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-6 18:10:22' to parameter: 11
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.BooleanType [(null)] - binding 'False' to parameter: 12
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.BooleanType [(null)] - binding 'False' to parameter: 13
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-6 18:10:22' to parameter: 14
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.Int32Type [(null)] - binding '1' to parameter: 15
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.Int32Type [(null)] - binding '0' to parameter: 16
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-11 18:07:08' to parameter: 17
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-6 18:10:22' to parameter: 18
+2011-01-14 13:41:38,119 [4] DEBUG NHibernate.Type.Int32Type [(null)] - binding '32768' to parameter: 19
+2011-01-14 13:41:38,134 [4] DEBUG NHibernate.SQL [(null)] - /* update NHMembershipProvider.Entities.User */ UPDATE User SET Username = ?p0, ApplicationName = ?p1, Email = ?p2, Comment = ?p3, Password = ?p4, PasswordQuestion = ?p5, PasswordAnswer = ?p6, IsApproved = ?p7, LastActivityDate = ?p8, LastLoginDate = ?p9, LastPasswordChangedDate = ?p10, CreationDate = ?p11, IsOnLine = ?p12, IsLockedOut = ?p13, LastLockedOutDate = ?p14, FailedPasswordAttemptCount = ?p15, FailedPasswordAnswerAttemptCount = ?p16, FailedPasswordAttemptWindowStart = ?p17, FailedPasswordAnswerAttemptWindowStart = ?p18 WHERE Id = ?p19;?p0 = 'yy' [Type: String (2)], ?p1 = '/' [Type: String (1)], ?p2 = 'yy@fsdaf.com' [Type: String (12)], ?p3 = '' [Type: String (0)], ?p4 = 'Nua6tL+PVYXVGnbnJAUOv0/k5gk=' [Type: String (28)], ?p5 = NULL [Type: String (0)], ?p6 = NULL [Type: String (0)], ?p7 = True [Type: Boolean (0)], ?p8 = 2011-1-6 18:10:22 [Type: DateTime (0)], ?p9 = 2011-1-14 13:41:38 [Type: DateTime (0)], ?p10 = 2011-1-6 18:10:22 [Type: DateTime (0)], ?p11 = 2011-1-6 18:10:22 [Type: DateTime (0)], ?p12 = False [Type: Boolean (0)], ?p13 = False [Type: Boolean (0)], ?p14 = 2011-1-6 18:10:22 [Type: DateTime (0)], ?p15 = 1 [Type: Int32 (0)], ?p16 = 0 [Type: Int32 (0)], ?p17 = 2011-1-11 18:07:08 [Type: DateTime (0)], ?p18 = 2011-1-6 18:10:22 [Type: DateTime (0)], ?p19 = 32768 [Type: Int32 (0)]
+2011-01-14 13:41:38,134 [4] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Enlist Command
+2011-01-14 13:41:38,134 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - ExecuteNonQuery took 5 ms
+2011-01-14 13:41:38,134 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - ExecuteBatch for 1 statements took 0 ms
+2011-01-14 13:41:38,134 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Closed IDbCommand, open IDbCommands: 0
+2011-01-14 13:41:38,134 [4] DEBUG NHibernate.AdoNet.ConnectionManager [(null)] - registering flush end
+2011-01-14 13:41:38,150 [4] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - post flush
+2011-01-14 13:41:38,150 [4] DEBUG NHibernate.Impl.SessionImpl [(null)] - before transaction completion
+2011-01-14 13:41:38,181 [4] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - IDbTransaction Committed
+2011-01-14 13:41:38,181 [4] DEBUG NHibernate.Impl.SessionImpl [(null)] - transaction completion
+2011-01-14 13:41:38,181 [4] DEBUG NHibernate.AdoNet.ConnectionManager [(null)] - aggressively releasing database connection
+2011-01-14 13:41:38,181 [4] DEBUG NHibernate.Connection.ConnectionProvider [(null)] - Closing connection
+2011-01-14 13:41:38,181 [4] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - IDbTransaction disposed.
+2011-01-14 13:41:38,181 [4] DEBUG NHibernate.Impl.SessionImpl [(null)] - [session-id=9ff4b9e6-0a68-4891-b55d-311f65be582b] running ISession.Dispose()
+2011-01-14 13:41:38,197 [4] DEBUG NHibernate.Impl.SessionImpl [(null)] - [session-id=9ff4b9e6-0a68-4891-b55d-311f65be582b] executing real Dispose(True)
+2011-01-14 13:41:38,197 [4] DEBUG NHibernate.Impl.SessionImpl [(null)] - closing session
+2011-01-14 13:41:38,197 [4] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - running BatcherImpl.Dispose(true)
+2011-01-14 13:41:38,197 [4] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Trying to dispose transaction Tx #13147299.
+2011-01-14 13:41:38,212 [4] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction Tx #13147299 disposed successfully
+2011-01-14 13:42:11,037 [4] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction "Tx #64345652" created. 
+2011-01-14 13:42:17,755 [4] DEBUG Framework.Transaction.TransactionInterceptor [(null)] - Committing transaction 64345652
+2011-01-14 13:42:22,021 [4] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Trying to dispose transaction Tx #64345652.
+2011-01-14 13:42:22,021 [4] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction Tx #64345652 disposed successfully
+2011-01-14 13:42:39,784 [9] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction "Tx #23264094" created. 
+2011-01-14 13:42:39,784 [9] DEBUG Framework.Transaction.TransactionInterceptor [(null)] - Committing transaction 23264094
+2011-01-14 13:42:39,784 [9] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Trying to dispose transaction Tx #23264094.
+2011-01-14 13:42:39,784 [9] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction Tx #23264094 disposed successfully
+2011-01-14 13:42:59,407 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction "Tx #66960737" created. 
+2011-01-14 13:42:59,407 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Child transaction "Child-TX to "Tx #66960737"" created with mode 'Requires'.
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Impl.SessionImpl [(null)] - [session-id=a7c647c3-9d87-4df6-b7bc-fb785cd396b5] opened session at timestamp: 634306093794, for session factory: [Demo/bf8f7fddadca4263a3cc3d29db523e48]
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Begin (ReadCommitted)
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Connection.DriverConnectionProvider [(null)] - Obtaining IDbConnection from Driver
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - put criteria=Username = yyyyy and ApplicationName = / alias=this0_
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - returning alias=this_ for criteria=Username = yyyyy and ApplicationName = /
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - returning alias=this_ for criteria=Username = yyyyy and ApplicationName = /
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 13 for the table User this_
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Opened new IDbCommand, open IDbCommands: 1
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Building an IDbCommand object for the SqlString: /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ? and this_.ApplicationName = ?
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Engine.QueryParameters [(null)] - BindParameters(Positional0:NHibernate.Type.StringType) yyyyy -> [0]
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Type.StringType [(null)] - binding 'yyyyy' to parameter: 0
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Engine.QueryParameters [(null)] - BindParameters(Positional1:NHibernate.Type.StringType) / -> [1]
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Type.StringType [(null)] - binding '/' to parameter: 1
+2011-01-14 13:42:59,423 [7] INFO  NHibernate.Loader.Loader [(null)] - /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ?p0 and this_.ApplicationName = ?p1
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.SQL [(null)] - /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ?p0 and this_.ApplicationName = ?p1;?p0 = 'yyyyy' [Type: String (5)], ?p1 = '/' [Type: String (1)]
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Enlist Command
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - ExecuteReader took 1 ms
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Opened IDataReader, open IDataReaders: 1
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Loader.Loader [(null)] - processing result set
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Loader.Loader [(null)] - done processing result set (0 rows)
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Driver.NHybridDataReader [(null)] - running NHybridDataReader.Dispose()
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Closed IDataReader, open IDataReaders :0
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - DataReader was closed after 1 ms
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Closed IDbCommand, open IDbCommands: 0
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Loader.Loader [(null)] - total objects hydrated: 0
+2011-01-14 13:42:59,423 [7] DEBUG NHibernate.Engine.StatefulPersistenceContext [(null)] - initializing non-lazy collections
+2011-01-14 13:42:59,423 [7] DEBUG Framework.Transaction.TransactionTemplate [(null)] - Committing transaction 7894961
+2011-01-14 13:42:59,423 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Trying to dispose transaction Child-TX to "Tx #66960737".
+2011-01-14 13:42:59,423 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction Child-TX to "Tx #66960737" disposed successfully
+2011-01-14 13:42:59,439 [7] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener [(null)] - saving transient instance
+2011-01-14 13:42:59,439 [7] DEBUG NHibernate.Connection.DriverConnectionProvider [(null)] - Obtaining IDbConnection from Driver
+2011-01-14 13:42:59,454 [7] DEBUG NHibernate.SQL [(null)] - Reading high value:select next_hi from hibernate_unique_key for update
+2011-01-14 13:42:59,454 [7] DEBUG NHibernate.SQL [(null)] - Updating high value:update hibernate_unique_key set next_hi = ?p0 where next_hi = ?p1;?p0 = 12 [Type: Int32 (0)], ?p1 = 11 [Type: Int32 (0)]
+2011-01-14 13:42:59,485 [7] DEBUG NHibernate.Connection.ConnectionProvider [(null)] - Closing connection
+2011-01-14 13:42:59,501 [7] DEBUG NHibernate.Id.TableHiLoGenerator [(null)] - New high value: 11
+2011-01-14 13:42:59,501 [7] DEBUG NHibernate.Event.Default.AbstractSaveEventListener [(null)] - generated identifier: 360448, using strategy: NHibernate.Id.TableHiLoGenerator
+2011-01-14 13:42:59,501 [7] DEBUG NHibernate.Event.Default.AbstractSaveEventListener [(null)] - saving [NHMembershipProvider.Entities.User#360448]
+2011-01-14 13:42:59,501 [7] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:42:59,501 [7] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:42:59,501 [7] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:42:59,517 [7] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:42:59,517 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Child transaction "Child-TX to "Tx #66960737"" created with mode 'Requires'.
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - put criteria=Username = yyyyy and ApplicationName = / alias=this0_
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - returning alias=this_ for criteria=Username = yyyyy and ApplicationName = /
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Loader.Criteria.CriteriaQueryTranslator [(null)] - returning alias=this_ for criteria=Username = yyyyy and ApplicationName = /
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.SqlCommand.SqlSelectBuilder [(null)] - The initial capacity was set too low at: 9 for the SelectSqlBuilder that needed a capacity of: 13 for the table User this_
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - flushing session
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - processing flush-time cascades
+2011-01-14 13:42:59,517 [7] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:42:59,517 [7] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - dirty checking collections
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushing entities and processing referenced collections
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Processing unreferenced collections
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Scheduling collection removes/(re)creates/updates
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Impl.Printer [(null)] - listing entities:
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Impl.Printer [(null)] - NHMembershipProvider.Entities.User{'Id'='360448', 'Username'='yyyyy', 'ApplicationName'='/', 'Email'='sdf', 'Comment'='', 'Password'='Nua6tL+PVYXVGnbnJAUOv0/k5gk=', 'PasswordQuestion'=null, 'PasswordAnswer'=null, 'IsApproved'='True', 'LastActivityDate'='2011-1-14 13:42:59', 'LastLoginDate'='1753-1-1 0:00:00', 'LastPasswordChangedDate'='2011-1-14 13:42:59', 'CreationDate'='2011-1-14 13:42:59', 'IsOnLine'='False', 'IsLockedOut'='False', 'LastLockedOutDate'='2011-1-14 13:42:59', 'FailedPasswordAttemptCount'='0', 'FailedPasswordAnswerAttemptCount'='0', 'FailedPasswordAttemptWindowStart'='2011-1-14 13:42:59', 'FailedPasswordAnswerAttemptWindowStart'='2011-1-14 13:42:59', 'Roles'='null'}
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Engine.ActionQueue [(null)] - changes must be flushed to space: User
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.DefaultAutoFlushEventListener [(null)] - Need to execute flush
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - executing flush
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.AdoNet.ConnectionManager [(null)] - registering flush begin
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - Inserting entity: [NHMembershipProvider.Entities.User#360448]
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Opened new IDbCommand, open IDbCommands: 1
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Building an IDbCommand object for the SqlString: /* insert NHMembershipProvider.Entities.User */ INSERT INTO User (Username, ApplicationName, Email, Comment, Password, PasswordQuestion, PasswordAnswer, IsApproved, LastActivityDate, LastLoginDate, LastPasswordChangedDate, CreationDate, IsOnLine, IsLockedOut, LastLockedOutDate, FailedPasswordAttemptCount, FailedPasswordAnswerAttemptCount, FailedPasswordAttemptWindowStart, FailedPasswordAnswerAttemptWindowStart, Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister [(null)] - Dehydrating entity: [NHMembershipProvider.Entities.User#360448]
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.StringType [(null)] - binding 'yyyyy' to parameter: 0
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.StringType [(null)] - binding '/' to parameter: 1
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.StringType [(null)] - binding 'sdf' to parameter: 2
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.StringType [(null)] - binding '' to parameter: 3
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.StringType [(null)] - binding 'Nua6tL+PVYXVGnbnJAUOv0/k5gk=' to parameter: 4
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.StringType [(null)] - binding null to parameter: 5
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.StringType [(null)] - binding null to parameter: 6
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.BooleanType [(null)] - binding 'True' to parameter: 7
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-14 13:42:59' to parameter: 8
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '1753-1-1 0:00:00' to parameter: 9
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-14 13:42:59' to parameter: 10
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-14 13:42:59' to parameter: 11
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.BooleanType [(null)] - binding 'False' to parameter: 12
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.BooleanType [(null)] - binding 'False' to parameter: 13
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-14 13:42:59' to parameter: 14
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.Int32Type [(null)] - binding '0' to parameter: 15
+2011-01-14 13:42:59,517 [7] DEBUG NHibernate.Type.Int32Type [(null)] - binding '0' to parameter: 16
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-14 13:42:59' to parameter: 17
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Type.DateTimeType [(null)] - binding '2011-1-14 13:42:59' to parameter: 18
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Type.Int32Type [(null)] - binding '360448' to parameter: 19
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.SQL [(null)] - /* insert NHMembershipProvider.Entities.User */ INSERT INTO User (Username, ApplicationName, Email, Comment, Password, PasswordQuestion, PasswordAnswer, IsApproved, LastActivityDate, LastLoginDate, LastPasswordChangedDate, CreationDate, IsOnLine, IsLockedOut, LastLockedOutDate, FailedPasswordAttemptCount, FailedPasswordAnswerAttemptCount, FailedPasswordAttemptWindowStart, FailedPasswordAnswerAttemptWindowStart, Id) VALUES (?p0, ?p1, ?p2, ?p3, ?p4, ?p5, ?p6, ?p7, ?p8, ?p9, ?p10, ?p11, ?p12, ?p13, ?p14, ?p15, ?p16, ?p17, ?p18, ?p19);?p0 = 'yyyyy' [Type: String (5)], ?p1 = '/' [Type: String (1)], ?p2 = 'sdf' [Type: String (3)], ?p3 = '' [Type: String (0)], ?p4 = 'Nua6tL+PVYXVGnbnJAUOv0/k5gk=' [Type: String (28)], ?p5 = NULL [Type: String (0)], ?p6 = NULL [Type: String (0)], ?p7 = True [Type: Boolean (0)], ?p8 = 2011-1-14 13:42:59 [Type: DateTime (0)], ?p9 = 1753-1-1 0:00:00 [Type: DateTime (0)], ?p10 = 2011-1-14 13:42:59 [Type: DateTime (0)], ?p11 = 2011-1-14 13:42:59 [Type: DateTime (0)], ?p12 = False [Type: Boolean (0)], ?p13 = False [Type: Boolean (0)], ?p14 = 2011-1-14 13:42:59 [Type: DateTime (0)], ?p15 = 0 [Type: Int32 (0)], ?p16 = 0 [Type: Int32 (0)], ?p17 = 2011-1-14 13:42:59 [Type: DateTime (0)], ?p18 = 2011-1-14 13:42:59 [Type: DateTime (0)], ?p19 = 360448 [Type: Int32 (0)]
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Enlist Command
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - ExecuteNonQuery took 0 ms
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - ExecuteBatch for 1 statements took 0 ms
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Closed IDbCommand, open IDbCommands: 0
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.ConnectionManager [(null)] - registering flush end
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - post flush
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Opened new IDbCommand, open IDbCommands: 1
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Building an IDbCommand object for the SqlString: /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ? and this_.ApplicationName = ?
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Engine.QueryParameters [(null)] - BindParameters(Positional0:NHibernate.Type.StringType) yyyyy -> [0]
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Type.StringType [(null)] - binding 'yyyyy' to parameter: 0
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Engine.QueryParameters [(null)] - BindParameters(Positional1:NHibernate.Type.StringType) / -> [1]
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Type.StringType [(null)] - binding '/' to parameter: 1
+2011-01-14 13:42:59,532 [7] INFO  NHibernate.Loader.Loader [(null)] - /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ?p0 and this_.ApplicationName = ?p1
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.SQL [(null)] - /* criteria query */ SELECT this_.Id as Id3_0_, this_.Username as Username3_0_, this_.ApplicationName as Applicat3_3_0_, this_.Email as Email3_0_, this_.Comment as Comment3_0_, this_.Password as Password3_0_, this_.PasswordQuestion as Password7_3_0_, this_.PasswordAnswer as Password8_3_0_, this_.IsApproved as IsApproved3_0_, this_.LastActivityDate as LastAct10_3_0_, this_.LastLoginDate as LastLog11_3_0_, this_.LastPasswordChangedDate as LastPas12_3_0_, this_.CreationDate as Creatio13_3_0_, this_.IsOnLine as IsOnLine3_0_, this_.IsLockedOut as IsLocke15_3_0_, this_.LastLockedOutDate as LastLoc16_3_0_, this_.FailedPasswordAttemptCount as FailedP17_3_0_, this_.FailedPasswordAnswerAttemptCount as FailedP18_3_0_, this_.FailedPasswordAttemptWindowStart as FailedP19_3_0_, this_.FailedPasswordAnswerAttemptWindowStart as FailedP20_3_0_ FROM User this_ WHERE this_.Username = ?p0 and this_.ApplicationName = ?p1;?p0 = 'yyyyy' [Type: String (5)], ?p1 = '/' [Type: String (1)]
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Enlist Command
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - ExecuteReader took 1 ms
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Opened IDataReader, open IDataReaders: 1
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Loader.Loader [(null)] - processing result set
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Loader.Loader [(null)] - result set row: 0
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Type.Int32Type [(null)] - returning '360448' as column: Id3_0_
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Loader.Loader [(null)] - result row: EntityKey[NHMembershipProvider.Entities.User#360448]
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Loader.Loader [(null)] - done processing result set (1 rows)
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Driver.NHybridDataReader [(null)] - running NHybridDataReader.Dispose()
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Closed IDataReader, open IDataReaders :0
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - DataReader was closed after 4 ms
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - Closed IDbCommand, open IDbCommands: 0
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Loader.Loader [(null)] - total objects hydrated: 0
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Engine.StatefulPersistenceContext [(null)] - initializing non-lazy collections
+2011-01-14 13:42:59,532 [7] DEBUG Framework.Transaction.TransactionTemplate [(null)] - Committing transaction 56774454
+2011-01-14 13:42:59,532 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Trying to dispose transaction Child-TX to "Tx #66960737".
+2011-01-14 13:42:59,532 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction Child-TX to "Tx #66960737" disposed successfully
+2011-01-14 13:42:59,532 [7] DEBUG Framework.Transaction.TransactionTemplate [(null)] - Committing transaction 66960737
+2011-01-14 13:42:59,532 [7] DEBUG Castle.Services.Transaction.TransactionBase [(null)] - Resource: Castle.Facilities.NHibernateIntegration.Internal.ResourceAdapter
+2011-01-14 13:42:59,532 [7] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - Start Commit
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - flushing session
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - processing flush-time cascades
+2011-01-14 13:42:59,548 [7] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:42:59,548 [7] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: NHMembershipProvider.Entities.User
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - dirty checking collections
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushing entities and processing referenced collections
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Processing unreferenced collections
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Scheduling collection removes/(re)creates/updates
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Impl.Printer [(null)] - listing entities:
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Impl.Printer [(null)] - NHMembershipProvider.Entities.User{'Id'='360448', 'Username'='yyyyy', 'ApplicationName'='/', 'Email'='sdf', 'Comment'='', 'Password'='Nua6tL+PVYXVGnbnJAUOv0/k5gk=', 'PasswordQuestion'=null, 'PasswordAnswer'=null, 'IsApproved'='True', 'LastActivityDate'='2011-1-14 13:42:59', 'LastLoginDate'='1753-1-1 0:00:00', 'LastPasswordChangedDate'='2011-1-14 13:42:59', 'CreationDate'='2011-1-14 13:42:59', 'IsOnLine'='False', 'IsLockedOut'='False', 'LastLockedOutDate'='2011-1-14 13:42:59', 'FailedPasswordAttemptCount'='0', 'FailedPasswordAnswerAttemptCount'='0', 'FailedPasswordAttemptWindowStart'='2011-1-14 13:42:59', 'FailedPasswordAnswerAttemptWindowStart'='2011-1-14 13:42:59', 'Roles'='null'}
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - executing flush
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.AdoNet.ConnectionManager [(null)] - registering flush begin
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.AdoNet.ConnectionManager [(null)] - registering flush end
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener [(null)] - post flush
+2011-01-14 13:42:59,548 [7] DEBUG NHibernate.Impl.SessionImpl [(null)] - before transaction completion
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - IDbTransaction Committed
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.Impl.SessionImpl [(null)] - transaction completion
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.AdoNet.ConnectionManager [(null)] - aggressively releasing database connection
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.Connection.ConnectionProvider [(null)] - Closing connection
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.Transaction.AdoTransaction [(null)] - IDbTransaction disposed.
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.Impl.SessionImpl [(null)] - [session-id=a7c647c3-9d87-4df6-b7bc-fb785cd396b5] running ISession.Dispose()
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.Impl.SessionImpl [(null)] - [session-id=a7c647c3-9d87-4df6-b7bc-fb785cd396b5] executing real Dispose(True)
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.Impl.SessionImpl [(null)] - closing session
+2011-01-14 13:42:59,579 [7] DEBUG NHibernate.AdoNet.AbstractBatcher [(null)] - running BatcherImpl.Dispose(true)
+2011-01-14 13:42:59,579 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Trying to dispose transaction Tx #66960737.
+2011-01-14 13:42:59,579 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction Tx #66960737 disposed successfully
+2011-01-14 13:43:10,828 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction "Tx #61617675" created. 
+2011-01-14 13:43:28,436 [7] DEBUG Framework.Transaction.TransactionInterceptor [(null)] - Committing transaction 61617675
+2011-01-14 13:43:28,436 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Trying to dispose transaction Tx #61617675.
+2011-01-14 13:43:28,436 [7] DEBUG Castle.Services.Transaction.DefaultTransactionManager [(null)] - Transaction Tx #61617675 disposed successfully
+2011-01-14 14:09:57,132 [4] DEBUG MyFirstMvcApp.Models.FormsAuthenticationService [(null)] - Disposing FormsAuthenticationService
+2011-01-14 14:09:57,148 [4] DEBUG MyFirstMvcApp.Models.AccountMembershipService [(null)] - Disposing AccountMembershipService
+2011-01-14 14:09:57,148 [4] INFO  NHibernate.Impl.SessionFactoryImpl [(null)] - Closing
+2011-01-14 14:09:57,148 [4] DEBUG NHibernate.Connection.ConnectionProvider [(null)] - Disposing of ConnectionProvider.
+2011-01-14 14:09:57,148 [4] INFO  NHibernate.Impl.SessionFactoryObjectFactory [(null)] - unbinding factory: Demo
+2011-01-14 14:09:57,148 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-01-14 14:09:57,148 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application

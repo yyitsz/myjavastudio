@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{220D797F-3962-45BD-AFAB-3A39B2C06023}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Framework</RootNamespace>
+    <AssemblyName>Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NETLIB_REPO)\Castle.Core\2.5.2\net-40\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NETLIB_REPO)\Castle.Core\2.5.2\net-40\Castle.Facilities.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.NHibernateIntegration">
+      <HintPath>$(NETLIB_REPO)\Castle.Facilities.NHibernate\1.1.1\net-40\Castle.Facilities.NHibernateIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.Synchronize">
+      <HintPath>$(NETLIB_REPO)\Castle.Windsor\2.5.2\net-40\Castle.Facilities.Synchronize.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NETLIB_REPO)\Castle.Core\2.5.2\net-40\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Services.Transaction">
+      <HintPath>$(NETLIB_REPO)\Castle.Services.Transaction\2.5.0\net-40\Castle.Services.Transaction.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>$(NETLIB_REPO)\Castle.Windsor\2.5.2\net-40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NETLIB_REPO)\Common.Logging\2.0.0\net-20\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>$(NETLIB_REPO)\Common.Logging\2.0.0\net-20\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfOrm">
+      <HintPath>$(NETLIB_REPO)\ConfORM\1.0.0.12\ConfOrm.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\BaseDaoAttribute.cs" />
+    <Compile Include="Attributes\ConstructorTransformerAttribute.cs" />
+    <Compile Include="Attributes\PropertyTransformerAttribute.cs" />
+    <Compile Include="Attributes\SqlBaseDaoAttribute.cs" />
+    <Compile Include="Attributes\MaxResultsAttribute.cs" />
+    <Compile Include="Attributes\ImplementedByAttribute.cs" />
+    <Compile Include="Attributes\FirstResultAttribute.cs" />
+    <Compile Include="Attributes\ParamAttribute.cs" />
+    <Compile Include="Attributes\SqlAttribute.cs" />
+    <Compile Include="Attributes\HqlAttribute.cs" />
+    <Compile Include="Attributes\TransformerAttribute.cs" />
+    <Compile Include="AutoTx\InjectTransaction.cs" />
+    <Compile Include="AutoTx\TransactionComponentInspector.cs" />
+    <Compile Include="AutoTx\TransactionFacility.cs" />
+    <Compile Include="AutoTx\TransactionInterceptor.cs" />
+    <Compile Include="AutoTx\TransactionMetaInfo.cs" />
+    <Compile Include="AutoTx\TransactionMetaInfoStore.cs" />
+    <Compile Include="ConfOrmExt\BooleanPropertyAsCharApplier.cs" />
+    <Compile Include="ConfOrmExt\NullableEnumPropertyAsStringApplier.cs" />
+    <Compile Include="Container\IMiniContainer.cs" />
+    <Compile Include="Container\WindsorContainerAdapter.cs" />
+    <Compile Include="Context\AppContext.cs" />
+    <Compile Include="Context\CallDataContextProvider.cs" />
+    <Compile Include="Context\IContextProvider.cs" />
+    <Compile Include="Context\UserContext.cs" />
+    <Compile Include="Context\WebContextProvider.cs" />
+    <Compile Include="CustomControllerFactory.cs" />
+    <Compile Include="Entity\BaseSearchingResult.cs" />
+    <Compile Include="Entity\IAuditable.cs" />
+    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\IVersionable.cs" />
+    <Compile Include="Entity\OrderBy.cs" />
+    <Compile Include="Executor\AbstractExecutor.cs" />
+    <Compile Include="NHibernateExt\AuditEventListener.cs" />
+    <Compile Include="NHibernateExt\NullableEnumStringType.cs" />
+    <Compile Include="Dao\DataException.cs" />
+    <Compile Include="Dao\IBaseDao.cs" />
+    <Compile Include="Dao\NHibernateBaseDao.cs" />
+    <Compile Include="Entity\BaseEntity.cs" />
+    <Compile Include="Entity\BaseSearchingEntity.cs" />
+    <Compile Include="Executor\IExecutor.cs" />
+    <Compile Include="Executor\ImplementorExecutor.cs" />
+    <Compile Include="Executor\SqlExecutor.cs" />
+    <Compile Include="Executor\ExecutorContext.cs" />
+    <Compile Include="Executor\HqlExecutor.cs" />
+    <Compile Include="HbmMapper\IHbmMapper.cs" />
+    <Compile Include="Interceptors\DaoInterceptor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction\DefaultTransactionMatcher.cs" />
+    <Compile Include="Transaction\InjectTransaction.cs" />
+    <Compile Include="Transaction\ITransactionMatcher.cs" />
+    <Compile Include="Transaction\TransactionComponentInspector.cs" />
+    <Compile Include="Transaction\TransactionConfiguration.cs" />
+    <Compile Include="Transaction\TransactionInterceptor.cs" />
+    <Compile Include="Transaction\TransactionManagerFacility.cs" />
+    <Compile Include="Transaction\TransactionMetaInfo.cs" />
+    <Compile Include="Transaction\TransactionMetaInfoStore.cs" />
+    <Compile Include="Transaction\TransactionTemplate.cs" />
+    <Compile Include="Module\UserContextModule.cs" />
+    <Compile Include="Utils\AccessorDelegates.cs" />
+    <Compile Include="Utils\ExpressionMemberAccessor.cs" />
+    <Compile Include="Utils\DefaultBinder.cs" />
+    <Compile Include="Utils\DelegateFactory.cs" />
+    <Compile Include="Utils\IMemberAccessor.cs" />
+    <Compile Include="Utils\ReflectionHelper.cs" />
+    <Compile Include="Utils\ReflectionMemberAccessor.cs" />
+    <Compile Include="Utils\TypeExt.cs" />
+    <Compile Include="Windsor\NHConfigurationBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SqlParser\SqlParser\SqlParser2010.csproj">
+      <Project>{A5F969E2-4A88-4FB1-91C7-42668D301464}</Project>
+      <Name>SqlParser2010</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

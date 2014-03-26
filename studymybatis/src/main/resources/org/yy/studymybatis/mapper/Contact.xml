@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yy.studymybatis.mapper.ContactMapper">
+
+	<resultMap type="BaseModel" id="BaseModelResultMap">
+		<result property="updatedBy" column="UPDATED_BY" />
+		<result property="updatedAt" column="UPDATED_AT"/>
+		<result property="createdBy" column="CREATED_BY" />
+		<result property="createdAt" column="CREADTED_AT"/> 
+	</resultMap>
+	<resultMap type="VersionableBaseModel" id="VersionableResultMap" extends="BaseModelResultMap">
+		<result property="version" column="VERSION" />
+	</resultMap>
+	<resultMap type="contact" id="result" extends="VersionableResultMap">
+		<result property="id" column="CONTACT_ID" />
+		<result property="name" column="CONTACT_NAME"/>
+		<result property="phone" column="CONTACT_PHONE" />
+		<result property="email" column="CONTACT_EMAIL"/> 
+		<result property="age" column="AGE"/>
+		<result property="gender" column="GENDER" />
+		<result property="birthday" column="BIRTHDAY" /> 
+	</resultMap>
+	<select id="selectAll" resultMap="result">
+		SELECT * FROM CONTACT
+	</select>
+	<select id="selectById" parameterType="int" resultMap="result">
+		SELECT * FROM CONTACT WHERE CONTACT_ID=#{id}
+	</select>
+	<delete id="deleteById" parameterType="int" >
+		DELETE FROM CONTACT WHERE CONTACT_ID=#{id}
+	</delete>
+	<insert id="insert" parameterType="Contact">
+		INSERT into CONTACT(CONTACT_EMAIL, CONTACT_NAME, CONTACT_PHONE,BIRTHDAY,AGE,GENDER,VERSION,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY)
+		    VALUES(#{email},#{name},#{phone},#{birthday},#{age},#{gender},#{version},#{createdAt},#{createdBy},#{updatedAt},#{updatedBy});
+		<selectKey keyProperty="id" resultType="int" order="AFTER">
+			SELECT last_insert_id() AS id
+		</selectKey>
+	</insert>
+	
+	<update id="update" parameterType="Contact">
+		UPDATE CONTACT 
+		SET
+		    CONTACT_EMAIL = #{email},CONTACT_NAME = #{name},  CONTACT_PHONE= #{phone},
+		    AGE=#{age},BIRTHDAY=#{birthday},GENDER=#{gender},
+		    VERSION=#{version},CREATED_AT=#{createdAt},CREATED_BY=#{createdBy},UPDATED_AT=#{updatedAt},UPDATED_BY=#{updatedBy}
+		WHERE CONTACT_ID=#{id} AND VERSION=#{previousVersion};
+	</update>
+	<delete id="delete" parameterType="Contact">
+		DELETE FROM CONTACT WHERE CONTACT_ID=#{id} AND VERSION=#{previousVersion};
+	</delete>
+</mapper>

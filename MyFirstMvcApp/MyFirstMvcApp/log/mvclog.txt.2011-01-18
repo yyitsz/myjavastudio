@@ -1,0 +1,7 @@
+2011-01-18 15:27:57,372 [4] DEBUG MyFirstMvcApp.Models.FormsAuthenticationService [(null)] - Disposing FormsAuthenticationService
+2011-01-18 15:27:57,622 [4] DEBUG MyFirstMvcApp.Models.AccountMembershipService [(null)] - Disposing AccountMembershipService
+2011-01-18 15:27:57,638 [4] INFO  NHibernate.Impl.SessionFactoryImpl [(null)] - Closing
+2011-01-18 15:27:57,638 [4] DEBUG NHibernate.Connection.ConnectionProvider [(null)] - Disposing of ConnectionProvider.
+2011-01-18 15:27:57,638 [4] INFO  NHibernate.Impl.SessionFactoryObjectFactory [(null)] - unbinding factory: Demo
+2011-01-18 15:27:57,638 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Disposed Container
+2011-01-18 15:27:57,638 [4] DEBUG MyFirstMvcApp.MvcApplication [(null)] - Stopped Application

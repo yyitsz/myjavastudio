@@ -1,0 +1,61 @@
+--//5/31/2010:Suhel shah
+
+--//This file is in addition to the main project files and is to be used if you need to use the addition profile provider-Suhel Shah
+
+
+--add the following section to the webconfig to  use the profile provider
+
+		<profile defaultProvider="FNHProvider" inherits ="FNHCustomProviders.SampleApp.UserProfileBase">
+			<providers>
+				<add
+				  name="FNHProvider"
+				  type="INCT.FNHProviders.Profile.FNHProfileProvider,INCT.FNHProviders"
+				  connectionStringName="ConnectStrNL"
+				  applicationName ="FNHApplication"
+				  writeExceptionsToEventLog="false" 
+				  />
+			</providers>
+
+
+
+
+
+
+--The table structure used for profile provider
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Profiles](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Users_Id] [int] NOT NULL,
+	[ApplicationName] [varchar](64) NULL,
+	[IsAnonymous] [bit] NULL,
+	[LastActivityDate] [datetime] NULL,
+	[LastUpdatedDate] [datetime] NULL,
+	[Subscription] [varchar](50) NULL,
+	[Language] [varchar](50) NULL,
+	[FirstName] [varchar](64) NULL,
+	[LastName] [varchar](64) NULL,
+	[Gender] [char](1) NULL,
+	[BirthDate] [datetime] NULL,
+	[Occupation] [varchar](64) NULL,
+	[Website] [varchar](250) NULL,
+	[Street] [varchar](64) NULL,
+	[City] [varchar](64) NULL,
+	[State] [char](2) NULL,
+	[Zip] [varchar](10) NULL,
+	[Country] [char](2) NULL,
+ CONSTRAINT [PK_Profiles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF

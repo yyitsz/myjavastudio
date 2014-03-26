@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui-definition>
+  <colors>
+    <background>#808080</background>
+    <text>#000000</text>
+    <header>#008000</header>
+    <link normal="#000080" visited="#800080"/>
+    <default>${colors.header}</default>
+  </colors>
+  <rowsPerPage>15</rowsPerPage>
+  <buttons>
+    <name>OK,Cancel,Help</name>
+  </buttons>
+  <numberFormat pattern="###\,###.##"/>
+  <brokers>
+  	<server>
+  		<name>1</name>
+  		<ip>10.200.23.2</ip>
+  		<port>8080</port>
+  	</server>
+  	<server>
+  		<name>2</name>
+  		<ip>10.200.23.2</ip>
+  		<port>8081</port>
+  	</server>
+  	<server>
+  		<name>3</name>
+  		<ip>10.200.23.2</ip>
+  		<port>8082</port>
+  	</server>
+  </brokers>
+  <gui>
+  	<windowManager config-class="org.yy.config.DefaultWindowManager"
+  		closable="false" resizable="true" defaultWidth="400" defaultHeight="250"
+  	>
+  		<styleDefinition config-class="org.yy.config.WindowStyleDefinition " backColor="#ffffff"
+  		foreColor="#0080ff" iconName="myicon"
+  		></styleDefinition>
+  	</windowManager>
+  </gui>
+</gui-definition>

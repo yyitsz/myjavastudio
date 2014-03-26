@@ -1,0 +1,3 @@
+PRODUCT_ID,NAME,DESCRIPTION,PRICE
+PR....16,Nokia abc,,130.23
+PR....28,Nokia abcde,,240.23

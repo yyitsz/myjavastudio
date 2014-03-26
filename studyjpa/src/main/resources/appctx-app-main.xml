@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:repo="http://www.springframework.org/schema/data/repository"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:util=" http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+                            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+                            http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+                            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+                            http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd"
+>
+   
+
+    <context:component-scan base-package="org.yy">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+
+    </context:component-scan>
+    <context:annotation-config/>
+    <tx:annotation-driven proxy-target-class="true"/> 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<!--        <property name="locations">
+            <value>classpath:extconf/test.properties</value>
+        </property>-->
+        <!-- Default properties -->
+        <property name="properties">
+            <value>
+               
+                jdbc.driver=oracle.jdbc.pool.OracleDataSource
+                jdbc.url=jdbc:oracle:thin:@172.30.201.16:1521:msedb
+                jdbc.user=mss
+                jdbc.password=mss2628
+                jdbc.minPoolSize=0
+                jdbc.maxPoolSize=8
+                jdbc.initialPoolSize=4
+                jdbc.connectionWaitTimeout=300
+                jdbc.maxIdleTime=3600
+                hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+                hibernate.showsql=false
+                jpa.generateDdl=false
+            </value>
+        </property>
+    </bean>
+
+    
+    <bean id="abstractEntityManagerFactory" abstract="true" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="${hibernate.showsql}" />
+                <property name="generateDdl" value="${jpa.generateDdl}" />
+                <property name="databasePlatform" value="${hibernate.dialect}" />
+            </bean>
+        </property>
+
+        <property name="jpaPropertyMap" ref="jpaPropertyMap" />
+    </bean>
+
+    <bean id="entityManagerFactory" parent="abstractEntityManagerFactory">
+        <property name="persistenceXmlLocation" value="classpath:/META-INF/persistence.xml" />
+        <property name="persistenceUnitName" value="test" />
+        <property name="dataSource" ref="demoDataSource" />
+    </bean>
+
+    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean id="test.jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref bean="demoDataSource"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="test.incrementer.tagSequence"
+          class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+        <constructor-arg index="0">
+            <ref bean="demoDataSource"/>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <value>TAG_SEQ</value>
+        </constructor-arg>
+    </bean>
+    <bean id="test.incrementer.nsUniqueKeySeq"
+          class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+        <constructor-arg index="0">
+            <ref bean="demoDataSource"/>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <value>NS_MSG_UNIQUE_KEY_SEQ</value>
+        </constructor-arg>
+    </bean>
+
+    <!-- Dummy Session Factory to provide Hibernate Exception Translator -->
+    <bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="demoDataSource"/>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=${hibernate.dialect}
+                hibernate.hbm2ddl.auto=none
+            </value>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+        <property name="defaultPersistenceUnitName" value="test"/>
+    </bean>
+   
+    <aop:aspectj-autoproxy/>
+  
+    <import resource="classpath:appctx-app-main-standlone.xml"/>
+   
+    <!-- DAO's and config should be defined in separated file -->
+    <import resource="classpath:appctx-app-main-repository.xml"/>
+
+</beans>

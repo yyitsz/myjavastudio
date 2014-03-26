@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01E41154-D4BD-45FF-99C1-5B27F0911500}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Biz</RootNamespace>
+    <AssemblyName>Biz</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NETLIB_REPO)\Castle.Core\2.5.2\net-40\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging">
+      <HintPath>$(NETLIB_REPO)\Castle.Core\2.5.2\net-40\Castle.Facilities.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>$(NETLIB_REPO)\Common.Logging\2.0.0\net-20\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfOrm">
+      <HintPath>$(NETLIB_REPO)\ConfORM\1.0.0.12\ConfOrm.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <HintPath>$(NETLIB_REPO)\NHibernate\3.0.0.GA\net-3.5\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmitProxy.cs" />
+    <Compile Include="Extensions\Class1.cs" />
+    <Compile Include="Model\Int.cs" />
+    <Compile Include="Model\PersonNameAddressBidirectionalComponent.cs" />
+    <Compile Include="Model\PersonNameAddressComponentSet.cs" />
+    <Compile Include="Model\PersonManyToManyAddressUsingDic.cs" />
+    <Compile Include="Model\PersonManyToManyAddressUsingList.cs" />
+    <Compile Include="Model\PersonManyToManyAddressUsingBag.cs" />
+    <Compile Include="Model\PersonManyToManyAddressUsingSet.cs" />
+    <Compile Include="Model\PersonAddress.cs" />
+    <Compile Include="Model\PersonAddress2.cs" />
+    <Compile Include="Model\PersonNameAddressComponent.cs" />
+    <Compile Include="Model\UserManyToManyRoleBidir.cs" />
+    <Compile Include="NhConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\Framework.csproj">
+      <Project>{220D797F-3962-45BD-AFAB-3A39B2C06023}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

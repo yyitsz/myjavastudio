@@ -1,0 +1,173 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+    <parent>
+        <groupId>org.yy.studyapp</groupId>
+        <artifactId>studyapp-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../studyapp-parent</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+ 
+    <artifactId>studyapp-common</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Study Application Common</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.yy.studyapp</groupId>
+            <artifactId>studyapp-core</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>                
+        </dependency>
+  
+            
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>               
+        </dependency>
+            
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>                
+        </dependency>
+        <dependency>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <groupId>org.hibernate</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <groupId>org.hibernate.javax.persistence</groupId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+        </dependency>
+        
+        <dependency>                    
+            <groupId>javax.xml.bind</groupId>                    
+            <artifactId>jaxb-api</artifactId>                    
+              
+        </dependency>                
+              
+        <dependency>                    
+            <groupId>com.sun.xml.bind</groupId>                    
+            <artifactId>jaxb-impl</artifactId>                    
+              
+        </dependency>  
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb21-plugin</artifactId>
+                 <configuration>
+                     <generatePackage>org.yy.test</generatePackage>
+                     </configuration>
+            </plugin>
+            
+            <plugin>            
+                <groupId>com.sun.tools.jxc.maven2</groupId>            
+                <artifactId>maven-jaxb-schemagen-plugin</artifactId>            
+                <version>1.2</version>            
+<!--                <executions>                
+                    <execution>                    
+                        <phase>generate-resources</phase>                     
+                        <goals>                        
+                            <goal>generate</goal>                     
+                        </goals>               
+                    </execution>           
+                </executions>            -->
+                <configuration> 
+                    <includes>
+                        <include>**/dto/**/*.java</include>
+                    </includes>
+                    <schemas>
+                        <schema>
+                            <namespace>http://studyapp.org/order</namespace>
+                            <file>order.xsd</file>
+                        </schema>
+                        <schema>
+                            <namespace>http://studyapp.org/trade</namespace>
+                            <file>trade.xsd</file>
+                        </schema>
+                    </schemas>
+                    <verbose>true</verbose>            
+                </configuration>           
+                <dependencies>                
+                    <dependency>                    
+                        <groupId>javax.xml.bind</groupId>                    
+                        <artifactId>jaxb-api</artifactId>                    
+                        <version>2.1</version>                
+                    </dependency>                
+                    <dependency>                    
+                        <groupId>com.sun.xml.bind</groupId>                    
+                        <artifactId>jaxb-xjc</artifactId>                    
+                        <version>2.1.13</version>                
+                    </dependency>                
+                    <dependency>                    
+                        <groupId>com.sun.xml.bind</groupId>                    
+                        <artifactId>jaxb-impl</artifactId>                    
+                        <version>2.1.13</version>                
+                    </dependency>                
+                    <dependency>                    
+                        <groupId>com.sun.xml.bind</groupId>                    
+                        <artifactId>jaxb-xjc</artifactId>                    
+                        <version>2.1.13</version>                
+                    </dependency>           
+                </dependencies>      
+            </plugin> 
+            
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>hibernate3-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <components>
+                        <component>
+                            <name>hbm2ddl</name>
+                            <implementation>annotationconfiguration</implementation>
+                        </component>
+                        <component>
+                            <name>hbm2hbmxml</name>
+                            <outputDirectory>src/main/resources</outputDirectory>
+                        </component>
+                    </components>
+                    <componentProperties>
+                        <implementation>jpaconfiguration</implementation>
+                        <persistenceunit>Default</persistenceunit>
+                        <outputfilename>schema.ddl</outputfilename>
+                        <!--
+                        <propertyfile>${basedir}/src/main/resources/hibernate.properties</propertyfile>
+                        -->
+                        <drop>true</drop>
+                        <create>true</create>
+                        <export>false</export>
+                        <format>true</format>
+                    </componentProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

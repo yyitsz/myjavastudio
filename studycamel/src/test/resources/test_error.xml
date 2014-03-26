@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+ 
+
+    <logger name="org.apache.camel">
+        <level value ="debug"/>         
+    </logger>
+	
+    <root>
+           <appender-ref ref="console"/>
+       <!-- OFF ,FATAL ,ERROR ,WARN ,INFO ,DEBUG ,ALL -->
+        <level value ="debug"/>
+     
+        
+        <appender-ref ref="dailyfile&amp;abcd" /> 
+    </root>
+    <abc>
+
+    
+    dailyfile&amp;abcd
+    
+    </abc>
+</log4j:configuration>

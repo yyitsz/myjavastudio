@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>test page</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div id="console"></div>
+	<script src="debug.js"></script>
+	<div id="clickme" onclick="clickedMe();">Click Me!</div>
+<script type="text/javascript">
+    // Load jQuery
+  /*   google.load("jquery", "1.2.6");
+    google.setOnLoadCallback(function() {
+		alert("loaded jquery.");
+    }); */
+
+	function clickedMe(){
+		
+		alert("IsWindow?" + this === window);
+		var el = document.getElementById("clickme");
+		alert(this.id);
+
+		print(arguments.length, arguments[0], arguments[1], arguments[2]);
+		this.removeEventListener("click", clickedMe, false);
+	}
+	var el = document.getElementById("clickme");
+	el.addEventListener("click", clickedMe,false);
+</script>
+
+<script>
+
+function SuperType(name){
+	this.name = name;
+	this.colors = ["red", "blue", "orange"];
+
+}
+
+SuperType.prototype.getName = function() {
+	return this.name;
+}
+
+function SubType(name, age){
+	SuperType.call(this, name);
+	this.age = age;
+}
+//SubType.prototype = new SuperType();
+inheritPrototype(SubType, SuperType);
+SuperType.prototype.getAge = function() {
+	return this.age;
+}
+var instance = new SubType("wang", 20);
+inspect(instance);
+print("is instance of SuperType? ", instance instanceof SuperType);
+print("is instance of SubType? ", instance instanceof SubType);
+print("name = ", instance.getName());
+print("age = ", instance.getAge());
+	//alert($("#console").val());
+	</script>
+</body>
+</html>

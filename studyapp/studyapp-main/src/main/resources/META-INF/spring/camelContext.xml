@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+           
+    <context:property-placeholder location="file:conf/studyapp.properties" />
+    <context:component-scan base-package="org.yy.studyapp"/>
+    <camel:camelContext id="camelContext">
+
+        
+        <camel:package>org.yy.studyapp.main.route</camel:package>
+        <camel:jmxAgent id="agent" createConnector="true" registryPort="10101" />
+        <camel:template id="producerTemplate"/>
+        
+    </camel:camelContext>
+        
+    <jpa:repositories base-package="org.yy.studyapp.repository" entity-manager-factory-ref="entityManagerFactory"
+            transaction-manager-ref="transactionManager" >
+    </jpa:repositories>
+
+<!--    <bean  class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/> -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+        <property name="targetDataSource" ref="dataSourceTarget"/>
+    </bean>
+<!--    Embedded (local) connection
+jdbc:h2:[file:][<path>]<databaseName>
+jdbc:h2:~/test
+jdbc:h2:file:/data/sample
+jdbc:h2:file:C:/data/sample (Windows only)
+
+
+In-memory (private) jdbc:h2:mem:
+
+
+In-memory (named) jdbc:h2:mem:<databaseName>     jdbc:h2:mem:test_mem
+
+
+Server mode (remote connections) using
+TCP/IP
+jdbc:h2:tcp://<server>[:<port>]/[<path>]<databaseName>
+jdbc:h2:tcp://localhost/~/test
+jdbc:h2:tcp://dbserv:8084/~/sample jdbc:h2:tcp://localhost/mem:test
+
+
+Server mode (remote connections) using
+SSL/TLS
+jdbc:h2:ssl://<server>[:<port>]/<databaseName>
+jdbc:h2:ssl://secureserv:8085/~/sample;
+
+
+Using encrypted files
+jdbc:h2:<url>;CIPHER=[AES|XTEA]
+jdbc:h2:ssl://secureserv/~/testdb;CIPHER=AES
+jdbc:h2:file:~/secure;CIPHER=XTEA
+-->
+
+    <bean id="dataSourceTarget"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <property name="minPoolSize" value="1" />
+        <property name="maxPoolSize" value="20" />
+        <property name="maxIdleTime" value="1800" />
+        <property name="acquireIncrement" value="2" />
+        <property name="maxStatements" value="0" />
+        <property name="initialPoolSize" value="2" />           
+        <property name="idleConnectionTestPeriod" value="1800" />
+        <property name="acquireRetryAttempts" value="30" />
+        <property name="breakAfterAcquireFailure" value="true" />
+        <property name="testConnectionOnCheckout" value="false" />          
+    </bean>
+    
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+<!--    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean" >
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>-->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
+        <property name="dataSource" ref="dataSource" />
+        <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+        <property name="persistenceUnitName" value="studyapp" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">                
+            </bean>
+        </property>
+        
+        <property name="jpaPropertyMap">
+            <map>
+                <entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}"/>
+                <entry key="hibernate.query.substitutions" value="${hibernate.query.substitutions}"/>
+                <entry key="hibernate.format_sql" value="true"/>
+                <entry key="hibernate.use_sql_comments" value="true"/>
+                <entry key="hibernate.order_updates" value="true"/>
+                <entry key="hibernate.validator.apply_to_ddl" value="false"/>
+                <entry key="hibernate.connection.release_mode" value="auto"/>
+                <!--
+                <entry key="hibernate.dialect" value="${hibernate.dialect}" />
+                <entry key="hibernate.current_session_context_class" value="jta"/>
+                <entry key="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup"/>
+                <entry key="hibernate.transaction.factory_class" value="com.atomikos.icatch.jta.hibernate3.AtomikosJTATransactionFactory"/>
+                <entry key="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JOTMTransactionManagerLookup"/>
+                <entry key="hibernate.transaction.flush_before_completion" value="true"/>
+                <entry key="hibernate.transaction.auto_close_session" value="true"/>
+                <entry key="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.EhCacheProvider"/>
+                -->
+                <entry key="hibernate.cache.use_structured_entries" value="${hibernate.cache.use_structured_entries}"/>
+                <entry key="hibernate.cache.use_second_level_cache" value="${hibernate.cache.use_second_level_cache}"/>
+                <entry key="hibernate.cache.use_query_cache" value="${hibernate.cache.use_query_cache}"/>
+                <entry key="hibernate.cache.region.factory_class" value="net.sf.ehcache.hibernate.EhCacheRegionFactory"/>
+                <entry key="net.sf.ehcache.configurationResourceName" value="${ehcache.config}"/>
+            </map>
+        </property>
+        
+    </bean>
+    
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="${ehcache.config}"/>
+        <property name="shared" value="true" />
+    </bean>
+    <bean id="testcache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager" />
+    </bean>
+        
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+            
+        <property name="configuration">
+            <bean class="org.apache.activemq.camel.component.ActiveMQConfiguration">
+                <property name="brokerURL" value="tcp://localhost:61616" />
+                <property name="userName" value="system" />
+                <property name="password" value="manager" />
+                <property name="usePooledConnection" value="true" />
+            </bean>
+        </property>
+    </bean>
+</beans>

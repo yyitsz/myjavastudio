@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:repo="http://www.springframework.org/schema/data/repository"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:util=" http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+                            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+                            http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+                            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+                            http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd"
+>
+
+    <context:component-scan base-package="tools.sqltool">
+    </context:component-scan>
+    <context:annotation-config/>
+    <tx:annotation-driven proxy-target-class="true"/> 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!--        <property name="locations">
+            <value></value>
+        </property>-->
+        <!-- Default properties -->
+        <property name="properties">
+            <value>                
+                jdbc.driver=oracle.jdbc.pool.OracleDataSource
+                jdbc.url=jdbc:oracle:thin:@10.100.53.97:1521:orcl11g2
+                jdbc.user.src=app
+                jdbc.password.src=appabc123
+                jdbc.minPoolSize=0
+                jdbc.maxPoolSize=8
+                jdbc.initialPoolSize=4
+                jdbc.connectionWaitTimeout=300
+                jdbc.maxIdleTime=3600
+                
+                jdbc.user.dest=mfbmsapp
+                jdbc.password.dest=mfbmsappabc123
+            </value>
+        </property>
+    </bean>
+    
+
+    <bean id="destDataSource" class="oracle.ucp.jdbc.PoolDataSourceFactory" factory-method="getPoolDataSource">
+        <property name="connectionFactoryClassName" value="${jdbc.driver}"/>
+        <property name="connectionPoolName" value="destPool"/>
+        <property name="URL" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.user.dest}"/>
+        <property name="password" value="${jdbc.password.dest}"/>
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+        <property name="connectionWaitTimeout" value="${jdbc.connectionWaitTimeout}"/>
+        <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+    </bean>
+   
+   <bean id="srcDataSource" class="oracle.ucp.jdbc.PoolDataSourceFactory" factory-method="getPoolDataSource">
+        <property name="connectionFactoryClassName" value="${jdbc.driver}"/>
+        <property name="connectionPoolName" value="srcPool"/>
+        <property name="URL" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.user.src}"/>
+        <property name="password" value="${jdbc.password.src}"/>
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+        <property name="connectionWaitTimeout" value="${jdbc.connectionWaitTimeout}"/>
+        <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+    </bean>
+ 
+</beans>

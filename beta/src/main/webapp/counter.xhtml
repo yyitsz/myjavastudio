@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./WEB-INF/templates/template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form id="counter">
+            <p:socket channel="/counter">
+                <p:ajax event="message" update="counter:out" />
+            </p:socket>
+            <h:outputText id="out" value="#{globalCounterBean.counter}" styleClass="display"/>
+            <h:commandButton value="Click" actionListener="#{globalCounterBean.increment()}"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

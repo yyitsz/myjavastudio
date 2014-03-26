@@ -1,0 +1,235 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+    <parent>
+        <groupId>org.yy.studyapp</groupId>
+        <artifactId>studyapp-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../studyapp-parent</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+ 
+    <artifactId>studyapp-main</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Study Application Main</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ehcache.config>/ehcache.xml</ehcache.config>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.yy.studyapp</groupId>
+            <artifactId>studyapp-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.yy.studyapp</groupId>
+            <artifactId>studyapp-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.yy.studyapp</groupId>
+            <artifactId>studyapp-repository</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.yy.studyapp</groupId>
+            <artifactId>studyapp-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.yy.studyapp</groupId>
+            <artifactId>studyapp-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+
+        </dependency> 
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+               
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-terracotta</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+        </dependency>
+        
+    </dependencies>
+    <build>
+      
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+            </plugin>
+
+            
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+<!--                <version>2.2-beta-5</version>-->
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/resources/assemblies/appassembly.xml</descriptor>
+                    </descriptors>
+<!--                            <descriptorRefs>
+                                <descriptorRef>appassembly</descriptorRef>
+                            </descriptorRefs>-->
+                           
+                            
+                </configuration>
+                <executions> 
+                    <execution> 
+                        <id>make-assembly</id> 
+                        <phase>install</phase> 
+                        <goals> 
+                            <goal>single</goal> 
+                        </goals> 
+                        
+
+                    </execution> 
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <repositoryLayout>flat</repositoryLayout>
+          <!-- Set the target configuration directory to be used in the bin scripts -->
+                    <configurationDirectory>conf</configurationDirectory>
+                    <repositoryName>lib</repositoryName>
+          <!-- Copy the contents from "/src/main/config" to the target
+               configuration directory in the assembled application -->
+                    <copyConfigurationDirectory>true</copyConfigurationDirectory>
+          <!-- Include the target configuration directory in the beginning of
+               the classpath declaration in the bin scripts -->
+                    <includeConfigurationDirectoryInClasspath>false</includeConfigurationDirectoryInClasspath>
+          <!-- prefix all bin files with "mycompany" -->
+                    <binPrefix>myapp</binPrefix>
+                    <target>${project.build.directory}</target>
+          <!-- set alternative assemble directory -->
+                    <assembleDirectory>${project.build.directory}/myapp-assemble</assembleDirectory>
+  
+          <!-- Generate bin scripts for windows and unix pr default -->
+<!--                    <platforms>
+                        <platform>windows</platform>
+                        <platform>unix</platform>
+                    </platforms>-->
+                    <programs>
+                        <program>
+                            <mainClass>org.yy.studyapp.core.App</mainClass>
+                            <name>${project.actifactId}</name>
+              <!-- Only generate windows bat script for this application -->
+<!--                            <platforms>
+                                <platform>windows</platform>
+                                <platform>unix</platform>
+                            </platforms>-->
+                        </program>
+                       
+                    </programs>
+                    
+                    <defaultJvmSettings>
+                        <initialMemorySize>256M</initialMemorySize>
+                        <maxMemorySize>256M</maxMemorySize>
+                        <systemProperties>
+                            <systemProperty>log4j.configuration=file:conf/log4j.xml</systemProperty>
+                            <systemProperty>com.sun.management.jmxremote</systemProperty>
+                            <systemProperty>com.sun.management.jmxremote.port=8999</systemProperty>
+                            <systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
+                            <systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty>
+                        </systemProperties>
+                        <extraArguments>
+                            <extraArgument>-server</extraArgument>
+                        </extraArguments>
+                    </defaultJvmSettings>
+
+                    <daemons>
+                        <daemon>
+                            <id>${project.artifactId}</id>
+                            <mainClass>org.yy.studyapp.core.App</mainClass>
+                            <platforms>
+                                <platform>jsw</platform>
+                            </platforms>
+                            <generatorConfigurations>
+                                <generatorConfiguration>
+                                    <generator>jsw</generator>
+                                    <includes>
+                                        <include>windows-x86-32</include>
+                                        <include>linux-x86-32</include>
+                                        <include>linux-x86-64</include>
+                                       
+                                        <include>macosx-universal-32</include>
+                                    </includes>
+                                    <configuration>
+<!--                                        <property>
+                                            <name>configuration.directory.in.classpath.first</name>
+                                            <value>conf</value>
+                                        </property>-->
+                                        <property>
+                                            <name>set.default.REPO_DIR</name>
+                                            <value>lib</value>
+                                        </property>
+                                        <property>
+                                            <name>wrapper.logfile</name>
+                                            <value>logs/${project.artifactId}.wrapper.log</value>
+                                        </property>
+                                        <property>
+                                            <name>run.as.user.envvar</name>
+                                            <value>yyi</value>
+                                        </property>
+                                    </configuration>
+                                </generatorConfiguration>
+                            </generatorConfigurations>
+                        </daemon>
+                    </daemons>
+                </configuration>
+               
+                <executions>
+                    
+                    <execution>
+                        <id>generate-jsw-scripts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>generate-daemons</goal>
+                        </goals>
+                    </execution>
+                </executions>
+    
+            </plugin>
+        </plugins>
+    </build>
+   
+</project>

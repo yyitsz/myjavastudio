@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menu name="contactMenu" title="Contact" location="?Contact">
+
+	<Displayer name="TabbedMenu"
+		type="net.sf.navigator.displayer.TabbedMenuDisplayer" />
+	<Item name="email" title="E-Mail" location="?Email" />
+	<Item name="phone" title="Phone" location="?Phone" />
+</Menu>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+		location="D:/java/.m2/repository/mysql/mysql-connector-java/5.1.5/mysql-connector-java-5.1.5.jar" />
+
+	<context id="MySqlTables" targetRuntime="MyBatis3">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/studymybatis" userId="root"
+			password="">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="org.yy.studymybatis.model"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="org.yy.studymybatis.model"
+			targetProject="src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="org.yy.studymybatis.dao" targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table schema="studymybatis" tableName="Blog" domainObjectName="Blog">
+			<property name="useActualColumnNames" value="true" />
+
+			<generatedKey column="id" sqlStatement="SELECT last_insert_id() AS id"
+				identity="true" />
+			<!--<columnOverride column="title" property="title" />
+    -->
+		</table>
+		<table schema="studymybatis" tableName="Author" domainObjectName="Author">
+			<property name="useActualColumnNames" value="true" />
+
+			<generatedKey column="id" sqlStatement="SELECT last_insert_id() AS id"
+				identity="true" />
+			<!--<columnOverride column="title" property="title" />
+    -->
+		</table>
+		<table schema="studymybatis" tableName="Post" domainObjectName="Post">
+			<property name="useActualColumnNames" value="true" />
+
+			<generatedKey column="id" sqlStatement="SELECT last_insert_id() AS id"
+				identity="true" />
+			<!--<columnOverride column="title" property="title" />
+    -->
+		</table>
+		<table schema="studymybatis" tableName="Tag" domainObjectName="Tag">
+			<property name="useActualColumnNames" value="true" />
+
+			<generatedKey column="id" sqlStatement="SELECT last_insert_id() AS id"
+				identity="true" />
+			<!--<columnOverride column="title" property="title" />
+    -->
+		</table>
+
+	</context>
+</generatorConfiguration>
+

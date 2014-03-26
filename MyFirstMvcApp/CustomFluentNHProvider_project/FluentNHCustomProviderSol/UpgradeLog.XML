@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="FluentNHCustomProviderSol">
+</Property><Property Name="Solution File" Value="D:\Bak\My Documents\Visual Studio 2010\Projects\MyFirstMvcApp\CustomFluentNHProvider_project\FluentNHCustomProviderSol\FluentNHCustomProviderSol.sln">
+</Property><Property Name="Date" Value="2011年1月5日">
+</Property><Property Name="Time" Value="11:12">
+</Property></Properties><Event ErrorLevel="0" Project="FNHCustomProviders" Source="..\FNHMembershipProvider\FNHCustomProviders.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="FNHCustomProviders" Source="..\FNHMembershipProvider\FNHCustomProviders.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="FNHCustomProviders.SampleApp" Source="..\FNHCustomProviders.SampleApp\FNHCustomProviders.SampleApp.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="FNHCustomProviders.SampleApp" Source="..\FNHCustomProviders.SampleApp\FNHCustomProviders.SampleApp.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="FluentNHCustomProviderSol.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="FluentNHCustomProviderSol.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="FNHCustomProviders" Source="..\FNHMembershipProvider\FNHCustomProviders.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="FNHCustomProviders.SampleApp" Source="..\FNHCustomProviders.SampleApp\FNHCustomProviders.SampleApp.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
