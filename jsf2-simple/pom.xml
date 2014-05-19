@@ -142,32 +142,32 @@
             <version>${deltaspike.version}</version>
             <scope>runtime</scope>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.apache.deltaspike.modules</groupId>-->
-            <!--<artifactId>deltaspike-test-control-module-api</artifactId>-->
-            <!--<version>${deltaspike.version}</version>-->
-            <!--<scope>compile</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-test-control-module-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>compile</scope>
+        </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.apache.deltaspike.modules</groupId>-->
-            <!--<artifactId>deltaspike-test-control-module-impl</artifactId>-->
-            <!--<version>${deltaspike.version}</version>-->
-            <!--<scope>runtime</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.deltaspike.modules</groupId>-->
-            <!--<artifactId>deltaspike-scheduler-module-api</artifactId>-->
-            <!--<version>${deltaspike.version}</version>-->
-            <!--<scope>compile</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-test-control-module-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-scheduler-module-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>compile</scope>
+        </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.apache.deltaspike.modules</groupId>-->
-            <!--<artifactId>deltaspike-scheduler-module-impl</artifactId>-->
-            <!--<version>${deltaspike.version}</version>-->
-            <!--<scope>runtime</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-scheduler-module-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.deltaspike.cdictrl</groupId>
             <artifactId>deltaspike-cdictrl-api</artifactId>
@@ -186,6 +186,16 @@
             <!--<version>2.1.2.Final</version>-->
             <!--<scope>runtime</scope>-->
         <!--</dependency>-->
+         <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>1.7</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -213,6 +223,6 @@
         </plugins>
     </build>
     <properties>
-        <deltaspike.version>0.5</deltaspike.version>
+        <deltaspike.version>0.7</deltaspike.version>
     </properties>
 </project>

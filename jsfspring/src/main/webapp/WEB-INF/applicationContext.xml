@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:repo="http://www.springframework.org/schema/data/repository"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+                            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+                            http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd                            
+                            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+                            http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd
+                             http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd"
+>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!-- Default properties -->
+        <property name="properties">
+            <value>
+                jdbc.driver=org.h2.Driver
+                jdbc.url=jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
+                jdbc.user=sa
+                jdbc.password=
+                jdbc.minPoolSize=0
+                jdbc.maxPoolSize=8
+                jdbc.initialPoolSize=4
+                jdbc.connectionWaitTimeout=300
+                jdbc.maxIdleTime=3600
+                hibernate.dialect=org.hibernate.dialect.H2Dialect
+                hibernate.showsql=true
+                jpa.generateDdl=true
+            </value>
+        </property>
+    </bean>
+
+
+    <context:component-scan base-package="org.yy">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+    <context:annotation-config/>
+
+    
+    <bean id="entityManagerFactory"  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="${hibernate.showsql}" />
+                <property name="generateDdl" value="${jpa.generateDdl}" />
+                <property name="databasePlatform" value="${hibernate.dialect}" />
+            </bean>
+        </property>
+
+        <property name="jpaPropertyMap" ref="jpaPropertyMap" />
+        <property name="dataSource" ref="bmsDs" />
+        <property name="packagesToScan" value="org.yy.model" />
+    </bean>
+
+
+    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref bean="bmsDs"/>
+        </constructor-arg>
+    </bean>
+
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+        <property name="defaultPersistenceUnitName" value="mss"/>
+    </bean>
+
+
+    <aop:aspectj-autoproxy/>
+
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean"/>
+    
+    <!-- cache -->
+    <!--<cache:annotation-driven />-->
+    <!--<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">-->
+        <!--<property name="configLocation" value="classpath:ehcache.xml" />-->
+        <!--<property name="shared" value="true" />-->
+    <!--</bean>-->
+    <!--<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">-->
+        <!--<property name="cacheManager" ref="ehcacheManager"/>-->
+    <!--</bean>-->
+
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <jpa:repositories base-package="org.yy"
+                      entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"
+                      repository-impl-postfix="Ext">
+        <repo:include-filter  type="annotation" expression="org.springframework.stereotype.Repository" />
+    </jpa:repositories>
+
+    <bean id="bmsDs" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+        <property name="targetDataSource" ref="demoDataSourceTarget"/>
+    </bean>
+    <bean id="demoDataSourceTarget" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+        <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+        <property name="testConnectionOnCheckin" value="false"/>
+        <property name="testConnectionOnCheckout" value="false"/>
+        <property name="idleConnectionTestPeriod" value="18000"/>
+    </bean>
+
+    <bean id="jpaPropertyMap" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="targetMapClass">
+            <value>java.util.HashMap</value>
+        </property>
+        <property name="sourceMap">
+            <map>
+                <entry key="hibernate.dialect" value="${hibernate.dialect}" />
+                <!--entry key="hibernate.hbm2ddl.auto" value="validate" /-->
+                <entry key="hibernate.hbm2ddl.auto" value="create" />
+                <entry key="hibernate.jdbc.batch_size" value="30"/>
+                <!--entry key="hibernate.transaction.flush_before_completion" value="true" /-->
+                <!--entry key="hibernate.transaction.auto_close_session" value="true" /-->
+            </map>
+        </property>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+        <property name="dataSource" ref="bmsDs" />
+    </bean>
+
+</beans>
