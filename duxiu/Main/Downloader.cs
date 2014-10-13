@@ -149,7 +149,7 @@ namespace Mouse.Main
                         }
                         else
                         {
-                            //result.MaxNum[key] = (i - 1);
+                            result.MaxNum[key] = (i - 1);
                             break;
                         }
                     }

@@ -31,6 +31,7 @@ namespace Mouse.Main
             MaxNum[PageType.con] = 50;
         }
 
+
         public void AddEffectivePageResult(PageParseResult pageResult)
         {
             if (EffectivePages.ContainsKey(pageResult.PageName))
