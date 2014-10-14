@@ -247,7 +247,7 @@ namespace Mouse.Main
         private void ParseNextUrl()
         {
             AuxPageParseResult auxResult = parseContext.GetUnfinishedAuxPage();
-            if (auxResult != null)
+            if (chkAuxPage.Checked && auxResult != null)
             {
                 this.Download(auxResult);
                 return;
@@ -450,7 +450,7 @@ namespace Mouse.Main
                     param.Html = this.webBrowser.Document.Body.InnerHtml;
                     param.Uri = this.webBrowser.Url;
                     param.Path = getBaseFolder();
-                    param.ParseAuxPage = chkAuxPage.Checked;
+                    param.ParseAuxPage = true;// chkAuxPage.Checked;
                     result = new BookParseResult();
                     result.BookInfoParam = param;
                     ParseHtml(result);

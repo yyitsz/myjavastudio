@@ -60,6 +60,9 @@ namespace Mouse.Main
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtUrl = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMax = new System.Windows.Forms.NumericUpDown();
+            this.txtMin = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.chkUseProxy = new System.Windows.Forms.CheckBox();
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -70,14 +73,13 @@ namespace Mouse.Main
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtMin = new System.Windows.Forms.NumericUpDown();
-            this.txtMax = new System.Windows.Forms.NumericUpDown();
             this.mnuMainMenu.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMin)).BeginInit();
             this.staBar.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,8 +88,6 @@ namespace Mouse.Main
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMax)).BeginInit();
             this.SuspendLayout();
             // 
             // webBrowser
@@ -250,7 +250,7 @@ namespace Mouse.Main
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(336, 18);
+            this.btnReset.Location = new System.Drawing.Point(316, 18);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(68, 35);
             this.btnReset.TabIndex = 9;
@@ -307,6 +307,31 @@ namespace Mouse.Main
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "下载设置";
+            // 
+            // txtMax
+            // 
+            this.txtMax.Location = new System.Drawing.Point(331, 39);
+            this.txtMax.Name = "txtMax";
+            this.txtMax.Size = new System.Drawing.Size(50, 21);
+            this.txtMax.TabIndex = 27;
+            this.txtMax.ValueChanged += new System.EventHandler(this.txtMax_ValueChanged);
+            // 
+            // txtMin
+            // 
+            this.txtMin.Location = new System.Drawing.Point(258, 39);
+            this.txtMin.Name = "txtMin";
+            this.txtMin.Size = new System.Drawing.Size(50, 21);
+            this.txtMin.TabIndex = 26;
+            this.txtMin.ValueChanged += new System.EventHandler(this.txtMin_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(181, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Sleeping:";
             // 
             // chkUseProxy
             // 
@@ -419,31 +444,6 @@ namespace Mouse.Main
             this.splitContainer2.SplitterWidth = 6;
             this.splitContainer2.TabIndex = 0;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(181, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Sleeping:";
-            // 
-            // txtMin
-            // 
-            this.txtMin.Location = new System.Drawing.Point(258, 39);
-            this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(50, 21);
-            this.txtMin.TabIndex = 26;
-            this.txtMin.ValueChanged += new System.EventHandler(this.txtMin_ValueChanged);
-            // 
-            // txtMax
-            // 
-            this.txtMax.Location = new System.Drawing.Point(331, 39);
-            this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(50, 21);
-            this.txtMax.TabIndex = 27;
-            this.txtMax.ValueChanged += new System.EventHandler(this.txtMax_ValueChanged);
-            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(951, 528);
@@ -462,6 +462,8 @@ namespace Mouse.Main
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMin)).EndInit();
             this.staBar.ResumeLayout(false);
             this.staBar.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -471,8 +473,6 @@ namespace Mouse.Main
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
