@@ -18,6 +18,6 @@ logs
 *.log
 *.dll
 *.exe
-
+*.suo
 *.iml
-
+*.user
