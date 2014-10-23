@@ -16,7 +16,7 @@ logs
 *.war
 *.ear
 *.log
-*.dll
+#*.dll
 *.exe
 *.suo
 *.iml
