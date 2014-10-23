@@ -314,6 +314,11 @@ namespace Mouse.Main
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(50, 21);
             this.txtMax.TabIndex = 27;
+            this.txtMax.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.txtMax.ValueChanged += new System.EventHandler(this.txtMax_ValueChanged);
             // 
             // txtMin

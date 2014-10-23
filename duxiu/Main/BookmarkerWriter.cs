@@ -13,7 +13,7 @@ namespace Mouse.Main
 
         public void Write(AuxPageParseResult result)
         {
-            if (result == null || result.BookName == null)
+            if (result == null || result.BookName == null || result.EffectivePages.Count == 0)
             {
                 return;
             }

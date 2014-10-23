@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{321084EC-316E-4C9C-ABBC-D1AE5D434938}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimpleCrm</RootNamespace>
+    <AssemblyName>SimpleCrm</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>SimpleCrm.Program</StartupObject>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CSHARP30</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Keyboard, Version=11.7.0.6, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.Schedule, Version=11.7.0.6, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=11.7.0.6, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.DotNetBar.SuperGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=11.7.0.6, Culture=neutral, PublicKeyToken=c39c3242a43eee2b" />
+    <Reference Include="DevComponents.Instrumentation, Version=11.7.0.6, Culture=neutral, PublicKeyToken=bc4a9d761ea44ef0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.Instrumentation.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.SuperGrid.Design, Version=11.7.0.6, Culture=neutral, PublicKeyToken=1fea3f5d8d482bff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.SuperGrid.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.TreeGX, Version=11.7.0.6, Culture=neutral, PublicKeyToken=cfcbd7476b2389d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.TreeGX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.94.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomerForm\CustomerBaseDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm\CustomerBaseDetailForm.Designer.cs">
+      <DependentUpon>CustomerBaseDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerForm\CustomerDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm\CustomerDetailForm.Designer.cs">
+      <DependentUpon>CustomerDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerForm\CustomerMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm\CustomerMainForm.Designer.cs">
+      <DependentUpon>CustomerMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerForm\FollowUpRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm\FollowUpRecordForm.Designer.cs">
+      <DependentUpon>FollowUpRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerForm\UserControls\CustomerBaseInfoUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerForm\UserControls\CustomerBaseInfoUC.Designer.cs">
+      <DependentUpon>CustomerBaseInfoUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\InsurancePolicyResultDto.cs" />
+    <Compile Include="DTO\PageSearchResultListDto.cs" />
+    <Compile Include="DTO\CustomerSearchParamDto.cs" />
+    <Compile Include="DTO\CustomerSearchResultDto.cs" />
+    <Compile Include="DTO\PageSearchParamDto.cs" />
+    <Compile Include="InsuranceForm\InsurancePolicyListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsuranceForm\InsurancePolicyListForm.Designer.cs">
+      <DependentUpon>InsurancePolicyListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceForm\InsurancePolicyDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsuranceForm\InsurancePolicyDetailForm.Designer.cs">
+      <DependentUpon>InsurancePolicyDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\AppException.cs" />
+    <Compile Include="Common\ComboBoxHelper.cs" />
+    <Compile Include="Config\AppConfig.cs" />
+    <Compile Include="CSV\CsvConvertionException.cs" />
+    <Compile Include="CSV\CsvError.cs" />
+    <Compile Include="CSV\CsvImporter.cs" />
+    <Compile Include="CSV\CsvImportException.cs" />
+    <Compile Include="CSV\CsvLineNumberAttribute.cs" />
+    <Compile Include="CSV\CsvObjectConverter.cs" />
+    <Compile Include="CSV\CsvPositionAttribute.cs" />
+    <Compile Include="CSV\DefaultCsvLineParser.cs" />
+    <Compile Include="CSV\DictionaryConverter.cs" />
+    <Compile Include="CSV\ICsvConverter.cs" />
+    <Compile Include="CSV\ICsvDataConverter.cs" />
+    <Compile Include="CSV\ICsvLineParser.cs" />
+    <Compile Include="CSV\SimpleCsvLineParser.cs" />
+    <Compile Include="Manager\ContactInfoManager.cs" />
+    <Compile Include="Manager\AppointmentInfoManager.cs" />
+    <Compile Include="Manager\InsurancePolicyCustomerManager.cs" />
+    <Compile Include="Manager\InsurancePolicyManager.cs" />
+    <Compile Include="Manager\FollowUpRecordManager.cs" />
+    <Compile Include="Manager\LovManager.cs" />
+    <Compile Include="Manager\CustomerManager.cs" />
+    <Compile Include="MasterForm\LovMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterForm\LovMainForm.Designer.cs">
+      <DependentUpon>LovMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ContactInfo.cs" />
+    <Compile Include="Model\AppointmentInfo.cs" />
+    <Compile Include="Model\CustomerRoleType.cs" />
+    <Compile Include="Model\ModelExtension.cs" />
+    <Compile Include="Model\GenderType.cs" />
+    <Compile Include="Model\CustomerStatus.cs" />
+    <Compile Include="Model\Lov.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\FollowUpRecord.cs" />
+    <Compile Include="Model\IChangeTracker.cs" />
+    <Compile Include="Model\InsurancePolicy.cs" />
+    <Compile Include="Model\InsurancePolicyCustomer.cs" />
+    <Compile Include="Model\LovType.cs" />
+    <Compile Include="Model\NotifyBaseModel.cs" />
+    <Compile Include="Model\RelationType.cs" />
+    <Compile Include="ScheduleForm\AppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleForm\AppointmentForm.Designer.cs">
+      <DependentUpon>AppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleForm\AppointmentInfoCache.cs" />
+    <Compile Include="ScheduleForm\ScheduleMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleForm\ScheduleMainForm.designer.cs">
+      <DependentUpon>ScheduleMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityForm\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\ChangePasswordForm.designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityForm\UserDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\UserDetailForm.designer.cs">
+      <DependentUpon>UserDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityForm\UserMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\UserMainForm.Designer.cs">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityForm\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\LoginForm.designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\AppConfigManager.cs" />
+    <Compile Include="Facade\AppFacade.cs" />
+    <Compile Include="Manager\BaseRepo.cs" />
+    <Compile Include="Manager\ConnectionProvider.cs" />
+    <Compile Include="Manager\RefNoManager.cs" />
+    <Compile Include="Manager\SystemParameterManager.cs" />
+    <Compile Include="Manager\UserManager.cs" />
+    <Compile Include="Dapper\SimpleCRUD.cs" />
+    <Compile Include="Dapper\SqlMapper.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\SystemConfig.cs" />
+    <Compile Include="Model\SystemParameter.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserProfile.cs" />
+    <Compile Include="MasterForm\OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterForm\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomerForm\CustomerBaseDetailForm.resx">
+      <DependentUpon>CustomerBaseDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerForm\CustomerDetailForm.resx">
+      <DependentUpon>CustomerDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerForm\CustomerMainForm.resx">
+      <DependentUpon>CustomerMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerForm\FollowUpRecordForm.resx">
+      <DependentUpon>FollowUpRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerForm\UserControls\CustomerBaseInfoUC.resx">
+      <DependentUpon>CustomerBaseInfoUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsuranceForm\InsurancePolicyListForm.resx">
+      <DependentUpon>InsurancePolicyListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsuranceForm\InsurancePolicyDetailForm.resx">
+      <DependentUpon>InsurancePolicyDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterForm\LovMainForm.resx">
+      <DependentUpon>LovMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleForm\AppointmentForm.resx">
+      <DependentUpon>AppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleForm\ScheduleMainForm.resx">
+      <DependentUpon>ScheduleMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\UserDetailForm.resx">
+      <DependentUpon>UserDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\UserMainForm.resx">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterForm\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\DetailMessageBox.resx">
+      <DependentUpon>DetailMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="propb.snippet" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\SimpleCrm.CustomerForm.UserControls.CustomerBaseInfoUC.datasource" />
+    <None Include="Properties\DataSources\SimpleCrm.DTO.CustomerSearchResultDto.datasource" />
+    <None Include="Properties\DataSources\SimpleCrm.DTO.InsurancePolicyResultDto.datasource" />
+    <None Include="Properties\DataSources\SimpleCrm.Model.ContactInfo.datasource" />
+    <None Include="Properties\DataSources\SimpleCrm.Model.Customer.datasource" />
+    <None Include="Properties\DataSources\SimpleCrm.Model.FollowUpRecord.datasource" />
+    <None Include="Properties\DataSources\SimpleCrm.Model.Lov.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Utils\BooleanConverterEx.cs" />
+    <Compile Include="Utils\ComboBoxUtil.cs" />
+    <Compile Include="Utils\ErrorCode.cs" />
+    <Compile Include="Utils\ReadonlyHelper.cs" />
+    <Compile Include="Utils\DataUtil.cs" />
+    <Compile Include="Utils\DetailMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\DetailMessageBox.designer.cs">
+      <DependentUpon>DetailMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DisplayAttribute.cs" />
+    <Compile Include="Utils\ExceptionHelper.cs" />
+    <Compile Include="Utils\FormHelper.cs" />
+    <Compile Include="Utils\MessageBoxHelper.cs" />
+    <Compile Include="Utils\DataBinding.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\RoleExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\PasswordUtil.cs" />
+    <Compile Include="Utils\ValidationHelper.cs" />
+    <Compile Include="Utils\XmlUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WarningIcon.ico" />
+    <None Include="Resources\ErrorIcon.ico" />
+    <None Include="Resources\InfoIcon.ICO" />
+    <None Include="Resources\QuestionIcon.ico" />
+    <None Include="Resources\support.png" />
+    <None Include="Resources\to_do_list.png" />
+    <None Include="Resources\type.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\unlock.png" />
+    <None Include="Resources\upload.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\user_add.png" />
+    <None Include="Resources\user_lock.png" />
+    <None Include="Resources\user_remove.png" />
+    <None Include="Resources\zoom_in.png" />
+    <None Include="Resources\zoom_out.png" />
+    <None Include="Resources\addressbook.png" />
+    <None Include="Resources\alarm.png" />
+    <None Include="Resources\archive.png" />
+    <None Include="Resources\backward.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\configuration.png" />
+    <None Include="Resources\configuration_edit.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\cut.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\email.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\forward.png" />
+    <None Include="Resources\fwd.png" />
+    <None Include="Resources\group.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\installer.png" />
+    <None Include="Resources\lock.png" />
+    <None Include="Resources\maximize.png" />
+    <None Include="Resources\message.png" />
+    <None Include="Resources\messenger.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\movie.png" />
+    <None Include="Resources\network.png" />
+    <None Include="Resources\new_page.png" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\paste.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\phone.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\profile.png" />
+    <None Include="Resources\recycle_bin.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\rewind.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\save_as.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\smiley.png" />
+    <None Include="Resources\sound.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\stop_sign.png" />
+    <Content Include="Resources\alarm_add.png" />
+    <Content Include="Resources\alarm_remove.png" />
+    <Content Include="Resources\animation.png" />
+    <Content Include="Resources\archive_add.png" />
+    <Content Include="Resources\archive_remove.png" />
+    <Content Include="Resources\attachment.png" />
+    <Content Include="Resources\attachment_add.png" />
+    <Content Include="Resources\attachment_remove.png" />
+    <Content Include="Resources\bar_chart.png" />
+    <Content Include="Resources\bar_chart_add.png" />
+    <Content Include="Resources\bar_chart_remove.png" />
+    <Content Include="Resources\binoculars.png" />
+    <None Include="Resources\blue.png" />
+    <Content Include="Resources\calculator.png" />
+    <Content Include="Resources\calendar.png" />
+    <Content Include="Resources\calendar_add.png" />
+    <Content Include="Resources\calendar_edit.png" />
+    <Content Include="Resources\calendar_remove.png" />
+    <Content Include="Resources\cd.png" />
+    <Content Include="Resources\cd_add.png" />
+    <Content Include="Resources\cd_remove.png" />
+    <Content Include="Resources\chart.png" />
+    <Content Include="Resources\chart_add.png" />
+    <Content Include="Resources\chart_remove.png" />
+    <Content Include="Resources\connect.png" />
+    <Content Include="Resources\credit_card.png" />
+    <Content Include="Resources\credit_card_add.png" />
+    <Content Include="Resources\credit_card_remove.png" />
+    <Content Include="Resources\database.png" />
+    <Content Include="Resources\db_add.png" />
+    <Content Include="Resources\db_remove.png" />
+    <Content Include="Resources\digital_camera.png" />
+    <Content Include="Resources\disk_space.png" />
+    <Content Include="Resources\disk_space_add.png" />
+    <Content Include="Resources\disk_space_remove.png" />
+    <Content Include="Resources\fax.png" />
+    <Content Include="Resources\file_add.png" />
+    <Content Include="Resources\file_edit.png" />
+    <Content Include="Resources\file_lock.png" />
+    <Content Include="Resources\file_remove.png" />
+    <Content Include="Resources\file_unlock.png" />
+    <Content Include="Resources\folder.png" />
+    <Content Include="Resources\folder_add.png" />
+    <Content Include="Resources\folder_lock.png" />
+    <Content Include="Resources\folder_remove.png" />
+    <Content Include="Resources\folder_unlock.png" />
+    <Content Include="Resources\group_add.png" />
+    <Content Include="Resources\group_remove.png" />
+    <Content Include="Resources\image_add.png" />
+    <Content Include="Resources\image_remove.png" />
+    <Content Include="Resources\import.png" />
+    <Content Include="Resources\ipod.png" />
+    <Content Include="Resources\local_network.png" />
+    <Content Include="Resources\local_network_add.png" />
+    <Content Include="Resources\local_network_remove.png" />
+    <Content Include="Resources\message_add.png" />
+    <Content Include="Resources\message_edit.png" />
+    <Content Include="Resources\message_remove.png" />
+    <Content Include="Resources\messenger_add.png" />
+    <Content Include="Resources\messenger_remove.png" />
+    <Content Include="Resources\movie_add.png" />
+    <Content Include="Resources\movie_edit.png" />
+    <Content Include="Resources\movie_remove.png" />
+    <Content Include="Resources\network_add.png" />
+    <Content Include="Resources\network_remove.png" />
+    <Content Include="Resources\printer_add.png" />
+    <Content Include="Resources\printer_remove.png" />
+    <Content Include="Resources\profile_add.png" />
+    <Content Include="Resources\profile_edit.png" />
+    <Content Include="Resources\profile_remove.png" />
+    <Content Include="Resources\rss.png" />
+    <Content Include="Resources\rss_add.png" />
+    <Content Include="Resources\rss_remove.png" />
+    <None Include="Resources\schedule.png" />
+    <Content Include="Resources\shopping_cart.png" />
+    <Content Include="Resources\shopping_cart_add.png" />
+    <Content Include="Resources\shopping_cart_remove.png" />
+    <Content Include="Resources\smiley_add.png" />
+    <Content Include="Resources\smiley_remove.png" />
+    <Content Include="Resources\sound_decrease.png" />
+    <Content Include="Resources\sound_increase.png" />
+    <None Include="Resources\today.png" />
+    <None Include="Resources\start.png" />
+    <Content Include="Resources\todo_list_add.png" />
+    <Content Include="Resources\todo_list_remove.png" />
+    <Content Include="Resources\user_unlock.png" />
+    <Content Include="Signin.png" />
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.94.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.94.0\build\net40\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.94.0\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.94.0\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
