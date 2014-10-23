@@ -61,6 +61,7 @@ namespace SimpleCrm.Manager
             IEnumerable<Customer> customers = Connection.GetList<Customer>(new { PrimaryCustomerId = customerId });
 
             PopulateContactInfo(customers);
+            customers.MarkAsPersisted();
             return customers;
         }
 
@@ -97,6 +98,7 @@ namespace SimpleCrm.Manager
             List<Customer> customerList = Connection.Query<Customer>(
                 "Select * from Customer where CustomerId = @CustomerId or PrimaryCustomerId = @CustomerId", new { CustomerId = primaryCustomerId }).ToList();
             PopulateContactInfo(customerList);
+            customerList.MarkAsPersisted();
             return customerList;
         }
 
@@ -109,6 +111,7 @@ namespace SimpleCrm.Manager
             Tuple<String, Object> param = BuildCollectionSql("CustomerId", idList.Cast<object>());
             List<Customer> customerList = Connection.GetList<Customer>(param.Item1, param.Item2).ToList();
             PopulateContactInfo(customerList);
+            customerList.MarkAsPersisted();
             return customerList;
         }
     }

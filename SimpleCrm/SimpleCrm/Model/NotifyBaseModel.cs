@@ -59,7 +59,7 @@ namespace SimpleCrm.Model
             return IsNew() || isUpdated || isDeleted;
         }
 
-        public void MarkAsPersisted()
+        public virtual void MarkAsPersisted()
         {
             if (base.IsNew())
             {
@@ -69,7 +69,7 @@ namespace SimpleCrm.Model
             this.isDeleted = false;
         }
 
-        public void MarkAsUpdated()
+        public virtual void MarkAsUpdated()
         {
             if (base.IsNew())
             {
@@ -79,7 +79,7 @@ namespace SimpleCrm.Model
             this.isDeleted = false;
         }
 
-        public void MarkAsDeleted()
+        public virtual void MarkAsDeleted()
         {
             this.isUpdated = false;
             this.isDeleted = true;

@@ -20,7 +20,9 @@ namespace SimpleCrm.Manager
 
         internal IEnumerable<ContactInfo> GetListByCustomer(long customerId)
         {
-            return Connection.GetList<ContactInfo>(new { CustomerId = customerId });
+            IEnumerable<ContactInfo> list = Connection.GetList<ContactInfo>(new { CustomerId = customerId });
+            list.MarkAsPersisted();
+            return list;
         }
 
         internal IEnumerable<ContactInfo> GetListByCustomer(IEnumerable<long> customerIds)
@@ -29,7 +31,9 @@ namespace SimpleCrm.Manager
                 return new List<ContactInfo>();
             }
             Tuple<String, Object> param = BuildCollectionSql("CustomerId", customerIds.Cast<object>());
-            return Connection.GetList<ContactInfo>(param.Item1, param.Item2);
+            IEnumerable<ContactInfo> list = Connection.GetList<ContactInfo>(param.Item1, param.Item2);
+            list.MarkAsPersisted();
+            return list;
         }
 
        

@@ -19,13 +19,20 @@ namespace SimpleCrm.Manager
 
         public IEnumerable<Lov> GetLovByType(String lovType)
         {
-            return Connection.GetList<Lov>(new { LovType = lovType });
+            IEnumerable<Lov> list = Connection.GetList<Lov>(new { LovType = lovType });
+            list.MarkAsPersisted();
+            return list;
         }
 
 
         public Lov GetLovByTypeAndCode(String lovType, String code)
         {
-            return Connection.GetList<Lov>(new { LovType = lovType, Code = code }).FirstOrDefault();
+            Lov lov = Connection.GetList<Lov>(new { LovType = lovType, Code = code }).FirstOrDefault();
+            if (lov != null)
+            {
+                lov.MarkAsPersisted();
+            }
+            return lov;
         }
 
         protected override void ValidateExists(Lov var)

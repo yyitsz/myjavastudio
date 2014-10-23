@@ -27,11 +27,28 @@ namespace SimpleCrm.Model
 
         public static void MarkAsPersisted(this IEnumerable<NotifyBaseModel> models)
         {
+            if (models == null)
+            {
+                return;
+            }
             models.ForEach(p => p.MarkAsPersisted());
+        }
+
+        public static void MarkAsPersisted(this BaseModel model)
+        {
+            IChangeTracker tracker = model as IChangeTracker;
+            if (tracker != null)
+            {
+                tracker.MarkAsPersisted();
+            }
         }
 
         public static bool IsChanged(this IEnumerable<NotifyBaseModel> models)
         {
+            if (models == null)
+            {
+                return false;
+            }
             return models.Any(m => m.IsChanged());
         }
     }

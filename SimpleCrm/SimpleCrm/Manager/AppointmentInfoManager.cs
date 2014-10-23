@@ -20,8 +20,10 @@ namespace SimpleCrm.Manager
 
         internal IEnumerable<AppointmentInfo> GetListByDateRange(String owner, DateTime startDate, DateTime endDate)
         {
-            return Connection.GetList<AppointmentInfo>("Owner = @Owner and ( StartTime >= @StartDate And StartTime < @EndDate or EndTime >= @StartDate And EndTime < @EndDate ) ",
+             IEnumerable<AppointmentInfo> list = Connection.GetList<AppointmentInfo>("Owner = @Owner and ( StartTime >= @StartDate And StartTime < @EndDate or EndTime >= @StartDate And EndTime < @EndDate ) ",
                 new {Owner = owner,  StartDate = startDate, EndDate = endDate.AddDays(1) });
+             list.MarkAsPersisted();
+             return list;
         }
 
     }

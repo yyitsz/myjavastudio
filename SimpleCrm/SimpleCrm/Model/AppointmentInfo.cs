@@ -6,7 +6,7 @@ using Dapper;
 
 namespace SimpleCrm.Model
 {
-    public class AppointmentInfo : BaseModel
+    public class AppointmentInfo : NotifyBaseModel
     {
         public static string UserCatgory = "User";
         public static String FollowUpCatgory = "FollowUp";

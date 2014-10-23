@@ -41,6 +41,7 @@ namespace SimpleCrm.CustomerForm
             else
             {
                 Customer = AppFacade.Facade.GetCustomer(CustomerId);
+              ;
                 this.dataBindingCustomer.MapToControl(this.Customer);
             }
             Customer spouse = this.Customer.GetSpouse();

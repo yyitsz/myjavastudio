@@ -326,5 +326,14 @@ namespace SimpleCrm.Model
             }
             return this.FamilyMember.FindAll(c => c.RelationWithPrimary != RelationType.Spouse.ToString());
         }
+
+        //public override void MarkAsPersisted()
+        //{
+        //    base.MarkAsPersisted();
+        //    if (Contacts != null)
+        //    {
+        //        Contacts.MarkAsPersisted();
+        //    }
+        //}
     }
 }

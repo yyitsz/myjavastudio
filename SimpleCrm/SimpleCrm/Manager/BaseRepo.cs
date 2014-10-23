@@ -20,12 +20,24 @@ namespace SimpleCrm.Manager
 
         public virtual int Create(Tm entity)
         {
-            return Connection.Insert(entity);
+            int c = Connection.Insert(entity);
+            IChangeTracker tracker = entity as IChangeTracker;
+            entity.MarkAsPersisted();
+            return c;
         }
 
         public virtual int Update(Tm entity)
         {
-            return Connection.Update(entity);
+            IChangeTracker tracker = entity as IChangeTracker;
+
+            int c = 0;
+            if (tracker == null || tracker.IsUpdated())
+            {
+                c = Connection.Update(entity);
+            }
+
+            entity.MarkAsPersisted();
+            return c;
         }
 
         public virtual int Delete(Tm entity)
@@ -35,7 +47,10 @@ namespace SimpleCrm.Manager
 
         public virtual Tm FindOne(Tk id)
         {
-            return Connection.Get<Tm>(id);
+            Tm entity = Connection.Get<Tm>(id);
+            IChangeTracker tracker = entity as IChangeTracker;
+            entity.MarkAsPersisted();
+            return entity;
         }
 
         public virtual int Count(object whereObj)
@@ -69,12 +84,7 @@ namespace SimpleCrm.Manager
             }
             else
             {
-                IChangeTracker tracker = var as IChangeTracker;
-                if (tracker == null || tracker.IsUpdated())
-                {
-                    return this.Update(var);
-                }
-                return 0;
+                return this.Update(var);
             }
 
         }
