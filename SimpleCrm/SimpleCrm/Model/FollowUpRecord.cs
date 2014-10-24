@@ -8,9 +8,35 @@ namespace SimpleCrm.Model
 {
     public class FollowUpRecord : NotifyBaseModel
     {
+
+        private long? followUpRecordId;
         [Key(true)]
-        public long? FollowUpRecordId { get; set; }
-        public long? CustomerId { get; set; }
+        public long? FollowUpRecordId
+        {
+            get { return followUpRecordId; }
+            set
+            {
+                if (value != followUpRecordId)
+                {
+                    followUpRecordId = value;
+                    this.NotifyPropertyChanged(m => m.FollowUpRecordId);
+                }
+            }
+        }
+        private long? customerId;
+        public long? CustomerId
+        {
+            get { return customerId; }
+            set
+            {
+                if (value != customerId)
+                {
+                    customerId = value;
+                    this.NotifyPropertyChanged(m => m.CustomerId);
+                }
+            }
+        }
+
         private DateTime? followDate;
         public DateTime? FollowDate
         {
@@ -20,7 +46,7 @@ namespace SimpleCrm.Model
                 if (value != followDate)
                 {
                     followDate = value;
-                    this.RaisePropertyChanged("FollowDate");
+                    this.NotifyPropertyChanged(m => m.FollowDate);
                 }
             }
         }
@@ -34,7 +60,7 @@ namespace SimpleCrm.Model
                 if (value != content)
                 {
                     content = value;
-                    this.RaisePropertyChanged("Content");
+                    this.NotifyPropertyChanged(m => m.Content);
                 }
             }
         }
@@ -49,7 +75,7 @@ namespace SimpleCrm.Model
                 if (value != intentPhase)
                 {
                     intentPhase = value;
-                    this.RaisePropertyChanged("IntentPhase");
+                    this.NotifyPropertyChanged(m => m.IntentPhase);
                 }
             }
         }
@@ -63,7 +89,7 @@ namespace SimpleCrm.Model
                 if (value != nextFollowUpDate)
                 {
                     nextFollowUpDate = value;
-                    this.RaisePropertyChanged("NextFollowUpDate");
+                    this.NotifyPropertyChanged(m => m.NextFollowUpDate);
                 }
             }
         }
