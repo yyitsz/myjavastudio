@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Configuration;
 using System.Text.RegularExpressions;
 using SimpleCrm.Utils;
+using System.Data;
 
 namespace SimpleCrm.Manager
 {
@@ -28,6 +29,7 @@ namespace SimpleCrm.Manager
             {
                 ((SQLiteConnection)cnn).SetPassword(pwd);
             }
+            cnn.Open();
             return cnn;
 
         }
@@ -60,4 +62,6 @@ namespace SimpleCrm.Manager
             }
         }
     }
+
+
 }

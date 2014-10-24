@@ -74,25 +74,29 @@ namespace SimpleCrm.InsuranceForm
             {
                 relatedCustomerList = AppFacade.Facade.GetRelatedCustomerList(this.PrimaryCustomerId);
                 HashSet<Customer> customerSet = new HashSet<Customer>(new ModelEqualityComparer<Customer>());
-                if (this.insurancePolicy.PolicyHolder != null)
+                if (this.insurancePolicy != null)
                 {
-                    customerSet.Add(this.insurancePolicy.PolicyHolder);
+                    if (this.insurancePolicy.PolicyHolder != null)
+                    {
+                        customerSet.Add(this.insurancePolicy.PolicyHolder);
+                    }
+                    if (this.insurancePolicy.Insured != null)
+                    {
+                        customerSet.Add(this.insurancePolicy.Insured);
+                    }
+                    customerSet.AddRange(this.insurancePolicy.Beneficiaries);
+
+                    if (this.insurancePolicy.PolicyHolder != null && this.insurancePolicy.PolicyHolder == this.insurancePolicy.Insured)
+                    {
+                        chkSameHolderAndInsured.Checked = true;
+                    }
                 }
-                if (this.insurancePolicy.Insured != null)
-                {
-                    customerSet.Add(this.insurancePolicy.Insured);
-                }
-                customerSet.AddRange(this.insurancePolicy.Beneficiaries);
                 customerSet.AddRange(relatedCustomerList);
-                relatedCustomerList = customerSet.ToList();
+                //relatedCustomerList = customerSet.ToList();
 
                 BindRelatedCustomerToComboBox();
             }
 
-            if (this.insurancePolicy.PolicyHolder != null && this.insurancePolicy.PolicyHolder == this.insurancePolicy.Insured)
-            {
-                chkSameHolderAndInsured.Checked = true;
-            }
 
             this.txtCustomerName.Text = this.primaryCustomer.CustomerName;
             this.Text = "保单详细信息 - " + this.primaryCustomer.CustomerName;
