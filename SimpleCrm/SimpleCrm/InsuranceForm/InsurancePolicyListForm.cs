@@ -56,7 +56,7 @@ namespace SimpleCrm.InsuranceForm
 
                 if (column.Name == "colEdit")
                 {
-                    FormHelper.ShowMdiChildForm<InsurancePolicyDetailForm>(() =>
+                    this.ShowMdiChildForm<InsurancePolicyDetailForm>(() =>
                         {
                             InsurancePolicyDetailForm form = new InsurancePolicyDetailForm();
                             form.FormMode = SimpleCrm.FormMode.Edit;
@@ -65,15 +65,22 @@ namespace SimpleCrm.InsuranceForm
                             return form;
                         }
                         , f => f.InsurancePolicyId == insurancePolicyId && f.FormMode == SimpleCrm.FormMode.Edit
+                        , childform =>
+                        {
+                            if (childform.DialogResult == DialogResult.OK) { SearchData(); };
+                        }
                       );
                 }
                 else if (column.Name == "colDelete")
                 {
-
+                    if (MessageBoxHelper.ShowYesNo(ErrorCode.DELETE_POLICY) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        AppFacade.Facade.DeleteInsurancePolicy(insurancePolicyId);
+                    }
                 }
                 else if (column.Name == "colInsurancePolicyNo")
                 {
-                    FormHelper.ShowMdiChildForm<InsurancePolicyDetailForm>(() =>
+                    this.ShowMdiChildForm<InsurancePolicyDetailForm>(() =>
                     {
                         InsurancePolicyDetailForm form = new InsurancePolicyDetailForm();
                         form.FormMode = SimpleCrm.FormMode.View;
@@ -82,7 +89,7 @@ namespace SimpleCrm.InsuranceForm
                         return form;
                     }
                         , f => f.InsurancePolicyId == insurancePolicyId && f.FormMode == SimpleCrm.FormMode.View
-                      );
+                    );
                 }
             }
             catch (Exception ex)
@@ -112,15 +119,19 @@ namespace SimpleCrm.InsuranceForm
         {
             try
             {
-                FormHelper.ShowMdiChildForm<InsurancePolicyDetailForm>(() =>
-                {
-                    InsurancePolicyDetailForm form = new InsurancePolicyDetailForm();
-                    form.FormMode = SimpleCrm.FormMode.Add;
-                    form.PrimaryCustomerId = GetPrimaryCustomerId(); ;
-                    return form;
-                }
-                       , f => f.PrimaryCustomerId == GetPrimaryCustomerId() && f.FormMode == SimpleCrm.FormMode.Add
-                     );
+                this.ShowMdiChildForm<InsurancePolicyDetailForm>(() =>
+                    {
+                        InsurancePolicyDetailForm form = new InsurancePolicyDetailForm();
+                        form.FormMode = SimpleCrm.FormMode.Add;
+                        form.PrimaryCustomerId = GetPrimaryCustomerId(); ;
+                        return form;
+                    }
+                     , f => f.PrimaryCustomerId == GetPrimaryCustomerId() && f.FormMode == SimpleCrm.FormMode.Add
+                    , childform =>
+                    {
+                        if (childform.DialogResult == DialogResult.OK) { SearchData(); };
+                    }
+                    );
             }
             catch (Exception ex)
             {

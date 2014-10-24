@@ -92,7 +92,7 @@ namespace SimpleCrm.InsuranceForm
                     }
                 }
                 customerSet.AddRange(relatedCustomerList);
-                //relatedCustomerList = customerSet.ToList();
+                relatedCustomerList = customerSet.ToList();
 
                 BindRelatedCustomerToComboBox();
             }

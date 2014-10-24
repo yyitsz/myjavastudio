@@ -61,27 +61,27 @@ namespace SimpleCrm
 
         private void cmdCustomerManagement_Executed(object sender, EventArgs e)
         {
-            FormHelper.ShowMdiChildForm<CustomerForm.CustomerMainForm>();
+            this.ShowMdiChildForm<CustomerForm.CustomerMainForm>();
         }
 
         private void cmdUserMain_Executed(object sender, EventArgs e)
         {
-            FormHelper.ShowMdiChildForm<UserMainForm>();
+            this.ShowMdiChildForm<UserMainForm>();
         }
 
         private void cmdLovMain_Executed(object sender, EventArgs e)
         {
-            FormHelper.ShowMdiChildForm<LovMainForm>();
+            this.ShowMdiChildForm<LovMainForm>();
         }
 
         private void cmbAddCustomer_Executed(object sender, EventArgs e)
         {
-            FormHelper.ShowMdiChildForm<CustomerForm.CustomerDetailForm>();
+            this.ShowMdiChildForm<CustomerForm.CustomerDetailForm>();
         }
 
         private void cmdScheduleMain_Executed(object sender, EventArgs e)
         {
-            FormHelper.ShowMdiChildForm<ScheduleMainForm>();
+            this.ShowMdiChildForm<ScheduleMainForm>();
         }
     }
 }

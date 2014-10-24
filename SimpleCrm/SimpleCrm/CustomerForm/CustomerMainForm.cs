@@ -105,7 +105,7 @@ namespace SimpleCrm.CustomerForm
             }
             else if (column.Name == "colIP")
             {
-                FormHelper.ShowMdiChildForm<InsurancePolicyListForm>(() =>
+                this.ShowMdiChildForm<InsurancePolicyListForm>(() =>
                     {
                         InsurancePolicyListForm form = new InsurancePolicyListForm();
                         form.CustomerDto = dto;

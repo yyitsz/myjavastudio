@@ -422,5 +422,14 @@ namespace SimpleCrm.Facade
                 mgr.Save(policy);
             });
         }
+
+        internal void DeleteInsurancePolicy(long insurancePolicyId)
+        {
+            ExecutedInTx(conn =>
+            {
+                InsurancePolicyManager mgr = new InsurancePolicyManager(conn);
+                mgr.Delete(insurancePolicyId);
+            });
+        }
     }
 }

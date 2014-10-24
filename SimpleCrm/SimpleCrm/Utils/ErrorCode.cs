@@ -9,6 +9,7 @@ namespace SimpleCrm.Utils
     {
         public static String DATA_CHANGED = "数据已经被修改，是否放弃修改？";
         public static String DELETE_REC = "是否继续删除数据？";
+        public static String DELETE_POLICY = "是否删除保单？注意，保单删除之后，相关的客户信息都没有被删除。";
         public static String SAVE_SUCCESS = "保存成功！";
     }
 }

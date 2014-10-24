@@ -9,7 +9,7 @@ namespace SimpleCrm.Utils
 {
     public static class FormHelper
     {
-        public static void ShowMdiChildForm<T>()
+        public static void ShowMdiChildForm<T>(this Form owner)
            where T : Form, new()
         {
             T form = FindOpenedForm<T>();
@@ -31,7 +31,7 @@ namespace SimpleCrm.Utils
             }
         }
 
-        public static void ShowMdiChildForm<T>(Func<T> creator, Predicate<T> predicate = null, Action<T> action = null)
+        public static void ShowMdiChildForm<T>(this Form owner, Func<T> creator, Predicate<T> predicate = null, Action<T> action = null)
    where T : Form
         {
             T form = FindOpenedForm(predicate);
@@ -44,7 +44,13 @@ namespace SimpleCrm.Utils
                 form.Show();
                 if (action != null)
                 {
-                    form.FormClosed += (sender, e) => action((T)sender);
+                    form.FormClosed += (sender, e) =>
+                    {
+                        if (owner.IsDisposed == false)
+                        {
+                            WindowsFormsSynchronizationContext.Current.Post(o => action((T)o), sender);
+                        }
+                    };
                 }
             }
             else
