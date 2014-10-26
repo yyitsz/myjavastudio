@@ -119,11 +119,14 @@
     <Compile Include="CustomerForm\UserControls\CustomerBaseInfoUC.Designer.cs">
       <DependentUpon>CustomerBaseInfoUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="DTO\BaseModel.cs" />
+    <Compile Include="DTO\SearchPendingItemParamDto.cs" />
     <Compile Include="DTO\InsurancePolicyResultDto.cs" />
     <Compile Include="DTO\PageSearchResultListDto.cs" />
     <Compile Include="DTO\CustomerSearchParamDto.cs" />
     <Compile Include="DTO\CustomerSearchResultDto.cs" />
     <Compile Include="DTO\PageSearchParamDto.cs" />
+    <Compile Include="DTO\PendingItemDto.cs" />
     <Compile Include="InsuranceForm\InsurancePolicyListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +169,7 @@
     <Compile Include="CSV\SimpleCsvLineParser.cs" />
     <Compile Include="Manager\ContactInfoManager.cs" />
     <Compile Include="Manager\AppointmentInfoManager.cs" />
+    <Compile Include="Manager\PendingItemManager.cs" />
     <Compile Include="Manager\InsurancePolicyCustomerManager.cs" />
     <Compile Include="Manager\InsurancePolicyManager.cs" />
     <Compile Include="Manager\FollowUpRecordManager.cs" />
@@ -179,6 +183,8 @@
     </Compile>
     <Compile Include="Model\ContactInfo.cs" />
     <Compile Include="Model\AppointmentInfo.cs" />
+    <Compile Include="Model\INotifiable.cs" />
+    <Compile Include="Model\PendingItem.cs" />
     <Compile Include="Model\CustomerRoleType.cs" />
     <Compile Include="Model\ModelExtension.cs" />
     <Compile Include="Model\GenderType.cs" />
@@ -191,7 +197,14 @@
     <Compile Include="Model\InsurancePolicyCustomer.cs" />
     <Compile Include="Model\LovType.cs" />
     <Compile Include="Model\NotifyBaseModel.cs" />
+    <Compile Include="Model\PendingItemCategory.cs" />
     <Compile Include="Model\RelationType.cs" />
+    <Compile Include="PendingItemForm\PendingItemFormListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PendingItemForm\PendingItemFormListForm.Designer.cs">
+      <DependentUpon>PendingItemFormListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScheduleForm\AppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +295,9 @@
     <EmbeddedResource Include="MasterForm\LovMainForm.resx">
       <DependentUpon>LovMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PendingItemForm\PendingItemFormListForm.resx">
+      <DependentUpon>PendingItemFormListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScheduleForm\AppointmentForm.resx">
       <DependentUpon>AppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +333,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="Properties\DataSources\SimpleCrm.DTO.PendingItemDto.datasource" />
+    <None Include="tryh.snippet" />
     <None Include="propb.snippet" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SimpleCrm.CustomerForm.UserControls.CustomerBaseInfoUC.datasource" />

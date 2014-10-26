@@ -6,18 +6,19 @@ using System.Linq.Expressions;
 using SimpleCrm.Model;
 using SimpleCrm.Utils;
 using System.Linq;
+using System.ComponentModel;
 
 namespace SimpleCrm.Model
 {
     public static class ModelExtension
-    {       
-        public static void NotifyPropertyChanged<T, TProperty>(this T model, Expression<Func<T, TProperty>> expression) where T : NotifyBaseModel
+    {
+        public static void NotifyPropertyChanged<T, TProperty>(this T model, Expression<Func<T, TProperty>> expression) where T : INotifiable
         {
             var memberExpression = expression.Body as MemberExpression;
             if (memberExpression != null)
             {
                 string propertyName = memberExpression.Member.Name;
-                model.RaisePropertyChanged(propertyName);
+                model.NotifyPropertyChanged(propertyName);
             }
             else
             {

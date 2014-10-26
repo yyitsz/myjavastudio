@@ -9,6 +9,7 @@ using SimpleCrm.Utils;
 using System.IO;
 using System.Linq;
 using SimpleCrm.Manager;
+using SimpleCrm.DTO;
 
 namespace SimpleCrm.Facade
 {
@@ -429,6 +430,16 @@ namespace SimpleCrm.Facade
             {
                 InsurancePolicyManager mgr = new InsurancePolicyManager(conn);
                 mgr.Delete(insurancePolicyId);
+            });
+        }
+
+        internal List<DTO.PendingItemDto> SearchBirthdayPendingItems(PendingItemCategory pendingItemCategory, DateTime fromDate, DateTime toDate)
+        {
+            return ExecutedInTx(conn =>
+            {
+                PendingItemManager mgr = new PendingItemManager(conn);
+                SearchPendingItemParamDto param = new SearchPendingItemParamDto();
+                return mgr.SearchBirthdayPendingItems(param).ToList();
             });
         }
     }

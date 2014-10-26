@@ -166,3 +166,19 @@ CREATE TABLE AppointmentInfo (
 );
 
 create index AppointmentInfoOwnerDateIDX on AppointmentInfo(owner, StartTime, EndTime);
+
+CREATE TABLE PendingItem (
+	PendingItemId integer primary key autoincrement,
+	Category Text(50) not null,
+	RefId integer not null,
+	ActionDate Text(30) not null,
+	HandleResult Text(30),
+	HandleDate Text(30),
+	Remark Text(400),
+	VersionNo Integer,
+	CreateTime Text(30) not null,
+	UpdatedBy Text(50) not null,
+	UpdateTime Text(30) not null
+);
+
+create index PendingItemCategoryRefIdIDX on PendingItem(Category, RefId);

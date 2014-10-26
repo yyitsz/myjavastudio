@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace SimpleCrm.Model
 {
-    public abstract class NotifyBaseModel : BaseModel, INotifyPropertyChanged, IChangeTracker
+    public abstract class NotifyBaseModel : BaseModel, INotifiable, IChangeTracker
     {
         private bool isUpdated = false;
         private bool isDeleted = false;
@@ -29,7 +29,7 @@ namespace SimpleCrm.Model
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public void RaisePropertyChanged(string propertyName)
+        public void NotifyPropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null))

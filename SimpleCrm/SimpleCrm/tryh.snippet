@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>tryh</Title>
+      <Shortcut>tryh</Shortcut>
+      <Description>Code snippet for try catch</Description>
+      <Author>yyi</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Exception Type</ToolTip>
+          <Default>System.Exception</Default>
+        </Literal>
+        <Literal>
+          <ID>ex</ID>
+          <ToolTip>Exception name</ToolTip>
+          <Default>ex</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[try
+{
+	$selected$$end$
+}catch($type$ $ex$)
+{
+    SimpleCrm.Utils.ExceptionHelper.HandleException($ex$);
+}]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
