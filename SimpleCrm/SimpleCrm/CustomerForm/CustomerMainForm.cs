@@ -89,7 +89,7 @@ namespace SimpleCrm.CustomerForm
             }
             if (column.Name == "colEdit")
             {
-                this.ShowNonModalForm<CustomerDetailForm>(() =>
+                this.ShowMdiChildForm<CustomerDetailForm>(() =>
                     {
                         CustomerDetailForm form = new CustomerDetailForm();
                         form.FormMode = SimpleCrm.FormMode.Edit;
@@ -97,6 +97,13 @@ namespace SimpleCrm.CustomerForm
                         return form;
                     }
                     , f => f.CustomerId == customerId && f.FormMode == SimpleCrm.FormMode.Edit
+                   , f =>
+                   {
+                       if (f.DialogResult == System.Windows.Forms.DialogResult.OK)
+                       {
+                           SearchData();
+                       }
+                   }
                   );
             }
             else if (column.Name == "colDelete")
@@ -139,7 +146,7 @@ namespace SimpleCrm.CustomerForm
                         form.Customer = dto;
                         return form;
                     }
-                    , f => (f.Customer.PrimaryCustomerId??f.Customer.CustomerId) == customerId 
+                    , f => (f.Customer.PrimaryCustomerId ?? f.Customer.CustomerId) == customerId
                             && f.FormMode == SimpleCrm.FormMode.Edit
                   );
             }

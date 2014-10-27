@@ -200,6 +200,12 @@
     <Compile Include="Model\NotifyBaseModel.cs" />
     <Compile Include="Model\PendingItemCategory.cs" />
     <Compile Include="Model\RelationType.cs" />
+    <Compile Include="PendingItemForm\PendingItemHandlingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PendingItemForm\PendingItemHandlingForm.Designer.cs">
+      <DependentUpon>PendingItemHandlingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PendingItemForm\PendingItemFormListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterForm\LovMainForm.resx">
       <DependentUpon>LovMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PendingItemForm\PendingItemHandlingForm.resx">
+      <DependentUpon>PendingItemHandlingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PendingItemForm\PendingItemFormListForm.resx">
       <DependentUpon>PendingItemFormListForm.cs</DependentUpon>

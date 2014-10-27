@@ -83,7 +83,16 @@ namespace SimpleCrm.PendingItemForm
 
                 if (column.Name == "colEdit")
                 {
-
+                    this.ShowNonModalForm<PendingItemHandlingForm>(
+                        () =>
+                        {
+                            PendingItemHandlingForm form = new PendingItemHandlingForm();
+                            form.PendingItemDto = dto;
+                            form.FormMode = SimpleCrm.FormMode.Edit;
+                            return form;
+                        }
+                       , f => f.PendingItemDto == dto && f.FormMode == SimpleCrm.FormMode.Edit
+                        );
                 }
                 else if (column.DataPropertyName == "CustomerName")
                 {

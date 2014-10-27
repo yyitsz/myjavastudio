@@ -58,6 +58,7 @@ namespace SimpleCrm.Security
             // btnCancelLogin
             // 
             this.btnCancelLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnCancelLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnCancelLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelLogin.Location = new System.Drawing.Point(192, 147);
             this.btnCancelLogin.Margin = new System.Windows.Forms.Padding(2);
@@ -85,6 +86,7 @@ namespace SimpleCrm.Security
             // btnOkLogin
             // 
             this.btnOkLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOkLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnOkLogin.Location = new System.Drawing.Point(90, 147);
             this.btnOkLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnOkLogin.Name = "btnOkLogin";

@@ -264,7 +264,7 @@ namespace SimpleCrm.Security
             this.txtUserName.Margin = new System.Windows.Forms.Padding(2);
             this.txtUserName.MaxLength = 20;
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(160, 15);
+            this.txtUserName.Size = new System.Drawing.Size(160, 21);
             this.txtUserName.TabIndex = 12;
             this.superValidator.SetValidator1(this.txtUserName, this.requiredFieldValidator2);
             // 
@@ -278,7 +278,7 @@ namespace SimpleCrm.Security
             this.label1.Location = new System.Drawing.Point(37, 90);
             this.label1.Margin = new System.Windows.Forms.Padding(2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 16);
+            this.label1.Size = new System.Drawing.Size(31, 21);
             this.label1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.label1.TabIndex = 10;
             this.label1.Text = "Role";

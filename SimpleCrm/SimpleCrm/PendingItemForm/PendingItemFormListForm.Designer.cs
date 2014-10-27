@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PendingItemListForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbonBarMergeContainer1 = new DevComponents.DotNetBar.RibbonBarMergeContainer();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.btnRefresh = new DevComponents.DotNetBar.ButtonItem();
@@ -46,19 +46,6 @@
             this.tabPending = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
             this.grdFutureResult = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.dataGridViewButtonXColumn1 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
-            this.dataGridViewButtonXColumn2 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
-            this.pendingItemIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actionDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFutureCustomerName = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.colFutureInsurancePolicyNo = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.contentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFutureHandleResult = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
-            this.handleDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remarkDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pendingItemDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiFuture = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
@@ -75,6 +62,18 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiToday = new DevComponents.DotNetBar.TabItem(this.components);
+            this.colEdit = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+            this.pendingItemIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actionDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFutureCustomerName = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.colFutureInsurancePolicyNo = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.contentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFutureHandleResult = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
+            this.handleDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remarkDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ribbonBarMergeContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPending)).BeginInit();
             this.tabPending.SuspendLayout();
@@ -203,8 +202,7 @@
             this.grdFutureResult.AutoGenerateColumns = false;
             this.grdFutureResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdFutureResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewButtonXColumn1,
-            this.dataGridViewButtonXColumn2,
+            this.colEdit,
             this.pendingItemIdDataGridViewTextBoxColumn1,
             this.categoryDataGridViewTextBoxColumn1,
             this.refIdDataGridViewTextBoxColumn1,
@@ -229,123 +227,11 @@
             this.grdFutureResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdFutureResult.Location = new System.Drawing.Point(1, 1);
             this.grdFutureResult.Name = "grdFutureResult";
+            this.grdFutureResult.ReadOnly = true;
             this.grdFutureResult.RowTemplate.Height = 23;
             this.grdFutureResult.Size = new System.Drawing.Size(790, 378);
             this.grdFutureResult.TabIndex = 1;
             this.grdFutureResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResult_CellContentClick);
-            // 
-            // dataGridViewButtonXColumn1
-            // 
-            this.dataGridViewButtonXColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewButtonXColumn1.HeaderText = "";
-            this.dataGridViewButtonXColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewButtonXColumn1.Image")));
-            this.dataGridViewButtonXColumn1.MinimumWidth = 20;
-            this.dataGridViewButtonXColumn1.Name = "dataGridViewButtonXColumn1";
-            this.dataGridViewButtonXColumn1.Text = null;
-            this.dataGridViewButtonXColumn1.Width = 20;
-            // 
-            // dataGridViewButtonXColumn2
-            // 
-            this.dataGridViewButtonXColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewButtonXColumn2.HeaderText = "";
-            this.dataGridViewButtonXColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewButtonXColumn2.Image")));
-            this.dataGridViewButtonXColumn2.MinimumWidth = 20;
-            this.dataGridViewButtonXColumn2.Name = "dataGridViewButtonXColumn2";
-            this.dataGridViewButtonXColumn2.Text = null;
-            this.dataGridViewButtonXColumn2.Width = 20;
-            // 
-            // pendingItemIdDataGridViewTextBoxColumn1
-            // 
-            this.pendingItemIdDataGridViewTextBoxColumn1.DataPropertyName = "PendingItemId";
-            this.pendingItemIdDataGridViewTextBoxColumn1.HeaderText = "PendingItemId";
-            this.pendingItemIdDataGridViewTextBoxColumn1.Name = "pendingItemIdDataGridViewTextBoxColumn1";
-            this.pendingItemIdDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // categoryDataGridViewTextBoxColumn1
-            // 
-            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
-            this.categoryDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // refIdDataGridViewTextBoxColumn1
-            // 
-            this.refIdDataGridViewTextBoxColumn1.DataPropertyName = "RefId";
-            this.refIdDataGridViewTextBoxColumn1.HeaderText = "RefId";
-            this.refIdDataGridViewTextBoxColumn1.Name = "refIdDataGridViewTextBoxColumn1";
-            this.refIdDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // actionDateDataGridViewTextBoxColumn1
-            // 
-            this.actionDateDataGridViewTextBoxColumn1.DataPropertyName = "ActionDate";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Aquamarine;
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.actionDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.actionDateDataGridViewTextBoxColumn1.HeaderText = "发生日期";
-            this.actionDateDataGridViewTextBoxColumn1.Name = "actionDateDataGridViewTextBoxColumn1";
-            this.actionDateDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // colFutureCustomerName
-            // 
-            this.colFutureCustomerName.DataPropertyName = "CustomerName";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Aquamarine;
-            this.colFutureCustomerName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colFutureCustomerName.HeaderText = "客户姓名";
-            this.colFutureCustomerName.Name = "colFutureCustomerName";
-            this.colFutureCustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colFutureCustomerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // colFutureInsurancePolicyNo
-            // 
-            this.colFutureInsurancePolicyNo.DataPropertyName = "InsurancePolicyNo";
-            this.colFutureInsurancePolicyNo.HeaderText = "保单";
-            this.colFutureInsurancePolicyNo.Name = "colFutureInsurancePolicyNo";
-            // 
-            // contentDataGridViewTextBoxColumn1
-            // 
-            this.contentDataGridViewTextBoxColumn1.DataPropertyName = "Content";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Aquamarine;
-            this.contentDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.contentDataGridViewTextBoxColumn1.HeaderText = "提醒内容";
-            this.contentDataGridViewTextBoxColumn1.Name = "contentDataGridViewTextBoxColumn1";
-            this.contentDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // colFutureHandleResult
-            // 
-            this.colFutureHandleResult.DataPropertyName = "HandleResult";
-            this.colFutureHandleResult.DropDownHeight = 106;
-            this.colFutureHandleResult.DropDownWidth = 121;
-            this.colFutureHandleResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colFutureHandleResult.HeaderText = "处理结果";
-            this.colFutureHandleResult.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.colFutureHandleResult.IntegralHeight = false;
-            this.colFutureHandleResult.ItemHeight = 16;
-            this.colFutureHandleResult.Name = "colFutureHandleResult";
-            this.colFutureHandleResult.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colFutureHandleResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            // 
-            // handleDateDataGridViewTextBoxColumn1
-            // 
-            this.handleDateDataGridViewTextBoxColumn1.DataPropertyName = "HandleDate";
-            dataGridViewCellStyle4.Format = "d";
-            this.handleDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.handleDateDataGridViewTextBoxColumn1.HeaderText = "处理日期";
-            this.handleDateDataGridViewTextBoxColumn1.Name = "handleDateDataGridViewTextBoxColumn1";
-            this.handleDateDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // remarkDataGridViewTextBoxColumn1
-            // 
-            this.remarkDataGridViewTextBoxColumn1.DataPropertyName = "Remark";
-            this.remarkDataGridViewTextBoxColumn1.HeaderText = "备注";
-            this.remarkDataGridViewTextBoxColumn1.Name = "remarkDataGridViewTextBoxColumn1";
-            // 
-            // customerIdDataGridViewTextBoxColumn1
-            // 
-            this.customerIdDataGridViewTextBoxColumn1.DataPropertyName = "CustomerId";
-            this.customerIdDataGridViewTextBoxColumn1.HeaderText = "CustomerId";
-            this.customerIdDataGridViewTextBoxColumn1.Name = "customerIdDataGridViewTextBoxColumn1";
-            this.customerIdDataGridViewTextBoxColumn1.Visible = false;
             // 
             // pendingItemDtoBindingSource
             // 
@@ -515,6 +401,118 @@
             this.tiToday.Name = "tiToday";
             this.tiToday.Text = "今天";
             // 
+            // colEdit
+            // 
+            this.colEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colEdit.HeaderText = "";
+            this.colEdit.Image = ((System.Drawing.Image)(resources.GetObject("colEdit.Image")));
+            this.colEdit.MinimumWidth = 20;
+            this.colEdit.Name = "colEdit";
+            this.colEdit.ReadOnly = true;
+            this.colEdit.Text = null;
+            this.colEdit.Width = 20;
+            // 
+            // pendingItemIdDataGridViewTextBoxColumn1
+            // 
+            this.pendingItemIdDataGridViewTextBoxColumn1.DataPropertyName = "PendingItemId";
+            this.pendingItemIdDataGridViewTextBoxColumn1.HeaderText = "PendingItemId";
+            this.pendingItemIdDataGridViewTextBoxColumn1.Name = "pendingItemIdDataGridViewTextBoxColumn1";
+            this.pendingItemIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.pendingItemIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // categoryDataGridViewTextBoxColumn1
+            // 
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // refIdDataGridViewTextBoxColumn1
+            // 
+            this.refIdDataGridViewTextBoxColumn1.DataPropertyName = "RefId";
+            this.refIdDataGridViewTextBoxColumn1.HeaderText = "RefId";
+            this.refIdDataGridViewTextBoxColumn1.Name = "refIdDataGridViewTextBoxColumn1";
+            this.refIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.refIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // actionDateDataGridViewTextBoxColumn1
+            // 
+            this.actionDateDataGridViewTextBoxColumn1.DataPropertyName = "ActionDate";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Aquamarine;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.actionDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.actionDateDataGridViewTextBoxColumn1.HeaderText = "发生日期";
+            this.actionDateDataGridViewTextBoxColumn1.Name = "actionDateDataGridViewTextBoxColumn1";
+            this.actionDateDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // colFutureCustomerName
+            // 
+            this.colFutureCustomerName.DataPropertyName = "CustomerName";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Aquamarine;
+            this.colFutureCustomerName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colFutureCustomerName.HeaderText = "客户姓名";
+            this.colFutureCustomerName.Name = "colFutureCustomerName";
+            this.colFutureCustomerName.ReadOnly = true;
+            this.colFutureCustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colFutureCustomerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // colFutureInsurancePolicyNo
+            // 
+            this.colFutureInsurancePolicyNo.DataPropertyName = "InsurancePolicyNo";
+            this.colFutureInsurancePolicyNo.HeaderText = "保单";
+            this.colFutureInsurancePolicyNo.Name = "colFutureInsurancePolicyNo";
+            this.colFutureInsurancePolicyNo.ReadOnly = true;
+            // 
+            // contentDataGridViewTextBoxColumn1
+            // 
+            this.contentDataGridViewTextBoxColumn1.DataPropertyName = "Content";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Aquamarine;
+            this.contentDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.contentDataGridViewTextBoxColumn1.HeaderText = "提醒内容";
+            this.contentDataGridViewTextBoxColumn1.Name = "contentDataGridViewTextBoxColumn1";
+            this.contentDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // colFutureHandleResult
+            // 
+            this.colFutureHandleResult.DataPropertyName = "HandleResult";
+            this.colFutureHandleResult.DropDownHeight = 106;
+            this.colFutureHandleResult.DropDownWidth = 121;
+            this.colFutureHandleResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colFutureHandleResult.HeaderText = "处理结果";
+            this.colFutureHandleResult.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.colFutureHandleResult.IntegralHeight = false;
+            this.colFutureHandleResult.ItemHeight = 16;
+            this.colFutureHandleResult.Name = "colFutureHandleResult";
+            this.colFutureHandleResult.ReadOnly = true;
+            this.colFutureHandleResult.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colFutureHandleResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            // 
+            // handleDateDataGridViewTextBoxColumn1
+            // 
+            this.handleDateDataGridViewTextBoxColumn1.DataPropertyName = "HandleDate";
+            dataGridViewCellStyle4.Format = "d";
+            this.handleDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.handleDateDataGridViewTextBoxColumn1.HeaderText = "处理日期";
+            this.handleDateDataGridViewTextBoxColumn1.Name = "handleDateDataGridViewTextBoxColumn1";
+            this.handleDateDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // remarkDataGridViewTextBoxColumn1
+            // 
+            this.remarkDataGridViewTextBoxColumn1.DataPropertyName = "Remark";
+            this.remarkDataGridViewTextBoxColumn1.HeaderText = "备注";
+            this.remarkDataGridViewTextBoxColumn1.Name = "remarkDataGridViewTextBoxColumn1";
+            this.remarkDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // customerIdDataGridViewTextBoxColumn1
+            // 
+            this.customerIdDataGridViewTextBoxColumn1.DataPropertyName = "CustomerId";
+            this.customerIdDataGridViewTextBoxColumn1.HeaderText = "CustomerId";
+            this.customerIdDataGridViewTextBoxColumn1.Name = "customerIdDataGridViewTextBoxColumn1";
+            this.customerIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.customerIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
             // PendingItemListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -562,8 +560,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn dataGridViewButtonXColumn1;
-        private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn dataGridViewButtonXColumn2;
+        private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colEdit;
         private System.Windows.Forms.DataGridViewTextBoxColumn pendingItemIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn refIdDataGridViewTextBoxColumn1;

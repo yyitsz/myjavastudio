@@ -1,4 +1,5 @@
 ﻿using DevComponents.DotNetBar.Controls;
+using DevComponents.DotNetBar;
 namespace SimpleCrm.MasterForm
 {
     partial class LovMainForm
@@ -35,13 +36,6 @@ namespace SimpleCrm.MasterForm
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LovMainForm));
             this.groupBox3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.grdResult = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.lovBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.cmbLovType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.lblLovType = new System.Windows.Forms.Label();
             this.colDelete = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.lovIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLovType = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
@@ -57,6 +51,13 @@ namespace SimpleCrm.MasterForm
             this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.versionNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lovBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cmbLovType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.btnSave = new ButtonX();
+            this.btnClear = new ButtonX();
+            this.btnSearch = new ButtonX();
+            this.lblLovType = new LabelX();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lovBindingSource)).BeginInit();
@@ -127,90 +128,6 @@ namespace SimpleCrm.MasterForm
             this.grdResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResult_CellContentClick);
             this.grdResult.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.grdResult_UserAddedRow);
             // 
-            // lovBindingSource
-            // 
-            this.lovBindingSource.DataSource = typeof(SimpleCrm.Model.Lov);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cmbLovType);
-            this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Controls.Add(this.btnClear);
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.lblLovType);
-            this.groupBox1.DisabledBackColor = System.Drawing.Color.Empty;
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(963, 61);
-            // 
-            // 
-            // 
-            this.groupBox1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupBox1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupBox1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupBox1.TabIndex = 0;
-            // 
-            // cmbLovType
-            // 
-            this.cmbLovType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbLovType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLovType.DisplayMember = "Item1";
-            this.cmbLovType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbLovType.FormattingEnabled = true;
-            this.cmbLovType.ItemHeight = 14;
-            this.cmbLovType.Location = new System.Drawing.Point(118, 21);
-            this.cmbLovType.Name = "cmbLovType";
-            this.cmbLovType.Size = new System.Drawing.Size(121, 20);
-            this.cmbLovType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbLovType.TabIndex = 14;
-            this.cmbLovType.ValueMember = "Item2";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(696, 20);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 13;
-            this.btnSave.Text = "保存(&v)";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(777, 20);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "清除(&C)";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(604, 20);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "查询(&S)";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // lblLovType
-            // 
-            this.lblLovType.AutoSize = true;
-            this.lblLovType.Location = new System.Drawing.Point(19, 25);
-            this.lblLovType.Name = "lblLovType";
-            this.lblLovType.Size = new System.Drawing.Size(77, 12);
-            this.lblLovType.TabIndex = 0;
-            this.lblLovType.Text = "基础数据类别";
-            // 
             // colDelete
             // 
             this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -245,6 +162,7 @@ namespace SimpleCrm.MasterForm
             this.colLovType.HeaderText = "基础数据类别";
             this.colLovType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.colLovType.IntegralHeight = false;
+            this.colLovType.ItemHeight = 16;
             this.colLovType.MinimumWidth = 150;
             this.colLovType.Name = "colLovType";
             this.colLovType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -365,6 +283,97 @@ namespace SimpleCrm.MasterForm
             this.versionNoDataGridViewTextBoxColumn.Visible = false;
             this.versionNoDataGridViewTextBoxColumn.Width = 21;
             // 
+            // lovBindingSource
+            // 
+            this.lovBindingSource.DataSource = typeof(SimpleCrm.Model.Lov);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.groupBox1.Controls.Add(this.cmbLovType);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.btnClear);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.lblLovType);
+            this.groupBox1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(963, 61);
+            // 
+            // 
+            // 
+            this.groupBox1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupBox1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupBox1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupBox1.TabIndex = 0;
+            // 
+            // cmbLovType
+            // 
+            this.cmbLovType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbLovType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLovType.DisplayMember = "Item1";
+            this.cmbLovType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbLovType.FormattingEnabled = true;
+            this.cmbLovType.ItemHeight = 14;
+            this.cmbLovType.Location = new System.Drawing.Point(118, 21);
+            this.cmbLovType.Name = "cmbLovType";
+            this.cmbLovType.Size = new System.Drawing.Size(121, 20);
+            this.cmbLovType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cmbLovType.TabIndex = 14;
+            this.cmbLovType.ValueMember = "Item2";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(696, 20);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "保存(&v)";
+            this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSave.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSave.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(777, 20);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "清除(&C)";
+            this.btnClear.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnClear.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnClear.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(604, 20);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "查询(&S)";
+            this.btnSearch.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSearch.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // lblLovType
+            // 
+            this.lblLovType.AutoSize = true;
+            this.lblLovType.Location = new System.Drawing.Point(19, 25);
+            this.lblLovType.Name = "lblLovType";
+            this.lblLovType.Size = new System.Drawing.Size(77, 12);
+            this.lblLovType.TabIndex = 0;
+            this.lblLovType.Text = "基础数据类别";
+            // 
             // LovMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -387,11 +396,11 @@ namespace SimpleCrm.MasterForm
         #endregion
 
         private GroupPanel groupBox1;
-        private System.Windows.Forms.Label lblLovType;
+        private LabelX lblLovType;
         private GroupPanel groupBox3;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnSave;
+        private ButtonX btnSearch;
+        private ButtonX btnClear;
+        private ButtonX btnSave;
         private DataGridViewX grdResult;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbLovType;
         private System.Windows.Forms.BindingSource lovBindingSource;

@@ -446,10 +446,10 @@ namespace SimpleCrm.Facade
 
                 if (pendingItemCategory == PendingItemCategory.Birthday)
                 {
-                    var list =  mgr.SearchBirthdayPendingItems(param);
+                    var list = mgr.SearchBirthdayPendingItems(param);
                     foreach (var dto in list)
                     {
-                        int days = ( dto.ActionDate.Value - today).Days;
+                        int days = (dto.ActionDate.Value - today).Days;
                         if (days == 0)
                         {
                             dto.Content = "今天过生日";
@@ -458,7 +458,7 @@ namespace SimpleCrm.Facade
                         {
                             dto.Content = "还有" + days + "天过生日.";
                         }
-                        else 
+                        else
                         {
                             dto.Content = "今年的生日已经过了，等明年吧.";
                         }
@@ -467,7 +467,7 @@ namespace SimpleCrm.Facade
                 }
                 else if (pendingItemCategory == PendingItemCategory.RenewalPremium)
                 {
-                    var list =  mgr.SearchRenewalPremiumPendingItems(param).ToList();
+                    var list = mgr.SearchRenewalPremiumPendingItems(param).ToList();
                     foreach (var dto in list)
                     {
                         int days = (dto.ActionDate.Value - today).Days;
@@ -489,6 +489,15 @@ namespace SimpleCrm.Facade
                 return result;
             });
 
+        }
+
+        internal void SavePendingItem(PendingItemDto pendingItemDto)
+        {
+            ExecutedInTx(conn =>
+           {
+               PendingItemManager mgr = new PendingItemManager(conn);
+               mgr.Save(pendingItemDto);
+           });
         }
     }
 }
