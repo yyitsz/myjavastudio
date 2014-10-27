@@ -35,11 +35,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbonBarMergeContainer1 = new DevComponents.DotNetBar.RibbonBarMergeContainer();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.btnRefresh = new DevComponents.DotNetBar.ButtonItem();
@@ -47,40 +46,42 @@
             this.tabPending = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
             this.grdFutureResult = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.tiFuture = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
-            this.tiToday = new DevComponents.DotNetBar.TabItem(this.components);
-            this.pendingItemDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewButtonXColumn1 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.dataGridViewButtonXColumn2 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.pendingItemIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actionDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFutureCustomerName = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.colFutureInsurancePolicyNo = new System.Windows.Forms.DataGridViewLinkColumn();
             this.contentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.handleResultDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFutureHandleResult = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.handleDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarkDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pendingItemDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiFuture = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
             this.grdTodayResult = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTodayCustomerName = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.colTodayInsurancePolicyNo = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTodayHandleResult = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiToday = new DevComponents.DotNetBar.TabItem(this.components);
             this.ribbonBarMergeContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPending)).BeginInit();
             this.tabPending.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdFutureResult)).BeginInit();
-            this.tabControlPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingItemDtoBindingSource)).BeginInit();
+            this.tabControlPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTodayResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,10 +187,9 @@
             this.tabControlPanel2.Name = "tabControlPanel2";
             this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel2.Size = new System.Drawing.Size(792, 380);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
             this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
                         | DevComponents.DotNetBar.eBorderSide.Bottom)));
             this.tabControlPanel2.Style.GradientAngle = 90;
@@ -209,9 +209,10 @@
             this.categoryDataGridViewTextBoxColumn1,
             this.refIdDataGridViewTextBoxColumn1,
             this.actionDateDataGridViewTextBoxColumn1,
-            this.customerNameDataGridViewTextBoxColumn1,
+            this.colFutureCustomerName,
+            this.colFutureInsurancePolicyNo,
             this.contentDataGridViewTextBoxColumn1,
-            this.handleResultDataGridViewTextBoxColumn1,
+            this.colFutureHandleResult,
             this.handleDateDataGridViewTextBoxColumn1,
             this.remarkDataGridViewTextBoxColumn1,
             this.customerIdDataGridViewTextBoxColumn1});
@@ -225,48 +226,13 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdFutureResult.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdFutureResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdFutureResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.grdFutureResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdFutureResult.Location = new System.Drawing.Point(1, 1);
             this.grdFutureResult.Name = "grdFutureResult";
             this.grdFutureResult.RowTemplate.Height = 23;
             this.grdFutureResult.Size = new System.Drawing.Size(790, 378);
             this.grdFutureResult.TabIndex = 1;
             this.grdFutureResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResult_CellContentClick);
-            // 
-            // tiFuture
-            // 
-            this.tiFuture.AttachedControl = this.tabControlPanel2;
-            this.tiFuture.Name = "tiFuture";
-            this.tiFuture.Text = "未来30天";
-            // 
-            // tabControlPanel1
-            // 
-            this.tabControlPanel1.Controls.Add(this.grdTodayResult);
-            this.tabControlPanel1.DisabledBackColor = System.Drawing.Color.Empty;
-            this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel1.Location = new System.Drawing.Point(0, 25);
-            this.tabControlPanel1.Name = "tabControlPanel1";
-            this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel1.Size = new System.Drawing.Size(792, 380);
-            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
-            this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
-            this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
-                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel1.Style.GradientAngle = 90;
-            this.tabControlPanel1.TabIndex = 1;
-            this.tabControlPanel1.TabItem = this.tiToday;
-            // 
-            // tiToday
-            // 
-            this.tiToday.AttachedControl = this.tabControlPanel1;
-            this.tiToday.Name = "tiToday";
-            this.tiToday.Text = "今天";
-            // 
-            // pendingItemDtoBindingSource
-            // 
-            this.pendingItemDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.PendingItemDto);
             // 
             // dataGridViewButtonXColumn1
             // 
@@ -320,14 +286,21 @@
             this.actionDateDataGridViewTextBoxColumn1.Name = "actionDateDataGridViewTextBoxColumn1";
             this.actionDateDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // customerNameDataGridViewTextBoxColumn1
+            // colFutureCustomerName
             // 
-            this.customerNameDataGridViewTextBoxColumn1.DataPropertyName = "CustomerName";
+            this.colFutureCustomerName.DataPropertyName = "CustomerName";
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Aquamarine;
-            this.customerNameDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.customerNameDataGridViewTextBoxColumn1.HeaderText = "客户姓名";
-            this.customerNameDataGridViewTextBoxColumn1.Name = "customerNameDataGridViewTextBoxColumn1";
-            this.customerNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.colFutureCustomerName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colFutureCustomerName.HeaderText = "客户姓名";
+            this.colFutureCustomerName.Name = "colFutureCustomerName";
+            this.colFutureCustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colFutureCustomerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // colFutureInsurancePolicyNo
+            // 
+            this.colFutureInsurancePolicyNo.DataPropertyName = "InsurancePolicyNo";
+            this.colFutureInsurancePolicyNo.HeaderText = "保单";
+            this.colFutureInsurancePolicyNo.Name = "colFutureInsurancePolicyNo";
             // 
             // contentDataGridViewTextBoxColumn1
             // 
@@ -338,11 +311,19 @@
             this.contentDataGridViewTextBoxColumn1.Name = "contentDataGridViewTextBoxColumn1";
             this.contentDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // handleResultDataGridViewTextBoxColumn1
+            // colFutureHandleResult
             // 
-            this.handleResultDataGridViewTextBoxColumn1.DataPropertyName = "HandleResult";
-            this.handleResultDataGridViewTextBoxColumn1.HeaderText = "处理结果";
-            this.handleResultDataGridViewTextBoxColumn1.Name = "handleResultDataGridViewTextBoxColumn1";
+            this.colFutureHandleResult.DataPropertyName = "HandleResult";
+            this.colFutureHandleResult.DropDownHeight = 106;
+            this.colFutureHandleResult.DropDownWidth = 121;
+            this.colFutureHandleResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colFutureHandleResult.HeaderText = "处理结果";
+            this.colFutureHandleResult.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.colFutureHandleResult.IntegralHeight = false;
+            this.colFutureHandleResult.ItemHeight = 16;
+            this.colFutureHandleResult.Name = "colFutureHandleResult";
+            this.colFutureHandleResult.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colFutureHandleResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // handleDateDataGridViewTextBoxColumn1
             // 
@@ -366,6 +347,34 @@
             this.customerIdDataGridViewTextBoxColumn1.Name = "customerIdDataGridViewTextBoxColumn1";
             this.customerIdDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // pendingItemDtoBindingSource
+            // 
+            this.pendingItemDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.PendingItemDto);
+            // 
+            // tiFuture
+            // 
+            this.tiFuture.AttachedControl = this.tabControlPanel2;
+            this.tiFuture.Name = "tiFuture";
+            this.tiFuture.Text = "未来1个月";
+            // 
+            // tabControlPanel1
+            // 
+            this.tabControlPanel1.Controls.Add(this.grdTodayResult);
+            this.tabControlPanel1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel1.Location = new System.Drawing.Point(0, 25);
+            this.tabControlPanel1.Name = "tabControlPanel1";
+            this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel1.Size = new System.Drawing.Size(792, 380);
+            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel1.Style.GradientAngle = 90;
+            this.tabControlPanel1.TabIndex = 1;
+            this.tabControlPanel1.TabItem = this.tiToday;
+            // 
             // grdTodayResult
             // 
             this.grdTodayResult.AllowUserToAddRows = false;
@@ -377,34 +386,38 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
+            this.colTodayCustomerName,
+            this.colTodayInsurancePolicyNo,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
+            this.colTodayHandleResult,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
             this.grdTodayResult.DataSource = this.pendingItemDtoBindingSource;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdTodayResult.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdTodayResult.DefaultCellStyle = dataGridViewCellStyle9;
             this.grdTodayResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdTodayResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.grdTodayResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdTodayResult.Location = new System.Drawing.Point(1, 1);
             this.grdTodayResult.Name = "grdTodayResult";
+            this.grdTodayResult.ReadOnly = true;
             this.grdTodayResult.RowTemplate.Height = 23;
             this.grdTodayResult.Size = new System.Drawing.Size(790, 378);
             this.grdTodayResult.TabIndex = 2;
+            this.grdTodayResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResult_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "PendingItemId";
             this.dataGridViewTextBoxColumn1.HeaderText = "PendingItemId";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
@@ -412,6 +425,7 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Category";
             this.dataGridViewTextBoxColumn2.HeaderText = "Category";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // dataGridViewTextBoxColumn3
@@ -419,6 +433,7 @@
             this.dataGridViewTextBoxColumn3.DataPropertyName = "RefId";
             this.dataGridViewTextBoxColumn3.HeaderText = "RefId";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Visible = false;
             // 
             // dataGridViewTextBoxColumn4
@@ -432,36 +447,49 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // colTodayCustomerName
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CustomerName";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Aquamarine;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn5.HeaderText = "客户姓名";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.colTodayCustomerName.DataPropertyName = "CustomerName";
+            this.colTodayCustomerName.HeaderText = "客户姓名";
+            this.colTodayCustomerName.Name = "colTodayCustomerName";
+            this.colTodayCustomerName.ReadOnly = true;
+            // 
+            // colTodayInsurancePolicyNo
+            // 
+            this.colTodayInsurancePolicyNo.DataPropertyName = "InsurancePolicyNo";
+            this.colTodayInsurancePolicyNo.HeaderText = "保单";
+            this.colTodayInsurancePolicyNo.Name = "colTodayInsurancePolicyNo";
+            this.colTodayInsurancePolicyNo.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Content";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Aquamarine;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Aquamarine;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn6.HeaderText = "提醒内容";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn7
+            // colTodayHandleResult
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "HandleResult";
-            this.dataGridViewTextBoxColumn7.HeaderText = "处理结果";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.colTodayHandleResult.DataPropertyName = "HandleResult";
+            this.colTodayHandleResult.DropDownHeight = 106;
+            this.colTodayHandleResult.DropDownWidth = 121;
+            this.colTodayHandleResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colTodayHandleResult.HeaderText = "处理结果";
+            this.colTodayHandleResult.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.colTodayHandleResult.IntegralHeight = false;
+            this.colTodayHandleResult.ItemHeight = 16;
+            this.colTodayHandleResult.Name = "colTodayHandleResult";
+            this.colTodayHandleResult.ReadOnly = true;
+            this.colTodayHandleResult.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTodayHandleResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "HandleDate";
-            dataGridViewCellStyle9.Format = "d";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Format = "d";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn8.HeaderText = "处理日期";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -478,7 +506,14 @@
             this.dataGridViewTextBoxColumn10.DataPropertyName = "CustomerId";
             this.dataGridViewTextBoxColumn10.HeaderText = "CustomerId";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Visible = false;
+            // 
+            // tiToday
+            // 
+            this.tiToday.AttachedControl = this.tabControlPanel1;
+            this.tiToday.Name = "tiToday";
+            this.tiToday.Text = "今天";
             // 
             // PendingItemListForm
             // 
@@ -486,7 +521,6 @@
             this.ClientSize = new System.Drawing.Size(792, 405);
             this.Controls.Add(this.ribbonBarMergeContainer1);
             this.Controls.Add(this.tabPending);
-            this.DoubleBuffered = true;
             this.Name = "PendingItemListForm";
             this.Text = "提醒列表";
             this.Load += new System.EventHandler(this.CustomerMainForm_Load);
@@ -495,8 +529,8 @@
             this.tabPending.ResumeLayout(false);
             this.tabControlPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdFutureResult)).EndInit();
-            this.tabControlPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pendingItemDtoBindingSource)).EndInit();
+            this.tabControlPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdTodayResult)).EndInit();
             this.ResumeLayout(false);
 
@@ -515,29 +549,32 @@
         private DevComponents.DotNetBar.TabItem tiToday;
         private DevComponents.DotNetBar.ComboBoxItem comboBoxItem1;
         private System.Windows.Forms.BindingSource pendingItemDtoBindingSource;
+        private DevComponents.DotNetBar.Controls.DataGridViewX grdTodayResult;
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewLinkColumn colTodayCustomerName;
+        private System.Windows.Forms.DataGridViewLinkColumn colTodayInsurancePolicyNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colTodayHandleResult;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn dataGridViewButtonXColumn1;
         private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn dataGridViewButtonXColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn pendingItemIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn refIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn actionDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewLinkColumn colFutureCustomerName;
+        private System.Windows.Forms.DataGridViewLinkColumn colFutureInsurancePolicyNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn contentDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn handleResultDataGridViewTextBoxColumn1;
+        private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colFutureHandleResult;
         private System.Windows.Forms.DataGridViewTextBoxColumn handleDateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn remarkDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn1;
-        private DevComponents.DotNetBar.Controls.DataGridViewX grdTodayResult;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
 
 
     }

@@ -183,6 +183,7 @@
     </Compile>
     <Compile Include="Model\ContactInfo.cs" />
     <Compile Include="Model\AppointmentInfo.cs" />
+    <Compile Include="Model\PendingItemHandleResult.cs" />
     <Compile Include="Model\INotifiable.cs" />
     <Compile Include="Model\PendingItem.cs" />
     <Compile Include="Model\CustomerRoleType.cs" />

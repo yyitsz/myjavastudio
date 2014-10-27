@@ -12,6 +12,7 @@ using SimpleCrm.MasterForm;
 using SimpleCrm.Manager;
 using SimpleCrm.Facade;
 using SimpleCrm.ScheduleForm;
+using SimpleCrm.PendingItemForm;
 
 namespace SimpleCrm
 {
@@ -23,7 +24,7 @@ namespace SimpleCrm
         }
 
 
-       
+
 
         private void AutopayMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -42,8 +43,8 @@ namespace SimpleCrm
 
         private void AutopayMainForm_Load(object sender, EventArgs e)
         {
-           // tssUserId.Text = "User Id: " + UserManager.UserProfile.UserId;
-         //   ttsUserName.Text = "User Name: " + UserManager.UserProfile.UserName;
+            // tssUserId.Text = "User Id: " + UserManager.UserProfile.UserId;
+            //   ttsUserName.Text = "User Name: " + UserManager.UserProfile.UserName;
 
         }
 
@@ -82,6 +83,32 @@ namespace SimpleCrm
         private void cmdScheduleMain_Executed(object sender, EventArgs e)
         {
             this.ShowMdiChildForm<ScheduleMainForm>();
+        }
+
+        private void btnBirthdayPendingItem_Click(object sender, EventArgs e)
+        {
+            this.ShowMdiChildForm<PendingItemForm.PendingItemListForm>(
+                () =>
+                {
+                    PendingItemListForm form = new PendingItemListForm();
+                    form.PendingItemCategory = Model.PendingItemCategory.Birthday;
+                    return form;
+                }
+                , f => f.PendingItemCategory == Model.PendingItemCategory.Birthday
+                );
+        }
+
+        private void btnRenewalPremium_Click(object sender, EventArgs e)
+        {
+            this.ShowMdiChildForm<PendingItemForm.PendingItemListForm>(
+                () =>
+                {
+                    PendingItemListForm form = new PendingItemListForm();
+                    form.PendingItemCategory = Model.PendingItemCategory.RenewalPremium;
+                    return form;
+                }
+                , f => f.PendingItemCategory == Model.PendingItemCategory.RenewalPremium
+                );
         }
     }
 }

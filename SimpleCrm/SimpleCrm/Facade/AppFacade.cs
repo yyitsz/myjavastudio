@@ -433,14 +433,62 @@ namespace SimpleCrm.Facade
             });
         }
 
-        internal List<DTO.PendingItemDto> SearchBirthdayPendingItems(PendingItemCategory pendingItemCategory, DateTime fromDate, DateTime toDate)
+        internal List<DTO.PendingItemDto> SearchPendingItems(PendingItemCategory pendingItemCategory, DateTime fromDate, DateTime toDate)
         {
             return ExecutedInTx(conn =>
             {
                 PendingItemManager mgr = new PendingItemManager(conn);
                 SearchPendingItemParamDto param = new SearchPendingItemParamDto();
-                return mgr.SearchBirthdayPendingItems(param).ToList();
+                param.FromDate = fromDate;
+                param.ToDate = toDate;
+                List<PendingItemDto> result = new List<PendingItemDto>();
+                DateTime today = DateTime.Today;
+
+                if (pendingItemCategory == PendingItemCategory.Birthday)
+                {
+                    var list =  mgr.SearchBirthdayPendingItems(param);
+                    foreach (var dto in list)
+                    {
+                        int days = ( dto.ActionDate.Value - today).Days;
+                        if (days == 0)
+                        {
+                            dto.Content = "今天过生日";
+                        }
+                        else if (days > 0)
+                        {
+                            dto.Content = "还有" + days + "天过生日.";
+                        }
+                        else 
+                        {
+                            dto.Content = "今年的生日已经过了，等明年吧.";
+                        }
+                        result.Add(dto);
+                    }
+                }
+                else if (pendingItemCategory == PendingItemCategory.RenewalPremium)
+                {
+                    var list =  mgr.SearchRenewalPremiumPendingItems(param).ToList();
+                    foreach (var dto in list)
+                    {
+                        int days = (dto.ActionDate.Value - today).Days;
+                        if (days == 0)
+                        {
+                            dto.Content = "今天续期保费";
+                        }
+                        else if (days > 0)
+                        {
+                            dto.Content = "还有" + days + "天续期保费.";
+                        }
+                        else
+                        {
+                            dto.Content = "今年的续期保费已经过了，等明年吧.";
+                        }
+                        result.Add(dto);
+                    }
+                }
+                return result;
             });
+
         }
     }
 }

@@ -18,7 +18,7 @@ namespace SimpleCrm.InsuranceForm
     public partial class InsurancePolicyDetailForm : BaseForm
     {
         public long? InsurancePolicyId { get; set; }
-        public long PrimaryCustomerId { get; set; }
+        public long? PrimaryCustomerId { get; set; }
         private Customer primaryCustomer;
         private InsurancePolicy insurancePolicy;
         private List<Customer> relatedCustomerList;
@@ -42,17 +42,19 @@ namespace SimpleCrm.InsuranceForm
 
         private void LoadData()
         {
-            this.primaryCustomer = AppFacade.Facade.GetCustomerBaseInfo(this.PrimaryCustomerId);
-            if (this.primaryCustomer == null)
-            {
-                throw new AppException("找不到客户。");
-            }
+            GetPrimaryCustomer();
             if (InsurancePolicyId != null)
             {
                 this.insurancePolicy = AppFacade.Facade.GetInsurancePolicy(InsurancePolicyId.Value);
                 if (this.insurancePolicy == null)
                 {
                     throw new AppException("找不到保单。");
+                }
+
+                if (this.PrimaryCustomerId == null)
+                {
+                    this.PrimaryCustomerId = this.insurancePolicy.CustomerId.Value;
+                    GetPrimaryCustomer();
                 }
             }
 
@@ -72,7 +74,7 @@ namespace SimpleCrm.InsuranceForm
             }
             else
             {
-                relatedCustomerList = AppFacade.Facade.GetRelatedCustomerList(this.PrimaryCustomerId);
+                relatedCustomerList = AppFacade.Facade.GetRelatedCustomerList(this.PrimaryCustomerId.Value);
                 HashSet<Customer> customerSet = new HashSet<Customer>(new ModelEqualityComparer<Customer>());
                 if (this.insurancePolicy != null)
                 {
@@ -101,6 +103,18 @@ namespace SimpleCrm.InsuranceForm
             this.txtCustomerName.Text = this.primaryCustomer.CustomerName;
             this.Text = "保单详细信息 - " + this.primaryCustomer.CustomerName;
             this.ribbonBarMergeContainer1.RibbonTabText = this.Text;
+        }
+
+        private void GetPrimaryCustomer()
+        {
+            if (this.PrimaryCustomerId != null)
+            {
+                this.primaryCustomer = AppFacade.Facade.GetCustomerBaseInfo(this.PrimaryCustomerId.Value);
+                if (this.primaryCustomer == null)
+                {
+                    throw new AppException("找不到客户。");
+                }
+            }
         }
 
         private void BindRelatedCustomerToComboBox()

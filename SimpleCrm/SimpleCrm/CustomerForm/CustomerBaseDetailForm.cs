@@ -52,7 +52,7 @@ namespace SimpleCrm.CustomerForm
 
             if (FormMode == SimpleCrm.FormMode.View)
             {
-                this.Text = "查看客户基本信息";
+                this.Text = "客户基本信息 - " + this.Customer.CustomerName;
                 new ReadonlyHelper(this).SetReadonly();
                 this.btnSave.Visible = false;
             }

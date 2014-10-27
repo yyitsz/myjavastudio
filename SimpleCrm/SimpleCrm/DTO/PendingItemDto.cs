@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Dapper;
+using SimpleCrm.Model;
 
 namespace SimpleCrm.DTO
 {
-    public class PendingItemDto : BaseDto
+    public class PendingItemDto : BaseDto, INotifiable
     {
         private long? pendingItemId;
         public long? PendingItemId
@@ -17,7 +18,7 @@ namespace SimpleCrm.DTO
                 if (value != pendingItemId)
                 {
                     pendingItemId = value;
-                    //  this.NotifyPropertyChanged(m => m.PendingItemId);
+                    this.NotifyPropertyChanged(m => m.PendingItemId);
                 }
             }
         }
@@ -33,7 +34,7 @@ namespace SimpleCrm.DTO
                 if (value != category)
                 {
                     category = value;
-                    //this.NotifyPropertyChanged(m => m.Category);
+                    this.NotifyPropertyChanged(m => m.Category);
                 }
             }
         }
@@ -47,7 +48,7 @@ namespace SimpleCrm.DTO
                 if (value != refId)
                 {
                     refId = value;
-                    // this.NotifyPropertyChanged(m => m.RefId);
+                    this.NotifyPropertyChanged(m => m.RefId);
                 }
             }
         }
@@ -60,7 +61,7 @@ namespace SimpleCrm.DTO
                 if (value != actionDate)
                 {
                     actionDate = value;
-                    // this.NotifyPropertyChanged(m => m.ActionDate);
+                    this.NotifyPropertyChanged(m => m.ActionDate);
                 }
             }
         }
@@ -76,7 +77,7 @@ namespace SimpleCrm.DTO
                 if (value != handleResult)
                 {
                     handleResult = value;
-                    // this.NotifyPropertyChanged(m => m.HandleResult);
+                    this.NotifyPropertyChanged(m => m.HandleResult);
                 }
             }
         }
@@ -90,7 +91,7 @@ namespace SimpleCrm.DTO
                 if (value != handleDate)
                 {
                     handleDate = value;
-                    // this.NotifyPropertyChanged(m => m.HandleDate);
+                    this.NotifyPropertyChanged(m => m.HandleDate);
                 }
             }
         }
@@ -104,7 +105,7 @@ namespace SimpleCrm.DTO
                 if (value != remark)
                 {
                     remark = value;
-                    // this.NotifyPropertyChanged(m => m.Remark);
+                    this.NotifyPropertyChanged(m => m.Remark);
                 }
             }
         }
@@ -112,11 +113,26 @@ namespace SimpleCrm.DTO
         public String CustomerName { get; set; }
         public long? CustomerId { get; set; }
         public String Content { get; set; }
-
+        public String InsurancePolicyNo { get; set; }
 
         public override object GetPK()
         {
             return pendingItemId;
         }
+
+        #region INotifiable Members
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
     }
 }

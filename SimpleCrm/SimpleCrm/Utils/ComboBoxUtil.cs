@@ -56,7 +56,6 @@ namespace SimpleCrm.Utils
             {
                 list = new List<Tuple<string, string>>();
                 MemberInfo[] memberInfos = enumType.GetMembers();
-                Array array = Enum.GetValues(typeof(LovType));
                 foreach (MemberInfo member in memberInfos)
                 {
                     if (member.DeclaringType == enumType)

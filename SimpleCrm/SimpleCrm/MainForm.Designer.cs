@@ -53,6 +53,9 @@ namespace SimpleCrm
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.styleManager = new DevComponents.DotNetBar.StyleManager(this.components);
             this.tabStrip1 = new DevComponents.DotNetBar.TabStrip();
+            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnBirthdayPendingItem = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRenewalPremium = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
@@ -86,8 +89,8 @@ namespace SimpleCrm
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -145,6 +148,7 @@ namespace SimpleCrm
             // 
             this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar1
             // 
@@ -224,7 +228,6 @@ namespace SimpleCrm
             // 
             this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel3.TabIndex = 3;
-            this.ribbonPanel3.Visible = false;
             // 
             // ribbonBar4
             // 
@@ -241,7 +244,8 @@ namespace SimpleCrm
             this.ribbonBar4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ribbonBar4.DragDropSupport = true;
             this.ribbonBar4.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnSchedule});
+            this.btnSchedule,
+            this.buttonItem3});
             this.ribbonBar4.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar4.Name = "ribbonBar4";
             this.ribbonBar4.Size = new System.Drawing.Size(797, 56);
@@ -356,13 +360,13 @@ namespace SimpleCrm
             // 
             // ribbonTabItem1
             // 
-            this.ribbonTabItem1.Checked = true;
             this.ribbonTabItem1.Name = "ribbonTabItem1";
             this.ribbonTabItem1.Panel = this.ribbonPanel1;
             this.ribbonTabItem1.Text = "客户";
             // 
             // ribbonTabSchedule
             // 
+            this.ribbonTabSchedule.Checked = true;
             this.ribbonTabSchedule.Name = "ribbonTabSchedule";
             this.ribbonTabSchedule.Panel = this.ribbonPanel3;
             this.ribbonTabSchedule.Text = "日程管理";
@@ -406,6 +410,27 @@ namespace SimpleCrm
             this.tabStrip1.TabIndex = 18;
             this.tabStrip1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             this.tabStrip1.Text = "tabStrip1";
+            // 
+            // buttonItem3
+            // 
+            this.buttonItem3.Name = "buttonItem3";
+            this.buttonItem3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnBirthdayPendingItem,
+            this.btnRenewalPremium});
+            this.buttonItem3.SubItemsExpandWidth = 14;
+            this.buttonItem3.Text = "待办事项";
+            // 
+            // btnBirthdayPendingItem
+            // 
+            this.btnBirthdayPendingItem.Name = "btnBirthdayPendingItem";
+            this.btnBirthdayPendingItem.Text = "生日提醒";
+            this.btnBirthdayPendingItem.Click += new System.EventHandler(this.btnBirthdayPendingItem_Click);
+            // 
+            // btnRenewalPremium
+            // 
+            this.btnRenewalPremium.Name = "btnRenewalPremium";
+            this.btnRenewalPremium.Text = "续期保费";
+            this.btnRenewalPremium.Click += new System.EventHandler(this.btnRenewalPremium_Click);
             // 
             // MainForm
             // 
@@ -458,6 +483,9 @@ namespace SimpleCrm
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabSchedule;
         private DevComponents.DotNetBar.Command cmdScheduleMain;
         private DevComponents.DotNetBar.ButtonItem btnLovMain;
+        private DevComponents.DotNetBar.ButtonItem buttonItem3;
+        private DevComponents.DotNetBar.ButtonItem btnBirthdayPendingItem;
+        private DevComponents.DotNetBar.ButtonItem btnRenewalPremium;
     }
 }
 
