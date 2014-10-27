@@ -56,6 +56,7 @@ namespace SimpleCrm.PendingItemForm
             List<PendingItemDto> list = AppFacade.Facade.SearchPendingItems(this.PendingItemCategory.Value, fromDate, toDate);
             todayPendingItems = new BindingList<PendingItemDto>(list);
             this.grdTodayResult.DataSource = todayPendingItems;
+            tiToday.Text = "今天(" + list.Count + ")";
         }
 
         private void SearchFuturePendingItems()
@@ -64,7 +65,33 @@ namespace SimpleCrm.PendingItemForm
             DateTime toDate = DateTime.Today.AddMonths(1);
             List<PendingItemDto> list = AppFacade.Facade.SearchPendingItems(this.PendingItemCategory.Value, fromDate, toDate);
             futurePendingItems = new BindingList<PendingItemDto>(list);
-            this.grdFutureResult.DataSource = futurePendingItems;
+            BindDataToGrid();
+            tiFuture.Text = "未来1个月(" + list.Count + ")";
+        }
+
+        private void BindDataToGrid()
+        {
+            if (chkAll.Checked)
+            {
+                this.grdFutureResult.DataSource = futurePendingItems;
+            }
+            else
+            {
+                BindingList<PendingItemDto> list = new BindingList<PendingItemDto>();
+                foreach (var item in futurePendingItems)
+                {
+                    if (chkHandled.Checked && item.HandleResult == PendingItemHandleResult.Handled.ToString())
+                    {
+                        list.Add(item);
+                    }
+                    else if (chkUnhandled.Checked &&
+                        (item.HandleResult == null || item.HandleResult == PendingItemHandleResult.Unhandled.ToString()))
+                    {
+                        list.Add(item);
+                    }
+                }
+                this.grdFutureResult.DataSource = list;
+            }
         }
 
         private void grdResult_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,7 +108,7 @@ namespace SimpleCrm.PendingItemForm
                 }
                 long refId = dto.RefId.Value;
 
-                if (column.Name == "colEdit")
+                if (column.Name == "colEdit" || column.Name == "colTodayEdit")
                 {
                     this.ShowNonModalForm<PendingItemHandlingForm>(
                         () =>
@@ -144,7 +171,6 @@ namespace SimpleCrm.PendingItemForm
         {
             try
             {
-
                 if (PendingItemCategory != null && e.NewTab == tiFuture && futurePendingItems == null)
                 {
                     SearchFuturePendingItems();
@@ -155,6 +181,16 @@ namespace SimpleCrm.PendingItemForm
                 SimpleCrm.Utils.ExceptionHelper.HandleException(ex);
             }
 
+        }
+
+        private void chkUnhandled_Click(object sender, EventArgs e)
+        {
+            BindDataToGrid();
+        }
+
+        private void tabPending_SelectedTabChanged(object sender, DevComponents.DotNetBar.TabStripTabChangedEventArgs e)
+        {
+            icHandleResult.Enabled = e.NewTab == tiFuture;
         }
 
     }
