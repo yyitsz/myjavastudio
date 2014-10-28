@@ -113,7 +113,7 @@ namespace SimpleCrm.InsuranceForm
         {
             if (this.PrimaryCustomerId != null)
             {
-                this.primaryCustomer = AppFacade.Facade.GetCustomerBaseInfo(this.PrimaryCustomerId.Value);
+                this.primaryCustomer = AppFacade.Facade.GetCustomer(this.PrimaryCustomerId.Value);
                 if (this.primaryCustomer == null)
                 {
                     throw new AppException("找不到客户。");

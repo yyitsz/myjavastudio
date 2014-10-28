@@ -100,7 +100,7 @@ namespace SimpleCrm.InsuranceForm
 
         private long GetPrimaryCustomerId()
         {
-            return this.CustomerDto.PrimaryCustomerId ?? this.CustomerDto.CustomerId.Value;
+            return this.CustomerDto.CustomerId.Value;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

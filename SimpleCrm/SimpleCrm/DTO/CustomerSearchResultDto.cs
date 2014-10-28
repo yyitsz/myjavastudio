@@ -9,7 +9,6 @@ namespace SimpleCrm.DTO
     public class CustomerSearchResultDto
     {
         public long? CustomerId { get; set; }
-        public long? PrimaryCustomerId { get; set; }
         public String CustomerName { get; set; }
         public String IdCardNo { get; set; }
         public String Gender { get; set; }

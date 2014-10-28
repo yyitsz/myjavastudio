@@ -242,13 +242,15 @@ namespace SimpleCrm.Facade
             });
         }
 
-        public void SaveCustomer(Customer customer)
+        public void SaveCustomer(Customer customer, List<Customer> relatedCustomerList)
         {
             ExecutedInTx(conn =>
             {
                 CustomerManager customerMgr = new CustomerManager(conn);
                 customerMgr.Save(customer);
-
+                customerMgr.SaveBatch(relatedCustomerList);
+                CustomerRelationManager customerRelationMgr = new CustomerRelationManager(conn);
+                customerRelationMgr.SaveRelation(customer, relatedCustomerList);
             });
         }
         public void SaveCustomerBaseInfo(Customer customer)
@@ -275,18 +277,6 @@ namespace SimpleCrm.Facade
                 CustomerManager customerMgr = new CustomerManager(conn);
 
                 Customer customer = customerMgr.FindOne(customerId);
-                return customer;
-            });
-        }
-
-        public Customer GetCustomerBaseInfo(long customerId)
-        {
-            return ExecutedInTx(conn =>
-            {
-                CustomerManager customerMgr = new CustomerManager(conn);
-
-                Customer customer = customerMgr.FindOne(customerId);
-
                 return customer;
             });
         }

@@ -93,15 +93,6 @@ namespace SimpleCrm.Manager
             }
         }
 
-        //internal List<Customer> GetByPrimaryCustomer(long primaryCustomerId)
-        //{
-        //    List<Customer> customerList = Connection.Query<Customer>(
-        //        "Select * from Customer where CustomerId = @CustomerId or PrimaryCustomerId = @CustomerId", new { CustomerId = primaryCustomerId }).ToList();
-        //    PopulateContactInfo(customerList);
-        //    customerList.MarkAsPersisted();
-        //    return customerList;
-        //}
-
         internal List<Customer> GetByIdList(IEnumerable<long> idList)
         {
             if (idList.Count() == 0)

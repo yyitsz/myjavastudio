@@ -61,15 +61,6 @@ namespace SimpleCrm.CustomerForm
             if (searchResult.Results != null)
             {
                 grdResult.DataSource = searchResult.Results;
-                foreach (DataGridViewRow row in grdResult.Rows)
-                {
-                    var dto = row.DataBoundItem as CustomerSearchResultDto;
-                    if (dto != null && dto.PrimaryCustomerId != null)
-                    {
-                        row.Cells["colFollow"].ReadOnly = true;
-                        row.Cells["colDelete"].ReadOnly = true;
-                    }
-                }
             }
         }
 
@@ -83,10 +74,6 @@ namespace SimpleCrm.CustomerForm
                 return;
             }
             long customerId = dto.CustomerId.Value;
-            if (dto.PrimaryCustomerId != null)
-            {
-                customerId = dto.PrimaryCustomerId.Value;
-            }
             if (column.Name == "colEdit")
             {
                 this.ShowMdiChildForm<CustomerDetailForm>(() =>
@@ -135,10 +122,6 @@ namespace SimpleCrm.CustomerForm
             }
             else if (column.Name == "colFollow")
             {
-                if (dto.PrimaryCustomerId != null)
-                {
-                    return;
-                }
                 this.ShowNonModalForm<FollowUpRecordForm>(() =>
                     {
                         FollowUpRecordForm form = new FollowUpRecordForm();
@@ -146,8 +129,7 @@ namespace SimpleCrm.CustomerForm
                         form.Customer = dto;
                         return form;
                     }
-                    , f => (f.Customer.PrimaryCustomerId ?? f.Customer.CustomerId) == customerId
-                            && f.FormMode == SimpleCrm.FormMode.Edit
+                    , f =>  f.Customer.CustomerId == customerId && f.FormMode == SimpleCrm.FormMode.Edit
                   );
             }
         }

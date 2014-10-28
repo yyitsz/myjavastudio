@@ -68,7 +68,8 @@ CREATE TABLE CustomerRelation
 	UpdatedBy Text(50) not null,
 	UpdateTime Text(30) not null,
 	CONSTRAINT "CustomerRelation_Base_Customer_FK" FOREIGN KEY (BaseCustomerId) REFERENCES "Customer" ("CustomerId")
-	CONSTRAINT "CustomerRelation_Against_Customer_FK" FOREIGN KEY (AgainstCustomerId) REFERENCES "Customer" ("CustomerId")
+	CONSTRAINT "CustomerRelation_Against_Customer_FK" FOREIGN KEY (AgainstCustomerId) REFERENCES "Customer" ("CustomerId"),
+	CONSTRAINT "CustomerRelation_UK" UNIQUE ("BaseCustomerId", "AgainstCustomerId", "Relation")
 );
 
 create index CustomerRelation_Customer_IDX on CustomerRelation(BaseCustomerId, AgainstCustomerId);

@@ -264,8 +264,21 @@ namespace SimpleCrm.Model
             }
         }
 
+        private String relation;
         [Transient]
-        public String Relation { get; set; }
+        public String Relation
+        {
+            get { return relation; }
+            set
+            {
+                if (value != relation)
+                {
+                    relation = value;
+                    this.NotifyPropertyChanged(m => m.Relation);
+                }
+            }
+        }
+
 
         //*****************************************************************
         //contactInfo

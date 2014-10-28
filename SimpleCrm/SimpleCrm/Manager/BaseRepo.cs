@@ -94,46 +94,52 @@ namespace SimpleCrm.Manager
             return;
         }
 
-        public void SaveBatch(IEnumerable<Tm> exists, IEnumerable<Tm> saving)
+        public void SaveBatch(IEnumerable<Tm> exists, IEnumerable<Tm> saving, Action<Tm, Tm> copyFunc = null, Func<Tm, Tm, bool> equalFunc = null)
         {
             List<Tm> inserting = new List<Tm>();
             List<Tm> updating = new List<Tm>();
             List<Tm> deleting = new List<Tm>();
 
-            Clastify(exists, saving, inserting, updating, deleting);
+            Clastify(exists, saving, inserting, updating, deleting, copyFunc, equalFunc);
             deleting.ForEach(m => Delete(m));
             updating.ForEach(m => Update(m));
             inserting.ForEach(m => Create(m));
-
         }
-        protected void Clastify(IEnumerable<Tm> exists, IEnumerable<Tm> saving, List<Tm> inserting, List<Tm> updating, List<Tm> deleting)
+
+        protected void Clastify(IEnumerable<Tm> exists, IEnumerable<Tm> saving, List<Tm> inserting, List<Tm> updating, List<Tm> deleting, Action<Tm, Tm> copyFunc = null, Func<Tm, Tm, bool> equalFunc = null)
         {
+            if (equalFunc == null)
+            {
+                equalFunc = (t1, t2) => t1.GetPK().Equals(t2.GetPK());
+            }
             foreach (var save in saving)
             {
-                if (save.IsNew())
+                Tm existTm = default(Tm);
+                foreach (var exist in exists)
+                {
+                    if (equalFunc(exist, save))
+                    {
+                        existTm = exist;
+                        break;
+                    }
+                }
+                if (existTm == default(Tm))
                 {
                     inserting.Add(save);
                 }
                 else
                 {
-                    bool found = false;
-                    foreach (var exist in exists)
+                    if (copyFunc != null)
                     {
-                        if (save.GetPK().Equals(exist.GetPK()))
-                        {
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (found == false)
-                    {
-                        inserting.Add(save);
+                        copyFunc(existTm, save);
+                        updating.Add(existTm);
                     }
                     else
                     {
                         updating.Add(save);
                     }
                 }
+
             }
 
             foreach (var exist in exists)
@@ -141,7 +147,7 @@ namespace SimpleCrm.Manager
                 bool found = false;
                 foreach (var save in saving)
                 {
-                    if (save.GetPK().Equals(exist.GetPK()))
+                    if (equalFunc(exist, save))
                     {
                         found = true;
                         break;

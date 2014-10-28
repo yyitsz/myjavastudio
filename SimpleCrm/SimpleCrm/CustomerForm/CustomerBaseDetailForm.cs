@@ -18,6 +18,8 @@ namespace SimpleCrm.CustomerForm
         public long CustomerId { get; set; }
         public long? PrimaryCustomerId { get; set; }
         public string PrimaryCustomerName { get; set; }
+        private bool showOnly = false;
+
         public CustomerBaseDetailForm()
         {
             InitializeComponent();
@@ -31,16 +33,24 @@ namespace SimpleCrm.CustomerForm
 
         private void BindData()
         {
-            if (this.FormMode == SimpleCrm.FormMode.Add)
+            if (this.Customer == null)
             {
-                this.Customer = new Customer();
+                if (this.FormMode == SimpleCrm.FormMode.Add)
+                {
+                    this.Customer = new Customer();
+                }
+                else
+                {
+                    Customer = AppFacade.Facade.GetCustomer(CustomerId);
+                }
             }
-            else
+            else 
             {
-                Customer = AppFacade.Facade.GetCustomer(CustomerId);
-                this.dataBindingCustomer.MapToControl(this.Customer);
+                showOnly = true;
+                btnClose.Text = "取消(&C)";
+                btnSave.Text = "确定(&O)";
             }
-
+            this.dataBindingCustomer.MapToControl(this.Customer);
             this.customerBaseInfoUC.BindDataToUI(this.Customer);
 
             if (FormMode == SimpleCrm.FormMode.View)
@@ -72,7 +82,10 @@ namespace SimpleCrm.CustomerForm
                 {
                     this.customerBaseInfoUC.BindDataFromUI();
                     this.dataBindingCustomer.MapToObject(this.Customer);
-                    AppFacade.Facade.SaveCustomerBaseInfo(this.Customer);
+                    if (showOnly == false)
+                    {
+                        AppFacade.Facade.SaveCustomerBaseInfo(this.Customer);
+                    }
                     this.DialogResult = System.Windows.Forms.DialogResult.OK;
                     this.Close();
                 }
@@ -86,7 +99,5 @@ namespace SimpleCrm.CustomerForm
         {
             this.Close();
         }
-
-
     }
 }
