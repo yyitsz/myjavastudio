@@ -34,7 +34,6 @@ namespace SimpleCrm.CustomerForm
             if (this.FormMode == SimpleCrm.FormMode.Add)
             {
                 this.Customer = new Customer();
-                this.Customer.PrimaryCustomerId = this.PrimaryCustomerId;
             }
             else
             {
@@ -43,12 +42,6 @@ namespace SimpleCrm.CustomerForm
             }
 
             this.customerBaseInfoUC.BindDataToUI(this.Customer);
-
-            if (this.Customer.PrimaryCustomerId == null)
-            {
-                this.grpPrimaryInfo.Visible = false;
-            }
-            this.txtPrimaryCustomerName.Text = PrimaryCustomerName;
 
             if (FormMode == SimpleCrm.FormMode.View)
             {
@@ -68,7 +61,6 @@ namespace SimpleCrm.CustomerForm
 
         private void InitForm()
         {
-            ComboBoxUtil.BindLov(LovType.Relation, cmbRelation);
         }
 
         private void btnSave_Click(object sender, EventArgs e)

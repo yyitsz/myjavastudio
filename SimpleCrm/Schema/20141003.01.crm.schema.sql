@@ -33,8 +33,6 @@ CREATE TABLE RefNo
 Create Table Customer
 (
 	CustomerId integer primary key autoincrement,
-	PrimaryCustomerId integer,
-	RelationWithPrimary Text(50),
 	CustomerName Text(50) not null,
 	IdType Text(30),
 	IdCardNo Text(30),
@@ -59,6 +57,22 @@ Create Table Customer
 )
 ;
 
+CREATE TABLE CustomerRelation
+(
+	CustomerRelationId integer primary key autoincrement,
+    BaseCustomerId integer not null,
+	AgainstCustomerId integer not null,
+	Relation text(50),
+	VersionNo Integer,
+	CreateTime Text(30) not null,
+	UpdatedBy Text(50) not null,
+	UpdateTime Text(30) not null,
+	CONSTRAINT "CustomerRelation_Base_Customer_FK" FOREIGN KEY (BaseCustomerId) REFERENCES "Customer" ("CustomerId")
+	CONSTRAINT "CustomerRelation_Against_Customer_FK" FOREIGN KEY (AgainstCustomerId) REFERENCES "Customer" ("CustomerId")
+);
+
+create index CustomerRelation_Customer_IDX on CustomerRelation(BaseCustomerId, AgainstCustomerId);
+
 Create Table FollowUpRecord
 (
 	FollowUpRecordId  integer primary key autoincrement,
@@ -73,7 +87,8 @@ Create Table FollowUpRecord
 	VersionNo Integer,
 	CreateTime Text(30) not null,
 	UpdatedBy Text(50) not null,
-	UpdateTime Text(30) not null
+	UpdateTime Text(30) not null,
+	CONSTRAINT "FollowUpRecord_Customer_FK" FOREIGN KEY ("CustomerId") REFERENCES "Customer" ("CustomerId")
 )
 ;
 
@@ -88,7 +103,8 @@ Create Table ContactInfo
 	VersionNo Integer,
 	CreateTime Text(30) not null,
 	UpdatedBy Text(50) not null,
-	UpdateTime Text(30) not null
+	UpdateTime Text(30) not null,
+	CONSTRAINT "ContactInfo_Customer_FK" FOREIGN KEY ("CustomerId") REFERENCES "Customer" ("CustomerId")
 )
 ;
 
@@ -110,7 +126,8 @@ Create Table InsurancePolicy
 	VersionNo Integer,
 	CreateTime Text(30) not null,
 	UpdatedBy Text(50) not null,
-	UpdateTime Text(30) not null
+	UpdateTime Text(30) not null,
+	CONSTRAINT "InsurancePolicy_Customer_FK" FOREIGN KEY ("CustomerId") REFERENCES "Customer" ("CustomerId")
 )
 ;
 
@@ -124,7 +141,9 @@ Create Table InsurancePolicyCustomer
 	VersionNo Integer,
 	CreateTime Text(30) not null,
 	UpdatedBy Text(50) not null,
-	UpdateTime Text(30) not null
+	UpdateTime Text(30) not null,
+	CONSTRAINT "InsurancePolicyCustomer_InsurancePolicy_FK" FOREIGN KEY ("IPId") REFERENCES "InsurancePolicy" ("InsurancePolicyId"),
+	CONSTRAINT "InsurancePolicyCustomer_Customer_FK" FOREIGN KEY ("CustomerId") REFERENCES "Customer" ("CustomerId")
 )
 ;
 

@@ -33,13 +33,8 @@
             this.superValidator = new DevComponents.DotNetBar.Validator.SuperValidator();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.highlighter = new DevComponents.DotNetBar.Validator.Highlighter();
-            this.cmbRelation = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.requiredFieldValidator1 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("Your error message here.");
             this.customValidator1 = new DevComponents.DotNetBar.Validator.CustomValidator();
-            this.grpPrimaryInfo = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.txtPrimaryCustomerName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.btnClose = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
@@ -47,7 +42,6 @@
             this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
             this.dataBindingCustomer = new SimpleCrm.Utils.DataBinding(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.grpPrimaryInfo.SuspendLayout();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingCustomer)).BeginInit();
             this.SuspendLayout();
@@ -67,20 +61,6 @@
             // 
             this.highlighter.ContainerControl = this;
             // 
-            // cmbRelation
-            // 
-            this.cmbRelation.DisplayMember = "Text";
-            this.cmbRelation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbRelation.FormattingEnabled = true;
-            this.highlighter.SetHighlightOnFocus(this.cmbRelation, true);
-            this.cmbRelation.ItemHeight = 15;
-            this.cmbRelation.Location = new System.Drawing.Point(529, 7);
-            this.cmbRelation.Name = "cmbRelation";
-            this.cmbRelation.Size = new System.Drawing.Size(121, 21);
-            this.cmbRelation.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbRelation.TabIndex = 23;
-            this.superValidator.SetValidator1(this.cmbRelation, this.requiredFieldValidator1);
-            // 
             // requiredFieldValidator1
             // 
             this.requiredFieldValidator1.ErrorMessage = "Your error message here.";
@@ -91,89 +71,6 @@
             // 
             this.customValidator1.ErrorMessage = "Your error message here.";
             this.customValidator1.HighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
-            // 
-            // grpPrimaryInfo
-            // 
-            this.grpPrimaryInfo.CanvasColor = System.Drawing.SystemColors.Control;
-            this.grpPrimaryInfo.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.grpPrimaryInfo.Controls.Add(this.cmbRelation);
-            this.grpPrimaryInfo.Controls.Add(this.labelX2);
-            this.grpPrimaryInfo.Controls.Add(this.txtPrimaryCustomerName);
-            this.grpPrimaryInfo.Controls.Add(this.labelX1);
-            this.grpPrimaryInfo.DisabledBackColor = System.Drawing.Color.Empty;
-            this.grpPrimaryInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpPrimaryInfo.Location = new System.Drawing.Point(0, 0);
-            this.grpPrimaryInfo.Name = "grpPrimaryInfo";
-            this.grpPrimaryInfo.Size = new System.Drawing.Size(876, 41);
-            // 
-            // 
-            // 
-            this.grpPrimaryInfo.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.grpPrimaryInfo.Style.BackColorGradientAngle = 90;
-            this.grpPrimaryInfo.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.grpPrimaryInfo.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.grpPrimaryInfo.Style.BorderBottomWidth = 1;
-            this.grpPrimaryInfo.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.grpPrimaryInfo.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.grpPrimaryInfo.Style.BorderLeftWidth = 1;
-            this.grpPrimaryInfo.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.grpPrimaryInfo.Style.BorderRightWidth = 1;
-            this.grpPrimaryInfo.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.grpPrimaryInfo.Style.BorderTopWidth = 1;
-            this.grpPrimaryInfo.Style.CornerDiameter = 4;
-            this.grpPrimaryInfo.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.grpPrimaryInfo.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.grpPrimaryInfo.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.grpPrimaryInfo.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.grpPrimaryInfo.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.grpPrimaryInfo.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.grpPrimaryInfo.TabIndex = 0;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(428, 7);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 21);
-            this.labelX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.labelX2.TabIndex = 19;
-            this.labelX2.Text = "关系";
-            // 
-            // txtPrimaryCustomerName
-            // 
-            // 
-            // 
-            // 
-            this.txtPrimaryCustomerName.Border.Class = "TextBoxBorder";
-            this.txtPrimaryCustomerName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPrimaryCustomerName.Location = new System.Drawing.Point(131, 7);
-            this.txtPrimaryCustomerName.Name = "txtPrimaryCustomerName";
-            this.txtPrimaryCustomerName.PreventEnterBeep = true;
-            this.txtPrimaryCustomerName.ReadOnly = true;
-            this.txtPrimaryCustomerName.Size = new System.Drawing.Size(120, 21);
-            this.txtPrimaryCustomerName.TabIndex = 18;
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(9, 7);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(96, 21);
-            this.labelX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.labelX1.TabIndex = 17;
-            this.labelX1.Text = "主关联客户姓名";
             // 
             // panelEx1
             // 
@@ -222,9 +119,9 @@
             // customerBaseInfoUC
             // 
             this.customerBaseInfoUC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerBaseInfoUC.Location = new System.Drawing.Point(0, 41);
+            this.customerBaseInfoUC.Location = new System.Drawing.Point(0, 0);
             this.customerBaseInfoUC.Name = "customerBaseInfoUC";
-            this.customerBaseInfoUC.Size = new System.Drawing.Size(876, 388);
+            this.customerBaseInfoUC.Size = new System.Drawing.Size(876, 429);
             this.customerBaseInfoUC.TabIndex = 0;
             // 
             // tabItem4
@@ -243,12 +140,11 @@
             this.ClientSize = new System.Drawing.Size(876, 463);
             this.Controls.Add(this.customerBaseInfoUC);
             this.Controls.Add(this.panelEx1);
-            this.Controls.Add(this.grpPrimaryInfo);
+            this.DoubleBuffered = true;
             this.Name = "CustomerBaseDetailForm";
             this.Text = "客户详细信息";
             this.Load += new System.EventHandler(this.CustomerDetailForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.grpPrimaryInfo.ResumeLayout(false);
             this.panelEx1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingCustomer)).EndInit();
             this.ResumeLayout(false);
@@ -262,15 +158,10 @@
         private DevComponents.DotNetBar.Validator.Highlighter highlighter;
         private DevComponents.DotNetBar.Validator.CustomValidator customValidator1;
         private DevComponents.DotNetBar.PanelEx panelEx1;
-        private DevComponents.DotNetBar.Controls.GroupPanel grpPrimaryInfo;
         private UserControls.CustomerBaseInfoUC customerBaseInfoUC;
         private DevComponents.DotNetBar.ButtonX btnClose;
         private DevComponents.DotNetBar.ButtonX btnSave;
         private DevComponents.DotNetBar.TabItem tabItem4;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtPrimaryCustomerName;
-        private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbRelation;
         private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator1;
         private Utils.DataBinding dataBindingCustomer;
     }

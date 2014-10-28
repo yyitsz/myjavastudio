@@ -16,10 +16,6 @@ namespace SimpleCrm.Model
         /// PolicyHolder, Insured, Beneficiary
         /// </summary>
         public String Role { get; set; }
-        /// <summary>
-        /// 与被保人关系. Children, Parent, Spouse, Employee
-        /// </summary>
-        public String Relation { get; set; }
 
         public override object GetPK()
         {

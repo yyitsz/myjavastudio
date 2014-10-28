@@ -74,7 +74,7 @@ namespace SimpleCrm.InsuranceForm
             }
             else
             {
-                relatedCustomerList = AppFacade.Facade.GetRelatedCustomerList(this.PrimaryCustomerId.Value);
+                relatedCustomerList = AppFacade.Facade.GetCustomerByRelation(this.PrimaryCustomerId.Value);
                 HashSet<Customer> customerSet = new HashSet<Customer>(new ModelEqualityComparer<Customer>());
                 if (this.insurancePolicy != null)
                 {
@@ -92,6 +92,10 @@ namespace SimpleCrm.InsuranceForm
                     {
                         chkSameHolderAndInsured.Checked = true;
                     }
+                }
+                if (this.primaryCustomer != null)
+                {
+                    customerSet.Add(this.primaryCustomer);
                 }
                 customerSet.AddRange(relatedCustomerList);
                 relatedCustomerList = customerSet.ToList();
@@ -219,7 +223,6 @@ namespace SimpleCrm.InsuranceForm
                     }
                     dataBindingIP.MapToObject(policy);
                     policy.PolicyHolder = holderBaseInfo.BindDataFromUI();
-                    policy.PolicyHolder.PrimaryCustomerId = this.PrimaryCustomerId;
 
                     if (tiInsured.Visible)
                     {
@@ -230,7 +233,6 @@ namespace SimpleCrm.InsuranceForm
                         else
                         {
                             policy.Insured = insuredBaseInfo.BindDataFromUI();
-                            policy.Insured.PrimaryCustomerId = this.PrimaryCustomerId;
                         }
                     }
                     else
@@ -240,7 +242,6 @@ namespace SimpleCrm.InsuranceForm
                     if (tiBeneficiary.Visible)
                     {
                         policy.Beneficiaries = (grdBeneficiary.DataSource as BindingList<Customer>).ToList();
-                        policy.Beneficiaries.ForEach(c => c.PrimaryCustomerId = this.PrimaryCustomerId);
                     }
                     else
                     {

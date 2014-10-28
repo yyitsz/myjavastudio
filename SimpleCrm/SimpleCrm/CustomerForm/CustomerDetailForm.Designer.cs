@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerDetailForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.superValidator = new DevComponents.DotNetBar.Validator.SuperValidator();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.highlighter = new DevComponents.DotNetBar.Validator.Highlighter();
@@ -50,6 +50,9 @@
             this.textBoxX5 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
+            this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+            this.customerBaseInfoUC = new SimpleCrm.CustomerForm.UserControls.CustomerBaseInfoUC();
+            this.tabCustomer = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -62,9 +65,6 @@
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
-            this.customerBaseInfoUC = new SimpleCrm.CustomerForm.UserControls.CustomerBaseInfoUC();
-            this.tabCustomer = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel5 = new DevComponents.DotNetBar.TabControlPanel();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.grdFamily = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -96,9 +96,6 @@
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
             this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
-            this.customerSpouseBaseInfoUC = new SimpleCrm.CustomerForm.UserControls.CustomerBaseInfoUC();
-            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.dataBindingCustomer = new SimpleCrm.Utils.DataBinding(this.components);
             this.ribbonBarMergeContainer1 = new DevComponents.DotNetBar.RibbonBarMergeContainer();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
@@ -107,18 +104,17 @@
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabControlPanel1.SuspendLayout();
             this.tabControlPanel4.SuspendLayout();
             this.groupPanel5.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             this.groupPanel4.SuspendLayout();
             this.groupPanel3.SuspendLayout();
             this.groupPanel2.SuspendLayout();
-            this.tabControlPanel1.SuspendLayout();
             this.tabControlPanel5.SuspendLayout();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdFamily)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
-            this.tabControlPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingCustomer)).BeginInit();
             this.ribbonBarMergeContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -375,11 +371,10 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel1);
-            this.tabControl1.Controls.Add(this.tabControlPanel4);
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Controls.Add(this.tabControlPanel5);
-            this.tabControl1.Controls.Add(this.tabControlPanel3);
+            this.tabControl1.Controls.Add(this.tabControlPanel4);
+            this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 83);
             this.tabControl1.Name = "tabControl1";
@@ -391,10 +386,43 @@
             this.tabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             this.tabControl1.Tabs.Add(this.tabCustomer);
             this.tabControl1.Tabs.Add(this.tabItem1);
-            this.tabControl1.Tabs.Add(this.tabItem2);
-            this.tabControl1.Tabs.Add(this.tabItem4);
             this.tabControl1.Tabs.Add(this.tabItem3);
+            this.tabControl1.Tabs.Add(this.tabItem4);
             this.tabControl1.Text = "tabControl1";
+            // 
+            // tabControlPanel1
+            // 
+            this.tabControlPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.tabControlPanel1.Controls.Add(this.customerBaseInfoUC);
+            this.tabControlPanel1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel1.Location = new System.Drawing.Point(0, 25);
+            this.tabControlPanel1.Name = "tabControlPanel1";
+            this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel1.Size = new System.Drawing.Size(876, 355);
+            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel1.Style.GradientAngle = 90;
+            this.tabControlPanel1.TabIndex = 1;
+            this.tabControlPanel1.TabItem = this.tabCustomer;
+            // 
+            // customerBaseInfoUC
+            // 
+            this.customerBaseInfoUC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerBaseInfoUC.Location = new System.Drawing.Point(1, 1);
+            this.customerBaseInfoUC.Name = "customerBaseInfoUC";
+            this.customerBaseInfoUC.Size = new System.Drawing.Size(874, 353);
+            this.customerBaseInfoUC.TabIndex = 0;
+            // 
+            // tabCustomer
+            // 
+            this.tabCustomer.AttachedControl = this.tabControlPanel1;
+            this.tabCustomer.Name = "tabCustomer";
+            this.tabCustomer.Text = "基本信息";
             // 
             // tabControlPanel4
             // 
@@ -405,9 +433,10 @@
             this.tabControlPanel4.Name = "tabControlPanel4";
             this.tabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel4.Size = new System.Drawing.Size(876, 355);
-            this.tabControlPanel4.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabControlPanel4.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
             this.tabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.tabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
             this.tabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
                         | DevComponents.DotNetBar.eBorderSide.Bottom)));
             this.tabControlPanel4.Style.GradientAngle = 90;
@@ -490,9 +519,10 @@
             this.tabControlPanel2.Name = "tabControlPanel2";
             this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel2.Size = new System.Drawing.Size(876, 355);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
             this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
             this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
                         | DevComponents.DotNetBar.eBorderSide.Bottom)));
             this.tabControlPanel2.Style.GradientAngle = 90;
@@ -682,39 +712,6 @@
             this.tabItem1.Name = "tabItem1";
             this.tabItem1.Text = "资产";
             // 
-            // tabControlPanel1
-            // 
-            this.tabControlPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.tabControlPanel1.Controls.Add(this.customerBaseInfoUC);
-            this.tabControlPanel1.DisabledBackColor = System.Drawing.Color.Empty;
-            this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel1.Location = new System.Drawing.Point(0, 25);
-            this.tabControlPanel1.Name = "tabControlPanel1";
-            this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel1.Size = new System.Drawing.Size(876, 355);
-            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
-                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel1.Style.GradientAngle = 90;
-            this.tabControlPanel1.TabIndex = 1;
-            this.tabControlPanel1.TabItem = this.tabCustomer;
-            // 
-            // customerBaseInfoUC
-            // 
-            this.customerBaseInfoUC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerBaseInfoUC.Location = new System.Drawing.Point(1, 1);
-            this.customerBaseInfoUC.Name = "customerBaseInfoUC";
-            this.customerBaseInfoUC.Size = new System.Drawing.Size(874, 353);
-            this.customerBaseInfoUC.TabIndex = 0;
-            // 
-            // tabCustomer
-            // 
-            this.tabCustomer.AttachedControl = this.tabControlPanel1;
-            this.tabCustomer.Name = "tabCustomer";
-            this.tabCustomer.Text = "基本信息";
-            // 
             // tabControlPanel5
             // 
             this.tabControlPanel5.Controls.Add(this.panelEx2);
@@ -725,9 +722,10 @@
             this.tabControlPanel5.Name = "tabControlPanel5";
             this.tabControlPanel5.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel5.Size = new System.Drawing.Size(876, 355);
-            this.tabControlPanel5.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabControlPanel5.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel5.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
             this.tabControlPanel5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel5.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.tabControlPanel5.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
             this.tabControlPanel5.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
                         | DevComponents.DotNetBar.eBorderSide.Bottom)));
             this.tabControlPanel5.Style.GradientAngle = 90;
@@ -784,17 +782,17 @@
             this.updateTimeDataGridViewTextBoxColumn,
             this.versionNoDataGridViewTextBoxColumn});
             this.grdFamily.DataSource = this.customerBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdFamily.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdFamily.DefaultCellStyle = dataGridViewCellStyle1;
             this.grdFamily.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdFamily.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.grdFamily.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.grdFamily.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdFamily.Location = new System.Drawing.Point(0, 0);
             this.grdFamily.Name = "grdFamily";
             this.grdFamily.RowTemplate.Height = 23;
@@ -1061,38 +1059,6 @@
             this.tabItem4.Name = "tabItem4";
             this.tabItem4.Text = "家庭成员";
             // 
-            // tabControlPanel3
-            // 
-            this.tabControlPanel3.Controls.Add(this.customerSpouseBaseInfoUC);
-            this.tabControlPanel3.DisabledBackColor = System.Drawing.Color.Empty;
-            this.tabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel3.Location = new System.Drawing.Point(0, 25);
-            this.tabControlPanel3.Name = "tabControlPanel3";
-            this.tabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel3.Size = new System.Drawing.Size(876, 355);
-            this.tabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.tabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
-                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel3.Style.GradientAngle = 90;
-            this.tabControlPanel3.TabIndex = 3;
-            this.tabControlPanel3.TabItem = this.tabItem2;
-            // 
-            // customerSpouseBaseInfoUC
-            // 
-            this.customerSpouseBaseInfoUC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerSpouseBaseInfoUC.Location = new System.Drawing.Point(1, 1);
-            this.customerSpouseBaseInfoUC.Name = "customerSpouseBaseInfoUC";
-            this.customerSpouseBaseInfoUC.Size = new System.Drawing.Size(874, 353);
-            this.customerSpouseBaseInfoUC.TabIndex = 0;
-            // 
-            // tabItem2
-            // 
-            this.tabItem2.AttachedControl = this.tabControlPanel3;
-            this.tabItem2.Name = "tabItem2";
-            this.tabItem2.Text = "配偶";
-            // 
             // dataBindingCustomer
             // 
             this.dataBindingCustomer.DateTimeFormat = "yyyy-MM-dd";
@@ -1171,6 +1137,7 @@
             this.Controls.Add(this.ribbonBarMergeContainer1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupPanel1);
+            this.DoubleBuffered = true;
             this.Name = "CustomerDetailForm";
             this.Text = "客户详细信息";
             this.Load += new System.EventHandler(this.CustomerDetailForm_Load);
@@ -1178,18 +1145,17 @@
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabControlPanel1.ResumeLayout(false);
             this.tabControlPanel4.ResumeLayout(false);
             this.groupPanel5.ResumeLayout(false);
             this.tabControlPanel2.ResumeLayout(false);
             this.groupPanel4.ResumeLayout(false);
             this.groupPanel3.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
-            this.tabControlPanel1.ResumeLayout(false);
             this.tabControlPanel5.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdFamily)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
-            this.tabControlPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingCustomer)).EndInit();
             this.ribbonBarMergeContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1209,9 +1175,6 @@
         private UserControls.CustomerBaseInfoUC customerBaseInfoUC;
         private DevComponents.DotNetBar.TabControlPanel tabControlPanel2;
         private DevComponents.DotNetBar.TabItem tabItem1;
-        private DevComponents.DotNetBar.TabControlPanel tabControlPanel3;
-        private UserControls.CustomerBaseInfoUC customerSpouseBaseInfoUC;
-        private DevComponents.DotNetBar.TabItem tabItem2;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX3;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;

@@ -37,19 +37,15 @@ namespace SimpleCrm.CustomerForm
             if (this.FormMode == SimpleCrm.FormMode.Add)
             {
                 this.Customer = new Customer();
+                this.grdFamily.DataSource = new BindingList<Customer>();
             }
             else
             {
                 Customer = AppFacade.Facade.GetCustomer(CustomerId);
-              ;
                 this.dataBindingCustomer.MapToControl(this.Customer);
+                this.grdFamily.DataSource = new BindingList<Customer>(AppFacade.Facade.GetCustomerByRelation(CustomerId));
             }
-            Customer spouse = this.Customer.GetSpouse();
             this.customerBaseInfoUC.BindDataToUI(this.Customer);
-            this.customerSpouseBaseInfoUC.BindDataToUI(spouse);
-
-            this.grdFamily.DataSource = new BindingList<Customer>(this.Customer.GetOtherFamilyMember());
-
 
             if (FormMode == SimpleCrm.FormMode.View)
             {
@@ -83,30 +79,14 @@ namespace SimpleCrm.CustomerForm
             try
             {
                 if (superValidator.Validate()
-                    && this.customerBaseInfoUC.ValidateData(true)
-                    && this.customerSpouseBaseInfoUC.ValidateData())
+                    && this.customerBaseInfoUC.ValidateData(true))
                 {
                     this.dataBindingCustomer.MapToObject(this.Customer);
                     this.customerBaseInfoUC.BindDataFromUI();
-                    List<Customer> relation = new List<Model.Customer>();
-                    Customer spouse = this.customerSpouseBaseInfoUC.BindDataFromUI();
-                    if (String.IsNullOrWhiteSpace(spouse.CustomerName))
-                    {
-                        if (spouse.CustomerId != null)
-                        {
-                            this.deletingList.Add(spouse);
-                        }
-                    }
-                    else
-                    {
-                        spouse.RelationWithPrimary = RelationType.Spouse.ToString();
-                        relation.Add(spouse);
-                    }
+                    List<Customer> relation = new List<Customer>();
 
                     relation.AddRange(this.grdFamily.DataSource as IList<Customer>);
-                    this.Customer.FamilyMember = relation;
 
-                    AppFacade.Facade.SaveCustomer(this.Customer, this.deletingList);
                     this.DialogResult = System.Windows.Forms.DialogResult.OK;
                     this.Close();
                 }

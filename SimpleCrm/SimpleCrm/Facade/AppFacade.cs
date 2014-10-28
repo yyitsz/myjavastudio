@@ -224,14 +224,14 @@ namespace SimpleCrm.Facade
 
         #region Customer
 
-        internal List<Customer> GetRelatedCustomerList(long primaryCustomerId)
-        {
-            return ExecutedInTx(conn =>
-            {
-                CustomerManager customerMgr = new CustomerManager(conn);
-                return customerMgr.GetByPrimaryCustomer(primaryCustomerId);
-            });
-        }
+        //internal List<Customer> GetRelatedCustomerList(long customerId)
+        //{
+        //    return ExecutedInTx(conn =>
+        //    {
+        //        CustomerManager customerMgr = new CustomerManager(conn);
+        //        return customerMgr.GetCustomerByRelation(customerId);
+        //    });
+        //}
 
         internal DTO.PageSearchResultDto<DTO.CustomerSearchResultDto> SearchCustomer(DTO.CustomerSearchParamDto customerSearchParamDto)
         {
@@ -242,18 +242,12 @@ namespace SimpleCrm.Facade
             });
         }
 
-        public void SaveCustomer(Customer customer, IEnumerable<Customer> deletingList)
+        public void SaveCustomer(Customer customer)
         {
             ExecutedInTx(conn =>
             {
                 CustomerManager customerMgr = new CustomerManager(conn);
-                if (deletingList != null)
-                {
-                    customerMgr.DeleteBatch(deletingList);
-                }
                 customerMgr.Save(customer);
-                customer.FamilyMember.ForEach(c => c.PrimaryCustomerId = customer.CustomerId);
-                customerMgr.SaveFamily(customer.FamilyMember);
 
             });
         }
@@ -271,7 +265,6 @@ namespace SimpleCrm.Facade
             ExecutedInTx(conn =>
             {
                 CustomerManager customerMgr = new CustomerManager(conn);
-                customerMgr.DeleteBatch(customer.FamilyMember);
                 customerMgr.Delete(customer);
             });
         }
@@ -282,8 +275,6 @@ namespace SimpleCrm.Facade
                 CustomerManager customerMgr = new CustomerManager(conn);
 
                 Customer customer = customerMgr.FindOne(customerId);
-
-                customer.FamilyMember = customerMgr.GetFamily(customer.CustomerId.Value).ToList();
                 return customer;
             });
         }
@@ -498,6 +489,15 @@ namespace SimpleCrm.Facade
                PendingItemManager mgr = new PendingItemManager(conn);
                mgr.Save(pendingItemDto);
            });
+        }
+
+        internal List<Customer> GetCustomerByRelation(long CustomerId)
+        {
+            return ExecutedInTx(conn =>
+            {
+                CustomerManager mgr = new CustomerManager(conn);
+                return mgr.GetCustomerByRelation(CustomerId);
+            });
         }
     }
 }

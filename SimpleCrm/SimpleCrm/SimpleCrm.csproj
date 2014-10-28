@@ -169,6 +169,7 @@
     <Compile Include="CSV\SimpleCsvLineParser.cs" />
     <Compile Include="Manager\ContactInfoManager.cs" />
     <Compile Include="Manager\AppointmentInfoManager.cs" />
+    <Compile Include="Manager\CustomerRelationManager.cs" />
     <Compile Include="Manager\PendingItemManager.cs" />
     <Compile Include="Manager\InsurancePolicyCustomerManager.cs" />
     <Compile Include="Manager\InsurancePolicyManager.cs" />
@@ -183,6 +184,7 @@
     </Compile>
     <Compile Include="Model\ContactInfo.cs" />
     <Compile Include="Model\AppointmentInfo.cs" />
+    <Compile Include="Model\CustomerRelation.cs" />
     <Compile Include="Model\PendingItemHandleResult.cs" />
     <Compile Include="Model\INotifiable.cs" />
     <Compile Include="Model\PendingItem.cs" />

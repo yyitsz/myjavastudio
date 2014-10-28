@@ -93,14 +93,14 @@ namespace SimpleCrm.Manager
             }
         }
 
-        internal List<Customer> GetByPrimaryCustomer(long primaryCustomerId)
-        {
-            List<Customer> customerList = Connection.Query<Customer>(
-                "Select * from Customer where CustomerId = @CustomerId or PrimaryCustomerId = @CustomerId", new { CustomerId = primaryCustomerId }).ToList();
-            PopulateContactInfo(customerList);
-            customerList.MarkAsPersisted();
-            return customerList;
-        }
+        //internal List<Customer> GetByPrimaryCustomer(long primaryCustomerId)
+        //{
+        //    List<Customer> customerList = Connection.Query<Customer>(
+        //        "Select * from Customer where CustomerId = @CustomerId or PrimaryCustomerId = @CustomerId", new { CustomerId = primaryCustomerId }).ToList();
+        //    PopulateContactInfo(customerList);
+        //    customerList.MarkAsPersisted();
+        //    return customerList;
+        //}
 
         internal List<Customer> GetByIdList(IEnumerable<long> idList)
         {
@@ -110,6 +110,19 @@ namespace SimpleCrm.Manager
             }
             Tuple<String, Object> param = BuildCollectionSql("CustomerId", idList.Cast<object>());
             List<Customer> customerList = Connection.GetList<Customer>(param.Item1, param.Item2).ToList();
+            PopulateContactInfo(customerList);
+            customerList.MarkAsPersisted();
+            return customerList;
+        }
+
+        internal List<Customer> GetCustomerByRelation(long customerId)
+        {
+            List<Customer> customerList = Connection.Query<Customer>(
+               @"Select r.relation, c.*
+    from CustomerRelation r 
+		INNER JOIN Customer c on r.AgainstCustomerId = c.CustomerId 
+where r.BaseCustomerId = @CustomerId "
+               , new { CustomerId = customerId }).ToList();
             PopulateContactInfo(customerList);
             customerList.MarkAsPersisted();
             return customerList;

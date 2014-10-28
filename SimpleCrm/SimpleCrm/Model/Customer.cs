@@ -21,33 +21,6 @@ namespace SimpleCrm.Model
                 }
             }
         }
-        private long? primaryCustomerId;
-        public long? PrimaryCustomerId
-        {
-            get { return primaryCustomerId; }
-            set
-            {
-                if (value != primaryCustomerId)
-                {
-                    primaryCustomerId = value;
-                    this.NotifyPropertyChanged(m => m.PrimaryCustomerId);
-                }
-            }
-        }
-
-        private String relationWithPrimary;
-        public String RelationWithPrimary
-        {
-            get { return relationWithPrimary; }
-            set
-            {
-                if (value != relationWithPrimary)
-                {
-                    relationWithPrimary = value;
-                    this.NotifyPropertyChanged(m => m.RelationWithPrimary);
-                }
-            }
-        }
 
         private String customerName;
         public String CustomerName
@@ -291,49 +264,22 @@ namespace SimpleCrm.Model
             }
         }
 
+        [Transient]
+        public String Relation { get; set; }
 
         //*****************************************************************
         //contactInfo
         public List<ContactInfo> Contacts { get; set; }
-        public List<Customer> FamilyMember { get; set; }
-
 
 
         public Customer()
         {
             Contacts = new List<ContactInfo>();
-            FamilyMember = new List<Customer>();
         }
         public override object GetPK()
         {
             return CustomerId;
         }
 
-        public Customer GetSpouse()
-        {
-            if (FamilyMember == null || FamilyMember.Count == 0)
-            {
-                return null;
-            }
-            return this.FamilyMember.Find(c => c.RelationWithPrimary == RelationType.Spouse.ToString());
-        }
-
-        public List<Customer> GetOtherFamilyMember()
-        {
-            if (FamilyMember == null || FamilyMember.Count == 0)
-            {
-                return new List<Customer>();
-            }
-            return this.FamilyMember.FindAll(c => c.RelationWithPrimary != RelationType.Spouse.ToString());
-        }
-
-        //public override void MarkAsPersisted()
-        //{
-        //    base.MarkAsPersisted();
-        //    if (Contacts != null)
-        //    {
-        //        Contacts.MarkAsPersisted();
-        //    }
-        //}
     }
 }
