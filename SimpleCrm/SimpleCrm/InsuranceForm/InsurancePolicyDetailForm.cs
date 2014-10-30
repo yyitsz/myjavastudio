@@ -63,6 +63,11 @@ namespace SimpleCrm.InsuranceForm
                 this.dataBindingIP.MapToControl(this.insurancePolicy);
                 this.holderBaseInfo.BindDataToUI(this.insurancePolicy.PolicyHolder);
                 this.insuredBaseInfo.BindDataToUI(this.insurancePolicy.Insured);
+                if (this.insurancePolicy.Insured != null && this.insurancePolicy.Insured.CustomerId != this.insurancePolicy.PolicyHolder.CustomerId)
+                {
+                    this.cmbRelation.SelectedValue = this.insurancePolicy.Insured.Relation;
+
+                }
                 this.grdBeneficiary.DataSource = new BindingList<Customer>(this.insurancePolicy.Beneficiaries);
             }
 
@@ -88,7 +93,7 @@ namespace SimpleCrm.InsuranceForm
                     }
                     customerSet.AddRange(this.insurancePolicy.Beneficiaries);
 
-                    if (this.insurancePolicy.PolicyHolder != null && this.insurancePolicy.PolicyHolder == this.insurancePolicy.Insured)
+                    if (this.insurancePolicy.Insured != null && this.insurancePolicy.PolicyHolder == this.insurancePolicy.Insured)
                     {
                         chkSameHolderAndInsured.Checked = true;
                     }
@@ -204,6 +209,8 @@ namespace SimpleCrm.InsuranceForm
             ComboBoxUtil.BindLov(LovType.InsurancePolicyStatus, cmbStatus);
             ComboBoxUtil.BindEnumType(typeof(GenderType), colGender);
             ComboBoxUtil.BindLov(LovType.IdCardType, colIdType);
+            ComboBoxUtil.BindLov(LovType.Relation, colRelationWithInsured, true);
+            ComboBoxUtil.BindLov(LovType.Relation, cmbRelation, true);
             cmbCustomerList.Enabled = false;
 
             this.grdBeneficiary.DataSource = new BindingList<Customer>();
@@ -233,6 +240,13 @@ namespace SimpleCrm.InsuranceForm
                         else
                         {
                             policy.Insured = insuredBaseInfo.BindDataFromUI();
+                            policy.Insured.Relation = cmbRelation.SelectedValue.ToString();
+                        }
+
+                        if (policy.Insured.CustomerName == policy.PolicyHolder.CustomerName)
+                        {
+                            MessageBoxHelper.ShowPrompt("投保人与被保人姓名相同，如果是本人投保，请勾选[本人投保]");
+                            return;
                         }
                     }
                     else
@@ -265,13 +279,35 @@ namespace SimpleCrm.InsuranceForm
             isValid = superValidator.Validate();
             if (isValid == false)
             {
+                tabIPInfo.SelectedTab = tiBaseInfo;
                 return isValid;
             }
             isValid = holderBaseInfo.ValidateData(true);
+
+            if (isValid == false)
+            {
+                tabIPInfo.SelectedTab = tiPolicyHolder;
+                return isValid;
+            }
+
             if (tiInsured.Visible && chkSameHolderAndInsured.Checked == false)
             {
                 isValid = insuredBaseInfo.ValidateData(true) && isValid;
+
+                if (ComboBoxUtil.Selected(cmbRelation) == false)
+                {
+                    MessageBoxHelper.ShowPrompt("与投保人关系是必填的");
+                    isValid = false;
+                }
+
+                if (isValid == false)
+                {
+                    tabIPInfo.SelectedTab = tiInsured;
+                    return isValid;
+                }
             }
+           
+
             if (tiBeneficiary.Visible)
             {
                 foreach (DataGridViewRow row in grdBeneficiary.Rows)
@@ -279,8 +315,13 @@ namespace SimpleCrm.InsuranceForm
                     Customer c = row.DataBoundItem as Customer;
                     if (c != null)
                     {
-                        isValid = ValidationHelper.ValidateRequiredField(row, "colCustomerName") && isValid;
+                        isValid = ValidationHelper.ValidateRequiredField(row, "colCustomerName", "colRelationWithInsured") && isValid;
                     }
+                }
+                if (isValid == false)
+                {
+                    tabIPInfo.SelectedTab = tiBeneficiary;
+                    return isValid;
                 }
             }
             return isValid;
@@ -350,7 +391,7 @@ namespace SimpleCrm.InsuranceForm
 
         private void chkSameHolderAndInsured_CheckedChanged(object sender, DevComponents.DotNetBar.CheckBoxChangeEventArgs e)
         {
-            this.insuredBaseInfo.Enabled = !chkSameHolderAndInsured.Checked;
+            this.tcpInsured.Enabled = !chkSameHolderAndInsured.Checked;
         }
 
         private void grdBeneficiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -358,7 +399,7 @@ namespace SimpleCrm.InsuranceForm
             if (grdBeneficiary.Columns[e.ColumnIndex].Name == "colDelete"
                 && grdBeneficiary.Rows[e.RowIndex].DataBoundItem is Customer)
             {
-                if (MessageBoxHelper.ShowYesNo("删除受益人吗？注意：这不会实际删除已有的客户资料。") == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBoxHelper.ShowYesNo("删除受益人吗？注意,已保存的客户资料是不会被删除的。") == System.Windows.Forms.DialogResult.Yes)
                 {
                     grdBeneficiary.Rows.RemoveAt(e.RowIndex);
                 }

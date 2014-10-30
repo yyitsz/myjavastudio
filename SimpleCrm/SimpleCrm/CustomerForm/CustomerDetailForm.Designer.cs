@@ -1221,7 +1221,6 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbIntentPhase;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbCustomerStatus;
         private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn primaryCustomerIdDataGridViewTextBoxColumn;
         private Utils.DataBinding dataBindingCustomer;
         private DevComponents.DotNetBar.RibbonBarMergeContainer ribbonBarMergeContainer1;
         private DevComponents.DotNetBar.RibbonBar ribbonBar1;

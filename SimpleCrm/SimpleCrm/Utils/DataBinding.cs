@@ -290,7 +290,11 @@ namespace SimpleCrm.Utils
                 }
                 else if (kv.Key is DoubleInput)
                 {
-                    value = Convert.ToString((kv.Key as DoubleInput).ValueObject);
+                   DoubleInput doubleInputControl = kv.Key as DoubleInput;
+                   if (doubleInputControl.ValueObject != null)
+                   {
+                       value = Convert.ToString(doubleInputControl.Value);
+                   }
                 }
 
                 if (value != null && value.GetType() != propertyType)

@@ -48,6 +48,8 @@
             this.txtUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.grdResult = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.customerSearchResultDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBindingParam = new SimpleCrm.Utils.DataBinding(this.components);
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCustomerName = new System.Windows.Forms.DataGridViewLinkColumn();
             this.idCardNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,8 +60,6 @@
             this.colCustomerClass = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colCustomerSource = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colIntentPhase = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
-            this.customerSearchResultDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataBindingParam = new SimpleCrm.Utils.DataBinding(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -343,6 +343,14 @@
             this.grdResult.TabIndex = 0;
             this.grdResult.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdResult_RowHeaderMouseDoubleClick);
             // 
+            // customerSearchResultDtoBindingSource
+            // 
+            this.customerSearchResultDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.CustomerSearchResultDto);
+            // 
+            // dataBindingParam
+            // 
+            this.dataBindingParam.DateTimeFormat = "yyyy-MM-dd";
+            // 
             // customerIdDataGridViewTextBoxColumn
             // 
             this.customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
@@ -355,17 +363,19 @@
             this.colCustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colCustomerName.DataPropertyName = "CustomerName";
             this.colCustomerName.HeaderText = "客户姓名";
-            this.colCustomerName.MinimumWidth = 50;
+            this.colCustomerName.MinimumWidth = 70;
             this.colCustomerName.Name = "colCustomerName";
             this.colCustomerName.ReadOnly = true;
             this.colCustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colCustomerName.Width = 61;
+            this.colCustomerName.Width = 78;
             // 
             // idCardNoDataGridViewTextBoxColumn
             // 
+            this.idCardNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.idCardNoDataGridViewTextBoxColumn.DataPropertyName = "IdCardNo";
             this.idCardNoDataGridViewTextBoxColumn.HeaderText = "证件号码";
+            this.idCardNoDataGridViewTextBoxColumn.MinimumWidth = 100;
             this.idCardNoDataGridViewTextBoxColumn.Name = "idCardNoDataGridViewTextBoxColumn";
             this.idCardNoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -385,7 +395,7 @@
             this.colGender.ReadOnly = true;
             this.colGender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colGender.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colGender.Width = 45;
+            this.colGender.Width = 56;
             // 
             // birthdayDataGridViewTextBoxColumn
             // 
@@ -397,7 +407,7 @@
             this.birthdayDataGridViewTextBoxColumn.MinimumWidth = 20;
             this.birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
             this.birthdayDataGridViewTextBoxColumn.ReadOnly = true;
-            this.birthdayDataGridViewTextBoxColumn.Width = 61;
+            this.birthdayDataGridViewTextBoxColumn.Width = 78;
             // 
             // unitDataGridViewTextBoxColumn
             // 
@@ -422,7 +432,7 @@
             this.colStatus.ReadOnly = true;
             this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colStatus.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colStatus.Width = 61;
+            this.colStatus.Width = 78;
             // 
             // colCustomerClass
             // 
@@ -440,7 +450,7 @@
             this.colCustomerClass.ReadOnly = true;
             this.colCustomerClass.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerClass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colCustomerClass.Width = 61;
+            this.colCustomerClass.Width = 78;
             // 
             // colCustomerSource
             // 
@@ -459,11 +469,11 @@
             this.colCustomerSource.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerSource.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.colCustomerSource.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.colCustomerSource.Width = 61;
+            this.colCustomerSource.Width = 78;
             // 
             // colIntentPhase
             // 
-            this.colIntentPhase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colIntentPhase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colIntentPhase.DataPropertyName = "IntentPhase";
             this.colIntentPhase.DropDownHeight = 106;
             this.colIntentPhase.DropDownWidth = 121;
@@ -479,14 +489,6 @@
             this.colIntentPhase.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.colIntentPhase.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.colIntentPhase.Width = 72;
-            // 
-            // customerSearchResultDtoBindingSource
-            // 
-            this.customerSearchResultDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.CustomerSearchResultDto);
-            // 
-            // dataBindingParam
-            // 
-            this.dataBindingParam.DateTimeFormat = "yyyy-MM-dd";
             // 
             // CustomerPickListForm
             // 
