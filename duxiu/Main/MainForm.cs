@@ -67,6 +67,11 @@ namespace Mouse.Main
             //Regex regex2 = new Regex("scr=(.*) rotate");
             Regex regex2 = new Regex(@"var str = ""([^""]*)"";");
             Match match2 = regex2.Match(paramPath.Html);
+            if (match2.Success == false)
+            {
+                regex2 = new Regex(@"jpgPath\:""([^""]*)"",");
+                match2 = regex2.Match(paramPath.Html);
+            }
             string str = "&uf=ssr&zoom=" + paramPath.PicSize.ToString();
             //&pi=2
             AuxPageParseResult auxResult = null;
@@ -94,26 +99,39 @@ namespace Mouse.Main
 
                 Regex regPageNum = new Regex(@"var spage = (\d+)\, epage = (\d+);");
                 Match pageNumMatch = regPageNum.Match(paramPath.Html);
+                int beginPage = 0;
+                int endPage = 0;
                 if (pageNumMatch.Success)
                 {
-                    int beginPage = int.Parse(pageNumMatch.Groups[1].Value);
-                    int endPage = int.Parse(pageNumMatch.Groups[2].Value);
-                    for (int i = beginPage; i <= endPage; i++)
-                    {
-                        PageParseResult param = new PageParseResult();
-                        param.PageName = i.ToString().PadLeft(6, '0');
-                        param.PageUrl = result.HostUrl + trueUrl.TrimStart('/') + param.PageName + "?." + str;
-                        if (auxResult != null && auxResult.PreUrl == null)
-                        {
-                            auxResult.PreUrl = result.HostUrl + trueUrl.TrimStart('/');
-                        }
-                        param.FullFileName = Path.Combine(result.BookFolder, param.PageName + ".png");
-
-                        urlParams.Add(param);
-
-                    }
-                    result.TotalPage = beginPage - endPage;
+                    beginPage = int.Parse(pageNumMatch.Groups[1].Value);
+                    endPage = int.Parse(pageNumMatch.Groups[2].Value);
                 }
+                else
+                {
+                    regPageNum = new Regex(@"ps\:'(\d+)\-(\d+)',");
+                    pageNumMatch = regPageNum.Match(paramPath.Html);
+                    if (pageNumMatch.Success)
+                    {
+                        beginPage = int.Parse(pageNumMatch.Groups[1].Value);
+                        endPage = int.Parse(pageNumMatch.Groups[2].Value);
+                    }
+                }
+                for (int i = beginPage; i <= endPage; i++)
+                {
+                    PageParseResult param = new PageParseResult();
+                    param.PageName = i.ToString().PadLeft(6, '0');
+                    param.PageUrl = result.HostUrl + trueUrl.TrimStart('/') + param.PageName + "?." + str;
+                    if (auxResult != null && auxResult.PreUrl == null)
+                    {
+                        auxResult.PreUrl = result.HostUrl + trueUrl.TrimStart('/');
+                    }
+                    param.FullFileName = Path.Combine(result.BookFolder, param.PageName + ".png");
+
+                    urlParams.Add(param);
+
+                }
+                result.TotalPage = endPage - beginPage + 1;
+
             }
 
             //            int num = 0; 
@@ -167,24 +185,42 @@ namespace Mouse.Main
         }
 
 
-
         public bool InputCode(IParseResult result, PageParseResult param)
+        {
+            string refUrl = result.HostUrl + "n/antispiderShowVerify.ac";
+            InputCode2Form form = new InputCode2Form();
+            form.Url = refUrl;
+            form.ShowDialog(this);
+            if (form.DialogResult == DialogResult.OK)
+            {
+                return true;
+            }
+            else if (form.DialogResult == DialogResult.Abort)
+            {
+                throw new AbortException();
+            }
+            return false;
+        }
+
+        public bool InputCode2(IParseResult result, PageParseResult param)
         {
             bool ok = false;
             int count = 0;
+            string refUrl = result.HostUrl + "n/antispiderShowVerify.ac";
             do
             {
                 String code = null;
                 Boolean abort = false;
-                using (WebClient webClient = Utils.CreateWebClient(GetProxy(), result.BookInfoParam.Cookie, result.BookInfoParam.Uri.ToString()))
+                using (WebClient webClient = Utils.CreateWebClient(GetProxy(), result.BookInfoParam.Cookie, refUrl))
                 {
                     // Utils.InitWebClient(webClient, result.BookInfoParam.Cookie);
                     InputCodeForm form = new InputCodeForm();
                     do
                     {
-                        byte[] image = webClient.DownloadData(result.HostUrl + "n/processVerifyPng.ac?t=" + (2147483647L * new Random().Next()).ToString());// @"/n/n/64d08a1d97c044fef88adf6f6560c3fd/img0/096BD447CB578CCFCA66FC8E981C442ECBC58CC5BA9830DDF93199055649075EF3306C1847C2EC29107A897EADB35AA3F1874045743BB18B762C9CD94859F048A5BCDC6EEB0B431D2DF52EA5D241F9E96638425E134F3C8A5533F5BE9350B7499316D0711AACD7430D830A74F85707BA4C0E/b48/drs/processVerifyPng.ac");
+                        byte[] image = webClient.DownloadData(result.HostUrl + "n/n/processVerifyPng.ac?t=" + (2147483647L * new Random().Next()).ToString());// @"/n/n/64d08a1d97c044fef88adf6f6560c3fd/img0/096BD447CB578CCFCA66FC8E981C442ECBC58CC5BA9830DDF93199055649075EF3306C1847C2EC29107A897EADB35AA3F1874045743BB18B762C9CD94859F048A5BCDC6EEB0B431D2DF52EA5D241F9E96638425E134F3C8A5533F5BE9350B7499316D0711AACD7430D830A74F85707BA4C0E/b48/drs/processVerifyPng.ac");
                         form.Image = image;
-                    } while (form.ShowDialog(this) != DialogResult.OK && form.ShowDialog(this) != DialogResult.Abort);
+                        form.ShowDialog(this);
+                    } while (form.DialogResult != DialogResult.OK && form.DialogResult != DialogResult.Abort);
                     code = form.Code;
                     // result.BookInfoParam.Cookie = webClient.Headers.Get("Cookie");
                     abort = form.DialogResult == DialogResult.Abort;
@@ -194,10 +230,10 @@ namespace Mouse.Main
                     throw new AbortException();
                 }
                 count++;
-                String changedCookie = CookieHelper.GetCookieInternal(result.BookInfoParam.Uri, false);
+                String changedCookie = CookieHelper.GetCookieInternal(new Uri(refUrl), false);
                 try
                 {
-                    using (WebClient webClient = Utils.CreateWebClient(GetProxy(), result.BookInfoParam.Cookie, result.BookInfoParam.Uri.ToString()))
+                    using (WebClient webClient = Utils.CreateWebClient(GetProxy(), changedCookie, refUrl))
                     {
                         //Utils.InitWebClient(webClient, result.BookInfoParam.Cookie);
 
@@ -314,6 +350,15 @@ namespace Mouse.Main
                 if (match2.Success)
                 {
                     result.PageInfo = match2.Value;
+                }
+                else
+                {
+                    regex2 = new Regex(@"ps\:'(.+)',");
+                    match2 = regex2.Match(html);
+                    if (match2.Success)
+                    {
+                        result.PageInfo = match2.Groups[1].Value;
+                    }
                 }
             }
             //Regex regex3 = new Regex("(?<=id=bookinfo>)([^>]+)(?=</DIV>)");
