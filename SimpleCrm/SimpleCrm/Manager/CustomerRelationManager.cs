@@ -39,7 +39,7 @@ where BaseCustomerId = @CustomerAId and AgainstCustomerId = @CustomerBId
         /// <param name="relatedCustomerList"></param>
         internal void CreateOrUpdateRelation(Customer customer, IEnumerable<Customer> relatedCustomerList)
         {
-            var customerRelations = GetByCustomer(customer.CustomerId.Value);
+            var customerRelations = GetByCustomer(customer.CustomerId.Value).ToList();
             var updateRelations = new List<CustomerRelation>();
 
             LovManager lovMgr = new LovManager(Connection);
@@ -47,21 +47,24 @@ where BaseCustomerId = @CustomerAId and AgainstCustomerId = @CustomerBId
             List<CustomerRelation> saving = new List<CustomerRelation>();
             foreach (Customer relatedCustomer in relatedCustomerList)
             {
-                CustomerRelation cr = new CustomerRelation();
-                cr.BaseCustomerId = customer.CustomerId.Value;
-                cr.AgainstCustomerId = relatedCustomer.CustomerId.Value;
-                cr.Relation = relatedCustomer.Relation;
-                saving.Add(cr);
+                if (relatedCustomer.CustomerId != customer.CustomerId)
+                {
+                    CustomerRelation cr = new CustomerRelation();
+                    cr.BaseCustomerId = customer.CustomerId.Value;
+                    cr.AgainstCustomerId = relatedCustomer.CustomerId.Value;
+                    cr.Relation = relatedCustomer.Relation;
+                    saving.Add(cr);
 
-                CustomerRelation reverseCr = new CustomerRelation();
-                reverseCr.AgainstCustomerId = customer.CustomerId.Value;
-                reverseCr.BaseCustomerId = relatedCustomer.CustomerId.Value;
-                reverseCr.Relation = GetReverseRelation(lovList, relatedCustomer.Relation);
-                saving.Add(reverseCr);
+                    CustomerRelation reverseCr = new CustomerRelation();
+                    reverseCr.AgainstCustomerId = customer.CustomerId.Value;
+                    reverseCr.BaseCustomerId = relatedCustomer.CustomerId.Value;
+                    reverseCr.Relation = GetReverseRelation(lovList, relatedCustomer.Relation);
+                    saving.Add(reverseCr);
 
-                var foundList = customerRelations.TakeWhile(c => c.BaseCustomerId == customer.CustomerId && c.AgainstCustomerId == relatedCustomer.CustomerId
-                                        || c.AgainstCustomerId == customer.CustomerId && c.BaseCustomerId == relatedCustomer.CustomerId);
-                updateRelations.AddRange(foundList);
+                    var foundList = customerRelations.Where(c => c.BaseCustomerId.Value == customer.CustomerId.Value && c.AgainstCustomerId.Value == relatedCustomer.CustomerId.Value
+                                            || c.AgainstCustomerId.Value == customer.CustomerId.Value && c.BaseCustomerId.Value == relatedCustomer.CustomerId.Value).ToList();
+                    updateRelations.AddRange(foundList);
+                }
             }
             SaveBatch(updateRelations, saving
                 , (t1, t2) =>

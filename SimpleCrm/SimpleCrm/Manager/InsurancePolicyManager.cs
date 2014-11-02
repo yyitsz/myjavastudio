@@ -64,7 +64,7 @@ namespace SimpleCrm.Manager
                 }
                 if (ip.Insured != null)
                 {
-                    relationMgr.CreateOrUpdateRelation(ip.Insured, ip.Beneficiaries.TakeWhile(c => !String.IsNullOrEmpty(c.Relation)));
+                    relationMgr.CreateOrUpdateRelation(ip.Insured, ip.Beneficiaries.Where(c => !String.IsNullOrEmpty(c.Relation)));
                 }
             }
 

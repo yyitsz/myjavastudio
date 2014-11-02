@@ -51,9 +51,6 @@
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.grdContactInfo = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.colDel = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
-            this.dataGridViewButtonXColumn1 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.highlighter = new DevComponents.DotNetBar.Validator.Highlighter();
             this.contactInfoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colContactType = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
@@ -66,13 +63,16 @@
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.versionNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewButtonXColumn1 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.highlighter = new DevComponents.DotNetBar.Validator.Highlighter();
             this.dataBindingCustomer = new SimpleCrm.Utils.DataBinding(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtBirthday)).BeginInit();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdContactInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactInfoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingCustomer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,7 +116,7 @@
             this.txtIdCardNo.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.txtIdCardNo, "IdCardNo");
             this.txtIdCardNo.Size = new System.Drawing.Size(262, 21);
-            this.txtIdCardNo.TabIndex = 7;
+            this.txtIdCardNo.TabIndex = 2;
             this.txtIdCardNo.Leave += new System.EventHandler(this.txtIdCardNo_Leave);
             // 
             // labelX3
@@ -198,7 +198,7 @@
             this.dataBindingCustomer.SetPropertyName(this.dtBirthday, "Birthday");
             this.dtBirthday.Size = new System.Drawing.Size(112, 21);
             this.dtBirthday.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.dtBirthday.TabIndex = 9;
+            this.dtBirthday.TabIndex = 4;
             // 
             // txtUnit
             // 
@@ -214,7 +214,7 @@
             this.txtUnit.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.txtUnit, "Unit");
             this.txtUnit.Size = new System.Drawing.Size(279, 21);
-            this.txtUnit.TabIndex = 11;
+            this.txtUnit.TabIndex = 5;
             // 
             // labelX5
             // 
@@ -243,7 +243,7 @@
             this.txtPosition.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.txtPosition, "Position");
             this.txtPosition.Size = new System.Drawing.Size(112, 21);
-            this.txtPosition.TabIndex = 13;
+            this.txtPosition.TabIndex = 6;
             // 
             // labelX6
             // 
@@ -326,7 +326,7 @@
             this.txtCustomerName.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.txtCustomerName, "CustomerName");
             this.txtCustomerName.Size = new System.Drawing.Size(112, 21);
-            this.txtCustomerName.TabIndex = 18;
+            this.txtCustomerName.TabIndex = 0;
             // 
             // cmbGender
             // 
@@ -341,7 +341,7 @@
             this.dataBindingCustomer.SetPropertyName(this.cmbGender, "Gender");
             this.cmbGender.Size = new System.Drawing.Size(59, 21);
             this.cmbGender.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbGender.TabIndex = 17;
+            this.cmbGender.TabIndex = 3;
             // 
             // cmbIdType
             // 
@@ -356,7 +356,7 @@
             this.dataBindingCustomer.SetPropertyName(this.cmbIdType, "IdType");
             this.cmbIdType.Size = new System.Drawing.Size(112, 21);
             this.cmbIdType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbIdType.TabIndex = 15;
+            this.cmbIdType.TabIndex = 1;
             // 
             // labelX7
             // 
@@ -476,22 +476,6 @@
             this.colDel.Text = null;
             this.colDel.ToolTipText = "Delete";
             this.colDel.Width = 22;
-            // 
-            // dataGridViewButtonXColumn1
-            // 
-            this.dataGridViewButtonXColumn1.HeaderText = "";
-            this.dataGridViewButtonXColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewButtonXColumn1.Image")));
-            this.dataGridViewButtonXColumn1.MinimumWidth = 20;
-            this.dataGridViewButtonXColumn1.Name = "dataGridViewButtonXColumn1";
-            this.dataGridViewButtonXColumn1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.dataGridViewButtonXColumn1.Text = null;
-            this.dataGridViewButtonXColumn1.ToolTipText = "Delete";
-            this.dataGridViewButtonXColumn1.Width = 22;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
             // contactInfoIdDataGridViewTextBoxColumn
             // 
@@ -613,6 +597,22 @@
             // 
             this.contactInfoBindingSource.DataSource = typeof(SimpleCrm.Model.ContactInfo);
             // 
+            // dataGridViewButtonXColumn1
+            // 
+            this.dataGridViewButtonXColumn1.HeaderText = "";
+            this.dataGridViewButtonXColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewButtonXColumn1.Image")));
+            this.dataGridViewButtonXColumn1.MinimumWidth = 20;
+            this.dataGridViewButtonXColumn1.Name = "dataGridViewButtonXColumn1";
+            this.dataGridViewButtonXColumn1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.dataGridViewButtonXColumn1.Text = null;
+            this.dataGridViewButtonXColumn1.ToolTipText = "Delete";
+            this.dataGridViewButtonXColumn1.Width = 22;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
+            // 
             // dataBindingCustomer
             // 
             this.dataBindingCustomer.DateTimeFormat = "yyyy-MM-dd";
@@ -630,8 +630,8 @@
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdContactInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactInfoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingCustomer)).EndInit();
             this.ResumeLayout(false);
 
