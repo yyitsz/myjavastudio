@@ -77,9 +77,7 @@ namespace SimpleCrm.CustomerForm
         {
             try
             {
-                if (superValidator.Validate()
-                    && this.customerBaseInfoUC.ValidateData(true)
-                    && this.ValidateData())
+                if (this.ValidateData())
                 {
                     this.dataBindingCustomer.MapToObject(this.Customer);
                     this.customerBaseInfoUC.BindDataFromUI();
@@ -100,19 +98,54 @@ namespace SimpleCrm.CustomerForm
         private bool ValidateData()
         {
             bool isValid = true;
-            foreach (Customer c in grdFamily.DataSource as IList<Customer>)
+            grdFamily.Enabled = false;
+            grdFamily.Enabled = true;
+            isValid = superValidator.Validate();
+            isValid = this.customerBaseInfoUC.ValidateData(true) && isValid;
+            if (isValid == false)
             {
-                if (String.IsNullOrWhiteSpace(c.CustomerName))
+                tabCustomer.SelectedTab = tiBaseInfo;
+                return isValid;
+            }
+
+            //foreach (Customer c in grdFamily.DataSource as IList<Customer>)
+            //{
+            //    if (String.IsNullOrWhiteSpace(c.CustomerName))
+            //    {
+            //        MessageBoxHelper.ShowPrompt("客户姓名是必填的.");
+            //        isValid = false;
+            //        break;
+            //    }
+            //    if (String.IsNullOrWhiteSpace(c.Relation))
+            //    {
+            //        MessageBoxHelper.ShowPrompt("关系是必填的.");
+            //        isValid = false;
+            //        break;
+            //    }
+            //}
+            foreach (DataGridViewRow row in grdFamily.Rows)
+            {
+                Customer c = row.DataBoundItem as Customer;
+                if (c != null)
                 {
-                    MessageBoxHelper.ShowPrompt("客户姓名是必填的.");
-                    isValid = false;
-                    break;
-                }
-                if (String.IsNullOrWhiteSpace(c.Relation))
-                {
-                    MessageBoxHelper.ShowPrompt("关系是必填的.");
-                    isValid = false;
-                    break;
+                    if (String.IsNullOrWhiteSpace(c.CustomerName))
+                    {
+                        row.Cells["colCustomerName"].ErrorText = "客户姓名是必填的.";
+                        isValid = false;
+                    }
+                    else
+                    {
+                        row.Cells["colCustomerName"].ErrorText = "";
+                    }
+                    if (String.IsNullOrWhiteSpace(c.Relation))
+                    {
+                        row.Cells["colRelation"].ErrorText = "关系是必填的.";
+                        isValid = false;
+                    }
+                    else
+                    {
+                        row.Cells["colRelation"].ErrorText = "";
+                    }
                 }
             }
             if (isValid == false)

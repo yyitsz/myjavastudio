@@ -115,6 +115,15 @@ namespace SimpleCrm.CustomerForm.UserControls
             {
                 valid = ValidationHelper.ValidateRequiredField(errorProvider, highlighter, this.txtCustomerName) && valid;
             }
+            if (txtIdCardNo.Text.Trim().Length > 0 || ComboBoxUtil.Selected(this.cmbIdType))
+            {
+                valid = ValidationHelper.ValidateRequiredField(errorProvider, highlighter, this.cmbIdType) && valid;
+                valid = ValidationHelper.ValidateRequiredField(errorProvider, highlighter, this.txtIdCardNo) && valid;
+                if (valid && this.cmbIdType.SelectedValue.Equals("IDCard"))
+                {
+                    valid = ValidationHelper.FillBirthdayAndGenderWithIdCardNo(txtIdCardNo,errorProvider);
+                }
+            }
 
             foreach (DataGridViewRow row in this.grdContactInfo.Rows)
             {
@@ -127,26 +136,13 @@ namespace SimpleCrm.CustomerForm.UserControls
             return valid;
         }
 
-
-        //private void txtCustomerName_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (String.IsNullOrWhiteSpace(txtCustomerName.Text.Trim()))
-        //    {
-        //        String customerName = txtCustomerName.Text.Trim();
-        //        Customer c = txtCustomerName.SelectedItem as Customer;
-        //        if (c != null)
-        //        {
-        //            if (c.CustomerId == -9999)
-        //            {
-        //                BindDataToUI(new Customer());
-        //            }
-        //            else 
-        //            {
-        //                BindDataToUI(customer);
-        //            }
-        //        }               
-        //    }
-        //}
+        private void txtIdCardNo_Leave(object sender, EventArgs e)
+        {
+            if (ComboBoxUtil.Selected(cmbIdType) && this.cmbIdType.SelectedValue.Equals("IDCard"))
+            {
+                ValidationHelper.FillBirthdayAndGenderWithIdCardNo(txtIdCardNo, this.errorProvider, dtBirthday, cmbGender);
+            }
+        }
 
     }
 }

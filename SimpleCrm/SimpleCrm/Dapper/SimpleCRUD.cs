@@ -154,7 +154,7 @@ namespace Dapper
 
             if (Debugger.IsAttached)
             {
-                Trace.WriteLine(String.Format("Count: {0}",  sb));
+                Trace.WriteLine(String.Format("Count: {0}", sb));
             }
             return connection.ExecuteScalar<int>(sb.ToString(), whereConditions, null, null, null);
         }
@@ -194,7 +194,7 @@ namespace Dapper
 
             if (Debugger.IsAttached)
             {
-                Trace.WriteLine(String.Format("SearchByCriteria: {0}",  sb));
+                Trace.WriteLine(String.Format("SearchByCriteria: {0}", sb));
             }
             return connection.Query<T>(sb.ToString(), whereConditions);
         }
@@ -491,6 +491,28 @@ namespace Dapper
             return connection.Execute(sb.ToString(), entityToDelete, transaction, commandTimeout, null);
         }
 
+        public static int Delete<T>(this IDbConnection connection, object id, IDbTransaction transaction, int? commandTimeout)
+        {
+            Type entityType = typeof(T);
+            EntityMeta entityMeta = GetEntityMeta(entityType);
+            var idProps = entityMeta.Keys;
+
+            var name = entityMeta.TableName;
+
+            var sb = new StringBuilder();
+            sb.AppendFormat("delete from {0}", name);
+
+            sb.Append(" where ");
+            BuildWhere(sb, idProps);
+            Dictionary<String, Object> param = new Dictionary<string, object>();
+            param.Add(idProps[0].Name, id);
+            if (Debugger.IsAttached)
+            {
+                Trace.WriteLine(String.Format("Delete: {0}", sb));
+            }
+            return connection.Execute(sb.ToString(), param, transaction, commandTimeout, null);
+        }
+
         /// <summary>
         /// <para>Deletes a record or records in the database by ID</para>
         /// <para>By default deletes records in the table matching the class name</para>
@@ -505,7 +527,7 @@ namespace Dapper
         /// <param name="transaction"></param>
         /// <param name="commandTimeout"></param>
         /// <returns>The number of records effected</returns>
-        public static int Delete<T>(this IDbConnection connection, object id, IDbTransaction transaction, int? commandTimeout)
+        public static int DeleteById<T>(this IDbConnection connection, object id, IDbTransaction transaction = null, int? commandTimeout = null)
         {
             var currenttype = typeof(T);
             var idProps = GetIdProperties(currenttype).ToList();
@@ -848,7 +870,8 @@ namespace Dapper
 public class StaleRecordException : Exception
 {
     private Object entity;
-    public StaleRecordException(Object entity):base("Data is stale, it may be modified by another user. Please refresh UI.")
+    public StaleRecordException(Object entity)
+        : base("Data is stale, it may be modified by another user. Please refresh UI.")
     {
         this.entity = entity;
     }

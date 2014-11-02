@@ -481,12 +481,32 @@ namespace SimpleCrm.Facade
            });
         }
 
-        internal List<Customer> GetCustomerByRelation(long CustomerId)
+        internal List<Customer> GetCustomerByRelation(long customerId)
         {
             return ExecutedInTx(conn =>
             {
                 CustomerManager mgr = new CustomerManager(conn);
-                return mgr.GetCustomerByRelation(CustomerId);
+                return mgr.GetCustomerByRelation(customerId);
+            });
+        }
+
+        internal void DeleteCustomer(long customerId)
+        {
+            ExecutedInTx(conn =>
+            {
+                CustomerManager mgr = new CustomerManager(conn);
+                CustomerRelationManager customerRelationMgr = new CustomerRelationManager(conn);
+                customerRelationMgr.DeleteByCustomer(customerId);
+                mgr.Delete(customerId);
+            });
+        }
+
+        public bool CanDeleteCustomer(long customerId)
+        {
+            return ExecutedInTx(conn =>
+            {
+                CustomerManager mgr = new CustomerManager(conn);
+                return mgr.CanDeleteCustomer(customerId);
             });
         }
     }

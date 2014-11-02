@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace SimpleCrm.Manager
 {
-    public class ContactInfoManager : BaseRepo<ContactInfo,long?>
+    public class ContactInfoManager : BaseRepo<ContactInfo, long?>
     {
 
         public ContactInfoManager(IDbConnection conn)
@@ -27,7 +27,8 @@ namespace SimpleCrm.Manager
 
         internal IEnumerable<ContactInfo> GetListByCustomer(IEnumerable<long> customerIds)
         {
-            if (customerIds.Count() == 0) {
+            if (customerIds.Count() == 0)
+            {
                 return new List<ContactInfo>();
             }
             Tuple<String, Object> param = BuildCollectionSql("CustomerId", customerIds.Cast<object>());
@@ -36,8 +37,10 @@ namespace SimpleCrm.Manager
             return list;
         }
 
-       
-
+        internal void DeleteByCustomer(long customerId)
+        {
+            Connection.Execute("Delete From ContactInfo where CustomerId = @CustomerId", new { CustomerId = customerId });
+        }
     }
-  
+
 }

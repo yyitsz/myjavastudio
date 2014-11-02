@@ -45,6 +45,11 @@ namespace SimpleCrm.Manager
             return Connection.Delete(entity);
         }
 
+        public virtual int Delete(Tk id)
+        {
+            return Connection.DeleteById<Tm>(id);
+        }
+
         public virtual Tm FindOne(Tk id)
         {
             Tm entity = Connection.Get<Tm>(id);

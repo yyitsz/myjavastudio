@@ -310,6 +310,9 @@ namespace SimpleCrm.InsuranceForm
 
             if (tiBeneficiary.Visible)
             {
+                grdBeneficiary.Enabled = false;
+                grdBeneficiary.Enabled = true;
+
                 foreach (DataGridViewRow row in grdBeneficiary.Rows)
                 {
                     Customer c = row.DataBoundItem as Customer;

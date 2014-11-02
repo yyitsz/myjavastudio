@@ -60,7 +60,7 @@ namespace SimpleCrm.CustomerForm
             PageSearchResultDto<CustomerSearchResultDto> searchResult = AppFacade.Facade.SearchCustomer(param);
             if (searchResult.Results != null)
             {
-                grdResult.DataSource = searchResult.Results;
+                grdResult.DataSource = new BindingList<CustomerSearchResultDto>(searchResult.Results);
             }
         }
 
@@ -95,7 +95,16 @@ namespace SimpleCrm.CustomerForm
             }
             else if (column.Name == "colDelete")
             {
-
+                if (MessageBoxHelper.ShowYesNo(ErrorCode.DELETE_CUSTOMER) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    if (AppFacade.Facade.CanDeleteCustomer(dto.CustomerId.Value) == false)
+                    {
+                        MessageBoxHelper.ShowPrompt(ErrorCode.CAN_NOT_DEL_CUSTOMER);
+                        return;
+                    }
+                    AppFacade.Facade.DeleteCustomer(dto.CustomerId.Value);
+                    grdResult.Rows.Remove(row);
+                }
             }
             else if (column.Name == "colIP")
             {
@@ -126,10 +135,10 @@ namespace SimpleCrm.CustomerForm
                     {
                         FollowUpRecordForm form = new FollowUpRecordForm();
                         form.FormMode = SimpleCrm.FormMode.Edit;
-                        form.Customer = dto;
+                        form.CustomerId = customerId;
                         return form;
                     }
-                    , f =>  f.Customer.CustomerId == customerId && f.FormMode == SimpleCrm.FormMode.Edit
+                    , f => f.CustomerId == customerId && f.FormMode == SimpleCrm.FormMode.Edit
                   );
             }
         }

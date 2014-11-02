@@ -133,5 +133,10 @@ where BaseCustomerId = @CustomerAId and AgainstCustomerId = @CustomerBId
             return Connection.GetList<CustomerRelation>(tuple1.Item1 + " OR " + tuple2.Item1,tuple1.Item2);
    
         }
+
+        internal void DeleteByCustomer(long customerId)
+        {
+            Connection.Execute("Delete from CustomerRelation where BaseCustomerId = @CustomerId Or AgainstCustomerId = @CustomerId", new { CustomerId = customerId });
+        }
     }
 }
