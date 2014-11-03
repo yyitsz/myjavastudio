@@ -31,6 +31,7 @@ namespace SimpleCrm.PendingItemForm
         {
             InitForm();
             SearchTodayPendingItems();
+            SearchFuturePendingItems();
         }
 
         private void InitForm()

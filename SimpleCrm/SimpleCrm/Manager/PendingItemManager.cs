@@ -56,7 +56,8 @@ namespace SimpleCrm.Manager
 
         internal IEnumerable<PendingItemDto> SearchBirthdayPendingItems(DTO.SearchPendingItemParamDto param)
         {
-            return Connection.Query<PendingItemDto>(@"select  cust.CustomerName CustomerName, cust.CustomerId RefId, date(cust.BirthdayThisYear) ActionDate, cust.Birthday, pi.PendingItemId PendingItemId, 'Birthday' Category,pi.CreateTime CreateTime
+            return Connection.Query<PendingItemDto>(@"select  cust.CustomerName CustomerName, cust.CustomerId RefId
+, date(cust.BirthdayThisYear) ActionDate, cust.Birthday, pi.PendingItemId PendingItemId, 'Birthday' Category,pi.CreateTime CreateTime
 	,pi.HandleDate HandleDate,pi.HandleResult HandleResult,cust.CustomerId CustomerId, pi.Remark Remark, pi.UpdatedBy UpdatedBy, pi.UpdateTime UpdateTime, pi.VersionNo VersionNo
 from (select c.*, datetime(c.Birthday, '+' || (((strftime('%Y', 'now') -  strftime('%Y', c.Birthday)) * 12 + (strftime('%m', 'now') -  strftime('%m', c.Birthday)) + 11) /12) || ' years') BirthdayThisYear
      from Customer c 

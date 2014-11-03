@@ -403,7 +403,7 @@
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "ActionDate";
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.Aquamarine;
-            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.Format = "yyyy-MM-dd";
             dataGridViewCellStyle6.NullValue = null;
             this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn4.HeaderText = "发生日期";
@@ -451,7 +451,7 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "HandleDate";
-            dataGridViewCellStyle8.Format = "d";
+            dataGridViewCellStyle8.Format = "yyyy-MM-dd";
             this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn8.HeaderText = "处理日期";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
@@ -523,7 +523,7 @@
             // 
             this.actionDateDataGridViewTextBoxColumn1.DataPropertyName = "ActionDate";
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Aquamarine;
-            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.Format = "yyyy-MM-dd";
             dataGridViewCellStyle1.NullValue = null;
             this.actionDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.actionDateDataGridViewTextBoxColumn1.HeaderText = "发生日期";
@@ -575,7 +575,7 @@
             // handleDateDataGridViewTextBoxColumn1
             // 
             this.handleDateDataGridViewTextBoxColumn1.DataPropertyName = "HandleDate";
-            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.Format = "yyyy-MM-dd";
             this.handleDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.handleDateDataGridViewTextBoxColumn1.HeaderText = "处理日期";
             this.handleDateDataGridViewTextBoxColumn1.Name = "handleDateDataGridViewTextBoxColumn1";

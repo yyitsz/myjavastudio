@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using SimpleCrm.Manager;
 using SimpleCrm.DTO;
+using Dapper;
 
 namespace SimpleCrm.Facade
 {
@@ -23,6 +24,8 @@ namespace SimpleCrm.Facade
         public void InitSystem()
         {
             new AppConfigManager().Init();
+            SqlMapper.AddTypeHandler(typeof(DateTime?), new DateTimeHandler());
+
             ExecutedInTx(conn => new SystemParameterManager(conn).Init());
         }
 
