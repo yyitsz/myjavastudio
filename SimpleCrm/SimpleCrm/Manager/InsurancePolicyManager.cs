@@ -22,6 +22,8 @@ namespace SimpleCrm.Manager
         {
             CustomerManager customerMgr = new CustomerManager(Connection);
             InsurancePolicyCustomerManager ipcMgr = new InsurancePolicyCustomerManager(Connection);
+            CustomerRelationManager relationMgr = new CustomerRelationManager(Connection);
+
             if (ip.InsurancePolicyId != null)
             {
                 ipcMgr.DeleteByPolicyId(ip.InsurancePolicyId.Value);
@@ -35,6 +37,7 @@ namespace SimpleCrm.Manager
                 ipc.CustomerId = ip.PolicyHolder.CustomerId;
                 ipc.Role = CustomerRoleType.PolicyHolder.ToString();
                 ipcMgr.Save(ipc);
+
             }
 
             if (ip.Insured != null)
@@ -45,6 +48,7 @@ namespace SimpleCrm.Manager
                 ipc.CustomerId = ip.Insured.CustomerId;
                 ipc.Role = CustomerRoleType.Insured.ToString();
                 ipcMgr.Save(ipc);
+                relationMgr.CreateOrUpdateRelation(ip.PolicyHolder, new List<Customer> { ip.Insured });
             }
 
             if (ip.Beneficiaries != null && ip.Beneficiaries.Count > 0)
@@ -57,6 +61,10 @@ namespace SimpleCrm.Manager
                     ipc.CustomerId = c.CustomerId;
                     ipc.Role = CustomerRoleType.Beneficiary.ToString();
                     ipcMgr.Save(ipc);
+                }
+                if (ip.Insured != null)
+                {
+                    relationMgr.CreateOrUpdateRelation(ip.Insured, ip.Beneficiaries.Where(c => !String.IsNullOrEmpty(c.Relation)));
                 }
             }
 
@@ -88,10 +96,13 @@ namespace SimpleCrm.Manager
             }
             InsurancePolicyCustomerManager ipcMgr = new InsurancePolicyCustomerManager(Connection);
             CustomerManager customerMgr = new CustomerManager(Connection);
+            CustomerRelationManager customerRelationMgr = new CustomerRelationManager(Connection);
             List<InsurancePolicyCustomer> ipcList = ipcMgr.GetByPolicyId(id.Value).ToList();
             if (ipcList.Count > 0)
             {
-                List<Customer> customerList = customerMgr.GetByIdList(ipcList.Select(ipc => ipc.CustomerId.Value));
+                var idList = ipcList.Select(ipc => ipc.CustomerId.Value);
+                List<Customer> customerList = customerMgr.GetByIdList(idList);
+                IEnumerable<CustomerRelation> customerRelationList = customerRelationMgr.GetByCustomerIdList(idList);
                 if (customerList.Count > 0)
                 {
                     foreach (InsurancePolicyCustomer ipc in ipcList)
@@ -110,6 +121,22 @@ namespace SimpleCrm.Manager
                             else if (ipc.Role == CustomerRoleType.Beneficiary.ToString())
                             {
                                 ip.Beneficiaries.Add(customer);
+                            }
+                        }
+                    }
+                    if(ip.Insured != null)
+                    {
+                        var foundRelation = customerRelationList.FirstOrDefault(c => c.BaseCustomerId == ip.PolicyHolder.CustomerId && c.AgainstCustomerId == ip.Insured.CustomerId);
+                        if (foundRelation != null)
+                        {
+                            ip.Insured.Relation = foundRelation.Relation;
+                        }
+                        foreach (var beneficiary in ip.Beneficiaries)
+                        {
+                            foundRelation = customerRelationList.FirstOrDefault(c => c.BaseCustomerId == ip.Insured.CustomerId && c.AgainstCustomerId == beneficiary.CustomerId);
+                            if (foundRelation != null)
+                            {
+                                beneficiary.Relation = foundRelation.Relation;
                             }
                         }
                     }

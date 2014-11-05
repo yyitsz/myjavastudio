@@ -31,6 +31,7 @@ namespace SimpleCrm.PendingItemForm
         {
             InitForm();
             SearchTodayPendingItems();
+            SearchFuturePendingItems();
         }
 
         private void InitForm()
@@ -144,6 +145,17 @@ namespace SimpleCrm.PendingItemForm
                     }
                         , f => f.InsurancePolicyId == refId && f.FormMode == SimpleCrm.FormMode.View
                      );
+                } else if (column.Name == "colFollow" || column.Name == "colFutureFollow")
+                {
+                    this.ShowNonModalForm<FollowUpRecordForm>(() =>
+                    {
+                        FollowUpRecordForm form = new FollowUpRecordForm();
+                        form.FormMode = SimpleCrm.FormMode.Edit;
+                        form.CustomerId = dto.CustomerId.Value;
+                        return form;
+                    }
+                        , f => f.CustomerId == dto.CustomerId.Value && f.FormMode == SimpleCrm.FormMode.Edit
+                      );
                 }
 
             }

@@ -31,8 +31,56 @@ where BaseCustomerId = @CustomerAId and AgainstCustomerId = @CustomerBId
         {
             return Connection.GetList<CustomerRelation>("BaseCustomerId = @CustomerId OR AgainstCustomerId = @CustomerId", new { CustomerId = customerId });
         }
+        /// <summary>
+        /// create or update relation between cutomer with relatedCustomerList
+        /// 
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <param name="relatedCustomerList"></param>
+        internal void CreateOrUpdateRelation(Customer customer, IEnumerable<Customer> relatedCustomerList)
+        {
+            var customerRelations = GetByCustomer(customer.CustomerId.Value).ToList();
+            var updateRelations = new List<CustomerRelation>();
 
-        internal void SaveRelation(Customer customer, List<Customer> relatedCustomerList)
+            LovManager lovMgr = new LovManager(Connection);
+            IEnumerable<Lov> lovList = lovMgr.GetLovByType(LovType.Relation.ToString());
+            List<CustomerRelation> saving = new List<CustomerRelation>();
+            foreach (Customer relatedCustomer in relatedCustomerList)
+            {
+                if (relatedCustomer.CustomerId != customer.CustomerId)
+                {
+                    CustomerRelation cr = new CustomerRelation();
+                    cr.BaseCustomerId = customer.CustomerId.Value;
+                    cr.AgainstCustomerId = relatedCustomer.CustomerId.Value;
+                    cr.Relation = relatedCustomer.Relation;
+                    saving.Add(cr);
+
+                    CustomerRelation reverseCr = new CustomerRelation();
+                    reverseCr.AgainstCustomerId = customer.CustomerId.Value;
+                    reverseCr.BaseCustomerId = relatedCustomer.CustomerId.Value;
+                    reverseCr.Relation = GetReverseRelation(lovList, relatedCustomer.Relation);
+                    saving.Add(reverseCr);
+
+                    var foundList = customerRelations.Where(c => c.BaseCustomerId.Value == customer.CustomerId.Value && c.AgainstCustomerId.Value == relatedCustomer.CustomerId.Value
+                                            || c.AgainstCustomerId.Value == customer.CustomerId.Value && c.BaseCustomerId.Value == relatedCustomer.CustomerId.Value).ToList();
+                    updateRelations.AddRange(foundList);
+                }
+            }
+            SaveBatch(updateRelations, saving
+                , (t1, t2) =>
+                {
+                    t1.Relation = t2.Relation;
+                }
+                , (t1, t2) => t1.BaseCustomerId.Value == t2.BaseCustomerId.Value && t1.AgainstCustomerId.Value == t2.AgainstCustomerId.Value);
+        }
+
+        /// <summary>
+        /// save all relation for this customer. 
+        /// this means system will delete all relations of this customer, and create relation with relatedCustomeList
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <param name="relatedCustomerList"></param>
+        internal void SaveRelation(Customer customer, IEnumerable<Customer> relatedCustomerList)
         {
             var customerRelations = GetByCustomer(customer.CustomerId.Value);
             LovManager lovMgr = new LovManager(Connection);
@@ -60,12 +108,12 @@ where BaseCustomerId = @CustomerAId and AgainstCustomerId = @CustomerBId
                 , (t1, t2) => t1.BaseCustomerId.Value == t2.BaseCustomerId.Value && t1.AgainstCustomerId.Value == t2.AgainstCustomerId.Value);
         }
 
-        private string GetReverseRelation(IEnumerable<Lov> lovList, string p)
+        private string GetReverseRelation(IEnumerable<Lov> lovList, string code)
         {
-            Lov lov = lovList.FirstOrDefault(l => l.Code == p);
+            Lov lov = lovList.FirstOrDefault(l => l.Code == code);
             if (lov == null)
             {
-                throw new AppException("Not found LOV for " + p);
+                throw new AppException("Not found LOV for " + code);
             }
             if (String.IsNullOrWhiteSpace(lov.Attribute1))
             {
@@ -78,6 +126,20 @@ where BaseCustomerId = @CustomerAId and AgainstCustomerId = @CustomerBId
                 throw new AppException("配置的反向关系找不到对应的关系：" + lov.Name);
             }
             return lov.Code;
+        }
+
+        internal IEnumerable<CustomerRelation> GetByCustomerIdList(IEnumerable<long> idList)
+        {
+             Tuple<string, object> tuple1 = BuildCollectionSql("BaseCustomerId", idList.Cast<Object>());
+             Tuple<string, object> tuple2 = BuildCollectionSql("AgainstCustomerId", idList.Cast<Object>());
+
+            return Connection.GetList<CustomerRelation>(tuple1.Item1 + " OR " + tuple2.Item1,tuple1.Item2);
+   
+        }
+
+        internal void DeleteByCustomer(long customerId)
+        {
+            Connection.Execute("Delete from CustomerRelation where BaseCustomerId = @CustomerId Or AgainstCustomerId = @CustomerId", new { CustomerId = customerId });
         }
     }
 }

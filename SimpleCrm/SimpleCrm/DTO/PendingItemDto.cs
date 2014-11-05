@@ -65,6 +65,7 @@ namespace SimpleCrm.DTO
                 }
             }
         }
+
         private String handleResult;
         /// <summary>
         /// Unhandled, Renewed, Handled

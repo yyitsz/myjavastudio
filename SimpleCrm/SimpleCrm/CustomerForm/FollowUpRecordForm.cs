@@ -16,7 +16,8 @@ namespace SimpleCrm.CustomerForm
 {
     public partial class FollowUpRecordForm : BaseForm
     {
-        public CustomerSearchResultDto Customer { get; set; }
+        private Customer customer;
+        public long CustomerId { get; set; }
         private BindingList<FollowUpRecord> followUpRecords;
         private FollowUpRecord currentRecord;
 
@@ -35,7 +36,7 @@ namespace SimpleCrm.CustomerForm
                     if (record == null)
                     {
                         record = new FollowUpRecord();
-                        record.CustomerId = Customer.CustomerId;
+                        record.CustomerId = CustomerId;
                         record.InputDate = DateTime.Now.Date;
                         record.InputtedBy = UserManager.UserProfile.UserId;
                         record.FollowedBy = UserManager.UserProfile.UserId;
@@ -61,9 +62,9 @@ namespace SimpleCrm.CustomerForm
             if (this.followUpRecords != null && this.followUpRecords.Count > 0)
             {
                 FollowUpRecord record = this.followUpRecords[0];
-                if (Customer.IntentPhase != record.IntentPhase)
+                if (customer.IntentPhase != record.IntentPhase)
                 {
-                    Customer.IntentPhase = record.IntentPhase;
+                    customer.IntentPhase = record.IntentPhase;
                     AppFacade.Facade.UpdateIntentPhase(record.CustomerId.Value, record.IntentPhase);
                 }
             }
@@ -81,19 +82,20 @@ namespace SimpleCrm.CustomerForm
             dtFollowDate.Value = DateTime.Now.Date;
             dtNextFollowDate.ValueObject = null;
             txtContent.Text = "";
-            cmbIntentPhase.SelectedValue = Customer.IntentPhase ?? "";
-            cmbIntentPhaseCustomer.SelectedValue = Customer.IntentPhase ?? "";
+            cmbIntentPhase.SelectedValue = customer.IntentPhase ?? "";
+            cmbIntentPhaseCustomer.SelectedValue = customer.IntentPhase ?? "";
             currentRecord = null;
         }
         private void BindData()
         {
-            dataBindingCustomer.MapToControl(Customer);
-            var list = AppFacade.Facade.GetFollowUpRecordByCustomer(Customer.CustomerId.Value);
+            customer = AppFacade.Facade.GetCustomer(this.CustomerId);
+            dataBindingCustomer.MapToControl(customer);
+            var list = AppFacade.Facade.GetFollowUpRecordByCustomer(customer.CustomerId.Value);
             list.Sort(new FollowUpRecordDateComparrer());
             followUpRecords = new BindingList<FollowUpRecord>(list);           
             this.grdResult.DataSource = followUpRecords;
 
-            this.Text = "跟进记录 - " + this.Customer.CustomerName;
+            this.Text = "跟进记录 - " + this.customer.CustomerName;
         }
 
         private void InitForm()
@@ -158,6 +160,9 @@ namespace SimpleCrm.CustomerForm
             }
         }
 
-
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

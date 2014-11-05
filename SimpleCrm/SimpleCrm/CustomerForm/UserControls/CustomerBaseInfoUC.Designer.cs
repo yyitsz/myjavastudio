@@ -95,7 +95,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(229, 5);
+            this.labelX2.Location = new System.Drawing.Point(3, 35);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(34, 21);
             this.labelX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -111,12 +111,13 @@
             this.txtIdCardNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dataBindingCustomer.SetFormatString(this.txtIdCardNo, null);
             this.highlighter.SetHighlightOnFocus(this.txtIdCardNo, true);
-            this.txtIdCardNo.Location = new System.Drawing.Point(325, 35);
+            this.txtIdCardNo.Location = new System.Drawing.Point(521, 5);
             this.txtIdCardNo.Name = "txtIdCardNo";
             this.txtIdCardNo.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.txtIdCardNo, "IdCardNo");
-            this.txtIdCardNo.Size = new System.Drawing.Size(268, 21);
-            this.txtIdCardNo.TabIndex = 7;
+            this.txtIdCardNo.Size = new System.Drawing.Size(262, 21);
+            this.txtIdCardNo.TabIndex = 2;
+            this.txtIdCardNo.Leave += new System.EventHandler(this.txtIdCardNo_Leave);
             // 
             // labelX3
             // 
@@ -124,7 +125,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(229, 35);
+            this.labelX3.Location = new System.Drawing.Point(430, 5);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 21);
             this.labelX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -137,7 +138,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(400, 5);
+            this.labelX4.Location = new System.Drawing.Point(214, 35);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(75, 21);
             this.labelX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -158,7 +159,7 @@
             this.dataBindingCustomer.SetFormatString(this.dtBirthday, null);
             this.highlighter.SetHighlightOnFocus(this.dtBirthday, true);
             this.dtBirthday.IsPopupCalendarOpen = false;
-            this.dtBirthday.Location = new System.Drawing.Point(481, 5);
+            this.dtBirthday.Location = new System.Drawing.Point(295, 35);
             this.dtBirthday.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
             this.dtBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
@@ -197,7 +198,7 @@
             this.dataBindingCustomer.SetPropertyName(this.dtBirthday, "Birthday");
             this.dtBirthday.Size = new System.Drawing.Size(112, 21);
             this.dtBirthday.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.dtBirthday.TabIndex = 9;
+            this.dtBirthday.TabIndex = 4;
             // 
             // txtUnit
             // 
@@ -213,7 +214,7 @@
             this.txtUnit.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.txtUnit, "Unit");
             this.txtUnit.Size = new System.Drawing.Size(279, 21);
-            this.txtUnit.TabIndex = 11;
+            this.txtUnit.TabIndex = 5;
             // 
             // labelX5
             // 
@@ -242,7 +243,7 @@
             this.txtPosition.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.txtPosition, "Position");
             this.txtPosition.Size = new System.Drawing.Size(112, 21);
-            this.txtPosition.TabIndex = 13;
+            this.txtPosition.TabIndex = 6;
             // 
             // labelX6
             // 
@@ -279,7 +280,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupPanel1.Location = new System.Drawing.Point(0, 0);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(705, 124);
+            this.groupPanel1.Size = new System.Drawing.Size(814, 124);
             // 
             // 
             // 
@@ -325,7 +326,7 @@
             this.txtCustomerName.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.txtCustomerName, "CustomerName");
             this.txtCustomerName.Size = new System.Drawing.Size(112, 21);
-            this.txtCustomerName.TabIndex = 18;
+            this.txtCustomerName.TabIndex = 0;
             // 
             // cmbGender
             // 
@@ -335,12 +336,12 @@
             this.cmbGender.FormattingEnabled = true;
             this.highlighter.SetHighlightOnFocus(this.cmbGender, true);
             this.cmbGender.ItemHeight = 15;
-            this.cmbGender.Location = new System.Drawing.Point(325, 6);
+            this.cmbGender.Location = new System.Drawing.Point(84, 35);
             this.cmbGender.Name = "cmbGender";
             this.dataBindingCustomer.SetPropertyName(this.cmbGender, "Gender");
             this.cmbGender.Size = new System.Drawing.Size(59, 21);
             this.cmbGender.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbGender.TabIndex = 17;
+            this.cmbGender.TabIndex = 3;
             // 
             // cmbIdType
             // 
@@ -350,12 +351,12 @@
             this.cmbIdType.FormattingEnabled = true;
             this.highlighter.SetHighlightOnFocus(this.cmbIdType, true);
             this.cmbIdType.ItemHeight = 15;
-            this.cmbIdType.Location = new System.Drawing.Point(84, 35);
+            this.cmbIdType.Location = new System.Drawing.Point(295, 5);
             this.cmbIdType.Name = "cmbIdType";
             this.dataBindingCustomer.SetPropertyName(this.cmbIdType, "IdType");
-            this.cmbIdType.Size = new System.Drawing.Size(121, 21);
+            this.cmbIdType.Size = new System.Drawing.Size(112, 21);
             this.cmbIdType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbIdType.TabIndex = 15;
+            this.cmbIdType.TabIndex = 1;
             // 
             // labelX7
             // 
@@ -363,7 +364,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(3, 35);
+            this.labelX7.Location = new System.Drawing.Point(214, 5);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(75, 21);
             this.labelX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -379,7 +380,7 @@
             this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel2.Location = new System.Drawing.Point(0, 124);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(705, 161);
+            this.groupPanel2.Size = new System.Drawing.Size(814, 207);
             // 
             // 
             // 
@@ -443,13 +444,13 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdContactInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdContactInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdContactInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.grdContactInfo.EnableHeadersVisualStyles = false;
-            this.grdContactInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.grdContactInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdContactInfo.Location = new System.Drawing.Point(0, 0);
             this.grdContactInfo.Name = "grdContactInfo";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -461,7 +462,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdContactInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdContactInfo.RowTemplate.Height = 23;
-            this.grdContactInfo.Size = new System.Drawing.Size(699, 137);
+            this.grdContactInfo.Size = new System.Drawing.Size(808, 183);
             this.grdContactInfo.TabIndex = 0;
             this.grdContactInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdContactInfo_CellContentClick);
             // 
@@ -623,7 +624,7 @@
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
             this.Name = "CustomerBaseInfoUC";
-            this.Size = new System.Drawing.Size(705, 285);
+            this.Size = new System.Drawing.Size(814, 331);
             this.Load += new System.EventHandler(this.CustomerBaseInfoUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtBirthday)).EndInit();
             this.groupPanel1.ResumeLayout(false);

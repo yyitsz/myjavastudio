@@ -13,5 +13,6 @@ namespace SimpleCrm.Utils
         public static String DELETE_CUSTOMER_RELATION = "是否解除与此客户的关系？注意，解除之后，已保存的客户信息并没有被删除。";
         public static String DELETE_CUSTOMER = "是否解删除客户？";
         public static String SAVE_SUCCESS = "保存成功！";
+        public static string CAN_NOT_DEL_CUSTOMER = "客户正被使用，不可删除.";
     }
 }

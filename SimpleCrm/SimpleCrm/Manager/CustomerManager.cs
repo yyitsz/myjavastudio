@@ -13,7 +13,6 @@ namespace SimpleCrm.Manager
     public class CustomerManager : BaseRepo<Customer, long?>
     {
         private ContactInfoManager contactInfoMgr;
-
         public CustomerManager(IDbConnection conn)
         {
             Connection = conn;
@@ -117,6 +116,27 @@ where r.BaseCustomerId = @CustomerId "
             PopulateContactInfo(customerList);
             customerList.MarkAsPersisted();
             return customerList;
+        }
+
+        public override int Delete(long? customerId)
+        {
+            contactInfoMgr.DeleteByCustomer(customerId.Value);
+            return base.Delete(customerId);
+        }
+
+        public bool CanDeleteCustomer(long customerId)
+        {
+            int count = Connection.ExecuteScalar<int>(@"select sum(c)
+from 
+(
+	select count(*) c from FollowUpRecord where CustomerId = @CustomerId
+	UNION ALL
+	select count(*) c from InsurancePolicy where CustomerId = @CustomerId
+	UNION ALL
+	select count(*) c from InsurancePolicyCustomer where CustomerId = @CustomerId
+)", new { CustomerId = customerId });
+
+            return count == 0;
         }
     }
 }

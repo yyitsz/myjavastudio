@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using SimpleCrm.Manager;
 using SimpleCrm.DTO;
+using Dapper;
 
 namespace SimpleCrm.Facade
 {
@@ -23,6 +24,8 @@ namespace SimpleCrm.Facade
         public void InitSystem()
         {
             new AppConfigManager().Init();
+            SqlMapper.AddTypeHandler(typeof(DateTime?), new DateTimeHandler());
+
             ExecutedInTx(conn => new SystemParameterManager(conn).Init());
         }
 
@@ -481,12 +484,32 @@ namespace SimpleCrm.Facade
            });
         }
 
-        internal List<Customer> GetCustomerByRelation(long CustomerId)
+        internal List<Customer> GetCustomerByRelation(long customerId)
         {
             return ExecutedInTx(conn =>
             {
                 CustomerManager mgr = new CustomerManager(conn);
-                return mgr.GetCustomerByRelation(CustomerId);
+                return mgr.GetCustomerByRelation(customerId);
+            });
+        }
+
+        internal void DeleteCustomer(long customerId)
+        {
+            ExecutedInTx(conn =>
+            {
+                CustomerManager mgr = new CustomerManager(conn);
+                CustomerRelationManager customerRelationMgr = new CustomerRelationManager(conn);
+                customerRelationMgr.DeleteByCustomer(customerId);
+                mgr.Delete(customerId);
+            });
+        }
+
+        public bool CanDeleteCustomer(long customerId)
+        {
+            return ExecutedInTx(conn =>
+            {
+                CustomerManager mgr = new CustomerManager(conn);
+                return mgr.CanDeleteCustomer(customerId);
             });
         }
     }

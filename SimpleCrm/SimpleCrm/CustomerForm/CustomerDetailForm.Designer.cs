@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerDetailForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.superValidator = new DevComponents.DotNetBar.Validator.SuperValidator();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.highlighter = new DevComponents.DotNetBar.Validator.Highlighter();
@@ -39,7 +39,6 @@
             this.cmbCustomerSource = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cmbCustomerClass = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cmbIntentPhase = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.requiredFieldValidator1 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("Your error message here.");
             this.customValidator1 = new DevComponents.DotNetBar.Validator.CustomValidator();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
@@ -56,12 +55,12 @@
             this.colEdit = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.colDelete = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRelation = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colIdType = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
-            this.idCardNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGender = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
-            this.birthdayDataGridViewTextBoxColumn = new DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
+            this.colBirthday = new DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.houseInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,9 +81,6 @@
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
             this.btnSelectCustomer = new DevComponents.DotNetBar.ButtonX();
             this.tiFamily = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
-            this.customerBaseInfoUC = new SimpleCrm.CustomerForm.UserControls.CustomerBaseInfoUC();
-            this.tiBaseInfo = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -97,6 +93,9 @@
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tiAsset = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+            this.customerBaseInfoUC = new SimpleCrm.CustomerForm.UserControls.CustomerBaseInfoUC();
+            this.tiBaseInfo = new DevComponents.DotNetBar.TabItem(this.components);
             this.dataBindingCustomer = new SimpleCrm.Utils.DataBinding(this.components);
             this.ribbonBarMergeContainer1 = new DevComponents.DotNetBar.RibbonBarMergeContainer();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
@@ -110,13 +109,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdFamily)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.panelEx3.SuspendLayout();
-            this.tabControlPanel1.SuspendLayout();
             this.tabControlPanel4.SuspendLayout();
             this.groupPanel5.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             this.groupPanel4.SuspendLayout();
             this.groupPanel3.SuspendLayout();
             this.groupPanel2.SuspendLayout();
+            this.tabControlPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingCustomer)).BeginInit();
             this.ribbonBarMergeContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -149,8 +148,7 @@
             this.dataBindingCustomer.SetPropertyName(this.cmbCustomerStatus, "Status");
             this.cmbCustomerStatus.Size = new System.Drawing.Size(121, 21);
             this.cmbCustomerStatus.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbCustomerStatus.TabIndex = 23;
-            this.superValidator.SetValidator1(this.cmbCustomerStatus, this.requiredFieldValidator1);
+            this.cmbCustomerStatus.TabIndex = 0;
             // 
             // textBoxX6
             // 
@@ -166,7 +164,7 @@
             this.textBoxX6.PreventEnterBeep = true;
             this.dataBindingCustomer.SetPropertyName(this.textBoxX6, "Introducer");
             this.textBoxX6.Size = new System.Drawing.Size(120, 21);
-            this.textBoxX6.TabIndex = 30;
+            this.textBoxX6.TabIndex = 4;
             // 
             // cmbCustomerSource
             // 
@@ -181,7 +179,7 @@
             this.dataBindingCustomer.SetPropertyName(this.cmbCustomerSource, "CustomerSource");
             this.cmbCustomerSource.Size = new System.Drawing.Size(121, 21);
             this.cmbCustomerSource.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbCustomerSource.TabIndex = 28;
+            this.cmbCustomerSource.TabIndex = 3;
             // 
             // cmbCustomerClass
             // 
@@ -196,7 +194,7 @@
             this.dataBindingCustomer.SetPropertyName(this.cmbCustomerClass, "CustomerClass");
             this.cmbCustomerClass.Size = new System.Drawing.Size(121, 21);
             this.cmbCustomerClass.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbCustomerClass.TabIndex = 26;
+            this.cmbCustomerClass.TabIndex = 2;
             // 
             // cmbIntentPhase
             // 
@@ -211,13 +209,7 @@
             this.dataBindingCustomer.SetPropertyName(this.cmbIntentPhase, "IntentPhase");
             this.cmbIntentPhase.Size = new System.Drawing.Size(121, 21);
             this.cmbIntentPhase.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbIntentPhase.TabIndex = 24;
-            // 
-            // requiredFieldValidator1
-            // 
-            this.requiredFieldValidator1.ErrorMessage = "Your error message here.";
-            this.requiredFieldValidator1.HighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
-            this.requiredFieldValidator1.ValuePropertyName = "SelectedValue";
+            this.cmbIntentPhase.TabIndex = 1;
             // 
             // customValidator1
             // 
@@ -374,9 +366,9 @@
             this.tabCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
             this.tabCustomer.CanReorderTabs = true;
             this.tabCustomer.Controls.Add(this.tabControlPanel1);
-            this.tabCustomer.Controls.Add(this.tabControlPanel2);
-            this.tabCustomer.Controls.Add(this.tabControlPanel4);
             this.tabCustomer.Controls.Add(this.tabControlPanel5);
+            this.tabCustomer.Controls.Add(this.tabControlPanel4);
+            this.tabCustomer.Controls.Add(this.tabControlPanel2);
             this.tabCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCustomer.Location = new System.Drawing.Point(0, 83);
             this.tabCustomer.Name = "tabCustomer";
@@ -439,12 +431,12 @@
             this.colEdit,
             this.colDelete,
             this.customerIdDataGridViewTextBoxColumn,
-            this.customerNameDataGridViewTextBoxColumn,
+            this.colCustomerName,
             this.colRelation,
             this.colIdType,
-            this.idCardNoDataGridViewTextBoxColumn,
+            this.colIdCardNo,
             this.colGender,
-            this.birthdayDataGridViewTextBoxColumn,
+            this.colBirthday,
             this.unitDataGridViewTextBoxColumn,
             this.positionDataGridViewTextBoxColumn,
             this.houseInfoDataGridViewTextBoxColumn,
@@ -462,14 +454,14 @@
             this.updateTimeDataGridViewTextBoxColumn,
             this.versionNoDataGridViewTextBoxColumn});
             this.grdFamily.DataSource = this.customerBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdFamily.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdFamily.DefaultCellStyle = dataGridViewCellStyle1;
             this.grdFamily.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdFamily.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.grdFamily.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
@@ -506,11 +498,11 @@
             this.customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
             this.customerIdDataGridViewTextBoxColumn.Visible = false;
             // 
-            // customerNameDataGridViewTextBoxColumn
+            // colCustomerName
             // 
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "姓名";
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            this.colCustomerName.DataPropertyName = "CustomerName";
+            this.colCustomerName.HeaderText = "姓名";
+            this.colCustomerName.Name = "colCustomerName";
             // 
             // colRelation
             // 
@@ -542,12 +534,12 @@
             this.colIdType.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.colIdType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             // 
-            // idCardNoDataGridViewTextBoxColumn
+            // colIdCardNo
             // 
-            this.idCardNoDataGridViewTextBoxColumn.DataPropertyName = "IdCardNo";
-            this.idCardNoDataGridViewTextBoxColumn.HeaderText = "证件号码";
-            this.idCardNoDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.idCardNoDataGridViewTextBoxColumn.Name = "idCardNoDataGridViewTextBoxColumn";
+            this.colIdCardNo.DataPropertyName = "IdCardNo";
+            this.colIdCardNo.HeaderText = "证件号码";
+            this.colIdCardNo.MaxInputLength = 30;
+            this.colIdCardNo.Name = "colIdCardNo";
             // 
             // colGender
             // 
@@ -565,41 +557,41 @@
             this.colGender.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.colGender.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             // 
-            // birthdayDataGridViewTextBoxColumn
+            // colBirthday
             // 
             // 
             // 
             // 
-            this.birthdayDataGridViewTextBoxColumn.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.birthdayDataGridViewTextBoxColumn.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
-            this.birthdayDataGridViewTextBoxColumn.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.birthdayDataGridViewTextBoxColumn.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
-            this.birthdayDataGridViewTextBoxColumn.DataPropertyName = "Birthday";
-            this.birthdayDataGridViewTextBoxColumn.HeaderText = "出生日期";
-            this.birthdayDataGridViewTextBoxColumn.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            this.colBirthday.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.colBirthday.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
+            this.colBirthday.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.colBirthday.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
+            this.colBirthday.DataPropertyName = "Birthday";
+            this.colBirthday.HeaderText = "出生日期";
+            this.colBirthday.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
             // 
             // 
             // 
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            this.colBirthday.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
             // 
             // 
             // 
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.colBirthday.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.colBirthday.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
             // 
             // 
             // 
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.DisplayMonth = new System.DateTime(2014, 10, 1, 0, 0, 0, 0);
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.MarkedDates = new System.DateTime[0];
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            this.colBirthday.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.colBirthday.MonthCalendar.DisplayMonth = new System.DateTime(2014, 10, 1, 0, 0, 0, 0);
+            this.colBirthday.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.colBirthday.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
             // 
             // 
             // 
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.birthdayDataGridViewTextBoxColumn.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
-            this.birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
-            this.birthdayDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colBirthday.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.colBirthday.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.colBirthday.Name = "colBirthday";
+            this.colBirthday.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // unitDataGridViewTextBoxColumn
             // 
@@ -752,40 +744,6 @@
             this.tiFamily.AttachedControl = this.tabControlPanel5;
             this.tiFamily.Name = "tiFamily";
             this.tiFamily.Text = "家庭成员";
-            // 
-            // tabControlPanel1
-            // 
-            this.tabControlPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.tabControlPanel1.Controls.Add(this.customerBaseInfoUC);
-            this.tabControlPanel1.DisabledBackColor = System.Drawing.Color.Empty;
-            this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel1.Location = new System.Drawing.Point(0, 25);
-            this.tabControlPanel1.Name = "tabControlPanel1";
-            this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel1.Size = new System.Drawing.Size(876, 355);
-            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
-            this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
-            this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
-                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel1.Style.GradientAngle = 90;
-            this.tabControlPanel1.TabIndex = 1;
-            this.tabControlPanel1.TabItem = this.tiBaseInfo;
-            // 
-            // customerBaseInfoUC
-            // 
-            this.customerBaseInfoUC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerBaseInfoUC.Location = new System.Drawing.Point(1, 1);
-            this.customerBaseInfoUC.Name = "customerBaseInfoUC";
-            this.customerBaseInfoUC.Size = new System.Drawing.Size(874, 353);
-            this.customerBaseInfoUC.TabIndex = 0;
-            // 
-            // tiBaseInfo
-            // 
-            this.tiBaseInfo.AttachedControl = this.tabControlPanel1;
-            this.tiBaseInfo.Name = "tiBaseInfo";
-            this.tiBaseInfo.Text = "基本信息";
             // 
             // tabControlPanel4
             // 
@@ -1075,6 +1033,40 @@
             this.tiAsset.Name = "tiAsset";
             this.tiAsset.Text = "资产";
             // 
+            // tabControlPanel1
+            // 
+            this.tabControlPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.tabControlPanel1.Controls.Add(this.customerBaseInfoUC);
+            this.tabControlPanel1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel1.Location = new System.Drawing.Point(0, 25);
+            this.tabControlPanel1.Name = "tabControlPanel1";
+            this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel1.Size = new System.Drawing.Size(876, 355);
+            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel1.Style.GradientAngle = 90;
+            this.tabControlPanel1.TabIndex = 1;
+            this.tabControlPanel1.TabItem = this.tiBaseInfo;
+            // 
+            // customerBaseInfoUC
+            // 
+            this.customerBaseInfoUC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerBaseInfoUC.Location = new System.Drawing.Point(1, 1);
+            this.customerBaseInfoUC.Name = "customerBaseInfoUC";
+            this.customerBaseInfoUC.Size = new System.Drawing.Size(874, 353);
+            this.customerBaseInfoUC.TabIndex = 0;
+            // 
+            // tiBaseInfo
+            // 
+            this.tiBaseInfo.AttachedControl = this.tabControlPanel1;
+            this.tiBaseInfo.Name = "tiBaseInfo";
+            this.tiBaseInfo.Text = "基本信息";
+            // 
             // dataBindingCustomer
             // 
             this.dataBindingCustomer.DateTimeFormat = "yyyy-MM-dd";
@@ -1166,13 +1158,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdFamily)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.panelEx3.ResumeLayout(false);
-            this.tabControlPanel1.ResumeLayout(false);
             this.tabControlPanel4.ResumeLayout(false);
             this.groupPanel5.ResumeLayout(false);
             this.tabControlPanel2.ResumeLayout(false);
             this.groupPanel4.ResumeLayout(false);
             this.groupPanel3.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
+            this.tabControlPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingCustomer)).EndInit();
             this.ribbonBarMergeContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1220,8 +1212,6 @@
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbIntentPhase;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbCustomerStatus;
-        private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn primaryCustomerIdDataGridViewTextBoxColumn;
         private Utils.DataBinding dataBindingCustomer;
         private DevComponents.DotNetBar.RibbonBarMergeContainer ribbonBarMergeContainer1;
         private DevComponents.DotNetBar.RibbonBar ribbonBar1;
@@ -1230,12 +1220,12 @@
         private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colEdit;
         private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCustomerName;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colRelation;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colIdType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCardNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdCardNo;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colGender;
-        private DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn birthdayDataGridViewTextBoxColumn;
+        private DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn colBirthday;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn houseInfoDataGridViewTextBoxColumn;

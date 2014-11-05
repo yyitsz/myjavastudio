@@ -147,6 +147,8 @@ namespace SimpleCrm.MasterForm
         private bool ValidateData()
         {
             Boolean result = true;
+            grdResult.Enabled = false;
+            grdResult.Enabled = true;
             foreach (DataGridViewRow row in grdResult.Rows)
             {
                 Lov ac = row.DataBoundItem as Lov;
