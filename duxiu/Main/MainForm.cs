@@ -371,7 +371,8 @@ namespace Mouse.Main
             }
             else
             {
-                Regex regBookInfo = new Regex("(?<=id=bookinfo>)([^>]+)(?=</DIV>)");
+                Regex regBookInfo = new Regex("(?<=id=bookinfo[^>]*>)([^>]+)(?=</DIV>)");
+                //Regex regBookInfo = new Regex("(?<=id=bookinfo>)([^>]+)(?=</DIV>)");
                 Match matchBookInfo = regBookInfo.Match(html);
                 if (matchBookInfo.Success)
                 {
