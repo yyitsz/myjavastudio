@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.yy.demo</groupId>
+        <artifactId>javaee-demo-parent</artifactId>
+        <version>1.0-snapshot</version>
+        <relativePath>./javaee-demo-parent/pom.xml</relativePath>
+    </parent>
+    <artifactId>javaee-demo</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>javaee-demo-parent</module>
+        <module>javaee-demo-web</module>
+        <module>javaee-demo-core</module>
+        <module>javaee-demo-fw</module>
+    </modules>
+    <properties>
+    </properties>
+</project>
+
