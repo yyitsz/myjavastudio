@@ -54,7 +54,7 @@ namespace Mouse.Main
         {
             if (File.Exists(param.FullFileName))
             {
-                if (Utils.IsImage(param.FullFileName))
+                if (Utils.IsImage(param.FullFileName, result.BookInfoParam.PicSize))
                 {
                     param.Exsit = true;
                     param.Success = true;

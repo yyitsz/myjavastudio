@@ -15,7 +15,7 @@ namespace Mouse.Main
 
         public static WebClient CreateWebClient(String cookie, String referer)
         {
-            return CreateWebClient(null, cookie,referer);
+            return CreateWebClient(null, cookie, referer);
         }
 
         public static WebClient CreateWebClient(Uri proxyAddr, String cookie, String referer)
@@ -24,7 +24,7 @@ namespace Mouse.Main
             //client.Host = "127.0.0.1";
             //client.Port = 7070;
             WebClient client = new WebClient();
-            InitWebClient(client, cookie,referer);
+            InitWebClient(client, cookie, referer);
             if (proxyAddr != null)
             {
                 WebProxy proxy = new WebProxy(proxyAddr);
@@ -101,7 +101,7 @@ namespace Mouse.Main
                             return FileType.Code;
                         }
                     }
-                    return FileType.Other;                   
+                    return FileType.Other;
                 }
             }
             catch
@@ -110,13 +110,15 @@ namespace Mouse.Main
             }
         }
 
-        public static bool IsImage(String fileName)
+        public static bool IsImage(String fileName, int picSize)
         {
             try
             {
                 using (System.Drawing.Image image = System.Drawing.Image.FromFile(fileName))
                 {
-                    if (image.Width < 800)
+                    if (picSize == 2 && image.Width < 900
+                        || picSize == 1 && image.Width < 800
+                        || picSize == 0 && image.Width < 600)
                     {
                         return false;
                     }
@@ -149,7 +151,7 @@ namespace Mouse.Main
                     break;
                 }
             }
-            
+
             if (isImageHeader == true)
             {
                 imageStream.Seek(0, SeekOrigin.Begin);
