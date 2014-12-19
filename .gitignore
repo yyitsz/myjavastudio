@@ -21,3 +21,15 @@ logs
 *.suo
 *.iml
 *.user
+/javaeedemo/JsfJpaCrud/nbproject/private/
+/sqltools2/nbproject/private/
+/sqltools2/build/
+/sqltools2/core/build/
+/sqltools2/UppercaseFilter/build/
+/sqltools2/api/build/
+/sqltools2/UppercaseFilter/nbproject/private/
+/sqltools2/uppercasefilter2/nbproject/private/
+/sqltools2/uppercasefilter/nbproject/private/
+/sqltools2/uppercasefilter2/build/
+/sqltools2/core/nbproject/private/
+/sqltools2/api/nbproject/private/
