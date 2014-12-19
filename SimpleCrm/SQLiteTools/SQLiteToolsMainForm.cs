@@ -80,5 +80,10 @@ namespace SQLiteTools
         {
             ShowForm<DbQueryForm>();
         }
+
+        private void mnuReg_Click(object sender, EventArgs e)
+        {
+            ShowForm<RegisterForm.RegisterManagerForm>();
+        }
     }
 }

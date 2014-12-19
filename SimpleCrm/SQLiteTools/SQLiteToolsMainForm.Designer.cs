@@ -35,6 +35,7 @@ namespace SQLiteTools
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mntExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuWindows = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuReg = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@ namespace SQLiteTools
             this.mnuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuDbManager,
             this.mnuDbQuery,
+            this.mnuReg,
             this.toolStripSeparator1,
             this.mntExit});
             this.mnuTools.Name = "mnuTools";
@@ -94,6 +96,13 @@ namespace SQLiteTools
             this.mnuWindows.Size = new System.Drawing.Size(63, 20);
             this.mnuWindows.Text = "&Windows";
             // 
+            // mnuReg
+            // 
+            this.mnuReg.Name = "mnuReg";
+            this.mnuReg.Size = new System.Drawing.Size(152, 22);
+            this.mnuReg.Text = "×¢²á¹¤¾ß";
+            this.mnuReg.Click += new System.EventHandler(this.mnuReg_Click);
+            // 
             // SQLiteToolsMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -107,8 +116,8 @@ namespace SQLiteTools
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SQLite Tools";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.SQLiteMainForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SQLiteMainForm_FormClosing);
+            this.Load += new System.EventHandler(this.SQLiteMainForm_Load);
             this.mnuMainMenu.ResumeLayout(false);
             this.mnuMainMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -125,6 +134,7 @@ namespace SQLiteTools
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuDbManager;
         private System.Windows.Forms.ToolStripMenuItem mnuDbQuery;
+        private System.Windows.Forms.ToolStripMenuItem mnuReg;
     }
 }
 
