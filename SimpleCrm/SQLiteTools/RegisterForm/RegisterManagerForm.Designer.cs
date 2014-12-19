@@ -50,6 +50,7 @@
             // txtMachineCode
             // 
             this.txtMachineCode.Location = new System.Drawing.Point(72, 12);
+            this.txtMachineCode.MaxLength = 50;
             this.txtMachineCode.Multiline = true;
             this.txtMachineCode.Name = "txtMachineCode";
             this.txtMachineCode.Size = new System.Drawing.Size(314, 72);
@@ -68,6 +69,7 @@
             // txtCustomerName
             // 
             this.txtCustomerName.Location = new System.Drawing.Point(72, 143);
+            this.txtCustomerName.MaxLength = 20;
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(314, 21);
             this.txtCustomerName.TabIndex = 2;

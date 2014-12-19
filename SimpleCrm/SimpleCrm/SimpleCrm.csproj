@@ -196,6 +196,8 @@
     </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -504,10 +506,13 @@
     <Compile Include="Utils\DataBinding.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utils\RegHelper.cs" />
     <Compile Include="Utils\RoleExtender.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\PasswordUtil.cs" />
+    <Compile Include="Utils\SimpleRsaHelper.cs" />
+    <Compile Include="Utils\RSAPrivateEncryption.cs" />
     <Compile Include="Utils\ValidationHelper.cs" />
     <Compile Include="Utils\XmlUtil.cs" />
   </ItemGroup>
