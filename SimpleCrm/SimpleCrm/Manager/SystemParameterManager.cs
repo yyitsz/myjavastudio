@@ -13,7 +13,7 @@ namespace SimpleCrm.Manager
     {
         private static SystemConfig systemConfig = new SystemConfig();
         public static SystemConfig SystemConfig { get { return systemConfig; } }
-        public const String CONFIG = "SYS_CONFIG";
+        public static readonly String CONFIG = "SYS_CONFIG";
 
         public SystemParameterManager(IDbConnection conn)
         {

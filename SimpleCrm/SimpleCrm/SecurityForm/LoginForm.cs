@@ -35,25 +35,13 @@ namespace SimpleCrm.Security
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void FLoginForm_Load(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
             this.AcceptButton = this.btnOkLogin;
+            txtUserName.Select();
         }
 
-        /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.KeyPress"></see> event.
-        /// </summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.KeyPressEventArgs"></see> that contains the event data.</param>
-        protected override void OnKeyPress(KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                SendKeys.Send("{TAB}");
-                return;
-            }
-
-            base.OnKeyPress(e);
-        }
+       
 
         /// <summary>
         /// Handles the Click event of the btnOKLogin control.
@@ -62,17 +50,16 @@ namespace SimpleCrm.Security
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btnOKLogin_Click(object sender, EventArgs e)
         {
-            Cursor cursor = this.Cursor;
+
             try
             {
                 if (txtUserName.Text.Trim().Length == 0 || txtPassword.Text.Length == 0)
                 {
-                    MessageBoxHelper.ShowPrompt("Please input user id and password");
+                    MessageBoxHelper.ShowPrompt("请输入用户名和密码！");
                     return;
 
                 }
 
-                this.Cursor = Cursors.WaitCursor;
                 string userId = this.txtUserName.Text.Trim();
                 string plainPwd = this.txtPassword.Text;
                 UserProfile profile = AppFacade.Facade.Authenticate(userId, plainPwd);
@@ -81,15 +68,13 @@ namespace SimpleCrm.Security
                 UserManager.UserProfile.UserName = profile.UserName;
                 RoleExtender.UserProfile = UserManager.UserProfile;
                 this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
                 ExceptionHelper.HandleException(ex);
             }
-            finally
-            {
-                this.Cursor = cursor;
-            }
+
         }
         /// <summary>
         /// Handles the Click event of the btnCancel control.
@@ -98,8 +83,27 @@ namespace SimpleCrm.Security
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            if (MessageBoxHelper.ShowYesNo(ErrorCode.EXIT_APP) == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing
+                && ( this.DialogResult != System.Windows.Forms.DialogResult.OK
+                && this.DialogResult != System.Windows.Forms.DialogResult.Cancel))
+            {
+                e.Cancel = true;
+            }
+        }
+
+        public static DialogResult Login()
+        {
+            LoginForm form = new LoginForm();
+            return form.ShowDialog();
         }
     }
 

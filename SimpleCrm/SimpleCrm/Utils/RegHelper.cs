@@ -30,7 +30,7 @@ namespace SimpleCrm.Utils
 
         public static void SaveValueToRegister(String name, String value)
         {
-            RegistryKey retkey = Registry.LocalMachine
+            RegistryKey retkey = Registry.CurrentUser
                 .OpenSubKey("Software", true)
                 .CreateSubKey(SOFTWARE_NAME);
             retkey.SetValue(name, value, RegistryValueKind.String);
@@ -39,7 +39,7 @@ namespace SimpleCrm.Utils
         public static string GetValueFromRegister(String name)
         {
             String value = null;
-            RegistryKey retkey = Registry.LocalMachine
+            RegistryKey retkey = Registry.CurrentUser
                 .OpenSubKey("Software", true)
                 .CreateSubKey(SOFTWARE_NAME);
             value = Convert.ToString(retkey.GetValue(name));
@@ -51,17 +51,14 @@ namespace SimpleCrm.Utils
             String key = GetValueFromRegister("license");
             string startdate = GetValueFromRegister("ksrq");
             DateTime result = DateTime.Now.Date;
-            if (startdate != null)
+            if (!String.IsNullOrWhiteSpace(startdate))
             {
                 if (!DateTime.TryParseExact(startdate, "MMddyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
                 {
                     result = DateTime.MinValue;
                 }
             }
-            else 
-            {
-                SaveValueToRegister("ksrq",DateTime.Now.ToString("MMddyy",CultureInfo.InvariantCulture));
-            }
+
             LicenseInfo info = CheckLicense(key, result);
             return info;
         }
@@ -86,7 +83,7 @@ namespace SimpleCrm.Utils
             {
                 if (startDate != null)
                 {
-                    if (startDate.value > DateTime.Now.Date || startDate.Value.AddDays(15) <= DateTime.Now.Date)
+                    if (startDate.Value > DateTime.Now.Date || startDate.Value.AddDays(15) <= DateTime.Now.Date)
                     {
                         return new LicenseInfo(-1);
                     }
@@ -116,7 +113,7 @@ namespace SimpleCrm.Utils
                     {
                         expireDate = DateTime.MaxValue;
                     }
-                    if (expireDate < DateTime.Now)
+                    if (expireDate < DateTime.Now.Date)
                     {
                         LicenseInfo info = new LicenseInfo(2, username, expireDate);
                         return info;
@@ -143,6 +140,20 @@ namespace SimpleCrm.Utils
                     return new LicenseInfo(-1);
                 }
 
+            }
+        }
+
+        public static void SaveLicense(string license)
+        {
+            SaveValueToRegister("license", license);
+        }
+
+        public static void SaveTrialDate()
+        {
+            string startdate = GetValueFromRegister("ksrq");
+            if (startdate == null)
+            {
+                SaveValueToRegister("ksrq", DateTime.Now.ToString("MMddyy", CultureInfo.InvariantCulture));
             }
         }
     }

@@ -512,5 +512,14 @@ namespace SimpleCrm.Facade
                 return mgr.CanDeleteCustomer(customerId);
             });
         }
+
+        internal bool ExistAnyUser()
+        {
+            return ExecutedInTx(conn =>
+            {
+                UserManager mgr = new UserManager(conn);
+                return mgr.ExistAnyUser();
+            });
+        }
     }
 }

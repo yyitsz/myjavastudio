@@ -21,20 +21,13 @@ namespace SimpleCrm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // StyleManager.Style = eStyle.Office2007Blue;
 
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             Dapper.SimpleCRUD.CrudContext = UserManager.UserProfile;
-
-            LoginForm form = new LoginForm();
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
-            DialogResult result = form.ShowDialog();
-            if (result == DialogResult.OK)
-            {                
-                AppFacade.Facade.InitSystem();
-                AppFacade.Facade.MainForm = new MainForm();
-                Application.Run(AppFacade.Facade.MainForm);
-            }
+            AppFacade.Facade.MainForm = new MainForm();
+            Application.Run(AppFacade.Facade.MainForm);
+
         }
 
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)

@@ -8,7 +8,7 @@ namespace SimpleCrm.Utils
 {
     public class SimpleRsaHelper
     {
-        public static string PUB_KEY = @"<RSAKeyValue><Modulus>x+k0u4f/zrTWO7ePk0ic66d3XSQM5f1SZelN7tFg4CzC7IZLVNGhgSrr4W083NFKspZ8n2InwAuxH8E0iwC+UugTb2J6P6hk4zalBlIBFWkWlCZEVfPB2/P9u45IM965KoV4kHv1FekAIBmcKWBacml0b6OH9I61XkLsqmGlkak=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
+        public static readonly string PUB_KEY = @"<RSAKeyValue><Modulus>x+k0u4f/zrTWO7ePk0ic66d3XSQM5f1SZelN7tFg4CzC7IZLVNGhgSrr4W083NFKspZ8n2InwAuxH8E0iwC+UugTb2J6P6hk4zalBlIBFWkWlCZEVfPB2/P9u45IM965KoV4kHv1FekAIBmcKWBacml0b6OH9I61XkLsqmGlkak=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
  
         public static string RSAEncryptWithPublicKey(string publicKey, string content)
         {

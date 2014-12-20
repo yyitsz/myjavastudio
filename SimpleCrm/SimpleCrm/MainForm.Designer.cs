@@ -34,6 +34,12 @@ namespace SimpleCrm
             this.cmdLovMain = new DevComponents.DotNetBar.Command(this.components);
             this.cmbAddCustomer = new DevComponents.DotNetBar.Command(this.components);
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
+            this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnUserMain = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLovMain = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRegister = new DevComponents.DotNetBar.ButtonItem();
+            this.cmdRegister = new DevComponents.DotNetBar.Command(this.components);
             this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
             this.btnSchedule = new DevComponents.DotNetBar.ButtonItem();
@@ -45,10 +51,6 @@ namespace SimpleCrm
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnUserMain = new DevComponents.DotNetBar.ButtonItem();
-            this.btnLovMain = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonTabItem1 = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabSchedule = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem2 = new DevComponents.DotNetBar.RibbonTabItem();
@@ -56,10 +58,12 @@ namespace SimpleCrm
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.styleManager = new DevComponents.DotNetBar.StyleManager(this.components);
             this.tabStrip1 = new DevComponents.DotNetBar.TabStrip();
+            this.btnChangePassword = new DevComponents.DotNetBar.ButtonItem();
+            this.cmdChangePassword = new DevComponents.DotNetBar.Command(this.components);
             this.ribbonControl1.SuspendLayout();
+            this.ribbonPanel2.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
-            this.ribbonPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdCustomerMain
@@ -89,9 +93,9 @@ namespace SimpleCrm
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
+            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel1);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ribbonTabItem1,
@@ -126,6 +130,104 @@ namespace SimpleCrm
             this.ribbonControl1.TabIndex = 17;
             this.ribbonControl1.Text = "ribbonControl1";
             // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel2.Controls.Add(this.ribbonBar2);
+            this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel2.Location = new System.Drawing.Point(0, 53);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel2.Size = new System.Drawing.Size(803, 59);
+            // 
+            // 
+            // 
+            this.ribbonPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel2.TabIndex = 2;
+            // 
+            // ribbonBar2
+            // 
+            this.ribbonBar2.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar2.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.ContainerControlProcessDialogKey = true;
+            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar2.DragDropSupport = true;
+            this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnUserMain,
+            this.btnChangePassword,
+            this.btnLovMain,
+            this.btnRegister});
+            this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar2.Name = "ribbonBar2";
+            this.ribbonBar2.Size = new System.Drawing.Size(278, 56);
+            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar2.TabIndex = 0;
+            // 
+            // 
+            // 
+            this.ribbonBar2.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.TitleVisible = false;
+            // 
+            // btnUserMain
+            // 
+            this.btnUserMain.BeginGroup = true;
+            this.btnUserMain.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnUserMain.Command = this.cmdUserMain;
+            this.btnUserMain.Image = global::SimpleCrm.Properties.Resources.group;
+            this.btnUserMain.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnUserMain.Name = "btnUserMain";
+            this.btnUserMain.SplitButton = true;
+            this.btnUserMain.SubItemsExpandWidth = 14;
+            this.btnUserMain.Text = "用户管理";
+            this.btnUserMain.Visible = false;
+            // 
+            // btnLovMain
+            // 
+            this.btnLovMain.BeginGroup = true;
+            this.btnLovMain.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnLovMain.Command = this.cmdLovMain;
+            this.btnLovMain.Image = global::SimpleCrm.Properties.Resources.configuration_edit;
+            this.btnLovMain.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnLovMain.Name = "btnLovMain";
+            this.btnLovMain.SplitButton = true;
+            this.btnLovMain.SubItemsExpandWidth = 14;
+            this.btnLovMain.Text = "基础数据管理";
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.BeginGroup = true;
+            this.btnRegister.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnRegister.Command = this.cmdRegister;
+            this.btnRegister.Image = global::SimpleCrm.Properties.Resources.upload;
+            this.btnRegister.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.SubItemsExpandWidth = 14;
+            this.btnRegister.Text = "注册";
+            // 
+            // cmdRegister
+            // 
+            this.cmdRegister.Name = "cmdRegister";
+            this.cmdRegister.Executed += new System.EventHandler(this.cmdRegister_Executed);
+            // 
             // ribbonPanel3
             // 
             this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -148,6 +250,7 @@ namespace SimpleCrm
             // 
             this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel3.TabIndex = 3;
+            this.ribbonPanel3.Visible = false;
             // 
             // ribbonBar4
             // 
@@ -302,86 +405,6 @@ namespace SimpleCrm
             this.buttonItem2.SubItemsExpandWidth = 14;
             this.buttonItem2.Text = "新增客户";
             // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel2.Controls.Add(this.ribbonBar2);
-            this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel2.Location = new System.Drawing.Point(0, 53);
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel2.Size = new System.Drawing.Size(803, 59);
-            // 
-            // 
-            // 
-            this.ribbonPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
-            // 
-            // ribbonBar2
-            // 
-            this.ribbonBar2.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar2.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar2.ContainerControlProcessDialogKey = true;
-            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar2.DragDropSupport = true;
-            this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnUserMain,
-            this.btnLovMain});
-            this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(157, 56);
-            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar2.TabIndex = 0;
-            // 
-            // 
-            // 
-            this.ribbonBar2.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar2.TitleVisible = false;
-            // 
-            // btnUserMain
-            // 
-            this.btnUserMain.BeginGroup = true;
-            this.btnUserMain.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnUserMain.Command = this.cmdUserMain;
-            this.btnUserMain.Image = global::SimpleCrm.Properties.Resources.group;
-            this.btnUserMain.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnUserMain.Name = "btnUserMain";
-            this.btnUserMain.SplitButton = true;
-            this.btnUserMain.SubItemsExpandWidth = 14;
-            this.btnUserMain.Text = "用户管理";
-            // 
-            // btnLovMain
-            // 
-            this.btnLovMain.BeginGroup = true;
-            this.btnLovMain.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnLovMain.Command = this.cmdLovMain;
-            this.btnLovMain.Image = global::SimpleCrm.Properties.Resources.configuration_edit;
-            this.btnLovMain.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnLovMain.Name = "btnLovMain";
-            this.btnLovMain.SplitButton = true;
-            this.btnLovMain.SubItemsExpandWidth = 14;
-            this.btnLovMain.Text = "基础数据管理";
-            // 
             // ribbonTabItem1
             // 
             this.ribbonTabItem1.Name = "ribbonTabItem1";
@@ -390,13 +413,13 @@ namespace SimpleCrm
             // 
             // ribbonTabSchedule
             // 
-            this.ribbonTabSchedule.Checked = true;
             this.ribbonTabSchedule.Name = "ribbonTabSchedule";
             this.ribbonTabSchedule.Panel = this.ribbonPanel3;
             this.ribbonTabSchedule.Text = "日程管理";
             // 
             // ribbonTabItem2
             // 
+            this.ribbonTabItem2.Checked = true;
             this.ribbonTabItem2.Name = "ribbonTabItem2";
             this.ribbonTabItem2.Panel = this.ribbonPanel2;
             this.ribbonTabItem2.Text = "系统";
@@ -435,6 +458,22 @@ namespace SimpleCrm
             this.tabStrip1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             this.tabStrip1.Text = "tabStrip1";
             // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.BeginGroup = true;
+            this.btnChangePassword.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnChangePassword.Command = this.cmdChangePassword;
+            this.btnChangePassword.Image = global::SimpleCrm.Properties.Resources._lock;
+            this.btnChangePassword.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.SubItemsExpandWidth = 14;
+            this.btnChangePassword.Text = "修改密码";
+            // 
+            // cmdChangePassword
+            // 
+            this.cmdChangePassword.Name = "cmdChangePassword";
+            this.cmdChangePassword.Executed += new System.EventHandler(this.cmdChangePassword_Executed);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -449,13 +488,13 @@ namespace SimpleCrm
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer Management System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutopayMainForm_FormClosing);
-            this.Load += new System.EventHandler(this.AutopayMainForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
+            this.ribbonPanel2.ResumeLayout(false);
             this.ribbonPanel3.ResumeLayout(false);
             this.ribbonPanel1.ResumeLayout(false);
-            this.ribbonPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -489,6 +528,10 @@ namespace SimpleCrm
         private DevComponents.DotNetBar.ButtonItem buttonItem3;
         private DevComponents.DotNetBar.ButtonItem btnBirthdayPendingItem;
         private DevComponents.DotNetBar.ButtonItem btnRenewalPremium;
+        private DevComponents.DotNetBar.ButtonItem btnRegister;
+        private DevComponents.DotNetBar.Command cmdRegister;
+        private DevComponents.DotNetBar.ButtonItem btnChangePassword;
+        private DevComponents.DotNetBar.Command cmdChangePassword;
     }
 }
 

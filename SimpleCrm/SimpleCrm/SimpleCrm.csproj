@@ -353,6 +353,18 @@
     <Compile Include="SecurityForm\ChangePasswordForm.designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecurityForm\UserAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\UserAddForm.designer.cs">
+      <DependentUpon>UserAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityForm\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\RegisterForm.designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityForm\UserDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -441,6 +453,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityForm\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\UserAddForm.resx">
+      <DependentUpon>UserAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityForm\UserDetailForm.resx">
       <DependentUpon>UserDetailForm.cs</DependentUpon>

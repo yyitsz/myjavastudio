@@ -3,7 +3,7 @@ using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 namespace SimpleCrm.Security
 {
-    partial class UserDetailForm
+    partial class UserAddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,34 +32,32 @@ namespace SimpleCrm.Security
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDetailForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserAddForm));
             this.requiredFieldValidator1 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("必填项");
             this.requiredFieldValidator3 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("密码是必填的。");
             this.requiredFieldValidator4 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("必填项");
             this.requiredFieldValidator2 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("必填项");
             this.groupBox1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.label8 = new DevComponents.DotNetBar.LabelX();
+            this.txtUserId = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label6 = new DevComponents.DotNetBar.LabelX();
-            this.label5 = new DevComponents.DotNetBar.LabelX();
             this.label4 = new DevComponents.DotNetBar.LabelX();
-            this.cmbStatus = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.label3 = new DevComponents.DotNetBar.LabelX();
-            this.label2 = new DevComponents.DotNetBar.LabelX();
-            this.txtUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtPassword = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lblUserName = new DevComponents.DotNetBar.LabelX();
             this.lblPassword = new DevComponents.DotNetBar.LabelX();
-            this.txtUserId = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.lblSlogon = new DevComponents.DotNetBar.LabelX();
             this.superValidator = new DevComponents.DotNetBar.Validator.SuperValidator();
-            this.regularExpressionValidator1 = new DevComponents.DotNetBar.Validator.RegularExpressionValidator();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.highlighter1 = new DevComponents.DotNetBar.Validator.Highlighter();
-            this.label7 = new DevComponents.DotNetBar.LabelX();
-            this.label1 = new DevComponents.DotNetBar.LabelX();
-            this.clbRole = new System.Windows.Forms.CheckedListBox();
+            this.regularExpressionValidator1 = new DevComponents.DotNetBar.Validator.RegularExpressionValidator();
+            this.txtConfirmPassword = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtPassword = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.requiredFieldValidator5 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("用户名必填");
+            this.requiredFieldValidator6 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("密码必填");
+            this.requiredFieldValidator7 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("确认密码必填");
+            this.compareValidator1 = new DevComponents.DotNetBar.Validator.CompareValidator();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -87,26 +85,20 @@ namespace SimpleCrm.Security
             // groupBox1
             // 
             this.groupBox1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.groupBox1.Controls.Add(this.clbRole);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cmbStatus);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtUserName);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtPassword);
+            this.groupBox1.Controls.Add(this.labelX1);
+            this.groupBox1.Controls.Add(this.labelX2);
+            this.groupBox1.Controls.Add(this.txtConfirmPassword);
+            this.groupBox1.Controls.Add(this.txtUserId);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lblUserName);
             this.groupBox1.Controls.Add(this.lblPassword);
-            this.groupBox1.Controls.Add(this.txtUserId);
             this.groupBox1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(517, 148);
+            this.groupBox1.Size = new System.Drawing.Size(517, 117);
             // 
             // 
             // 
@@ -121,20 +113,19 @@ namespace SimpleCrm.Security
             this.groupBox1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupBox1.TabIndex = 16;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
+            // txtUserId
             // 
             // 
             // 
-            this.label8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(22, 116);
-            this.label8.Margin = new System.Windows.Forms.Padding(2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 16);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "*";
+            // 
+            this.txtUserId.Border.Class = "TextBoxBorder";
+            this.txtUserId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtUserId.Location = new System.Drawing.Point(119, 13);
+            this.txtUserId.Name = "txtUserId";
+            this.txtUserId.PreventEnterBeep = true;
+            this.txtUserId.Size = new System.Drawing.Size(212, 21);
+            this.txtUserId.TabIndex = 0;
+            this.superValidator.SetValidator1(this.txtUserId, this.requiredFieldValidator5);
             // 
             // label6
             // 
@@ -151,21 +142,6 @@ namespace SimpleCrm.Security
             this.label6.TabIndex = 18;
             this.label6.Text = "*";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            // 
-            // 
-            // 
-            this.label5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(22, 41);
-            this.label5.Margin = new System.Windows.Forms.Padding(2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 16);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "*";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -180,80 +156,6 @@ namespace SimpleCrm.Security
             this.label4.Size = new System.Drawing.Size(13, 16);
             this.label4.TabIndex = 16;
             this.label4.Text = "*";
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Active",
-            "Disabled"});
-            this.cmbStatus.Location = new System.Drawing.Point(121, 113);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(160, 20);
-            this.cmbStatus.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbStatus.TabIndex = 15;
-            this.superValidator.SetValidator1(this.cmbStatus, this.requiredFieldValidator4);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            // 
-            // 
-            // 
-            this.label3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.label3.Location = new System.Drawing.Point(37, 116);
-            this.label3.Margin = new System.Windows.Forms.Padding(2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 18);
-            this.label3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.label3.TabIndex = 14;
-            this.label3.Text = "状态";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            // 
-            // 
-            // 
-            this.label2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.label2.Location = new System.Drawing.Point(37, 41);
-            this.label2.Margin = new System.Windows.Forms.Padding(2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 18);
-            this.label2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.label2.TabIndex = 13;
-            this.label2.Text = "姓名";
-            // 
-            // txtUserName
-            // 
-            // 
-            // 
-            // 
-            this.txtUserName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtUserName.Location = new System.Drawing.Point(121, 37);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtUserName.MaxLength = 20;
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(160, 21);
-            this.txtUserName.TabIndex = 12;
-            this.superValidator.SetValidator1(this.txtUserName, this.requiredFieldValidator2);
-            // 
-            // txtPassword
-            // 
-            // 
-            // 
-            // 
-            this.txtPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPassword.Location = new System.Drawing.Point(121, 62);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassword.MaxLength = 20;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(160, 15);
-            this.txtPassword.TabIndex = 1;
-            this.superValidator.SetValidator1(this.txtPassword, this.requiredFieldValidator3);
-            this.superValidator.SetValidator2(this.txtPassword, this.regularExpressionValidator1);
             // 
             // lblUserName
             // 
@@ -280,46 +182,32 @@ namespace SimpleCrm.Security
             this.lblPassword.Location = new System.Drawing.Point(37, 66);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(31, 18);
+            this.lblPassword.Size = new System.Drawing.Size(56, 18);
             this.lblPassword.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.lblPassword.TabIndex = 9;
-            this.lblPassword.Text = "密码";
-            // 
-            // txtUserId
-            // 
-            // 
-            // 
-            // 
-            this.txtUserId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtUserId.Location = new System.Drawing.Point(121, 12);
-            this.txtUserId.Margin = new System.Windows.Forms.Padding(2);
-            this.txtUserId.MaxLength = 20;
-            this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(160, 15);
-            this.txtUserId.TabIndex = 0;
-            this.superValidator.SetValidator1(this.txtUserId, this.requiredFieldValidator1);
+            this.lblPassword.Text = "确认密码";
             // 
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnCancel.Location = new System.Drawing.Point(405, 162);
+            this.btnCancel.Location = new System.Drawing.Point(418, 134);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(74, 28);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "取消(&C)";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnConfirm
             // 
             this.btnConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnConfirm.Location = new System.Drawing.Point(308, 162);
+            this.btnConfirm.Location = new System.Drawing.Point(321, 134);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(74, 28);
             this.btnConfirm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnConfirm.TabIndex = 2;
+            this.btnConfirm.TabIndex = 0;
             this.btnConfirm.Text = "确认(&O)";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
@@ -341,12 +229,7 @@ namespace SimpleCrm.Security
             this.superValidator.ContainerControl = this;
             this.superValidator.ErrorProvider = this.errorProvider1;
             this.superValidator.Highlighter = this.highlighter1;
-            // 
-            // regularExpressionValidator1
-            // 
-            this.regularExpressionValidator1.ErrorMessage = "密码长度";
-            this.regularExpressionValidator1.HighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
-            this.regularExpressionValidator1.ValidationExpression = ".{6,20}";
+            this.superValidator.SteppedValidation = true;
             // 
             // errorProvider1
             // 
@@ -357,54 +240,99 @@ namespace SimpleCrm.Security
             // 
             this.highlighter1.ContainerControl = this;
             // 
-            // label7
+            // regularExpressionValidator1
             // 
-            this.label7.AutoSize = true;
+            this.regularExpressionValidator1.ErrorMessage = "密码长度";
+            this.regularExpressionValidator1.HighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
+            this.regularExpressionValidator1.ValidationExpression = ".{6,20}";
             // 
-            // 
-            // 
-            this.label7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(22, 90);
-            this.label7.Margin = new System.Windows.Forms.Padding(2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 16);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "*";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
+            // txtConfirmPassword
             // 
             // 
             // 
-            this.label1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.label1.Location = new System.Drawing.Point(37, 90);
-            this.label1.Margin = new System.Windows.Forms.Padding(2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 16);
-            this.label1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Role";
             // 
-            // clbRole
+            this.txtConfirmPassword.Border.Class = "TextBoxBorder";
+            this.txtConfirmPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(119, 65);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
+            this.txtConfirmPassword.PreventEnterBeep = true;
+            this.txtConfirmPassword.Size = new System.Drawing.Size(212, 21);
+            this.txtConfirmPassword.TabIndex = 2;
+            this.superValidator.SetValidator1(this.txtConfirmPassword, this.requiredFieldValidator7);
+            this.superValidator.SetValidator2(this.txtConfirmPassword, this.compareValidator1);
             // 
-            this.clbRole.CheckOnClick = true;
-            this.clbRole.FormattingEnabled = true;
-            this.clbRole.Items.AddRange(new object[] {
-            "Admin",
-            "Common"});
-            this.clbRole.Location = new System.Drawing.Point(121, 84);
-            this.clbRole.MultiColumn = true;
-            this.clbRole.Name = "clbRole";
-            this.clbRole.Size = new System.Drawing.Size(375, 20);
-            this.clbRole.TabIndex = 21;
+            // txtPassword
             // 
-            // UserDetailForm
+            // 
+            // 
+            // 
+            this.txtPassword.Border.Class = "TextBoxBorder";
+            this.txtPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPassword.Location = new System.Drawing.Point(119, 39);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.PreventEnterBeep = true;
+            this.txtPassword.Size = new System.Drawing.Size(212, 21);
+            this.txtPassword.TabIndex = 1;
+            this.superValidator.SetValidator1(this.txtPassword, this.requiredFieldValidator6);
+            // 
+            // labelX1
+            // 
+            this.labelX1.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.ForeColor = System.Drawing.Color.Red;
+            this.labelX1.Location = new System.Drawing.Point(22, 39);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(2);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(13, 16);
+            this.labelX1.TabIndex = 22;
+            this.labelX1.Text = "*";
+            // 
+            // labelX2
+            // 
+            this.labelX2.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(37, 40);
+            this.labelX2.Margin = new System.Windows.Forms.Padding(2);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(31, 18);
+            this.labelX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.labelX2.TabIndex = 21;
+            this.labelX2.Text = "密码";
+            // 
+            // requiredFieldValidator5
+            // 
+            this.requiredFieldValidator5.ErrorMessage = "用户名必填";
+            this.requiredFieldValidator5.HighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
+            // 
+            // requiredFieldValidator6
+            // 
+            this.requiredFieldValidator6.ErrorMessage = "密码必填";
+            this.requiredFieldValidator6.HighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
+            // 
+            // requiredFieldValidator7
+            // 
+            this.requiredFieldValidator7.ErrorMessage = "确认密码必填";
+            this.requiredFieldValidator7.HighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
+            // 
+            // compareValidator1
+            // 
+            this.compareValidator1.ControlToCompare = this.txtPassword;
+            this.compareValidator1.ErrorMessage = "密码与确认密码必须相同";
+            this.compareValidator1.HighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
+            // 
+            // UserAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 203);
+            this.ClientSize = new System.Drawing.Size(517, 176);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
@@ -412,7 +340,7 @@ namespace SimpleCrm.Security
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.Name = "UserDetailForm";
+            this.Name = "UserAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "创建用户";
             this.Load += new System.EventHandler(this.UserDetailForm_Load);
@@ -426,20 +354,12 @@ namespace SimpleCrm.Security
         #endregion
 
         private LabelX lblUserName;
-        private TextBoxX txtUserId;
         private LabelX lblPassword;
-        private TextBoxX txtPassword;
         private ButtonX btnConfirm;
         private ButtonX btnCancel;
         private LabelX lblSlogon;
         private GroupPanel groupBox1;
-        private LabelX label2;
-        private TextBoxX txtUserName;
-        private ComboBoxEx cmbStatus;
-        private LabelX label3;
-        private LabelX label8;
         private LabelX label6;
-        private LabelX label5;
         private LabelX label4;
         private DevComponents.DotNetBar.Validator.SuperValidator superValidator;
         private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator4;
@@ -449,9 +369,15 @@ namespace SimpleCrm.Security
         private DevComponents.DotNetBar.Validator.Highlighter highlighter1;
         private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator1;
         private DevComponents.DotNetBar.Validator.RegularExpressionValidator regularExpressionValidator1;
-        private CheckedListBox clbRole;
-        private LabelX label7;
-        private LabelX label1;
+        private TextBoxX txtUserId;
+        private TextBoxX txtPassword;
+        private LabelX labelX1;
+        private LabelX labelX2;
+        private TextBoxX txtConfirmPassword;
+        private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator6;
+        private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator7;
+        private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator5;
+        private DevComponents.DotNetBar.Validator.CompareValidator compareValidator1;
     }
 }
 

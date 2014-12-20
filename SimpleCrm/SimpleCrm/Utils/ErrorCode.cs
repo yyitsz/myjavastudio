@@ -14,5 +14,10 @@ namespace SimpleCrm.Utils
         public static String DELETE_CUSTOMER = "是否解删除客户？";
         public static String SAVE_SUCCESS = "保存成功！";
         public static string CAN_NOT_DEL_CUSTOMER = "客户正被使用，不可删除.";
+        public static string EXIT_APP = "退出系统吗？";
+
+        public static string INVALID_LICENSE = "无效授权码!";
+
+        public static string VALID_LICENSE = "注册成功";
     }
 }

@@ -350,7 +350,7 @@ namespace Dapper
             {
                 auditable.CreateTime = curr;
             }
-            if (CrudContext != null)
+            if (CrudContext != null && CrudContext.GetUser() != null)
             {
                 auditable.UpdatedBy = CrudContext.GetUser();
             }
