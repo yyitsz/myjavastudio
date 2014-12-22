@@ -131,7 +131,7 @@ namespace SimpleCrm.Security
             this.txtPassword.Location = new System.Drawing.Point(106, 103);
             this.txtPassword.MaxLength = 20;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '#';
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.PreventEnterBeep = true;
             this.txtPassword.Size = new System.Drawing.Size(160, 21);
             this.txtPassword.TabIndex = 2;

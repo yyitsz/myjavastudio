@@ -22,7 +22,43 @@ namespace SimpleCrm.Manager
 
         internal DTO.PageSearchResultDto<DTO.CustomerSearchResultDto> SearchCustomer(DTO.CustomerSearchParamDto customerSearchParamDto)
         {
-            var list = Connection.SearchByCriteria<CustomerSearchResultDto>("select * from Customer", customerSearchParamDto);
+            StringBuilder sqlbuilder = new StringBuilder(@"SELECT * FROM Customer");
+            string[] excludeProperties = new string[] { "ContactType", "ContactMethod" };
+            var properties = customerSearchParamDto.GetType().GetProperties().Where(p => !excludeProperties.Contains(p.Name)).ToArray();
+            bool appended = SimpleCRUD.BuildWhereWithExample(sqlbuilder, properties, customerSearchParamDto);
+         
+
+            if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactMethod)
+                || !String.IsNullOrWhiteSpace(customerSearchParamDto.ContactType))
+            {
+                if (appended)
+                {
+                    sqlbuilder.Append(" AND ");
+                }
+                else
+                {
+                    sqlbuilder.Append(" WHERE ");
+                }
+                String sql1 = "";
+                String sql2 = "";
+                if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactMethod))
+                {
+                    sql1 = " AND ContactInfo.ContactMethod like @ContactMethod";
+                    customerSearchParamDto.ContactMethod = "%" + customerSearchParamDto.ContactMethod + "%";
+                }
+                if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactType))
+                {
+                    sql2 = " AND ContactInfo.ContactType = @ContactType";
+                }
+                sqlbuilder.AppendFormat(@" EXISTS 
+    ( SELECT 1 
+        FROM ContactInfo 
+    WHERE ContactInfo.CustomerId = Customer.CustomerId 
+{0} {1})", sql1, sql2);
+
+
+            }
+            var list = Connection.Query<CustomerSearchResultDto>(sqlbuilder.ToString(), customerSearchParamDto);
             PageSearchResultDto<CustomerSearchResultDto> result = new PageSearchResultDto<CustomerSearchResultDto>();
             result.Results = list.ToList();
             return result;
@@ -155,7 +191,7 @@ from
             return list.ToList();
         }
 
-        public Customer GetUniqueCustomer( string customerName, DateTime birthday)
+        public Customer GetUniqueCustomer(string customerName, DateTime birthday)
         {
             List<Customer> customers = GetCustomer(customerName, birthday);
             if (customers.Count > 1)

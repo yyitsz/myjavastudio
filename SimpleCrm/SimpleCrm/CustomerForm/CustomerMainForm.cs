@@ -31,6 +31,7 @@ namespace SimpleCrm.CustomerForm
             ComboBoxUtil.BindLov(LovType.CustomerSource, cmbCustomerSource);
             ComboBoxUtil.BindLov(LovType.IntentPhase, cmbIntentPhase);
             ComboBoxUtil.BindLov(LovType.CustomerStatus, cmbCustomerStatus);
+            ComboBoxUtil.BindLov(LovType.ContactType, cmbContactType);
 
             ComboBoxUtil.BindLov(LovType.CustomerClass, colCustomerClass);
             ComboBoxUtil.BindLov(LovType.CustomerSource, colCustomerSource);
@@ -150,6 +151,12 @@ namespace SimpleCrm.CustomerForm
         private void pcCustomer_ScrollPage(object sender, PageControlArgs e)
         {
 
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            this.dataBindingParam.ClearControlValue();
+            this.grdResult.DataSource = new BindingList<CustomerSearchResultDto>();
         }
     }
 }
