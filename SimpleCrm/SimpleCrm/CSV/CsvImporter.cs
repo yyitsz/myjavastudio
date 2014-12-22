@@ -21,6 +21,7 @@ namespace SimpleCrm.CSV
         {
             get { return fileName; }
         }
+        public Encoding Encoding { get; set; }
 
         private List<CsvError> errors = new List<CsvError>();
 
@@ -76,6 +77,8 @@ namespace SimpleCrm.CSV
             }
             this.fileName = fileName;
             this.firstRowIsHeader = firstRowIsHeader;
+
+            this.Encoding = Encoding.GetEncoding("GBK");
         }
 
 
@@ -91,7 +94,7 @@ namespace SimpleCrm.CSV
             ArrayList list = new ArrayList();
             List<String> header = new List<string>();
 
-            System.IO.StreamReader reader = new System.IO.StreamReader(fileName);
+            System.IO.StreamReader reader = new System.IO.StreamReader(fileName, this.Encoding);
             int lineNum = 0;
 
             try
