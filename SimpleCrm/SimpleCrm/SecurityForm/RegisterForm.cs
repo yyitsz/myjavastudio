@@ -20,7 +20,7 @@ namespace SimpleCrm.Security
     /// </summary>
     public partial class RegisterForm : BaseForm
     {
-        public enum RegisterFormType { LoggingOn, LogedOn }
+        public enum RegisterFormType { LoggingOn, LoggedOn }
         public RegisterFormType FormType { get; set; }
 
         public LicenseInfo LicenseInfo { get; set; }
@@ -40,31 +40,38 @@ namespace SimpleCrm.Security
         private void RegisterForm_Load(object sender, EventArgs e)
         {
             txtMachineCode.Text = RegHelper.GetCpuInfo();
-            if (FormType == RegisterFormType.LoggingOn)
+
+            if (LicenseInfo != null)
             {
-                if (LicenseInfo != null)
+                //trial user
+                if (LicenseInfo.Status == 0)
                 {
-                    //trial user
-                    if (LicenseInfo.Status == 0)
-                    {
-                        btnTrial.Visible = true;
-                        lblMsg.Text = String.Format("试用用户，过期日{0}。", LicenseInfo.ExpireDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
-                    }
-                    else if (LicenseInfo.Status == 1)
-                    {
-                        lblMsg.Text = String.Format("授权给{0}使用，到期日{1}。", LicenseInfo.CustomerName
-                            , LicenseInfo.ExpireDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
-                    }
-                    else
-                    {
-                        btnTrial.Visible = false;
-                    }
+                    btnTrial.Visible = false;
+                    //lblMsg.Text = String.Format("试用用户，过期日{0}。", LicenseInfo.ExpireDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
+                }
+                else if (LicenseInfo.Status == 1 || LicenseInfo.Status == 2)
+                {
+                    lblMsg.Text = String.Format("授权给{0}使用，到期日{1}。", LicenseInfo.CustomerName
+                        , LicenseInfo.ExpireDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
+                }
+                else if (LicenseInfo.Status == 3)
+                {
+                    lblMsg.Text = "无效授权码";
                 }
                 else
                 {
                     btnTrial.Visible = false;
                 }
             }
+            else
+            {
+                btnTrial.Visible = false;
+            }
+
+            if (FormType == RegisterFormType.LoggingOn)
+            {
+            }
+
             else
             {
                 btnTrial.Visible = false;

@@ -10,6 +10,7 @@ target
 bin
 obj
 logs
+dist
 
 # Package Files #
 *.jar

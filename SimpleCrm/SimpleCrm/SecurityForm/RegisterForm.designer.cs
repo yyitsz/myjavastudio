@@ -59,7 +59,7 @@ namespace SimpleCrm.Security
             // 
             this.btnCancelLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancelLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancelLogin.Location = new System.Drawing.Point(226, 216);
+            this.btnCancelLogin.Location = new System.Drawing.Point(254, 199);
             this.btnCancelLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelLogin.Name = "btnCancelLogin";
             this.btnCancelLogin.Size = new System.Drawing.Size(74, 28);
@@ -86,7 +86,7 @@ namespace SimpleCrm.Security
             // 
             this.btnRegister.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnRegister.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnRegister.Location = new System.Drawing.Point(36, 216);
+            this.btnRegister.Location = new System.Drawing.Point(64, 199);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(74, 28);
@@ -99,7 +99,7 @@ namespace SimpleCrm.Security
             // 
             this.btnTrial.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTrial.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTrial.Location = new System.Drawing.Point(131, 216);
+            this.btnTrial.Location = new System.Drawing.Point(159, 199);
             this.btnTrial.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrial.Name = "btnTrial";
             this.btnTrial.Size = new System.Drawing.Size(74, 28);

@@ -59,13 +59,13 @@ namespace SimpleCrm.Security
                 saveUser.UserId = txtUserId.Text.Trim();
                 saveUser.Password = PasswordUtil.Encrypt(txtPassword.Text);
                 saveUser.UserName = saveUser.UserId;
-                saveUser.Status = "Normal";
+                saveUser.Status = "Active";
                 //saveUser.RoleList = "Admin";
                 saveUser.CreateTime = DateTime.Now;
                 saveUser.UpdatedBy = "system";
                 saveUser.UpdateTime = DateTime.Now;
                 AppFacade.Facade.CreateUser(saveUser);
-
+                MessageBoxHelper.ShowPrompt("创建用户成功，请牢记用户名和密码。");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

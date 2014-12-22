@@ -76,7 +76,7 @@ namespace SimpleCrm.Security
             // 
             this.btnCancelLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancelLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelLogin.Location = new System.Drawing.Point(224, 128);
+            this.btnCancelLogin.Location = new System.Drawing.Point(346, 131);
             this.btnCancelLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelLogin.Name = "btnCancelLogin";
             this.btnCancelLogin.Size = new System.Drawing.Size(74, 30);
@@ -101,7 +101,7 @@ namespace SimpleCrm.Security
             // btnOkLogin
             // 
             this.btnOkLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOkLogin.Location = new System.Drawing.Point(127, 128);
+            this.btnOkLogin.Location = new System.Drawing.Point(249, 131);
             this.btnOkLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnOkLogin.Name = "btnOkLogin";
             this.btnOkLogin.Size = new System.Drawing.Size(74, 30);

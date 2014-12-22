@@ -14,7 +14,7 @@
             <Debugging CreatePDB="1" />
         </Options>
         <ApplicationName>SimpleCrm</ApplicationName>
-        <Destination DestinationFileName=".\bin\obsucted\SimpleCrm.exe" />
+        <Destination DestinationFileName="..\dist\Simple客户管理系统\SimpleCrm.exe" />
         <Assemblies>
             <Assembly AssemblyName="SimpleCrm, Culture=neutral, PublicKeyToken=null">
                 <Merging>
@@ -23,7 +23,7 @@
                     <Pruning Prune="0">
                         <Exclusion />
                     </Pruning>
-                    <Obfuscation Obfuscate="1">
+                    <Obfuscation Obfuscate="0">
                         <Exclusion />
                     </Obfuscation>
                     <ControlFlow Obfuscate="1" />

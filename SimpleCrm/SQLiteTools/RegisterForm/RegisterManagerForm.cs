@@ -68,6 +68,11 @@ namespace SQLiteTools.RegisterForm
 
         }
 
+        private void RegisterManagerForm_Load(object sender, EventArgs e)
+        {
+            dtpExpireDate.Value = DateTime.Now.Date.AddMonths(3);
+        }
+
 
     }
 

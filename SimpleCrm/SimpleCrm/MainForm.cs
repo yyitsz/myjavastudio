@@ -13,6 +13,7 @@ using SimpleCrm.Manager;
 using SimpleCrm.Facade;
 using SimpleCrm.ScheduleForm;
 using SimpleCrm.PendingItemForm;
+using SimpleCrm.SecurityForm;
 
 namespace SimpleCrm
 {
@@ -43,6 +44,7 @@ namespace SimpleCrm
         {
             // tssUserId.Text = "User Id: " + UserManager.UserProfile.UserId;
             //   ttsUserName.Text = "User Name: " + UserManager.UserProfile.UserName;
+#if PRD
             LicenseInfo licenseInfo = RegHelper.CheckLicenseFromRegister();
             if (licenseInfo.Status != 1)
             {
@@ -64,6 +66,7 @@ namespace SimpleCrm
                     Application.Exit();
                 }
             }
+#endif
             if (LoginForm.Login() == System.Windows.Forms.DialogResult.OK)
             {
                 AppFacade.Facade.InitSystem();
@@ -143,13 +146,18 @@ namespace SimpleCrm
             DialogResult result = FormHelper.ShowDialogForm<RegisterForm>(f =>
             {
                 f.LicenseInfo = licenseInfo;
-                f.FormType = RegisterForm.RegisterFormType.LogedOn;
+                f.FormType = RegisterForm.RegisterFormType.LoggedOn;
             });
         }
 
         private void cmdChangePassword_Executed(object sender, EventArgs e)
         {
             FormHelper.ShowDialogForm<ChangePasswordForm>();
+        }
+
+        private void btnAbount_Click(object sender, EventArgs e)
+        {
+            FormHelper.ShowDialogForm<AboutForm>();
         }
     }
 }
