@@ -149,7 +149,7 @@ namespace SimpleCrm.Manager
         {
             return Connection.Query<InsurancePolicyResultDto>(@"
 select ip.InsurancePolicyId,ip.CustomerId,ip.EffectiveDate,ip.InsurancePolicyNo
-  ,ip.Category,ip.InsuredYear,ip.PrimaryIpName,ip.Status, ip.Category,
+  ,ip.Category,ip.InsuredYear,ip.PrimaryIpName,ip.Status, ip.Category, ip.Premium,
   primaryCust.CustomerName, holderCust.CustomerName PolicyHolderName, insuredCust.CustomerName InsuredName
  from InsurancePolicy ip 
    left join InsurancePolicyCustomer holder on holder.IPId = ip.InsurancePolicyId and holder.Role = 'PolicyHolder'
