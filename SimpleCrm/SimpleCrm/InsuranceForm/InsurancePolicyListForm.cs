@@ -38,7 +38,7 @@ namespace SimpleCrm.InsuranceForm
         private void SearchData()
         {
             List<InsurancePolicyResultDto> searchResult = AppFacade.Facade.GetInsurancePolicyByCustomer(CustomerDto.CustomerId.Value);
-            grdResult.DataSource = searchResult;
+            grdResult.DataSource = new SortableBindingList<InsurancePolicyResultDto>(searchResult);
         }
 
         private void grdResult_CellContentClick(object sender, DataGridViewCellEventArgs e)

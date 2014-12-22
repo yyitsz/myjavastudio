@@ -44,6 +44,7 @@ namespace SimpleCrm.CustomerForm
         {
             try
             {
+               // pcCustomer.CurrentPage = 1;
                 SearchData();
             }
             catch (Exception ex)
@@ -56,11 +57,14 @@ namespace SimpleCrm.CustomerForm
         {
             CustomerSearchParamDto param = new CustomerSearchParamDto();
             dataBindingParam.MapToObject(param);
+            param.EnquiryParam = new Dapper.EnquiryParam();
+           // param.EnquiryParam.PageSize = pcCustomer.PageSize;
+           // param.EnquiryParam.StartPage = pcCustomer.StartFromRec;
 
             PageSearchResultDto<CustomerSearchResultDto> searchResult = AppFacade.Facade.SearchCustomer(param);
             if (searchResult.Results != null)
             {
-                grdResult.DataSource = new BindingList<CustomerSearchResultDto>(searchResult.Results);
+                grdResult.DataSource = new SortableBindingList<CustomerSearchResultDto>(searchResult.Results);
             }
         }
 
@@ -141,6 +145,11 @@ namespace SimpleCrm.CustomerForm
                     , f => f.CustomerId == customerId && f.FormMode == SimpleCrm.FormMode.Edit
                   );
             }
+        }
+
+        private void pcCustomer_ScrollPage(object sender, PageControlArgs e)
+        {
+
         }
     }
 }

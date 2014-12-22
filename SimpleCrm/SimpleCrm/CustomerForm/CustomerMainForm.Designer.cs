@@ -49,8 +49,6 @@
             this.txtUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.grdResult = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.customerSearchResultDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataBindingParam = new SimpleCrm.Utils.DataBinding(this.components);
             this.colFollow = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.colEdit = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.colDelete = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
@@ -65,6 +63,8 @@
             this.colCustomerClass = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colCustomerSource = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colIntentPhase = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
+            this.customerSearchResultDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBindingParam = new SimpleCrm.Utils.DataBinding(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -344,21 +344,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdResult.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.grdResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdResult.Location = new System.Drawing.Point(0, 0);
             this.grdResult.Name = "grdResult";
             this.grdResult.RowTemplate.Height = 23;
             this.grdResult.Size = new System.Drawing.Size(792, 262);
             this.grdResult.TabIndex = 0;
             this.grdResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResult_CellContentClick);
-            // 
-            // customerSearchResultDtoBindingSource
-            // 
-            this.customerSearchResultDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.CustomerSearchResultDto);
-            // 
-            // dataBindingParam
-            // 
-            this.dataBindingParam.DateTimeFormat = "yyyy-MM-dd";
             // 
             // colFollow
             // 
@@ -420,7 +412,7 @@
             this.colCustomerName.ReadOnly = true;
             this.colCustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colCustomerName.Width = 78;
+            this.colCustomerName.Width = 61;
             // 
             // idCardNoDataGridViewTextBoxColumn
             // 
@@ -445,7 +437,7 @@
             this.colGender.ReadOnly = true;
             this.colGender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colGender.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colGender.Width = 56;
+            this.colGender.Width = 45;
             // 
             // birthdayDataGridViewTextBoxColumn
             // 
@@ -457,7 +449,7 @@
             this.birthdayDataGridViewTextBoxColumn.MinimumWidth = 20;
             this.birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
             this.birthdayDataGridViewTextBoxColumn.ReadOnly = true;
-            this.birthdayDataGridViewTextBoxColumn.Width = 78;
+            this.birthdayDataGridViewTextBoxColumn.Width = 61;
             // 
             // unitDataGridViewTextBoxColumn
             // 
@@ -482,7 +474,7 @@
             this.colStatus.ReadOnly = true;
             this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colStatus.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colStatus.Width = 78;
+            this.colStatus.Width = 61;
             // 
             // colCustomerClass
             // 
@@ -500,7 +492,7 @@
             this.colCustomerClass.ReadOnly = true;
             this.colCustomerClass.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerClass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colCustomerClass.Width = 78;
+            this.colCustomerClass.Width = 61;
             // 
             // colCustomerSource
             // 
@@ -519,7 +511,7 @@
             this.colCustomerSource.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerSource.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.colCustomerSource.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.colCustomerSource.Width = 78;
+            this.colCustomerSource.Width = 61;
             // 
             // colIntentPhase
             // 
@@ -540,11 +532,20 @@
             this.colIntentPhase.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.colIntentPhase.Width = 72;
             // 
+            // customerSearchResultDtoBindingSource
+            // 
+            this.customerSearchResultDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.CustomerSearchResultDto);
+            // 
+            // dataBindingParam
+            // 
+            this.dataBindingParam.DateTimeFormat = "yyyy-MM-dd";
+            // 
             // CustomerMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(792, 405);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "CustomerMainForm";
             this.Text = "客户管理";
             this.Load += new System.EventHandler(this.CustomerMainForm_Load);

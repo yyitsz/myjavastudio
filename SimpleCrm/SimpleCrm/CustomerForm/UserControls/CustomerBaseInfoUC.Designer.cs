@@ -50,7 +50,12 @@
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.grdContactInfo = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.colDel = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+            this.contactInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewButtonXColumn1 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.highlighter = new DevComponents.DotNetBar.Validator.Highlighter();
+            this.dataBindingCustomer = new SimpleCrm.Utils.DataBinding(this.components);
+            this.colDelete = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.contactInfoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colContactType = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
@@ -62,11 +67,6 @@
             this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.versionNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewButtonXColumn1 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.highlighter = new DevComponents.DotNetBar.Validator.Highlighter();
-            this.dataBindingCustomer = new SimpleCrm.Utils.DataBinding(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtBirthday)).BeginInit();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
@@ -426,7 +426,7 @@
             this.grdContactInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdContactInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdContactInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colDel,
+            this.colDelete,
             this.contactInfoIdDataGridViewTextBoxColumn,
             this.customerIdDataGridViewTextBoxColumn,
             this.colContactType,
@@ -450,7 +450,7 @@
             this.grdContactInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdContactInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.grdContactInfo.EnableHeadersVisualStyles = false;
-            this.grdContactInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.grdContactInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdContactInfo.Location = new System.Drawing.Point(0, 0);
             this.grdContactInfo.Name = "grdContactInfo";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -466,16 +466,40 @@
             this.grdContactInfo.TabIndex = 0;
             this.grdContactInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdContactInfo_CellContentClick);
             // 
-            // colDel
+            // contactInfoBindingSource
             // 
-            this.colDel.HeaderText = "";
-            this.colDel.Image = ((System.Drawing.Image)(resources.GetObject("colDel.Image")));
-            this.colDel.MinimumWidth = 20;
-            this.colDel.Name = "colDel";
-            this.colDel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.colDel.Text = null;
-            this.colDel.ToolTipText = "Delete";
-            this.colDel.Width = 22;
+            this.contactInfoBindingSource.DataSource = typeof(SimpleCrm.Model.ContactInfo);
+            // 
+            // dataGridViewButtonXColumn1
+            // 
+            this.dataGridViewButtonXColumn1.HeaderText = "";
+            this.dataGridViewButtonXColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewButtonXColumn1.Image")));
+            this.dataGridViewButtonXColumn1.MinimumWidth = 20;
+            this.dataGridViewButtonXColumn1.Name = "dataGridViewButtonXColumn1";
+            this.dataGridViewButtonXColumn1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.dataGridViewButtonXColumn1.Text = null;
+            this.dataGridViewButtonXColumn1.ToolTipText = "Delete";
+            this.dataGridViewButtonXColumn1.Width = 22;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
+            // 
+            // dataBindingCustomer
+            // 
+            this.dataBindingCustomer.DateTimeFormat = "yyyy-MM-dd";
+            // 
+            // colDelete
+            // 
+            this.colDelete.HeaderText = "";
+            this.colDelete.Image = ((System.Drawing.Image)(resources.GetObject("colDelete.Image")));
+            this.colDelete.MinimumWidth = 20;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.colDelete.Text = null;
+            this.colDelete.ToolTipText = "Delete";
+            this.colDelete.Width = 22;
             // 
             // contactInfoIdDataGridViewTextBoxColumn
             // 
@@ -593,30 +617,6 @@
             this.versionNoDataGridViewTextBoxColumn.Visible = false;
             this.versionNoDataGridViewTextBoxColumn.Width = 84;
             // 
-            // contactInfoBindingSource
-            // 
-            this.contactInfoBindingSource.DataSource = typeof(SimpleCrm.Model.ContactInfo);
-            // 
-            // dataGridViewButtonXColumn1
-            // 
-            this.dataGridViewButtonXColumn1.HeaderText = "";
-            this.dataGridViewButtonXColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewButtonXColumn1.Image")));
-            this.dataGridViewButtonXColumn1.MinimumWidth = 20;
-            this.dataGridViewButtonXColumn1.Name = "dataGridViewButtonXColumn1";
-            this.dataGridViewButtonXColumn1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.dataGridViewButtonXColumn1.Text = null;
-            this.dataGridViewButtonXColumn1.ToolTipText = "Delete";
-            this.dataGridViewButtonXColumn1.Width = 22;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
-            // 
-            // dataBindingCustomer
-            // 
-            this.dataBindingCustomer.DateTimeFormat = "yyyy-MM-dd";
-            // 
             // CustomerBaseInfoUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -659,7 +659,9 @@
         private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn dataGridViewButtonXColumn1;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private DevComponents.DotNetBar.Validator.Highlighter highlighter;
-        private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colDel;
+        private Utils.DataBinding dataBindingCustomer;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCustomerName;
+        private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactInfoIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colContactType;
@@ -671,7 +673,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionNoDataGridViewTextBoxColumn;
-        private Utils.DataBinding dataBindingCustomer;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtCustomerName;
     }
 }

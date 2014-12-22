@@ -14,6 +14,7 @@ using SimpleCrm.Facade;
 using SimpleCrm.ScheduleForm;
 using SimpleCrm.PendingItemForm;
 using SimpleCrm.SecurityForm;
+using SimpleCrm.CustomerForm;
 
 namespace SimpleCrm
 {
@@ -158,6 +159,11 @@ namespace SimpleCrm
         private void btnAbount_Click(object sender, EventArgs e)
         {
             FormHelper.ShowDialogForm<AboutForm>();
+        }
+
+        private void cmdImportCustomer_Executed(object sender, EventArgs e)
+        {
+            this.ShowMdiChildForm<CustomerImportForm>();
         }
     }
 }

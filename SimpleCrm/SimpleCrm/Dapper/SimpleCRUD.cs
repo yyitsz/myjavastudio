@@ -853,8 +853,8 @@ namespace Dapper
 
     public class EnquiryParam
     {
-        int? StartPage { get; set; }
-        int? PageSize { get; set; }
+        public int? StartPage { get; set; }
+        public int? PageSize { get; set; }
     }
     public interface IPagination
     {

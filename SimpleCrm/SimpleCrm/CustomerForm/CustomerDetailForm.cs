@@ -51,6 +51,7 @@ namespace SimpleCrm.CustomerForm
                 this.Text = "查看客户详细信息";
                 new ReadonlyHelper(this).SetReadonly();
                 this.btnSave.Visible = false;
+                this.btnSelectCustomer.Visible = false;
             }
             else if (FormMode == SimpleCrm.FormMode.Add)
             {

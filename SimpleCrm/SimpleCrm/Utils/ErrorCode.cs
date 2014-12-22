@@ -19,5 +19,6 @@ namespace SimpleCrm.Utils
         public static string INVALID_LICENSE = "无效授权码!";
 
         public static string VALID_LICENSE = "注册成功";
+        public static string TOTAL_REC = "记录 {0}-{1} (总记录数:{2})"; //Record {0}-{1} (Total Record:{2})
     }
 }

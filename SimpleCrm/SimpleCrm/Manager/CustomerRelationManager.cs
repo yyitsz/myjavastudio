@@ -141,5 +141,21 @@ where BaseCustomerId = @CustomerAId and AgainstCustomerId = @CustomerBId
         {
             Connection.Execute("Delete from CustomerRelation where BaseCustomerId = @CustomerId Or AgainstCustomerId = @CustomerId", new { CustomerId = customerId });
         }
+
+        internal void CreateIfNotExistsOrUpdateRelationIfExists(Customer c1, Customer c2, string relation)
+        {
+
+            var list = Connection.GetList<CustomerRelation>("BaseCustomerId = @CustomerId1 AND  AgainstCustomerId = @CustomerId2 OR BaseCustomerId = @CustomerId2 AND AgainstCustomerId = @CustomerId1"
+                , new { CustomerId1 = c1.CustomerId, CustomerId2 = c2.CustomerId }).ToList();
+
+            if (list.Count == 2)
+            {
+                var c12c2Relation = list.Where(r => r.BaseCustomerId == c1.CustomerId && r.AgainstCustomerId == c2.CustomerId).Single();
+                c2.Relation = c12c2Relation.Relation;
+                return;
+            }
+            c2.Relation = relation;
+            CreateOrUpdateRelation(c1, new List<Customer>() { c2 });
+        }
     }
 }

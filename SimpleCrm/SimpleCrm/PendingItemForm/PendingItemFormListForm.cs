@@ -55,7 +55,7 @@ namespace SimpleCrm.PendingItemForm
             DateTime fromDate = DateTime.Today;
             DateTime toDate = fromDate;
             List<PendingItemDto> list = AppFacade.Facade.SearchPendingItems(this.PendingItemCategory.Value, fromDate, toDate);
-            todayPendingItems = new BindingList<PendingItemDto>(list);
+            todayPendingItems = new SortableBindingList<PendingItemDto>(list);
             this.grdTodayResult.DataSource = todayPendingItems;
             tiToday.Text = "今天(" + list.Count + ")";
         }

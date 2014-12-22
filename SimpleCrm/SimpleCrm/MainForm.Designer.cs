@@ -61,6 +61,8 @@ namespace SimpleCrm
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.styleManager = new DevComponents.DotNetBar.StyleManager(this.components);
             this.tabStrip1 = new DevComponents.DotNetBar.TabStrip();
+            this.btnImportCustomer = new DevComponents.DotNetBar.ButtonItem();
+            this.cmdImportCustomer = new DevComponents.DotNetBar.Command(this.components);
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
@@ -170,10 +172,11 @@ namespace SimpleCrm
             this.ribbonBar1.DragDropSupport = true;
             this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem1,
-            this.buttonItem2});
+            this.buttonItem2,
+            this.btnImportCustomer});
             this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(132, 56);
+            this.ribbonBar1.Size = new System.Drawing.Size(195, 56);
             this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar1.TabIndex = 0;
             // 
@@ -484,6 +487,21 @@ namespace SimpleCrm
             this.tabStrip1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             this.tabStrip1.Text = "tabStrip1";
             // 
+            // btnImportCustomer
+            // 
+            this.btnImportCustomer.BeginGroup = true;
+            this.btnImportCustomer.Command = this.cmdImportCustomer;
+            this.btnImportCustomer.Image = global::SimpleCrm.Properties.Resources.download;
+            this.btnImportCustomer.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnImportCustomer.Name = "btnImportCustomer";
+            this.btnImportCustomer.SubItemsExpandWidth = 14;
+            this.btnImportCustomer.Text = "导入客户";
+            // 
+            // cmdImportCustomer
+            // 
+            this.cmdImportCustomer.Name = "cmdImportCustomer";
+            this.cmdImportCustomer.Executed += new System.EventHandler(this.cmdImportCustomer_Executed);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -543,6 +561,8 @@ namespace SimpleCrm
         private DevComponents.DotNetBar.ButtonItem btnChangePassword;
         private DevComponents.DotNetBar.Command cmdChangePassword;
         private DevComponents.DotNetBar.ButtonItem btnAbount;
+        private DevComponents.DotNetBar.ButtonItem btnImportCustomer;
+        private DevComponents.DotNetBar.Command cmdImportCustomer;
     }
 }
 
