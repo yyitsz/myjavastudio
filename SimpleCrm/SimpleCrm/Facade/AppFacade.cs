@@ -565,7 +565,7 @@ namespace SimpleCrm.Facade
                         policyHolder.Status = CustomerStatus.Purchased.ToString();
                         policyHolder.Contacts = new List<ContactInfo>();
                        
-                        if (dto.Telephone.Trim().Length > 0)
+                        if (!String.IsNullOrWhiteSpace(dto.Telephone))
                         {
                             ContactInfo ci = new ContactInfo();
                             policyHolder.Contacts.Add(ci);
@@ -579,7 +579,7 @@ namespace SimpleCrm.Facade
                                 ci.ContactType = "HomePhone";
                             }
                         }
-                        if (dto.Address.Trim().Length > 0)
+                        if (!String.IsNullOrWhiteSpace(dto.Address))
                         {
                             ContactInfo ci = new ContactInfo();
                             ci = new ContactInfo();
@@ -604,11 +604,11 @@ namespace SimpleCrm.Facade
                         insured.CustomerSource = "120";//服务单
                         insured.Status = CustomerStatus.Purchased.ToString();
                         insured.Contacts = new List<ContactInfo>();
-                        if (dto.Telephone.Trim().Length > 0)
+                        if (!String.IsNullOrWhiteSpace(dto.Telephone))
                         {
                             ContactInfo ci = new ContactInfo();
                             insured.Contacts.Add(ci);
-                            ci.ContactMethod = dto.Telephone.Replace("-", "");
+                            ci.ContactMethod = dto.Telephone.Replace("+86-","").Replace("-", "");
                             if (ci.ContactMethod.Length == 13)
                             {
                                 ci.ContactType = "Mobile";
@@ -618,7 +618,7 @@ namespace SimpleCrm.Facade
                                 ci.ContactType = "HomePhone";
                             }
                         }
-                        if (dto.Address.Trim().Length > 0)
+                        if (!String.IsNullOrWhiteSpace(dto.Address))
                         {
                             ContactInfo ci = new ContactInfo();
                             insured.Contacts.Add(ci);
