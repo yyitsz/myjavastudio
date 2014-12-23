@@ -27,7 +27,7 @@ namespace SimpleCrm.Utils
                 }
                 else
                 {
-                    MessageBoxHelper.ShowDetail(MessageType.Information, "错误", "保存数据时发生了错误. " + ex.Message, ex);
+                    MessageBoxHelper.ShowDetail(MessageType.Information, "错误", "访问数据库时发生了错误. " + ex.Message, ex);
                 }
             }
             else
