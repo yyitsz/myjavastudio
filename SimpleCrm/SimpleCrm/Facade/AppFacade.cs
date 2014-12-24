@@ -545,7 +545,10 @@ namespace SimpleCrm.Facade
                 foreach (CustomerImportDto dto in cusotmerImportDtoList)
                 {
                     lists.Add(dto);
-
+                    if(dto.IPStatus != null)
+                    {
+                        dto.IPStatus = dto.IPStatus.Replace(" ", "");
+                    }
                     InsurancePolicy ip = ipMgr.GetInsurancePolicyByNo(dto.InsurancePolicyNo);
                     if (ip != null)
                     {
@@ -565,11 +568,12 @@ namespace SimpleCrm.Facade
                         policyHolder.Status = CustomerStatus.Purchased.ToString();
                         policyHolder.Contacts = new List<ContactInfo>();
                        
-                        if (!String.IsNullOrWhiteSpace(dto.Telephone))
+                        if (!String.IsNullOrWhiteSpace(dto.Telephone)
+                             && !"null".Equals(dto.Telephone))
                         {
                             ContactInfo ci = new ContactInfo();
                             policyHolder.Contacts.Add(ci);
-                            ci.ContactMethod = dto.Telephone.Replace("-", "");
+                            ci.ContactMethod = dto.Telephone.Replace("+86-", "").Replace("-", "");
                             if (ci.ContactMethod.Length == 11)
                             {
                                 ci.ContactType = "Mobile";
@@ -604,7 +608,8 @@ namespace SimpleCrm.Facade
                         insured.CustomerSource = "120";//服务单
                         insured.Status = CustomerStatus.Purchased.ToString();
                         insured.Contacts = new List<ContactInfo>();
-                        if (!String.IsNullOrWhiteSpace(dto.Telephone))
+                        if (!String.IsNullOrWhiteSpace(dto.Telephone) 
+                            && !"null".Equals(dto.Telephone))
                         {
                             ContactInfo ci = new ContactInfo();
                             insured.Contacts.Add(ci);
@@ -651,7 +656,7 @@ namespace SimpleCrm.Facade
 
         private string ConvertToCode(List<Lov> statusLovList, string statusName)
         {
-            var lov = statusLovList.SingleOrDefault(l => l.Name == statusName);
+            var lov = statusLovList.SingleOrDefault(l => l.Name.Replace(" ","") == statusName);
             if (lov == null)
             {
                 throw new AppException(String.Format("保单状态数据字典中不存在{0}, 请增加之。", statusName));

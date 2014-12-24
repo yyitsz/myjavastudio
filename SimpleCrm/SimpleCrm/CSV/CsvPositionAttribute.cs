@@ -10,6 +10,8 @@ namespace SimpleCrm
     [AttributeUsage(AttributeTargets.Property)]
     public class CsvPositionAttribute : System.Attribute
     {
+        public bool Required { get; set; }
+
         private int position = -1;
         /// <summary>
         /// Gets or sets the position.

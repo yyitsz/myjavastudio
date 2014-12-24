@@ -111,6 +111,8 @@ namespace SimpleCrm.CustomerForm.UserControls
         public bool ValidateData(bool customerIsRequired = false)
         {
             bool valid = true;
+            grdContactInfo.Enabled = false;
+            grdContactInfo.Enabled = true;
             if (customerIsRequired)
             {
                 valid = ValidationHelper.ValidateRequiredField(errorProvider, highlighter, this.txtCustomerName) && valid;

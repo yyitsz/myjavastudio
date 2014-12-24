@@ -134,7 +134,7 @@ namespace SimpleCrm.CSV
 
                                 for (int i = 0; i < split.Length; i++)
                                 {
-                                    header.Add(split[i]);
+                                    header.Add(split[i].Trim());
                                 }
                                 continue;
                             }

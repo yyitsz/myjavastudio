@@ -9,28 +9,28 @@ namespace SimpleCrm.DTO
     {
         //,投保人,投保人生日,被保人,被保人生日,保单号码,保单生效日,主险名称,期交保费,联系电话,保单状态,孤儿单,地址,备注
         [CsvLineNumber]
-        public String SeqNo { get; set; }
-        [CsvPosition(0)]
+        public int SeqNo { get; set; }
+        [CsvPosition("投保人")]
         public String PolicyHolder { get; set; }
-        [CsvPosition(1)]
+        [CsvPosition("投保人生日")]
         public DateTime? PolicyHolderBirthday { get; set; }
-        [CsvPosition(2)]
+        [CsvPosition("被保人")]
         public String Insured { get; set; }
-        [CsvPosition(3)]
+        [CsvPosition("被保人生日")]
         public DateTime? InsuredBirthday { get; set; }
-        [CsvPosition(4)]
+        [CsvPosition("保单号码")]
         public String InsurancePolicyNo { get; set; }
-        [CsvPosition(5)]
+        [CsvPosition("保单生效日")]
         public DateTime IPEffectiveDate { get; set; }
-        [CsvPosition(6)]
+        [CsvPosition("主险名称")]
         public String PrimaryIPName { get; set; }
-        [CsvPosition(8)]
+        [CsvPosition("期交保费")]
         public Decimal Premium { get; set; }
-        [CsvPosition(9)]
+        [CsvPosition("联系电话")]
         public String Telephone { get; set; }
-        [CsvPosition(10)]
+        [CsvPosition("保单状态")]
         public String IPStatus { get; set; }
-        [CsvPosition(11)]
+        [CsvPosition("孤儿单")]
         public String IsOrphan { get; set; }
         //[CsvPosition(12)]
         public String Address { get; set; }

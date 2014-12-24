@@ -85,12 +85,17 @@ namespace SimpleCrm.CSV
                                 throw new CsvConvertionException("CsvPostionAttribute has to use positon or header.");
                             }
                             position = FindPosition(headers,header);
-                            if (position < 0)
+                            if (position < 0 && positionAttr.Required)
                             {
                                 CsvConvertionException ex = new CsvConvertionException("The header [" + header + "] defined in CsvPositionAttribute can not be found in headers of file.");
                                 throw ex;
                             }
+                            else
+                            {
+                                continue;
+                            }
                         }
+
                         if (position + 1 > fields.Length)
                         {
                             continue;
