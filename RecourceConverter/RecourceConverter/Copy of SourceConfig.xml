@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppConfigs>
+  <AppSetting ApplicationName="MSS-D" ResourcePath="D:\MyWorkspace\MSS-D\MSS-D Client\Taifook.MSS.Resources\Properties\" ResourceName="Resources.resx" xmlns="http://tempuri.org/SourceConfig.xsd">
+    <Setting Type="Message" SourceFilePath="\\10.100.1.124\test\20080428HKFS\Field\MSS_Message_0.4.xls" IdColumn="R" DeletedColumn="H" TypeColumn="M" SheetName="Message$" RowStartIndex="5">
+      <LanguagetSetting Language="en" LanguageCode="" Column="V" />
+      <LanguagetSetting Language="zh-cn" LanguageCode="zh-cn" Column="X">
+      </LanguagetSetting>
+      <LanguagetSetting Language="zh-tw" LanguageCode="zh-tw" Column="W">
+      </LanguagetSetting>
+    </Setting>
+    <Setting Type="Field" SourceFilePath="\\10.100.1.124\test\20080428HKFS\Field\MSS_FieldLabel_0.5.xls" IdColumn="P" DeletedColumn="D" TypeColumn="M" SheetName="Field$" xmlns="http://tempuri.org/SourceConfig.xsd" RowStartIndex="5">
+      <LanguagetSetting Language="en" LanguageCode="" Column="Q" />
+      <LanguagetSetting Language="zh-cn" LanguageCode="zh-cn" Column="S">
+      </LanguagetSetting>
+      <LanguagetSetting Language="zh-tw" LanguageCode="zh-tw" Column="R">
+      </LanguagetSetting>
+    </Setting>
+  </AppSetting>
+  <AppSetting ApplicationName="FXB" ResourcePath="D:\MyWorkspace\MSS-D\MSS-D Client\Taifook.MSS.Resources\Properties\" ResourceName="Resources.resx" xmlns="http://tempuri.org/SourceConfig.xsd">
+    <Setting Type="Message" SourceFilePath="\\10.100.1.124\test\20080428HKFS\Field\MSS_Message_0.4.xls" IdColumn="R" DeletedColumn="H" TypeColumn="M" SheetName="Message$" RowStartIndex="5">
+      <LanguagetSetting Language="en" LanguageCode="" Column="V" />
+      <LanguagetSetting Language="zh-cn" LanguageCode="zh-cn" Column="X">
+      </LanguagetSetting>
+      <LanguagetSetting Language="zh-tw" LanguageCode="zh-tw" Column="W">
+      </LanguagetSetting>
+    </Setting>
+    <Setting Type="Field" SourceFilePath="\\10.100.1.124\test\20080428HKFS\Field\MSS_FieldLabel_0.5.xls" IdColumn="P" DeletedColumn="D" TypeColumn="M" SheetName="Field$" xmlns="http://tempuri.org/SourceConfig.xsd" RowStartIndex="5">
+      <LanguagetSetting Language="en" LanguageCode="" Column="Q" />
+      <LanguagetSetting Language="zh-cn" LanguageCode="zh-cn" Column="S">
+      </LanguagetSetting>
+      <LanguagetSetting Language="zh-tw" LanguageCode="zh-tw" Column="R">
+      </LanguagetSetting>
+    </Setting>
+  </AppSetting>
+</AppConfigs>

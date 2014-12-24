@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created with Liquid XML Studio - FREE Community Edition (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:mstns="http://tempuri.org/SourceConfig.xsd" elementFormDefault="qualified" targetNamespace="http://tempuri.org/SourceConfig.xsd" id="SourceConfig" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="LanguageSetting">
+    <xs:attribute name="Language" type="xs:string" use="required" />
+    <xs:attribute name="LanguageCode" type="xs:string" use="required" />
+    <xs:attribute name="Column" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="Setting">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="LanguagetSetting" type="mstns:LanguageSetting" />
+    </xs:sequence>
+    <xs:attribute name="Type" type="xs:string" use="required" />
+    <xs:attribute name="SourceFilePath" type="xs:string" use="required" />
+    <xs:attribute name="IdColumn" type="xs:string" use="required" />
+    <xs:attribute name="DeletedColumn" type="xs:string" use="required" />
+    <xs:attribute name="TypeColumn" type="xs:string" />
+    <xs:attribute name="SheetName" type="xs:string" />
+    <xs:attribute name="RowStartIndex" type="xs:int" use="required" />
+    <xs:attribute name="TotalColumns" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ApplicationSetting">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Setting" type="mstns:Setting" />
+    </xs:sequence>
+    <xs:attribute name="ApplicationName" type="xs:string" use="required" />
+    <xs:attribute name="ResourcePath" type="xs:string" use="required" />
+    <xs:attribute name="ResourceName" type="xs:string" use="required" />
+    <xs:attribute name="IsDefault" type="xs:boolean" use="optional" />
+  </xs:complexType>
+  <xs:element name="AppConfigs">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element name="AppSetting" type="mstns:ApplicationSetting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

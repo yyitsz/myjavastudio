@@ -7,6 +7,8 @@ namespace Mouse.Main
     [global::System.Serializable]
     public class AbortException : Exception
     {
+
+
         public AbortException() { }
         public AbortException(string message) : base(message) { }
         public AbortException(string message, Exception inner) : base(message, inner) { }

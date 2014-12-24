@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tns:Templates xmlns:tns="http://tempuri.org/Tempalte.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://tempuri.org/Tempalte.xsd Tempalte.xsd" default="Message">
+  <tns:Template name="Message">
+    <tns:header>
+      <![CDATA[using System.Text;
+
+namespace Taifook.MSS.Resources
+{
+      /// <summary>
+      /// Message for Mss
+      /// </summary>
+      public static class MssMessage
+      {
+      ]]>
+    </tns:header>
+    <tns:body>
+      <![CDATA[      ///<summary>
+      ///{V}
+      ///Var: {AB}
+      ///</summary>
+      public const string {R} = "{R}";
+      ]]>
+    </tns:body>
+    <tns:tail>
+      <![CDATA[      }
+} ]]>
+    </tns:tail>
+    <tns:sourceFile>..\temp\MSS Message_0.13.xls</tns:sourceFile>
+    <tns:startRow>5</tns:startRow>
+    <tns:SheetName>Message$</tns:SheetName>
+    <tns:keyColumn>R</tns:keyColumn>
+    <tns:totalColumns>33</tns:totalColumns>
+    <tns:deletedColumn>H</tns:deletedColumn>
+  </tns:Template>
+  <tns:Template name="Report">
+    <tns:header>
+      <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<reports xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <reportsettings>
+      ]]>
+    </tns:header>
+    <tns:body>
+      <![CDATA[<report templateid="{B}" functionid="{C}" name="{E}" format="{D}" maxRetryTimes="100" description="">
+      <reportNames>
+        <reportName language="EN" lang="en" name="{E}" />
+        <reportName language="ZH_CN" lang="zh-cn" name="" />
+        <reportName language="ZH_TW" lang ="zh-tw" name="{F}" />
+      </reportNames>
+    </report>
+      ]]>
+    </tns:body>
+    <tns:tail>
+      <![CDATA[
+	  </reportsettings>
+</reports>
+]]>
+    </tns:tail>
+    <tns:sourceFile>..\temp\Report_0.2.xls</tns:sourceFile>
+    <tns:startRow>4</tns:startRow>
+    <tns:SheetName>MSS Report$</tns:SheetName>
+    <tns:keyColumn>B</tns:keyColumn>
+    <tns:totalColumns>20</tns:totalColumns>
+  </tns:Template>
+  <tns:Template name="king">
+    <tns:header>
+    
+    </tns:header>
+    <tns:body>
+      <![CDATA[INSERT INTO SYS_LEDGER_MAP(PAYMENT_TYPE, FEE_CODE, RPMNT_MTHD, LEDGER_CODE, LEDGER_NAME, LEDGER_CATEGORY, VOUCHER_ACCU_FACTOR, VOUCHER_SUM, REMARK, CREATED_BY, CREATE_TIME, UPDATED_BY, UPDATE_TIME, REC_VER, TAG_SEQ)  VALUES ('{A}', DECODE('{C}','贷款金额','LOAN_AMT','实际发放金额','LOAN_ACTUAL_AMT','服务费','HANDLING_FEE','实收金额','ACTUAL_AMT','本金','PRINCIPAL','月利息','INTEREST','管理费','BROKER_FEE_2012','违约金2','PENALTY_2012','扣款失败手续费','FAIL_COLLECT_FEE','逾期违约金','OVERDUE_INTEREST','延期费','DELAY_FEE','居间费','BROKER_FEE','违约金','PENALTY','外包催收费','COLLECT_COST','多收金额','ADV_RECEIVE',null), DECODE('{D}','发放贷款','PAY','银行进账','TRANSFER','自动代扣','COLLECT_AGENCY','续贷抵扣','RENEW_LOAN',NULL), '{F}','{E}', DECODE('{G}','借方','DEBIT','CREDIT'), {I}, '{J}','{K}', 'DC', sysdate, 'DC', sysdate, 0, 0);
+      ]]>
+    </tns:body>
+    <tns:tail>
+    </tns:tail>
+    <tns:sourceFile>..\temp\Report_0.2.xls</tns:sourceFile>
+    <tns:startRow>2</tns:startRow>
+    <tns:SheetName>Sheet1$</tns:SheetName>
+    <tns:keyColumn></tns:keyColumn>
+    <tns:totalColumns>11</tns:totalColumns>
+  </tns:Template>
+</tns:Templates>

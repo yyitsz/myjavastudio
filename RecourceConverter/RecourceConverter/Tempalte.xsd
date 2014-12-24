@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Tempalte" targetNamespace="http://tempuri.org/Tempalte.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/Tempalte.xsd" xmlns:mstns="http://tempuri.org/Tempalte.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Templates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Template" type="Template" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="default" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Template">
+    <xs:sequence>
+      <xs:element name="header" type="xs:string" />
+      <xs:element name="body" type="xs:string" />
+      <xs:element name="tail" type="xs:string" />
+      <xs:element name="sourceFile" type="xs:string" />
+      <xs:element name="startRow" type="xs:integer" nillable="false" />
+      <xs:element name="SheetName" type="xs:string" />
+      <xs:element name="keyColumn" type="xs:string" />
+      <xs:element name="totalColumns" type="xs:int" nillable="false" />
+      <xs:element name="deletedColumn" type="xs:string" nillable="true" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+</xs:schema>
