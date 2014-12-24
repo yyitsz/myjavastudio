@@ -13,6 +13,8 @@ namespace SimpleCrm.Utils
     {
         private Control rootControl;
         private ISet<Control> changedStatusControl = new HashSet<Control>();
+        private ISet<DataGridViewColumn> columns = new HashSet<DataGridViewColumn>();
+
         public ReadonlyHelper(Control rootControl)
         {
             this.rootControl = rootControl;
@@ -44,6 +46,12 @@ namespace SimpleCrm.Utils
             {
                 ChangeControlStatus(control, false);
             }
+            foreach (var c in columns)
+            {
+                c.Visible = true;
+            }
+            changedStatusControl.Clear();
+            columns.Clear();
         }
         private bool ChangeControlStatus(Control control, bool isReadonly)
         {
@@ -77,6 +85,23 @@ namespace SimpleCrm.Utils
             DataGridView dgv = control as DataGridView;
             if (dgv != null)
             {
+                if (isReadonly)
+                {
+                    foreach (DataGridViewColumn c in dgv.Columns)
+                    {
+                        if (!c.IsDataBound
+                            && (c.Name == "colDelete"
+                            || c.Name == "colDel"
+                            || c.Name == "colEdit"))
+                        {
+                            if (c.Visible)
+                            {
+                                columns.Add(c);
+                                c.Visible = false;
+                            }
+                        }
+                    }
+                }
                 if (dgv.ReadOnly != isReadonly)
                 {
                     dgv.ReadOnly = isReadonly;

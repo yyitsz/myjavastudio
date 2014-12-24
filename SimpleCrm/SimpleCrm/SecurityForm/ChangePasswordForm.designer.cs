@@ -54,9 +54,9 @@ namespace SimpleCrm.Security
             this.lblUserName.Location = new System.Drawing.Point(13, 43);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(2);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(82, 16);
+            this.lblUserName.Size = new System.Drawing.Size(44, 16);
             this.lblUserName.TabIndex = 7;
-            this.lblUserName.Text = "New Password";
+            this.lblUserName.Text = "新密码";
             // 
             // txtNewPassword
             // 
@@ -76,12 +76,12 @@ namespace SimpleCrm.Security
             // 
             this.btnCancelLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancelLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelLogin.Location = new System.Drawing.Point(224, 128);
+            this.btnCancelLogin.Location = new System.Drawing.Point(346, 131);
             this.btnCancelLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelLogin.Name = "btnCancelLogin";
             this.btnCancelLogin.Size = new System.Drawing.Size(74, 30);
             this.btnCancelLogin.TabIndex = 2;
-            this.btnCancelLogin.Text = "Cance&l";
+            this.btnCancelLogin.Text = "取消(&L)";
             this.btnCancelLogin.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblPassword
@@ -94,19 +94,19 @@ namespace SimpleCrm.Security
             this.lblPassword.Location = new System.Drawing.Point(13, 70);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(99, 16);
+            this.lblPassword.Size = new System.Drawing.Size(68, 16);
             this.lblPassword.TabIndex = 9;
-            this.lblPassword.Text = "Confirm Password";
+            this.lblPassword.Text = "确认新密码";
             // 
             // btnOkLogin
             // 
             this.btnOkLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOkLogin.Location = new System.Drawing.Point(127, 128);
+            this.btnOkLogin.Location = new System.Drawing.Point(249, 131);
             this.btnOkLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnOkLogin.Name = "btnOkLogin";
             this.btnOkLogin.Size = new System.Drawing.Size(74, 30);
             this.btnOkLogin.TabIndex = 1;
-            this.btnOkLogin.Text = "&Confirm";
+            this.btnOkLogin.Text = "确认(C)";
             this.btnOkLogin.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // txtConfirmPassword
@@ -146,9 +146,9 @@ namespace SimpleCrm.Security
             this.label1.Location = new System.Drawing.Point(13, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 16);
+            this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Old Password";
+            this.label1.Text = "旧密码";
             // 
             // txtOldPassword
             // 
@@ -161,7 +161,7 @@ namespace SimpleCrm.Security
             this.txtOldPassword.MaxLength = 20;
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.PasswordChar = '*';
-            this.txtOldPassword.Size = new System.Drawing.Size(160, 14);
+            this.txtOldPassword.Size = new System.Drawing.Size(160, 15);
             this.txtOldPassword.TabIndex = 0;
             // 
             // groupBox1
@@ -200,6 +200,7 @@ namespace SimpleCrm.Security
             this.Controls.Add(this.btnCancelLogin);
             this.Controls.Add(this.btnOkLogin);
             this.Controls.Add(this.lblSlogon);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -207,7 +208,7 @@ namespace SimpleCrm.Security
             this.MinimizeBox = false;
             this.Name = "ChangePasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Change Password";
+            this.Text = "修改密码";
             this.Load += new System.EventHandler(this.ChangePasswordForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

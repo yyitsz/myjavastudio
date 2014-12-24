@@ -50,32 +50,32 @@ namespace SimpleCrm.Security
                     || txtConfirmPassword.Text.Length == 0
                     || txtOldPassword.Text.Length == 0)
                 {
-                    MessageBoxHelper.ShowPrompt("Please input old password and new password.");
+                    MessageBoxHelper.ShowPrompt("请输入旧密码和新密码.");
                     return;
                 }
 
                 if (txtConfirmPassword.Text != txtNewPassword.Text)
                 {
-                    MessageBoxHelper.ShowPrompt("New Password and Confirm Password must be same.");
+                    MessageBoxHelper.ShowPrompt("新密码必须与确认新密码相同。");
                     return;
                 }
 
                 if (txtOldPassword.Text == txtNewPassword.Text)
                 {
-                    MessageBoxHelper.ShowPrompt("New Password can not be same to Old Password.");
+                    MessageBoxHelper.ShowPrompt("新密码不能与旧密码相同。");
                     return;
                 }
 
                 if (txtNewPassword.Text.Length < 6)
                 {
-                    MessageBoxHelper.ShowPrompt("The length of New Password must not be less than 6.");
+                    MessageBoxHelper.ShowPrompt("密码长度不能小于6.");
                     return;
                 }
                 string userId = UserManager.UserProfile.UserId;
                 String newPwd = this.txtNewPassword.Text;
                 string oldPwd = this.txtOldPassword.Text;
                 AppFacade.Facade.ChangePassword(userId, oldPwd, newPwd);
-                MessageBoxHelper.ShowPrompt("Change password successful.");
+                MessageBoxHelper.ShowPrompt("密码修改成功。");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

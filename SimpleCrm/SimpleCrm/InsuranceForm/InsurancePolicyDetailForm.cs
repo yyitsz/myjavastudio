@@ -239,15 +239,15 @@ namespace SimpleCrm.InsuranceForm
                         }
                         else
                         {
+                            if (policy.Insured.CustomerName == policy.PolicyHolder.CustomerName)
+                            {
+                                MessageBoxHelper.ShowPrompt("投保人与被保人姓名相同，如果是本人投保，请勾选[本人投保]");
+                                return;
+                            }
                             policy.Insured = insuredBaseInfo.BindDataFromUI();
                             policy.Insured.Relation = cmbRelation.SelectedValue.ToString();
                         }
 
-                        if (policy.Insured.CustomerName == policy.PolicyHolder.CustomerName)
-                        {
-                            MessageBoxHelper.ShowPrompt("投保人与被保人姓名相同，如果是本人投保，请勾选[本人投保]");
-                            return;
-                        }
                     }
                     else
                     {
@@ -306,7 +306,7 @@ namespace SimpleCrm.InsuranceForm
                     return isValid;
                 }
             }
-           
+
 
             if (tiBeneficiary.Visible)
             {

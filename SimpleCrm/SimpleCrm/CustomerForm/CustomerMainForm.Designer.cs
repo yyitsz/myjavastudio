@@ -34,6 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.txtContactMethod = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.cmbContactType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.btnReset = new DevComponents.DotNetBar.ButtonX();
@@ -49,8 +52,6 @@
             this.txtUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.grdResult = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.customerSearchResultDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataBindingParam = new SimpleCrm.Utils.DataBinding(this.components);
             this.colFollow = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.colEdit = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.colDelete = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
@@ -65,6 +66,8 @@
             this.colCustomerClass = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colCustomerSource = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colIntentPhase = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
+            this.customerSearchResultDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBindingParam = new SimpleCrm.Utils.DataBinding(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -98,6 +101,9 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.txtContactMethod);
+            this.panelEx1.Controls.Add(this.cmbContactType);
+            this.panelEx1.Controls.Add(this.labelX7);
             this.panelEx1.Controls.Add(this.textBoxX1);
             this.panelEx1.Controls.Add(this.labelX6);
             this.panelEx1.Controls.Add(this.btnReset);
@@ -126,6 +132,49 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
+            // txtContactMethod
+            // 
+            // 
+            // 
+            // 
+            this.txtContactMethod.Border.Class = "TextBoxBorder";
+            this.txtContactMethod.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dataBindingParam.SetFormatString(this.txtContactMethod, null);
+            this.txtContactMethod.Location = new System.Drawing.Point(274, 66);
+            this.txtContactMethod.MaxLength = 200;
+            this.txtContactMethod.Name = "txtContactMethod";
+            this.txtContactMethod.PreventEnterBeep = true;
+            this.dataBindingParam.SetPropertyName(this.txtContactMethod, "ContactMethod");
+            this.txtContactMethod.Size = new System.Drawing.Size(234, 21);
+            this.txtContactMethod.TabIndex = 43;
+            // 
+            // cmbContactType
+            // 
+            this.cmbContactType.DisplayMember = "Text";
+            this.cmbContactType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.dataBindingParam.SetFormatString(this.cmbContactType, null);
+            this.cmbContactType.FormattingEnabled = true;
+            this.cmbContactType.ItemHeight = 15;
+            this.cmbContactType.Location = new System.Drawing.Point(115, 66);
+            this.cmbContactType.Name = "cmbContactType";
+            this.dataBindingParam.SetPropertyName(this.cmbContactType, "ContactType");
+            this.cmbContactType.Size = new System.Drawing.Size(121, 21);
+            this.cmbContactType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cmbContactType.TabIndex = 42;
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(12, 66);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(75, 21);
+            this.labelX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.labelX7.TabIndex = 41;
+            this.labelX7.Text = "联系方式";
+            // 
             // textBoxX1
             // 
             // 
@@ -134,11 +183,11 @@
             this.textBoxX1.Border.Class = "TextBoxBorder";
             this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dataBindingParam.SetFormatString(this.textBoxX1, null);
-            this.textBoxX1.Location = new System.Drawing.Point(115, 66);
+            this.textBoxX1.Location = new System.Drawing.Point(625, 39);
             this.textBoxX1.Name = "textBoxX1";
             this.textBoxX1.PreventEnterBeep = true;
             this.dataBindingParam.SetPropertyName(this.textBoxX1, "IdCardNo");
-            this.textBoxX1.Size = new System.Drawing.Size(121, 21);
+            this.textBoxX1.Size = new System.Drawing.Size(139, 21);
             this.textBoxX1.TabIndex = 40;
             // 
             // labelX6
@@ -147,7 +196,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(12, 66);
+            this.labelX6.Location = new System.Drawing.Point(544, 39);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(75, 21);
             this.labelX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -164,6 +213,7 @@
             this.btnReset.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnReset.TabIndex = 38;
             this.btnReset.Text = "重置(&R)";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSearch
             // 
@@ -238,10 +288,10 @@
             this.dataBindingParam.SetFormatString(this.cmbIntentPhase, null);
             this.cmbIntentPhase.FormattingEnabled = true;
             this.cmbIntentPhase.ItemHeight = 15;
-            this.cmbIntentPhase.Location = new System.Drawing.Point(657, 12);
+            this.cmbIntentPhase.Location = new System.Drawing.Point(625, 12);
             this.cmbIntentPhase.Name = "cmbIntentPhase";
             this.dataBindingParam.SetPropertyName(this.cmbIntentPhase, "IntentPhase");
-            this.cmbIntentPhase.Size = new System.Drawing.Size(121, 21);
+            this.cmbIntentPhase.Size = new System.Drawing.Size(143, 21);
             this.cmbIntentPhase.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbIntentPhase.TabIndex = 32;
             // 
@@ -265,7 +315,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(563, 12);
+            this.labelX3.Location = new System.Drawing.Point(544, 12);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 21);
             this.labelX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -344,21 +394,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdResult.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.grdResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdResult.Location = new System.Drawing.Point(0, 0);
             this.grdResult.Name = "grdResult";
             this.grdResult.RowTemplate.Height = 23;
             this.grdResult.Size = new System.Drawing.Size(792, 262);
             this.grdResult.TabIndex = 0;
             this.grdResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResult_CellContentClick);
-            // 
-            // customerSearchResultDtoBindingSource
-            // 
-            this.customerSearchResultDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.CustomerSearchResultDto);
-            // 
-            // dataBindingParam
-            // 
-            this.dataBindingParam.DateTimeFormat = "yyyy-MM-dd";
             // 
             // colFollow
             // 
@@ -420,7 +462,7 @@
             this.colCustomerName.ReadOnly = true;
             this.colCustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colCustomerName.Width = 78;
+            this.colCustomerName.Width = 61;
             // 
             // idCardNoDataGridViewTextBoxColumn
             // 
@@ -445,7 +487,7 @@
             this.colGender.ReadOnly = true;
             this.colGender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colGender.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colGender.Width = 56;
+            this.colGender.Width = 45;
             // 
             // birthdayDataGridViewTextBoxColumn
             // 
@@ -457,7 +499,7 @@
             this.birthdayDataGridViewTextBoxColumn.MinimumWidth = 20;
             this.birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
             this.birthdayDataGridViewTextBoxColumn.ReadOnly = true;
-            this.birthdayDataGridViewTextBoxColumn.Width = 78;
+            this.birthdayDataGridViewTextBoxColumn.Width = 61;
             // 
             // unitDataGridViewTextBoxColumn
             // 
@@ -482,7 +524,7 @@
             this.colStatus.ReadOnly = true;
             this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colStatus.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colStatus.Width = 78;
+            this.colStatus.Width = 61;
             // 
             // colCustomerClass
             // 
@@ -500,7 +542,7 @@
             this.colCustomerClass.ReadOnly = true;
             this.colCustomerClass.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerClass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colCustomerClass.Width = 78;
+            this.colCustomerClass.Width = 61;
             // 
             // colCustomerSource
             // 
@@ -519,7 +561,7 @@
             this.colCustomerSource.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerSource.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.colCustomerSource.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.colCustomerSource.Width = 78;
+            this.colCustomerSource.Width = 61;
             // 
             // colIntentPhase
             // 
@@ -540,11 +582,20 @@
             this.colIntentPhase.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.colIntentPhase.Width = 72;
             // 
+            // customerSearchResultDtoBindingSource
+            // 
+            this.customerSearchResultDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.CustomerSearchResultDto);
+            // 
+            // dataBindingParam
+            // 
+            this.dataBindingParam.DateTimeFormat = "yyyy-MM-dd";
+            // 
             // CustomerMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(792, 405);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "CustomerMainForm";
             this.Text = "客户管理";
             this.Load += new System.EventHandler(this.CustomerMainForm_Load);
@@ -595,6 +646,9 @@
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colCustomerClass;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colCustomerSource;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colIntentPhase;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtContactMethod;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbContactType;
+        private DevComponents.DotNetBar.LabelX labelX7;
 
 
     }

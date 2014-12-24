@@ -199,7 +199,7 @@ namespace Dapper
             return connection.Query<T>(sb.ToString(), whereConditions);
         }
 
-        private static void BuildWhereWithExample(StringBuilder sb, PropertyInfo[] allProperties, object whereConditions)
+        public static Boolean BuildWhereWithExample(StringBuilder sb, PropertyInfo[] allProperties, object whereConditions)
         {
             StringBuilder tmpSb = new StringBuilder();
             string and = " and ";
@@ -221,7 +221,9 @@ namespace Dapper
             {
                 sb.Append(" where ")
                     .Append(tmpSb.ToString());
+                return true;
             }
+            return false;
         }
 
         public static IEnumerable<T> GetList<T>(this IDbConnection connection, String whereConditions, Object paramObj)
@@ -350,7 +352,7 @@ namespace Dapper
             {
                 auditable.CreateTime = curr;
             }
-            if (CrudContext != null)
+            if (CrudContext != null && CrudContext.GetUser() != null)
             {
                 auditable.UpdatedBy = CrudContext.GetUser();
             }
@@ -853,8 +855,8 @@ namespace Dapper
 
     public class EnquiryParam
     {
-        int? StartPage { get; set; }
-        int? PageSize { get; set; }
+        public int? StartPage { get; set; }
+        public int? PageSize { get; set; }
     }
     public interface IPagination
     {

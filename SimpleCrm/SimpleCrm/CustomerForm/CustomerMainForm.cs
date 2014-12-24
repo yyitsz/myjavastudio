@@ -31,6 +31,7 @@ namespace SimpleCrm.CustomerForm
             ComboBoxUtil.BindLov(LovType.CustomerSource, cmbCustomerSource);
             ComboBoxUtil.BindLov(LovType.IntentPhase, cmbIntentPhase);
             ComboBoxUtil.BindLov(LovType.CustomerStatus, cmbCustomerStatus);
+            ComboBoxUtil.BindLov(LovType.ContactType, cmbContactType);
 
             ComboBoxUtil.BindLov(LovType.CustomerClass, colCustomerClass);
             ComboBoxUtil.BindLov(LovType.CustomerSource, colCustomerSource);
@@ -44,6 +45,7 @@ namespace SimpleCrm.CustomerForm
         {
             try
             {
+               // pcCustomer.CurrentPage = 1;
                 SearchData();
             }
             catch (Exception ex)
@@ -56,11 +58,14 @@ namespace SimpleCrm.CustomerForm
         {
             CustomerSearchParamDto param = new CustomerSearchParamDto();
             dataBindingParam.MapToObject(param);
+            param.EnquiryParam = new Dapper.EnquiryParam();
+           // param.EnquiryParam.PageSize = pcCustomer.PageSize;
+           // param.EnquiryParam.StartPage = pcCustomer.StartFromRec;
 
             PageSearchResultDto<CustomerSearchResultDto> searchResult = AppFacade.Facade.SearchCustomer(param);
             if (searchResult.Results != null)
             {
-                grdResult.DataSource = new BindingList<CustomerSearchResultDto>(searchResult.Results);
+                grdResult.DataSource = new SortableBindingList<CustomerSearchResultDto>(searchResult.Results);
             }
         }
 
@@ -141,6 +146,17 @@ namespace SimpleCrm.CustomerForm
                     , f => f.CustomerId == customerId && f.FormMode == SimpleCrm.FormMode.Edit
                   );
             }
+        }
+
+        private void pcCustomer_ScrollPage(object sender, PageControlArgs e)
+        {
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            this.dataBindingParam.ClearControlValue();
+            this.grdResult.DataSource = new BindingList<CustomerSearchResultDto>();
         }
     }
 }

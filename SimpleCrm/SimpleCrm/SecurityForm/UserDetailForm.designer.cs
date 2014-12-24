@@ -38,9 +38,7 @@ namespace SimpleCrm.Security
             this.requiredFieldValidator4 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("必填项");
             this.requiredFieldValidator2 = new DevComponents.DotNetBar.Validator.RequiredFieldValidator("必填项");
             this.groupBox1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.clbRole = new System.Windows.Forms.CheckedListBox();
             this.label8 = new DevComponents.DotNetBar.LabelX();
-            this.label7 = new DevComponents.DotNetBar.LabelX();
             this.label6 = new DevComponents.DotNetBar.LabelX();
             this.label5 = new DevComponents.DotNetBar.LabelX();
             this.label4 = new DevComponents.DotNetBar.LabelX();
@@ -48,7 +46,6 @@ namespace SimpleCrm.Security
             this.label3 = new DevComponents.DotNetBar.LabelX();
             this.label2 = new DevComponents.DotNetBar.LabelX();
             this.txtUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.label1 = new DevComponents.DotNetBar.LabelX();
             this.txtPassword = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lblUserName = new DevComponents.DotNetBar.LabelX();
             this.lblPassword = new DevComponents.DotNetBar.LabelX();
@@ -60,6 +57,9 @@ namespace SimpleCrm.Security
             this.regularExpressionValidator1 = new DevComponents.DotNetBar.Validator.RegularExpressionValidator();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.highlighter1 = new DevComponents.DotNetBar.Validator.Highlighter();
+            this.label7 = new DevComponents.DotNetBar.LabelX();
+            this.label1 = new DevComponents.DotNetBar.LabelX();
+            this.clbRole = new System.Windows.Forms.CheckedListBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -121,20 +121,6 @@ namespace SimpleCrm.Security
             this.groupBox1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupBox1.TabIndex = 16;
             // 
-            // clbRole
-            // 
-            this.clbRole.CheckOnClick = true;
-            this.clbRole.FormattingEnabled = true;
-            this.clbRole.Items.AddRange(new object[] {
-            "Admin",
-            "Finance",
-            "HR"});
-            this.clbRole.Location = new System.Drawing.Point(121, 84);
-            this.clbRole.MultiColumn = true;
-            this.clbRole.Name = "clbRole";
-            this.clbRole.Size = new System.Drawing.Size(375, 20);
-            this.clbRole.TabIndex = 21;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -149,21 +135,6 @@ namespace SimpleCrm.Security
             this.label8.Size = new System.Drawing.Size(13, 16);
             this.label8.TabIndex = 20;
             this.label8.Text = "*";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            // 
-            // 
-            // 
-            this.label7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(22, 90);
-            this.label7.Margin = new System.Windows.Forms.Padding(2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 16);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "*";
             // 
             // label6
             // 
@@ -234,10 +205,10 @@ namespace SimpleCrm.Security
             this.label3.Location = new System.Drawing.Point(37, 116);
             this.label3.Margin = new System.Windows.Forms.Padding(2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.Size = new System.Drawing.Size(31, 18);
             this.label3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.label3.TabIndex = 14;
-            this.label3.Text = "Status";
+            this.label3.Text = "状态";
             // 
             // label2
             // 
@@ -249,10 +220,10 @@ namespace SimpleCrm.Security
             this.label2.Location = new System.Drawing.Point(37, 41);
             this.label2.Margin = new System.Windows.Forms.Padding(2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.Size = new System.Drawing.Size(31, 18);
             this.label2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.label2.TabIndex = 13;
-            this.label2.Text = "User Name";
+            this.label2.Text = "姓名";
             // 
             // txtUserName
             // 
@@ -267,21 +238,6 @@ namespace SimpleCrm.Security
             this.txtUserName.Size = new System.Drawing.Size(160, 21);
             this.txtUserName.TabIndex = 12;
             this.superValidator.SetValidator1(this.txtUserName, this.requiredFieldValidator2);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            // 
-            // 
-            // 
-            this.label1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.label1.Location = new System.Drawing.Point(37, 90);
-            this.label1.Margin = new System.Windows.Forms.Padding(2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 21);
-            this.label1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Role";
             // 
             // txtPassword
             // 
@@ -309,10 +265,10 @@ namespace SimpleCrm.Security
             this.lblUserName.Location = new System.Drawing.Point(37, 16);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(2);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(50, 16);
+            this.lblUserName.Size = new System.Drawing.Size(44, 18);
             this.lblUserName.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.lblUserName.TabIndex = 7;
-            this.lblUserName.Text = "User Id";
+            this.lblUserName.Text = "用户名";
             // 
             // lblPassword
             // 
@@ -324,10 +280,10 @@ namespace SimpleCrm.Security
             this.lblPassword.Location = new System.Drawing.Point(37, 66);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(56, 16);
+            this.lblPassword.Size = new System.Drawing.Size(31, 18);
             this.lblPassword.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.lblPassword.TabIndex = 9;
-            this.lblPassword.Text = "Password";
+            this.lblPassword.Text = "密码";
             // 
             // txtUserId
             // 
@@ -346,14 +302,13 @@ namespace SimpleCrm.Security
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(405, 162);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(74, 28);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "&Cancel";
+            this.btnCancel.Text = "取消(&C)";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnConfirm
@@ -365,7 +320,7 @@ namespace SimpleCrm.Security
             this.btnConfirm.Size = new System.Drawing.Size(74, 28);
             this.btnConfirm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnConfirm.TabIndex = 2;
-            this.btnConfirm.Text = "&Confirm";
+            this.btnConfirm.Text = "确认(&O)";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // lblSlogon
@@ -402,6 +357,49 @@ namespace SimpleCrm.Security
             // 
             this.highlighter1.ContainerControl = this;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            // 
+            // 
+            // 
+            this.label7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(22, 90);
+            this.label7.Margin = new System.Windows.Forms.Padding(2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 16);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            // 
+            // 
+            // 
+            this.label1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.label1.Location = new System.Drawing.Point(37, 90);
+            this.label1.Margin = new System.Windows.Forms.Padding(2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 16);
+            this.label1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Role";
+            // 
+            // clbRole
+            // 
+            this.clbRole.CheckOnClick = true;
+            this.clbRole.FormattingEnabled = true;
+            this.clbRole.Items.AddRange(new object[] {
+            "Admin",
+            "Common"});
+            this.clbRole.Location = new System.Drawing.Point(121, 84);
+            this.clbRole.MultiColumn = true;
+            this.clbRole.Name = "clbRole";
+            this.clbRole.Size = new System.Drawing.Size(375, 20);
+            this.clbRole.TabIndex = 21;
+            // 
             // UserDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -416,7 +414,7 @@ namespace SimpleCrm.Security
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "UserDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "User Detail";
+            this.Text = "创建用户";
             this.Load += new System.EventHandler(this.UserDetailForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -435,17 +433,14 @@ namespace SimpleCrm.Security
         private ButtonX btnCancel;
         private LabelX lblSlogon;
         private GroupPanel groupBox1;
-        private LabelX label1;
         private LabelX label2;
         private TextBoxX txtUserName;
         private ComboBoxEx cmbStatus;
         private LabelX label3;
         private LabelX label8;
-        private LabelX label7;
         private LabelX label6;
         private LabelX label5;
         private LabelX label4;
-        private CheckedListBox clbRole;
         private DevComponents.DotNetBar.Validator.SuperValidator superValidator;
         private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator4;
         private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator2;
@@ -454,6 +449,9 @@ namespace SimpleCrm.Security
         private DevComponents.DotNetBar.Validator.Highlighter highlighter1;
         private DevComponents.DotNetBar.Validator.RequiredFieldValidator requiredFieldValidator1;
         private DevComponents.DotNetBar.Validator.RegularExpressionValidator regularExpressionValidator1;
+        private CheckedListBox clbRole;
+        private LabelX label7;
+        private LabelX label1;
     }
 }
 

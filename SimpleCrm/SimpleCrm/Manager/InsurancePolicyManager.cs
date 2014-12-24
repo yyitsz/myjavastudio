@@ -124,7 +124,7 @@ namespace SimpleCrm.Manager
                             }
                         }
                     }
-                    if(ip.Insured != null)
+                    if (ip.Insured != null)
                     {
                         var foundRelation = customerRelationList.FirstOrDefault(c => c.BaseCustomerId == ip.PolicyHolder.CustomerId && c.AgainstCustomerId == ip.Insured.CustomerId);
                         if (foundRelation != null)
@@ -149,7 +149,7 @@ namespace SimpleCrm.Manager
         {
             return Connection.Query<InsurancePolicyResultDto>(@"
 select ip.InsurancePolicyId,ip.CustomerId,ip.EffectiveDate,ip.InsurancePolicyNo
-  ,ip.Category,ip.InsuredYear,ip.PrimaryIpName,ip.Status, ip.Category,
+  ,ip.Category,ip.InsuredYear,ip.PrimaryIpName,ip.Status, ip.Category, ip.Premium,
   primaryCust.CustomerName, holderCust.CustomerName PolicyHolderName, insuredCust.CustomerName InsuredName
  from InsurancePolicy ip 
    left join InsurancePolicyCustomer holder on holder.IPId = ip.InsurancePolicyId and holder.Role = 'PolicyHolder'
@@ -160,6 +160,11 @@ select ip.InsurancePolicyId,ip.CustomerId,ip.EffectiveDate,ip.InsurancePolicyNo
 where ip.CustomerId = @CustomerId 
   or EXISTS (select 1 from InsurancePolicyCustomer ipc where ipc.CustomerId = @CustomerId and ip.InsurancePolicyId = ipc.IPId)
 ", new { CustomerId = customerId });
+        }
+
+        internal InsurancePolicy GetInsurancePolicyByNo(string insurancePolicyNo)
+        {
+            return Connection.GetList<InsurancePolicy>(new { InsurancePolicyNo = insurancePolicyNo }).FirstOrDefault();
         }
     }
 }

@@ -23,16 +23,16 @@ namespace SimpleCrm.Utils
             {
                 if (ex.Message.StartsWith("constraint failed"))
                 {
-                    MessageBoxHelper.ShowDetail(MessageType.Information, "Error", "Save duplicate data to DB.", ex);
+                    MessageBoxHelper.ShowDetail(MessageType.Information, "错误", "保存重复的数据，或者保存不符合规范的数据。", ex);
                 }
                 else
                 {
-                    MessageBoxHelper.ShowDetail(MessageType.Information, "Error", "Error when do action on DB. " + ex.Message, ex);
+                    MessageBoxHelper.ShowDetail(MessageType.Information, "错误", "访问数据库时发生了错误. " + ex.Message, ex);
                 }
             }
             else
             {
-                if (MessageBoxHelper.ShowDetail(MessageType.Critical, "Error", ex.Message, ex) == DialogResult.Abort)
+                if (MessageBoxHelper.ShowDetail(MessageType.Critical, "错误", ex.Message, ex) == DialogResult.Abort)
                 {
                     Application.Exit();
                 }

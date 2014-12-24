@@ -13,6 +13,8 @@ using SimpleCrm.Manager;
 using SimpleCrm.Facade;
 using SimpleCrm.ScheduleForm;
 using SimpleCrm.PendingItemForm;
+using SimpleCrm.SecurityForm;
+using SimpleCrm.CustomerForm;
 
 namespace SimpleCrm
 {
@@ -23,13 +25,11 @@ namespace SimpleCrm
             InitializeComponent();
         }
 
-
-
-
-        private void AutopayMainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.Cancel == false
-                && MessageBoxHelper.ShowYesNo("ÍË³öÏµÍ³Âð?") == DialogResult.No)
+                && e.CloseReason == CloseReason.UserClosing
+                && MessageBoxHelper.ShowYesNo(ErrorCode.EXIT_APP) == DialogResult.No)
             {
                 e.Cancel = true;
             }
@@ -41,11 +41,41 @@ namespace SimpleCrm
         }
 
 
-        private void AutopayMainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             // tssUserId.Text = "User Id: " + UserManager.UserProfile.UserId;
             //   ttsUserName.Text = "User Name: " + UserManager.UserProfile.UserName;
-
+#if PRD
+            LicenseInfo licenseInfo = RegHelper.CheckLicenseFromRegister();
+            if (licenseInfo.Status != 1)
+            {
+                DialogResult result = FormHelper.ShowDialogForm<RegisterForm>(f =>
+                   {
+                       f.LicenseInfo = licenseInfo;
+                       f.FormType = RegisterForm.RegisterFormType.LoggingOn;
+                   });
+                if (result == System.Windows.Forms.DialogResult.Cancel)
+                {
+                    Application.Exit();
+                }
+            }
+            if (!AppFacade.Facade.ExistAnyUser())
+            {
+                DialogResult result = FormHelper.ShowDialogForm<UserAddForm>();
+                if (result == System.Windows.Forms.DialogResult.Cancel)
+                {
+                    Application.Exit();
+                }
+            }
+#endif
+            if (LoginForm.Login() == System.Windows.Forms.DialogResult.OK)
+            {
+                AppFacade.Facade.InitSystem();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
 
         private void mnuChangePassword_Click(object sender, EventArgs e)
@@ -109,6 +139,31 @@ namespace SimpleCrm
                 }
                 , f => f.PendingItemCategory == Model.PendingItemCategory.RenewalPremium
                 );
+        }
+
+        private void cmdRegister_Executed(object sender, EventArgs e)
+        {
+            LicenseInfo licenseInfo = RegHelper.CheckLicenseFromRegister();
+            DialogResult result = FormHelper.ShowDialogForm<RegisterForm>(f =>
+            {
+                f.LicenseInfo = licenseInfo;
+                f.FormType = RegisterForm.RegisterFormType.LoggedOn;
+            });
+        }
+
+        private void cmdChangePassword_Executed(object sender, EventArgs e)
+        {
+            FormHelper.ShowDialogForm<ChangePasswordForm>();
+        }
+
+        private void btnAbount_Click(object sender, EventArgs e)
+        {
+            FormHelper.ShowDialogForm<AboutForm>();
+        }
+
+        private void cmdImportCustomer_Executed(object sender, EventArgs e)
+        {
+            this.ShowMdiChildForm<CustomerImportForm>();
         }
     }
 }

@@ -45,11 +45,13 @@
             this.txtPrivateKey = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtMachineCode
             // 
             this.txtMachineCode.Location = new System.Drawing.Point(72, 12);
+            this.txtMachineCode.MaxLength = 50;
             this.txtMachineCode.Multiline = true;
             this.txtMachineCode.Name = "txtMachineCode";
             this.txtMachineCode.Size = new System.Drawing.Size(314, 72);
@@ -57,17 +59,19 @@
             // 
             // btnGetMachineCode
             // 
-            this.btnGetMachineCode.Location = new System.Drawing.Point(419, 12);
+            this.btnGetMachineCode.Location = new System.Drawing.Point(682, 135);
             this.btnGetMachineCode.Name = "btnGetMachineCode";
             this.btnGetMachineCode.Size = new System.Drawing.Size(130, 23);
             this.btnGetMachineCode.TabIndex = 1;
             this.btnGetMachineCode.Text = "GetMachineCode";
             this.btnGetMachineCode.UseVisualStyleBackColor = true;
+            this.btnGetMachineCode.Visible = false;
             this.btnGetMachineCode.Click += new System.EventHandler(this.btnGetMachineCode_Click);
             // 
             // txtCustomerName
             // 
             this.txtCustomerName.Location = new System.Drawing.Point(72, 143);
+            this.txtCustomerName.MaxLength = 20;
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(314, 21);
             this.txtCustomerName.TabIndex = 2;
@@ -78,7 +82,7 @@
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(130, 23);
             this.btnGenerate.TabIndex = 3;
-            this.btnGenerate.Text = "Generate";
+            this.btnGenerate.Text = "生成授权码";
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
@@ -104,9 +108,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 185);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 12);
+            this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 6;
-            this.label1.Text = "授权Key";
+            this.label1.Text = "授权码";
             // 
             // txtContent
             // 
@@ -147,7 +151,7 @@
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(130, 23);
             this.btnVerify.TabIndex = 11;
-            this.btnVerify.Text = "Verify";
+            this.btnVerify.Text = "校验授权码";
             this.btnVerify.UseVisualStyleBackColor = true;
             this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
             // 
@@ -159,6 +163,7 @@
             this.btnGenRsaKey.TabIndex = 12;
             this.btnGenRsaKey.Text = "Generate";
             this.btnGenRsaKey.UseVisualStyleBackColor = true;
+            this.btnGenRsaKey.Visible = false;
             this.btnGenRsaKey.Click += new System.EventHandler(this.btnGenRsaKey_Click);
             // 
             // txtPublicKey
@@ -168,6 +173,7 @@
             this.txtPublicKey.Name = "txtPublicKey";
             this.txtPublicKey.Size = new System.Drawing.Size(314, 109);
             this.txtPublicKey.TabIndex = 14;
+            this.txtPublicKey.Visible = false;
             // 
             // txtPrivateKey
             // 
@@ -176,6 +182,7 @@
             this.txtPrivateKey.Name = "txtPrivateKey";
             this.txtPrivateKey.Size = new System.Drawing.Size(259, 109);
             this.txtPrivateKey.TabIndex = 13;
+            this.txtPrivateKey.Visible = false;
             // 
             // label4
             // 
@@ -185,6 +192,7 @@
             this.label4.Size = new System.Drawing.Size(71, 12);
             this.label4.TabIndex = 15;
             this.label4.Text = "Private Key";
+            this.label4.Visible = false;
             // 
             // label5
             // 
@@ -194,12 +202,27 @@
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 16;
             this.label5.Text = "Public Key";
+            this.label5.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.textBox1.Location = new System.Drawing.Point(435, 12);
+            this.textBox1.MaxLength = 50;
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(314, 103);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.Text = "1. 输入机器码。如果不输入机器码，则授权码可在任意机器上使用。\r\n2. 选择到期日。无限期限，则选择一个足够大的日期。\r\n3. 客户名必填。\r\n4. 点击”生成" +
+                "授权码“。\r\n5. 记录在案";
             // 
             // RegisterManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 503);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPublicKey);
@@ -218,7 +241,8 @@
             this.Controls.Add(this.btnGetMachineCode);
             this.Controls.Add(this.txtMachineCode);
             this.Name = "RegisterManagerForm";
-            this.Text = "v";
+            this.Text = "授权码管理";
+            this.Load += new System.EventHandler(this.RegisterManagerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +267,6 @@
         private System.Windows.Forms.TextBox txtPrivateKey;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -22,7 +22,43 @@ namespace SimpleCrm.Manager
 
         internal DTO.PageSearchResultDto<DTO.CustomerSearchResultDto> SearchCustomer(DTO.CustomerSearchParamDto customerSearchParamDto)
         {
-            var list = Connection.SearchByCriteria<CustomerSearchResultDto>("select * from Customer", customerSearchParamDto);
+            StringBuilder sqlbuilder = new StringBuilder(@"SELECT * FROM Customer");
+            string[] excludeProperties = new string[] { "ContactType", "ContactMethod" };
+            var properties = customerSearchParamDto.GetType().GetProperties().Where(p => !excludeProperties.Contains(p.Name)).ToArray();
+            bool appended = SimpleCRUD.BuildWhereWithExample(sqlbuilder, properties, customerSearchParamDto);
+         
+
+            if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactMethod)
+                || !String.IsNullOrWhiteSpace(customerSearchParamDto.ContactType))
+            {
+                if (appended)
+                {
+                    sqlbuilder.Append(" AND ");
+                }
+                else
+                {
+                    sqlbuilder.Append(" WHERE ");
+                }
+                String sql1 = "";
+                String sql2 = "";
+                if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactMethod))
+                {
+                    sql1 = " AND ContactInfo.ContactMethod like @ContactMethod";
+                    customerSearchParamDto.ContactMethod = "%" + customerSearchParamDto.ContactMethod + "%";
+                }
+                if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactType))
+                {
+                    sql2 = " AND ContactInfo.ContactType = @ContactType";
+                }
+                sqlbuilder.AppendFormat(@" EXISTS 
+    ( SELECT 1 
+        FROM ContactInfo 
+    WHERE ContactInfo.CustomerId = Customer.CustomerId 
+{0} {1})", sql1, sql2);
+
+
+            }
+            var list = Connection.Query<CustomerSearchResultDto>(sqlbuilder.ToString(), customerSearchParamDto);
             PageSearchResultDto<CustomerSearchResultDto> result = new PageSearchResultDto<CustomerSearchResultDto>();
             result.Results = list.ToList();
             return result;
@@ -77,9 +113,14 @@ namespace SimpleCrm.Manager
         public override Customer FindOne(long? id)
         {
             Customer customer = base.FindOne(id);
+            SetContactInfo(customer);
+            return customer;
+        }
+
+        private void SetContactInfo(Customer customer)
+        {
             IEnumerable<ContactInfo> exists = contactInfoMgr.GetListByCustomer(customer.CustomerId.Value);
             customer.Contacts = exists.ToList();
-            return customer;
         }
 
         internal void UpdateIntentPhase(long customerId, string intentPhase)
@@ -137,6 +178,33 @@ from
 )", new { CustomerId = customerId });
 
             return count == 0;
+        }
+
+        public List<Customer> GetCustomer(string customerName, DateTime birthday)
+        {
+            var list = Connection.GetList<Customer>(new { CustomerName = customerName, Birthday = birthday });
+            //var result = list.Where(c => c.Birthday == birthday).ToList();
+            //if (result.Count > 0)
+            //{
+            //    return result;
+            //}
+            return list.ToList();
+        }
+
+        public Customer GetUniqueCustomer(string customerName, DateTime birthday)
+        {
+            List<Customer> customers = GetCustomer(customerName, birthday);
+            if (customers.Count > 1)
+            {
+                throw new AppException(String.Format("在系统中找到多个相同姓名的客户，无法区分，不能继续导入。姓名：{0},生日：{1}", customerName, birthday));
+            }
+            if (customers.Count == 1)
+            {
+                Customer c = customers[0];
+                SetContactInfo(c);
+                return c;
+            }
+            return null;
         }
     }
 }

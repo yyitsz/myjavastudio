@@ -32,5 +32,11 @@ namespace SimpleCrm.Manager
         {
             return Connection.GetListByExample<User>(user);
         }
+
+        internal bool ExistAnyUser()
+        {
+            int count = Connection.ExecuteScalar<int>("select count(*) from user where userId <> 'admin'");
+            return count > 0;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace SimpleCrm.Manager
     {
         private static AppConfig appConfig = new AppConfig();
         public static AppConfig AppConfig { get { return appConfig; } }
-        private const String AppConfigFileName = "autoapy-config.xml";
+        private static readonly String AppConfigFileName = "simplecrm-config.xml";
 
         public void Init()
         {

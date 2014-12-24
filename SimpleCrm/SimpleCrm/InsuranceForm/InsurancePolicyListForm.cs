@@ -38,7 +38,7 @@ namespace SimpleCrm.InsuranceForm
         private void SearchData()
         {
             List<InsurancePolicyResultDto> searchResult = AppFacade.Facade.GetInsurancePolicyByCustomer(CustomerDto.CustomerId.Value);
-            grdResult.DataSource = searchResult;
+            grdResult.DataSource = new SortableBindingList<InsurancePolicyResultDto>(searchResult);
         }
 
         private void grdResult_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -61,7 +61,6 @@ namespace SimpleCrm.InsuranceForm
                             InsurancePolicyDetailForm form = new InsurancePolicyDetailForm();
                             form.FormMode = SimpleCrm.FormMode.Edit;
                             form.InsurancePolicyId = insurancePolicyId;
-                            form.PrimaryCustomerId = GetPrimaryCustomerId();
                             return form;
                         }
                         , f => f.InsurancePolicyId == insurancePolicyId && f.FormMode == SimpleCrm.FormMode.Edit
@@ -84,8 +83,7 @@ namespace SimpleCrm.InsuranceForm
                     {
                         InsurancePolicyDetailForm form = new InsurancePolicyDetailForm();
                         form.FormMode = SimpleCrm.FormMode.View;
-                        form.InsurancePolicyId = insurancePolicyId;
-                        form.PrimaryCustomerId = GetPrimaryCustomerId();
+                        form.InsurancePolicyId = insurancePolicyId;;
                         return form;
                     }
                         , f => f.InsurancePolicyId == insurancePolicyId && f.FormMode == SimpleCrm.FormMode.View

@@ -112,7 +112,7 @@ namespace SimpleCrm.Utils
             }
         }
 
-        public static DialogResult ShowDialogForm<T>()
+        public static DialogResult ShowDialogForm<T>(Action<T> beforeShow = null)
             where T : Form, new()
         {
             T form = new T();
@@ -120,6 +120,10 @@ namespace SimpleCrm.Utils
             form.MaximizeBox = false;
             form.MinimizeBox = false;
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            if (beforeShow != null)
+            {
+                beforeShow(form);
+            }
             return form.ShowDialog();
 
         }

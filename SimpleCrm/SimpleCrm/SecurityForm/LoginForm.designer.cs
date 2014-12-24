@@ -59,14 +59,13 @@ namespace SimpleCrm.Security
             // 
             this.btnCancelLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancelLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancelLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelLogin.Location = new System.Drawing.Point(192, 147);
             this.btnCancelLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelLogin.Name = "btnCancelLogin";
             this.btnCancelLogin.Size = new System.Drawing.Size(74, 28);
             this.btnCancelLogin.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancelLogin.TabIndex = 4;
-            this.btnCancelLogin.Text = "È¡Ïû(&C)";
+            this.btnCancelLogin.Text = "ÍË³ö(&X)";
             this.btnCancelLogin.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblPassword
@@ -132,7 +131,7 @@ namespace SimpleCrm.Security
             this.txtPassword.Location = new System.Drawing.Point(106, 103);
             this.txtPassword.MaxLength = 20;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '#';
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.PreventEnterBeep = true;
             this.txtPassword.Size = new System.Drawing.Size(160, 21);
             this.txtPassword.TabIndex = 2;
@@ -149,6 +148,7 @@ namespace SimpleCrm.Security
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.btnOkLogin);
             this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.MaximizeBox = false;
@@ -156,7 +156,8 @@ namespace SimpleCrm.Security
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "µÇÂ¼";
-            this.Load += new System.EventHandler(this.FLoginForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

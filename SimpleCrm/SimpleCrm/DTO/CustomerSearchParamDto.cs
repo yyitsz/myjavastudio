@@ -27,5 +27,9 @@ namespace SimpleCrm.DTO
         /// 客户来源。默拜，转介绍，原故。
         /// </summary>
         public String CustomerSource { get; set; }
+
+        public String ContactType { get; set; }
+
+        public String ContactMethod { get; set; }
     }
 }

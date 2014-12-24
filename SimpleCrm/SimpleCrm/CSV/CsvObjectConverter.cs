@@ -70,7 +70,7 @@ namespace SimpleCrm.CSV
                 {
                     // find CSVPosition attributes assigned to the current property
                     CsvPositionAttribute positionAttr = GetAttribute<CsvPositionAttribute>(property);
-
+                    Type targetType = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
                     // if Length is greater than 0 we have at least one CSVPositionAttribute
                     if (positionAttr != null)
                     {
@@ -85,17 +85,25 @@ namespace SimpleCrm.CSV
                                 throw new CsvConvertionException("CsvPostionAttribute has to use positon or header.");
                             }
                             position = FindPosition(headers,header);
-                            if (position < 0)
+                            if (position < 0 && positionAttr.Required)
                             {
                                 CsvConvertionException ex = new CsvConvertionException("The header [" + header + "] defined in CsvPositionAttribute can not be found in headers of file.");
                                 throw ex;
                             }
+                            else
+                            {
+                                continue;
+                            }
                         }
 
+                        if (position + 1 > fields.Length)
+                        {
+                            continue;
+                        }
                         try
                         {
                             // get the CSV data to be manipulate and written to object
-                            object data = fields[position];
+                            object data = fields[position].Trim();
 
                             // check for a Tranform operation that needs to be executed
                             if (positionAttr.DataConverter != null)
@@ -113,7 +121,7 @@ namespace SimpleCrm.CSV
                                 }
                             }
                             // set the ue on our target object with the data
-                            property.SetValue(target, Convert.ChangeType(data, property.PropertyType), null);
+                            property.SetValue(target, Convert.ChangeType(data, targetType), null);
                         }
                         catch (Exception ex)
                         {
@@ -131,7 +139,7 @@ namespace SimpleCrm.CSV
                         {
                             try
                             {
-                                property.SetValue(target, Convert.ChangeType(lineNum, property.PropertyType), null);
+                                property.SetValue(target, Convert.ChangeType(lineNum, targetType), null);
                             }
                             catch (Exception ex)
                             {

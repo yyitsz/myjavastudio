@@ -58,7 +58,7 @@ namespace SimpleCrm.MasterForm
         {
             List<Lov> list = AppFacade.Facade.GetLovByType(cmbLovType.SelectedValue.ToString());
            // list.MarkAsPersisted();
-            grdResult.DataSource = new BindingList<Lov>(list);
+            grdResult.DataSource = new SortableBindingList<Lov>(list);
             DisableCell();
             return list.Count;
         }

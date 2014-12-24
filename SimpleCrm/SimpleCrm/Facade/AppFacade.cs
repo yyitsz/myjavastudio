@@ -11,6 +11,7 @@ using System.Linq;
 using SimpleCrm.Manager;
 using SimpleCrm.DTO;
 using Dapper;
+using System.Collections;
 
 namespace SimpleCrm.Facade
 {
@@ -511,6 +512,170 @@ namespace SimpleCrm.Facade
                 CustomerManager mgr = new CustomerManager(conn);
                 return mgr.CanDeleteCustomer(customerId);
             });
+        }
+
+        internal bool ExistAnyUser()
+        {
+            return ExecutedInTx(conn =>
+            {
+                UserManager mgr = new UserManager(conn);
+                return mgr.ExistAnyUser();
+            });
+        }
+
+        internal List<CustomerImportDto> ImportCustomers(string filename)
+        {
+            CSV.CsvImporter importer = new CSV.CsvImporter(filename, true);
+            importer.Converter = new CSV.CsvObjectConverter(typeof(CustomerImportDto));
+            IList cusotmerImportDtoList = importer.Parse();
+            List<CustomerImportDto> lists = new List<CustomerImportDto>();
+            ExecutedInTx(conn =>
+            {
+
+                CustomerManager custMgr = new CustomerManager(conn);
+                CustomerRelationManager custRMgr = new CustomerRelationManager(conn);
+                ContactInfoManager contactInfoMgr = new ContactInfoManager(conn);
+                InsurancePolicyManager ipMgr = new InsurancePolicyManager(conn);
+                InsurancePolicyCustomerManager ipcMgr = new InsurancePolicyCustomerManager(conn);
+                LovManager lovMgr = new LovManager(conn);
+                List<Lov> statusLovList = lovMgr.GetLovByType(LovType.InsurancePolicyStatus.ToString()).ToList();
+                //check status exists in lov
+                cusotmerImportDtoList.Cast<CustomerImportDto>().ForEach(c => ConvertToCode(statusLovList, c.IPStatus));
+
+                foreach (CustomerImportDto dto in cusotmerImportDtoList)
+                {
+                    lists.Add(dto);
+                    if(dto.IPStatus != null)
+                    {
+                        dto.IPStatus = dto.IPStatus.Replace(" ", "");
+                    }
+                    InsurancePolicy ip = ipMgr.GetInsurancePolicyByNo(dto.InsurancePolicyNo);
+                    if (ip != null)
+                    {
+                        dto.ImportStatus = CustomerImportDto.SKIPPED;
+                        continue;
+                    }
+                    Customer policyHolder = custMgr.GetUniqueCustomer(dto.PolicyHolder, dto.PolicyHolderBirthday.Value);
+                    Customer insured = custMgr.GetUniqueCustomer(dto.Insured, dto.InsuredBirthday.Value);
+
+                    if (policyHolder == null)
+                    {
+                        policyHolder = new Customer();
+                        policyHolder.CustomerName = dto.PolicyHolder;
+                        policyHolder.Birthday = dto.PolicyHolderBirthday;
+                        policyHolder.CustomerClass = "Normal";
+                        policyHolder.CustomerSource = "120";//服务单
+                        policyHolder.Status = CustomerStatus.Purchased.ToString();
+                        policyHolder.Contacts = new List<ContactInfo>();
+                       
+                        if (!String.IsNullOrWhiteSpace(dto.Telephone)
+                             && !"null".Equals(dto.Telephone))
+                        {
+                            ContactInfo ci = new ContactInfo();
+                            policyHolder.Contacts.Add(ci);
+                            ci.ContactMethod = dto.Telephone.Replace("+86-", "").Replace("-", "");
+                            if (ci.ContactMethod.Length == 11)
+                            {
+                                ci.ContactType = "Mobile";
+                            }
+                            else
+                            {
+                                ci.ContactType = "HomePhone";
+                            }
+                        }
+                        if (!String.IsNullOrWhiteSpace(dto.Address))
+                        {
+                            ContactInfo ci = new ContactInfo();
+                            ci = new ContactInfo();
+                            policyHolder.Contacts.Add(ci);
+                            ci.ContactMethod = dto.Address;
+                            ci.ContactType = "HomeAddress";
+                        }
+                        custMgr.Save(policyHolder);
+
+                    }
+                    if (dto.PolicyHolder == dto.Insured)
+                    {
+                        insured = policyHolder;
+                    }
+
+                    if (insured == null)
+                    {
+                        insured = new Customer();
+                        insured.CustomerName = dto.Insured;
+                        insured.Birthday = dto.InsuredBirthday;
+                        insured.CustomerClass = "Normal";
+                        insured.CustomerSource = "120";//服务单
+                        insured.Status = CustomerStatus.Purchased.ToString();
+                        insured.Contacts = new List<ContactInfo>();
+                        if (!String.IsNullOrWhiteSpace(dto.Telephone) 
+                            && !"null".Equals(dto.Telephone))
+                        {
+                            ContactInfo ci = new ContactInfo();
+                            insured.Contacts.Add(ci);
+                            ci.ContactMethod = dto.Telephone.Replace("+86-","").Replace("-", "");
+                            if (ci.ContactMethod.Length == 13)
+                            {
+                                ci.ContactType = "Mobile";
+                            }
+                            else
+                            {
+                                ci.ContactType = "HomePhone";
+                            }
+                        }
+                        if (!String.IsNullOrWhiteSpace(dto.Address))
+                        {
+                            ContactInfo ci = new ContactInfo();
+                            insured.Contacts.Add(ci);
+                            ci.ContactMethod = dto.Address;
+                            ci.ContactType = "HomeAddress";
+                        }
+                        custMgr.Save(insured);
+                    }
+
+
+                    custRMgr.CreateIfNotExistsOrUpdateRelationIfExists(policyHolder, insured, "Other");
+                    ip = new InsurancePolicy();
+                    ip.Category = "Life";
+                    ip.EffectiveDate = dto.IPEffectiveDate;
+                    ip.Premium = dto.Premium;
+                    ip.PrimaryIPName = dto.PrimaryIPName;
+                    ip.Remark = dto.Remark;
+                    ip.CustomerId = policyHolder.CustomerId;
+                    ip.InsurancePolicyNo = dto.InsurancePolicyNo;
+                    ip.Insured = insured;
+                    ip.PolicyHolder = policyHolder;
+                    ip.Status = ConvertToCode(statusLovList, dto.IPStatus);
+
+                    ipMgr.Save(ip);
+                    dto.ImportStatus = CustomerImportDto.SUCCESS;
+                }
+            });
+            return lists;
+        }
+
+        private string ConvertToCode(List<Lov> statusLovList, string statusName)
+        {
+            var lov = statusLovList.SingleOrDefault(l => l.Name.Replace(" ","") == statusName);
+            if (lov == null)
+            {
+                throw new AppException(String.Format("保单状态数据字典中不存在{0}, 请增加之。", statusName));
+            }
+            return lov.Code;
+        }
+
+        private static Customer GetUniqueCustomer(CustomerManager custMgr, string customerName, DateTime birthday)
+        {
+            List<Customer> policyHolders = custMgr.GetCustomer(customerName, birthday);
+            if (policyHolders.Count > 1)
+            {
+                throw new AppException(String.Format("在系统中找到多个相同姓名的客户，无法区分，不能继续导入。姓名：{0},生日", customerName, birthday));
+            }
+            if (policyHolders.Count == 1)
+            {
+                return policyHolders[0];
+            }
+            return null;
         }
     }
 }

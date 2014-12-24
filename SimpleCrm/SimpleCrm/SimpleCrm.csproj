@@ -196,10 +196,18 @@
     </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerForm\CustomerImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm\CustomerImportForm.Designer.cs">
+      <DependentUpon>CustomerImportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerForm\CustomerPickListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +246,7 @@
     </Compile>
     <Compile Include="Dapper\DateTimeHandler.cs" />
     <Compile Include="DTO\BaseModel.cs" />
+    <Compile Include="DTO\CustomerImportDto.cs" />
     <Compile Include="DTO\SearchPendingItemParamDto.cs" />
     <Compile Include="DTO\InsurancePolicyResultDto.cs" />
     <Compile Include="DTO\PageSearchResultListDto.cs" />
@@ -345,11 +354,29 @@
     <Compile Include="ScheduleForm\ScheduleMainForm.designer.cs">
       <DependentUpon>ScheduleMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecurityForm\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityForm\ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SecurityForm\ChangePasswordForm.designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityForm\UserAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\UserAddForm.designer.cs">
+      <DependentUpon>UserAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityForm\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityForm\RegisterForm.designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SecurityForm\UserDetailForm.cs">
       <SubType>Form</SubType>
@@ -391,6 +418,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomerForm\CustomerImportForm.resx">
+      <DependentUpon>CustomerImportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm\CustomerPickListForm.resx">
       <DependentUpon>CustomerPickListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -437,8 +467,17 @@
     <EmbeddedResource Include="ScheduleForm\ScheduleMainForm.resx">
       <DependentUpon>ScheduleMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecurityForm\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\UserAddForm.resx">
+      <DependentUpon>UserAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityForm\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityForm\UserDetailForm.resx">
       <DependentUpon>UserDetailForm.cs</DependentUpon>
@@ -465,7 +504,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Utils\PageControl.resx">
+      <DependentUpon>PageControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Properties\DataSources\SimpleCrm.DTO.CustomerImportDto.datasource" />
     <None Include="Properties\DataSources\SimpleCrm.DTO.PendingItemDto.datasource" />
     <None Include="tryh.snippet" />
     <None Include="propb.snippet" />
@@ -489,6 +532,13 @@
     <Compile Include="Utils\BooleanConverterEx.cs" />
     <Compile Include="Utils\ComboBoxUtil.cs" />
     <Compile Include="Utils\ErrorCode.cs" />
+    <Compile Include="Utils\ObjectPropertyComparer.cs" />
+    <Compile Include="Utils\PageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\PageControl.designer.cs">
+      <DependentUpon>PageControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\ReadonlyHelper.cs" />
     <Compile Include="Utils\DataUtil.cs" />
     <Compile Include="Utils\DetailMessageBox.cs">
@@ -504,10 +554,14 @@
     <Compile Include="Utils\DataBinding.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utils\RegHelper.cs" />
     <Compile Include="Utils\RoleExtender.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\PasswordUtil.cs" />
+    <Compile Include="Utils\SimpleRsaHelper.cs" />
+    <Compile Include="Utils\RSAPrivateEncryption.cs" />
+    <Compile Include="Utils\SortableBindingList.cs" />
     <Compile Include="Utils\ValidationHelper.cs" />
     <Compile Include="Utils\XmlUtil.cs" />
   </ItemGroup>
@@ -641,6 +695,10 @@
     <Content Include="Resources\movie_remove.png" />
     <Content Include="Resources\network_add.png" />
     <Content Include="Resources\network_remove.png" />
+    <None Include="Resources\page_first.png" />
+    <None Include="Resources\page_last.png" />
+    <None Include="Resources\page_next.png" />
+    <None Include="Resources\page_previous.png" />
     <Content Include="Resources\printer_add.png" />
     <Content Include="Resources\printer_remove.png" />
     <Content Include="Resources\profile_add.png" />
