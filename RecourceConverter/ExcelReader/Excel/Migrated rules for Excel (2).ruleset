@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Migrated rules for Excel (2).ruleset" Description="This rule set was created from the CodeAnalysisRules property for the &quot;Release (Any CPU)&quot; configuration in project &quot;C:\myworkspace\myjavastudio\RecourceConverter\ExcelReader\Excel\Excel.csproj&quot;." ToolsVersion="10.0">
+  <IncludeAll Action="Warning" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1303" Action="None" />
+    <Rule Id="CA1305" Action="None" />
+    <Rule Id="CA1811" Action="None" />
+    <Rule Id="CA2237" Action="None" />
+  </Rules>
+</RuleSet>

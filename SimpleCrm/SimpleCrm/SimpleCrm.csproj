@@ -532,6 +532,7 @@
     <Compile Include="Utils\BooleanConverterEx.cs" />
     <Compile Include="Utils\ComboBoxUtil.cs" />
     <Compile Include="Utils\ErrorCode.cs" />
+    <Compile Include="Utils\ExcelImportUtil.cs" />
     <Compile Include="Utils\ObjectPropertyComparer.cs" />
     <Compile Include="Utils\PageControl.cs">
       <SubType>UserControl</SubType>

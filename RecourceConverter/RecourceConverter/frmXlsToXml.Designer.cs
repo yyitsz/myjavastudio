@@ -1,3 +1,4 @@
+using System.Windows.Forms;
 namespace RecourceConverter
 {
     partial class frmXlsToXml
@@ -41,7 +42,7 @@ namespace RecourceConverter
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.txtFirstLineNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbTemplate = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.cmbTemplate = new ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@ namespace RecourceConverter
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdbXml = new System.Windows.Forms.RadioButton();
             this.rdbSQL = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbTemplate)).BeginInit();
+
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,13 +180,13 @@ namespace RecourceConverter
             // cmbTemplate
             // 
             this.cmbTemplate.DisplayMember = "Name";
-            this.cmbTemplate.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList;
+
             this.cmbTemplate.Location = new System.Drawing.Point(86, 9);
             this.cmbTemplate.Name = "cmbTemplate";
             this.cmbTemplate.Size = new System.Drawing.Size(144, 21);
             this.cmbTemplate.TabIndex = 21;
             this.cmbTemplate.ValueMember = "Name";
-            this.cmbTemplate.ValueChanged += new System.EventHandler(this.cmbTemplate_ValueChanged);
+            this.cmbTemplate.SelectedIndexChanged += new System.EventHandler(this.cmbTemplate_ValueChanged);
             // 
             // label3
             // 
@@ -308,7 +309,6 @@ namespace RecourceConverter
             this.Name = "frmXlsToXml";
             this.Text = "frmXlsToXml";
             this.Load += new System.EventHandler(this.frmXlsToXml_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbTemplate)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -330,7 +330,7 @@ namespace RecourceConverter
         private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.TextBox txtFirstLineNo;
         private System.Windows.Forms.Label label2;
-        private Infragistics.Win.UltraWinEditors.UltraComboEditor cmbTemplate;
+        private ComboBox cmbTemplate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtKey;
         private System.Windows.Forms.Label label4;

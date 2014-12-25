@@ -192,7 +192,7 @@ namespace RecourceConverter
             if (template != null && template.Template != null)
             {
                 this.cmbTemplate.DataSource = template.Template;
-                this.cmbTemplate.Value = template.Default;
+                this.cmbTemplate.SelectedValue = template.Default;
                 //BindTemplate(template.Default);
             }
         }
@@ -226,9 +226,9 @@ namespace RecourceConverter
 
         private void cmbTemplate_ValueChanged(object sender, EventArgs e)
         {
-            if (this.cmbTemplate.SelectedItem != null && this.cmbTemplate.SelectedItem.ListObject != null)
+            if (this.cmbTemplate.SelectedItem != null )
             {
-                Bind((Template)this.cmbTemplate.SelectedItem.ListObject);
+                Bind((Template)this.cmbTemplate.SelectedItem);
             }
         }
     }
