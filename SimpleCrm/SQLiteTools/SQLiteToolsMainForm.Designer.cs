@@ -32,10 +32,12 @@ namespace SQLiteTools
             this.mnuTools = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDbManager = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDbQuery = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuReg = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mntExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuWindows = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuReg = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,8 @@ namespace SQLiteTools
             this.mnuMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.mnuMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuTools,
-            this.mnuWindows});
+            this.mnuWindows,
+            this.testToolStripMenuItem});
             this.mnuMainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuMainMenu.MdiWindowListItem = this.mnuWindows;
             this.mnuMainMenu.Name = "mnuMainMenu";
@@ -78,6 +81,13 @@ namespace SQLiteTools
             this.mnuDbQuery.Text = "Sql Query";
             this.mnuDbQuery.Click += new System.EventHandler(this.mnuDbQuery_Click);
             // 
+            // mnuReg
+            // 
+            this.mnuReg.Name = "mnuReg";
+            this.mnuReg.Size = new System.Drawing.Size(152, 22);
+            this.mnuReg.Text = "注册工具";
+            this.mnuReg.Click += new System.EventHandler(this.mnuReg_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -96,12 +106,20 @@ namespace SQLiteTools
             this.mnuWindows.Size = new System.Drawing.Size(63, 20);
             this.mnuWindows.Text = "&Windows";
             // 
-            // mnuReg
+            // testToolStripMenuItem
             // 
-            this.mnuReg.Name = "mnuReg";
-            this.mnuReg.Size = new System.Drawing.Size(152, 22);
-            this.mnuReg.Text = "注册工具";
-            this.mnuReg.Click += new System.EventHandler(this.mnuReg_Click);
+            this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testToolStripMenuItem1});
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.testToolStripMenuItem.Text = "Test";
+            // 
+            // testToolStripMenuItem1
+            // 
+            this.testToolStripMenuItem1.Name = "testToolStripMenuItem1";
+            this.testToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.testToolStripMenuItem1.Text = "Test";
+            this.testToolStripMenuItem1.Click += new System.EventHandler(this.testToolStripMenuItem1_Click);
             // 
             // SQLiteToolsMainForm
             // 
@@ -135,6 +153,8 @@ namespace SQLiteTools
         private System.Windows.Forms.ToolStripMenuItem mnuDbManager;
         private System.Windows.Forms.ToolStripMenuItem mnuDbQuery;
         private System.Windows.Forms.ToolStripMenuItem mnuReg;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem1;
     }
 }
 

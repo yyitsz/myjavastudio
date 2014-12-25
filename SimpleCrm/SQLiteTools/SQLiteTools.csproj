@@ -238,6 +238,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Utils\DynamicSqlTestForm.resx">
+      <DependentUpon>DynamicSqlTestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -258,6 +261,13 @@
     </Compile>
     <Compile Include="Utils\MessageBoxHelper.cs" />
     <Compile Include="Utils\PasswordUtil.cs" />
+    <Compile Include="Utils\DynamicSqlTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\DynamicSqlTestForm.Designer.cs">
+      <DependentUpon>DynamicSqlTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\SqlGenerator.cs" />
     <Compile Include="Utils\XmlUtil.cs" />
   </ItemGroup>
   <ItemGroup>
