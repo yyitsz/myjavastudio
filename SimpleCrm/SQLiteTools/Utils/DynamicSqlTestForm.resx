@@ -122,11 +122,7 @@
 a.id, a.name, a.addr}
 from tablea a
 where 1 = 1
-@if($HasNameAndAddress){
-	@if($Name) {and a.id = @id}
-	@if($Address) {and a.id = @name}
-}
-and a.name = 'abc@adf'
+@if($HasNameOrAddress){ @if($Name) {and a.id = @id} @if($Address) {and a.id = @name}} and a.name = 'abc@adf'
 @order(){order by a.id}</value>
   </data>
 </root>

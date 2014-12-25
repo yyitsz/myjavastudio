@@ -52,6 +52,8 @@
             this.txtUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.grdResult = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.customerSearchResultDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBindingParam = new SimpleCrm.Utils.DataBinding(this.components);
             this.colFollow = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.colEdit = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
             this.colDelete = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
@@ -61,13 +63,13 @@
             this.idCardNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGender = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.birthdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colCustomerClass = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colCustomerSource = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.colIntentPhase = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
-            this.customerSearchResultDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataBindingParam = new SimpleCrm.Utils.DataBinding(this.components);
+            this.colHomeAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -379,11 +381,13 @@
             this.idCardNoDataGridViewTextBoxColumn,
             this.colGender,
             this.birthdayDataGridViewTextBoxColumn,
+            this.colMobile,
             this.unitDataGridViewTextBoxColumn,
             this.colStatus,
             this.colCustomerClass,
             this.colCustomerSource,
-            this.colIntentPhase});
+            this.colIntentPhase,
+            this.colHomeAddress});
             this.grdResult.DataSource = this.customerSearchResultDtoBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -401,6 +405,14 @@
             this.grdResult.Size = new System.Drawing.Size(792, 262);
             this.grdResult.TabIndex = 0;
             this.grdResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResult_CellContentClick);
+            // 
+            // customerSearchResultDtoBindingSource
+            // 
+            this.customerSearchResultDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.CustomerSearchResultDto);
+            // 
+            // dataBindingParam
+            // 
+            this.dataBindingParam.DateTimeFormat = "yyyy-MM-dd";
             // 
             // colFollow
             // 
@@ -462,7 +474,7 @@
             this.colCustomerName.ReadOnly = true;
             this.colCustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colCustomerName.Width = 61;
+            this.colCustomerName.Width = 78;
             // 
             // idCardNoDataGridViewTextBoxColumn
             // 
@@ -487,7 +499,7 @@
             this.colGender.ReadOnly = true;
             this.colGender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colGender.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colGender.Width = 45;
+            this.colGender.Width = 56;
             // 
             // birthdayDataGridViewTextBoxColumn
             // 
@@ -499,7 +511,14 @@
             this.birthdayDataGridViewTextBoxColumn.MinimumWidth = 20;
             this.birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
             this.birthdayDataGridViewTextBoxColumn.ReadOnly = true;
-            this.birthdayDataGridViewTextBoxColumn.Width = 61;
+            this.birthdayDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // colMobile
+            // 
+            this.colMobile.DataPropertyName = "Mobile";
+            this.colMobile.HeaderText = "手机";
+            this.colMobile.Name = "colMobile";
+            this.colMobile.ReadOnly = true;
             // 
             // unitDataGridViewTextBoxColumn
             // 
@@ -524,7 +543,7 @@
             this.colStatus.ReadOnly = true;
             this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colStatus.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colStatus.Width = 61;
+            this.colStatus.Width = 78;
             // 
             // colCustomerClass
             // 
@@ -542,7 +561,7 @@
             this.colCustomerClass.ReadOnly = true;
             this.colCustomerClass.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerClass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.colCustomerClass.Width = 61;
+            this.colCustomerClass.Width = 78;
             // 
             // colCustomerSource
             // 
@@ -561,7 +580,7 @@
             this.colCustomerSource.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCustomerSource.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.colCustomerSource.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.colCustomerSource.Width = 61;
+            this.colCustomerSource.Width = 78;
             // 
             // colIntentPhase
             // 
@@ -582,13 +601,12 @@
             this.colIntentPhase.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.colIntentPhase.Width = 72;
             // 
-            // customerSearchResultDtoBindingSource
+            // colHomeAddress
             // 
-            this.customerSearchResultDtoBindingSource.DataSource = typeof(SimpleCrm.DTO.CustomerSearchResultDto);
-            // 
-            // dataBindingParam
-            // 
-            this.dataBindingParam.DateTimeFormat = "yyyy-MM-dd";
+            this.colHomeAddress.DataPropertyName = "HomeAddress";
+            this.colHomeAddress.HeaderText = "家庭地址";
+            this.colHomeAddress.Name = "colHomeAddress";
+            this.colHomeAddress.ReadOnly = true;
             // 
             // CustomerMainForm
             // 
@@ -632,6 +650,9 @@
         private Utils.DataBinding dataBindingParam;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private DevComponents.DotNetBar.LabelX labelX6;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtContactMethod;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbContactType;
+        private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colFollow;
         private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colEdit;
         private DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colDelete;
@@ -641,14 +662,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idCardNoDataGridViewTextBoxColumn;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthdayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMobile;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colStatus;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colCustomerClass;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colCustomerSource;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colIntentPhase;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtContactMethod;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbContactType;
-        private DevComponents.DotNetBar.LabelX labelX7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHomeAddress;
 
 
     }

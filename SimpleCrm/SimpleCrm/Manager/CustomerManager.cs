@@ -7,11 +7,33 @@ using System.Data;
 using SimpleCrm.Common;
 using SimpleCrm.DTO;
 using System.Linq;
+using SimpleCrm.DynamicSql;
 
 namespace SimpleCrm.Manager
 {
     public class CustomerManager : BaseRepo<Customer, long?>
     {
+        private readonly static String SQL_SEARCH_CUST = @"SELECT Customer.*,  mobileCi.ContactMethod Mobile, addressCi.ContactMethod HomeAddress
+FROM Customer 
+    LEFT JOIN ContactInfo mobileCi ON mobileCi.CustomerId = Customer.CustomerId AND mobileCi.ContactType = 'Mobile'
+    LEFT JOIN ContactInfo addressCi ON addressCi.CustomerId = Customer.CustomerId AND addressCi.ContactType = 'HomeAddress'
+WHERE 1=1
+@if($IdCardNo){  AND IdCardNo = @IdCardNo }
+@if($CustomerSource){    AND CustomerSource = @CustomerSource }
+@if($CustomerClass){    AND CustomerClass = @CustomerClass }
+@if($IntentPhase){    AND IntentPhase = @IntentPhase }
+@if($Status){    AND Status = @Status }
+@if($CustomerName){    AND CustomerName = @CustomerName }
+@if($HasContact){    AND  EXISTS 
+    ( SELECT 1 
+      FROM ContactInfo 
+      WHERE ContactInfo.CustomerId = Customer.CustomerId 
+       @if($ContactMethod){ AND ContactInfo.ContactMethod like @ContactMethod }
+       @if($ContactType){ AND ContactInfo.ContactType = @ContactType }
+    )
+  }  
+";
+
         private ContactInfoManager contactInfoMgr;
         public CustomerManager(IDbConnection conn)
         {
@@ -22,43 +44,12 @@ namespace SimpleCrm.Manager
 
         internal DTO.PageSearchResultDto<DTO.CustomerSearchResultDto> SearchCustomer(DTO.CustomerSearchParamDto customerSearchParamDto)
         {
-            StringBuilder sqlbuilder = new StringBuilder(@"SELECT * FROM Customer");
-            string[] excludeProperties = new string[] { "ContactType", "ContactMethod" };
-            var properties = customerSearchParamDto.GetType().GetProperties().Where(p => !excludeProperties.Contains(p.Name)).ToArray();
-            bool appended = SimpleCRUD.BuildWhereWithExample(sqlbuilder, properties, customerSearchParamDto);
-         
-
-            if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactMethod)
-                || !String.IsNullOrWhiteSpace(customerSearchParamDto.ContactType))
+            String sql = SqlParser.Eval(SQL_SEARCH_CUST, customerSearchParamDto).Item1;
+            if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactMethod))
             {
-                if (appended)
-                {
-                    sqlbuilder.Append(" AND ");
-                }
-                else
-                {
-                    sqlbuilder.Append(" WHERE ");
-                }
-                String sql1 = "";
-                String sql2 = "";
-                if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactMethod))
-                {
-                    sql1 = " AND ContactInfo.ContactMethod like @ContactMethod";
-                    customerSearchParamDto.ContactMethod = "%" + customerSearchParamDto.ContactMethod + "%";
-                }
-                if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactType))
-                {
-                    sql2 = " AND ContactInfo.ContactType = @ContactType";
-                }
-                sqlbuilder.AppendFormat(@" EXISTS 
-    ( SELECT 1 
-        FROM ContactInfo 
-    WHERE ContactInfo.CustomerId = Customer.CustomerId 
-{0} {1})", sql1, sql2);
-
-
+                customerSearchParamDto.ContactMethod = "%" + customerSearchParamDto.ContactMethod + "%";
             }
-            var list = Connection.Query<CustomerSearchResultDto>(sqlbuilder.ToString(), customerSearchParamDto);
+            var list = Connection.Query<CustomerSearchResultDto>(sql, customerSearchParamDto);
             PageSearchResultDto<CustomerSearchResultDto> result = new PageSearchResultDto<CustomerSearchResultDto>();
             result.Results = list.ToList();
             return result;

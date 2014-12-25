@@ -31,5 +31,13 @@ namespace SimpleCrm.DTO
         public String ContactType { get; set; }
 
         public String ContactMethod { get; set; }
+
+        public Boolean HasContact
+        {
+            get
+            {
+                return !String.IsNullOrWhiteSpace(ContactType) || !String.IsNullOrWhiteSpace(ContactMethod);
+            }
+        }
     }
 }

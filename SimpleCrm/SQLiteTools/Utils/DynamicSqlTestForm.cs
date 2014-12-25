@@ -21,8 +21,7 @@ namespace SQLiteTools.Utils
 
         private void btnGetMachineCode_Click(object sender, EventArgs e)
         {
-            SqlGenerator generator = new SqlGenerator();
-            var sqltuple = generator.GenerateSql(txtDynamicSql.Text, new Customer() { Name = this.txtName.Text, Address = this.txtAddress.Text });
+            var sqltuple = SqlParser.Eval(txtDynamicSql.Text, new Customer() { Name = this.txtName.Text, Address = this.txtAddress.Text });
             txtSql.Text = sqltuple.Item1;
         }
 
@@ -33,11 +32,11 @@ namespace SQLiteTools.Utils
         public long Id { get; set; }
         public String Name { get; set; }
         public String Address { get; set; }
-        public Boolean HasNameAndAddress
+        public Boolean HasNameOrAddress
         {
             get
             {
-                return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(Address);
+                return !String.IsNullOrWhiteSpace(Name) || !String.IsNullOrWhiteSpace(Address);
             }
         }
     }

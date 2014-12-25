@@ -123,7 +123,7 @@ namespace SimpleCrm.CustomerForm.UserControls
                 valid = ValidationHelper.ValidateRequiredField(errorProvider, highlighter, this.txtIdCardNo) && valid;
                 if (valid && this.cmbIdType.SelectedValue.Equals("IDCard"))
                 {
-                    valid = ValidationHelper.FillBirthdayAndGenderWithIdCardNo(txtIdCardNo,errorProvider);
+                    valid = ValidationHelper.FillBirthdayAndGenderWithIdCardNo(txtIdCardNo, errorProvider);
                 }
             }
 
@@ -133,6 +133,22 @@ namespace SimpleCrm.CustomerForm.UserControls
                 if (contactInfo != null)
                 {
                     valid = ValidationHelper.ValidateRequiredField(row, "colContactType", "colContactMethod") && valid;
+                }
+            }
+
+            IList<ContactInfo> contacts = grdContactInfo.DataSource as IList<ContactInfo>;
+            if (valid && contacts != null)
+            {
+                foreach (var v1 in contacts)
+                {
+                    foreach (var v2 in contacts)
+                    {
+                        if (v1 != v2 && v1.ContactType == v2.ContactType)
+                        {
+                            MessageBoxHelper.ShowPrompt("录入了重复的联系方式类别！");
+                            return false;
+                        }
+                    }
                 }
             }
             return valid;

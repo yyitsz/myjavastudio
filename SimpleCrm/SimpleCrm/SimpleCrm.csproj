@@ -254,7 +254,7 @@
     <Compile Include="DTO\CustomerSearchResultDto.cs" />
     <Compile Include="DTO\PageSearchParamDto.cs" />
     <Compile Include="DTO\PendingItemDto.cs" />
-    <Compile Include="DynamicSql\SqlGenerator.cs" />
+    <Compile Include="DynamicSql\SqlParser.cs" />
     <Compile Include="InsuranceForm\InsurancePolicyListForm.cs">
       <SubType>Form</SubType>
     </Compile>

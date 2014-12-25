@@ -267,7 +267,7 @@
     <Compile Include="Utils\DynamicSqlTestForm.Designer.cs">
       <DependentUpon>DynamicSqlTestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\SqlGenerator.cs" />
+    <Compile Include="Utils\SqlParser.cs" />
     <Compile Include="Utils\XmlUtil.cs" />
   </ItemGroup>
   <ItemGroup>
