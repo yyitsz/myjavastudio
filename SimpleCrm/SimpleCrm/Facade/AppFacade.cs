@@ -12,6 +12,7 @@ using SimpleCrm.Manager;
 using SimpleCrm.DTO;
 using Dapper;
 using System.Collections;
+using SimpleCrm.CSV;
 
 namespace SimpleCrm.Facade
 {
@@ -525,9 +526,24 @@ namespace SimpleCrm.Facade
 
         internal List<CustomerImportDto> ImportCustomers(string filename)
         {
-            CSV.CsvImporter importer = new CSV.CsvImporter(filename, true);
-            importer.Converter = new CSV.CsvObjectConverter(typeof(CustomerImportDto));
-            IList cusotmerImportDtoList = importer.Parse();
+            IList cusotmerImportDtoList = null;
+            if (filename.EndsWith(".csv", StringComparison.InvariantCultureIgnoreCase))
+            {
+                CSV.CsvImporter importer = new CSV.CsvImporter(filename, true);
+                importer.Converter = new CSV.CsvObjectConverter(typeof(CustomerImportDto));
+                cusotmerImportDtoList = importer.Parse();
+            }
+            else if (filename.EndsWith(".xls", StringComparison.InvariantCultureIgnoreCase)
+                || filename.EndsWith(".xlsx", StringComparison.InvariantCultureIgnoreCase))
+            {
+                ExcelImporter importer = new ExcelImporter(filename, true);
+                cusotmerImportDtoList = importer.ExcelToList<CustomerImportDto>();
+            }
+            else
+            {
+                throw new Exception("只支持csv, xls, xlsx格式的文件.");
+            }
+
             List<CustomerImportDto> lists = new List<CustomerImportDto>();
             ExecutedInTx(conn =>
             {
@@ -545,7 +561,7 @@ namespace SimpleCrm.Facade
                 foreach (CustomerImportDto dto in cusotmerImportDtoList)
                 {
                     lists.Add(dto);
-                    if(dto.IPStatus != null)
+                    if (dto.IPStatus != null)
                     {
                         dto.IPStatus = dto.IPStatus.Replace(" ", "");
                     }
@@ -567,7 +583,7 @@ namespace SimpleCrm.Facade
                         policyHolder.CustomerSource = "120";//服务单
                         policyHolder.Status = CustomerStatus.Purchased.ToString();
                         policyHolder.Contacts = new List<ContactInfo>();
-                       
+
                         if (!String.IsNullOrWhiteSpace(dto.Telephone)
                              && !"null".Equals(dto.Telephone))
                         {
@@ -608,12 +624,12 @@ namespace SimpleCrm.Facade
                         insured.CustomerSource = "120";//服务单
                         insured.Status = CustomerStatus.Purchased.ToString();
                         insured.Contacts = new List<ContactInfo>();
-                        if (!String.IsNullOrWhiteSpace(dto.Telephone) 
+                        if (!String.IsNullOrWhiteSpace(dto.Telephone)
                             && !"null".Equals(dto.Telephone))
                         {
                             ContactInfo ci = new ContactInfo();
                             insured.Contacts.Add(ci);
-                            ci.ContactMethod = dto.Telephone.Replace("+86-","").Replace("-", "");
+                            ci.ContactMethod = dto.Telephone.Replace("+86-", "").Replace("-", "");
                             if (ci.ContactMethod.Length == 13)
                             {
                                 ci.ContactType = "Mobile";
@@ -656,10 +672,10 @@ namespace SimpleCrm.Facade
 
         private string ConvertToCode(List<Lov> statusLovList, string statusName)
         {
-            var lov = statusLovList.SingleOrDefault(l => l.Name.Replace(" ","") == statusName);
+            var lov = statusLovList.SingleOrDefault(l => l.Name.Replace(" ", "") == statusName);
             if (lov == null)
             {
-                throw new AppException(String.Format("保单状态数据字典中不存在{0}, 请增加之。", statusName));
+                throw new AppException(String.Format("保单状态数据字典中不存在[{0}], 请增加之。", statusName));
             }
             return lov.Code;
         }

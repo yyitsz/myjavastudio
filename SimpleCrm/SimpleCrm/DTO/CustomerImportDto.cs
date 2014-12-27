@@ -26,7 +26,7 @@ namespace SimpleCrm.DTO
         public String PrimaryIPName { get; set; }
         [CsvPosition("期交保费")]
         public Decimal Premium { get; set; }
-        [CsvPosition("联系电话")]
+        [CsvPosition("联系电话", Required = false)]
         public String Telephone { get; set; }
         [CsvPosition("保单状态")]
         public String IPStatus { get; set; }

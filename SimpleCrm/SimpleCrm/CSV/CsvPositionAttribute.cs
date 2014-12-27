@@ -62,6 +62,7 @@ namespace SimpleCrm
             Position = position;
             header = null;
             this.DataConverter = dataConverter;
+            this.Required = true;
         }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace SimpleCrm
         /// </summary>
         /// <param name="header">The header.</param>
         /// <param name="dataConverter">The data converter.</param>
-        public CsvPositionAttribute(string header,Type dataConverter)
+        public CsvPositionAttribute(string header, Type dataConverter)
         {
             if (string.IsNullOrEmpty(header))
             {
@@ -78,22 +79,25 @@ namespace SimpleCrm
             Header = header;
             position = -1;
             DataConverter = dataConverter;
+            this.Required = true;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvPositionAttribute"/> class.
         /// </summary>
         /// <param name="position">The position.</param>
-        public CsvPositionAttribute(int position):this(position,null)
+        public CsvPositionAttribute(int position)
+            : this(position, null)
         {
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvPositionAttribute"/> class.
         /// </summary>
         /// <param name="header">The header.</param>
-        public CsvPositionAttribute(string header):this(header,null)
+        public CsvPositionAttribute(string header)
+            : this(header, null)
         {
-          
+
         }
 
     }

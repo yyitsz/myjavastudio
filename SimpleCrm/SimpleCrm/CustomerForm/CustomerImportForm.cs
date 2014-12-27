@@ -23,7 +23,7 @@ namespace SimpleCrm.CustomerForm
         private void btnImport_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "CSV文件(*.csv)|*.csv";
+            dlg.Filter = "CSV文件(*.csv)|*.csv|Excel文件(*.xls)|*.xls|Excel文件(*.xlsx)|*.xlsx";
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 var cusotmerImportDtoList = AppFacade.Facade.ImportCustomers(dlg.FileName);
