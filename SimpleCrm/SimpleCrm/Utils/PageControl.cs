@@ -5,6 +5,8 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using SimpleCrm.Config;
+using SimpleCrm.Manager;
 
 
 namespace SimpleCrm.Utils
@@ -303,6 +305,14 @@ namespace SimpleCrm.Utils
             else
             {
                 this.btnGo.Enabled = true;
+            }
+        }
+
+        private void PageControl_Load(object sender, EventArgs e)
+        {
+            if (AppConfigManager.AppConfig != null)
+            {
+                this.pageSize = AppConfigManager.AppConfig.PageSize;
             }
         }
 

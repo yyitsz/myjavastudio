@@ -15,6 +15,7 @@ using SimpleCrm.ScheduleForm;
 using SimpleCrm.PendingItemForm;
 using SimpleCrm.SecurityForm;
 using SimpleCrm.CustomerForm;
+using SimpleCrm.Config;
 
 namespace SimpleCrm
 {
@@ -45,6 +46,7 @@ namespace SimpleCrm
         {
             // tssUserId.Text = "User Id: " + UserManager.UserProfile.UserId;
             //   ttsUserName.Text = "User Name: " + UserManager.UserProfile.UserName;
+            ribbonMainForm.SelectFirstVisibleRibbonTab();
 #if PRD
             LicenseInfo licenseInfo = RegHelper.CheckLicenseFromRegister();
             if (licenseInfo.Status != 1)
@@ -164,6 +166,11 @@ namespace SimpleCrm
         private void cmdImportCustomer_Executed(object sender, EventArgs e)
         {
             this.ShowMdiChildForm<CustomerImportForm>();
+        }
+
+        private void cmdOptions_Executed(object sender, EventArgs e)
+        {
+            FormHelper.ShowDialogForm<AppConfigForm>();
         }
     }
 }

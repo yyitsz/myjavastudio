@@ -29,11 +29,11 @@ namespace SimpleCrm.Utils
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
 
-            if (value.ToString() == "Õæ" || value.ToString().ToUpper() == "YES" || value.ToString().ToUpper() == "Y")
+            if (value.ToString() == "Õæ" || value.ToString() == "ÊÇ" || value.ToString().ToUpper() == "YES" || value.ToString().ToUpper() == "Y")
             {
                 value = "true";
             }
-            else if (value.ToString() == "¼Ù" || value.ToString().ToUpper() == "NO" || value.ToString().ToUpper() == "N")
+            else if (value.ToString() == "¼Ù" || value.ToString() == "·ñ" || value.ToString().ToUpper() == "NO" || value.ToString().ToUpper() == "N")
             {
                 value = "false";
             }

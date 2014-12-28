@@ -45,7 +45,7 @@ namespace SimpleCrm.CustomerForm
         {
             try
             {
-                // pcCustomer.CurrentPage = 1;
+                pcCustomer.CurrentPage = 1;
                 SearchData();
             }
             catch (Exception ex)
@@ -59,7 +59,7 @@ namespace SimpleCrm.CustomerForm
             CustomerSearchParamDto param = new CustomerSearchParamDto();
             dataBindingParam.MapToObject(param);
             param.PageSize = pcCustomer.PageSize;
-            param.StartPage = pcCustomer.CurrentPage; ;
+            param.StartPage = pcCustomer.CurrentPage;
 
             BaseSearchResultDto<CustomerSearchResultDto> searchResult = AppFacade.Facade.SearchCustomer(param);
             if (searchResult.Results != null)

@@ -4,6 +4,7 @@ using System.Text;
 using SimpleCrm.Config;
 using SimpleCrm.Utils;
 using System.IO;
+using System.Windows.Forms;
 
 namespace SimpleCrm.Manager
 {
@@ -39,7 +40,7 @@ namespace SimpleCrm.Manager
 
         private static String GetConfigPath()
         {
-            String path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "autopay");
+            String path = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "conf");
             if (Directory.Exists(path) == false)
             {
                 Directory.CreateDirectory(path);

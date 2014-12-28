@@ -33,11 +33,13 @@ namespace SimpleCrm
             this.cmdUserMain = new DevComponents.DotNetBar.Command(this.components);
             this.cmdLovMain = new DevComponents.DotNetBar.Command(this.components);
             this.cmbAddCustomer = new DevComponents.DotNetBar.Command(this.components);
-            this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
+            this.ribbonMainForm = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnImportCustomer = new DevComponents.DotNetBar.ButtonItem();
+            this.cmdImportCustomer = new DevComponents.DotNetBar.Command(this.components);
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.btnUserMain = new DevComponents.DotNetBar.ButtonItem();
@@ -61,9 +63,9 @@ namespace SimpleCrm
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.styleManager = new DevComponents.DotNetBar.StyleManager(this.components);
             this.tabStrip1 = new DevComponents.DotNetBar.TabStrip();
-            this.btnImportCustomer = new DevComponents.DotNetBar.ButtonItem();
-            this.cmdImportCustomer = new DevComponents.DotNetBar.Command(this.components);
-            this.ribbonControl1.SuspendLayout();
+            this.btnOptions = new DevComponents.DotNetBar.ButtonItem();
+            this.cmdOptions = new DevComponents.DotNetBar.Command(this.components);
+            this.ribbonMainForm.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
@@ -89,49 +91,49 @@ namespace SimpleCrm
             this.cmbAddCustomer.Name = "cmbAddCustomer";
             this.cmbAddCustomer.Executed += new System.EventHandler(this.cmbAddCustomer_Executed);
             // 
-            // ribbonControl1
+            // ribbonMainForm
             // 
             // 
             // 
             // 
-            this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel3);
-            this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.ribbonMainForm.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonMainForm.CaptionVisible = true;
+            this.ribbonMainForm.Controls.Add(this.ribbonPanel2);
+            this.ribbonMainForm.Controls.Add(this.ribbonPanel1);
+            this.ribbonMainForm.Controls.Add(this.ribbonPanel3);
+            this.ribbonMainForm.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ribbonMainForm.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ribbonTabItem1,
             this.ribbonTabSchedule,
             this.ribbonTabItem2});
-            this.ribbonControl1.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
-            this.ribbonControl1.Location = new System.Drawing.Point(5, 1);
-            this.ribbonControl1.MdiSystemItemVisible = false;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.ribbonControl1.QuickToolbarItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.ribbonMainForm.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
+            this.ribbonMainForm.Location = new System.Drawing.Point(5, 1);
+            this.ribbonMainForm.MdiSystemItemVisible = false;
+            this.ribbonMainForm.Name = "ribbonMainForm";
+            this.ribbonMainForm.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.ribbonMainForm.QuickToolbarItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btnHome,
             this.qatCustomizeItem1});
-            this.ribbonControl1.Size = new System.Drawing.Size(803, 115);
-            this.ribbonControl1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonControl1.SystemText.MaximizeRibbonText = "&Maximize the Ribbon";
-            this.ribbonControl1.SystemText.MinimizeRibbonText = "Mi&nimize the Ribbon";
-            this.ribbonControl1.SystemText.QatAddItemText = "&Add to Quick Access Toolbar";
-            this.ribbonControl1.SystemText.QatCustomizeMenuLabel = "<b>Customize Quick Access Toolbar</b>";
-            this.ribbonControl1.SystemText.QatCustomizeText = "&Customize Quick Access Toolbar...";
-            this.ribbonControl1.SystemText.QatDialogAddButton = "&Add >>";
-            this.ribbonControl1.SystemText.QatDialogCancelButton = "Cancel";
-            this.ribbonControl1.SystemText.QatDialogCaption = "Customize Quick Access Toolbar";
-            this.ribbonControl1.SystemText.QatDialogCategoriesLabel = "&Choose commands from:";
-            this.ribbonControl1.SystemText.QatDialogOkButton = "OK";
-            this.ribbonControl1.SystemText.QatDialogPlacementCheckbox = "&Place Quick Access Toolbar below the Ribbon";
-            this.ribbonControl1.SystemText.QatDialogRemoveButton = "&Remove";
-            this.ribbonControl1.SystemText.QatPlaceAboveRibbonText = "&Place Quick Access Toolbar above the Ribbon";
-            this.ribbonControl1.SystemText.QatPlaceBelowRibbonText = "&Place Quick Access Toolbar below the Ribbon";
-            this.ribbonControl1.SystemText.QatRemoveItemText = "&Remove from Quick Access Toolbar";
-            this.ribbonControl1.TabGroupHeight = 14;
-            this.ribbonControl1.TabIndex = 17;
-            this.ribbonControl1.Text = "ribbonControl1";
+            this.ribbonMainForm.Size = new System.Drawing.Size(803, 115);
+            this.ribbonMainForm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonMainForm.SystemText.MaximizeRibbonText = "&Maximize the Ribbon";
+            this.ribbonMainForm.SystemText.MinimizeRibbonText = "Mi&nimize the Ribbon";
+            this.ribbonMainForm.SystemText.QatAddItemText = "&Add to Quick Access Toolbar";
+            this.ribbonMainForm.SystemText.QatCustomizeMenuLabel = "<b>Customize Quick Access Toolbar</b>";
+            this.ribbonMainForm.SystemText.QatCustomizeText = "&Customize Quick Access Toolbar...";
+            this.ribbonMainForm.SystemText.QatDialogAddButton = "&Add >>";
+            this.ribbonMainForm.SystemText.QatDialogCancelButton = "Cancel";
+            this.ribbonMainForm.SystemText.QatDialogCaption = "Customize Quick Access Toolbar";
+            this.ribbonMainForm.SystemText.QatDialogCategoriesLabel = "&Choose commands from:";
+            this.ribbonMainForm.SystemText.QatDialogOkButton = "OK";
+            this.ribbonMainForm.SystemText.QatDialogPlacementCheckbox = "&Place Quick Access Toolbar below the Ribbon";
+            this.ribbonMainForm.SystemText.QatDialogRemoveButton = "&Remove";
+            this.ribbonMainForm.SystemText.QatPlaceAboveRibbonText = "&Place Quick Access Toolbar above the Ribbon";
+            this.ribbonMainForm.SystemText.QatPlaceBelowRibbonText = "&Place Quick Access Toolbar below the Ribbon";
+            this.ribbonMainForm.SystemText.QatRemoveItemText = "&Remove from Quick Access Toolbar";
+            this.ribbonMainForm.TabGroupHeight = 14;
+            this.ribbonMainForm.TabIndex = 17;
+            this.ribbonMainForm.Text = "reMenu";
             // 
             // ribbonPanel1
             // 
@@ -155,6 +157,7 @@ namespace SimpleCrm
             // 
             this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar1
             // 
@@ -213,6 +216,21 @@ namespace SimpleCrm
             this.buttonItem2.SubItemsExpandWidth = 14;
             this.buttonItem2.Text = "新增客户";
             // 
+            // btnImportCustomer
+            // 
+            this.btnImportCustomer.BeginGroup = true;
+            this.btnImportCustomer.Command = this.cmdImportCustomer;
+            this.btnImportCustomer.Image = global::SimpleCrm.Properties.Resources.download;
+            this.btnImportCustomer.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnImportCustomer.Name = "btnImportCustomer";
+            this.btnImportCustomer.SubItemsExpandWidth = 14;
+            this.btnImportCustomer.Text = "导入客户";
+            // 
+            // cmdImportCustomer
+            // 
+            this.cmdImportCustomer.Name = "cmdImportCustomer";
+            this.cmdImportCustomer.Executed += new System.EventHandler(this.cmdImportCustomer_Executed);
+            // 
             // ribbonPanel2
             // 
             this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -235,7 +253,6 @@ namespace SimpleCrm
             // 
             this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
             // 
             // ribbonBar2
             // 
@@ -255,11 +272,12 @@ namespace SimpleCrm
             this.btnUserMain,
             this.btnChangePassword,
             this.btnLovMain,
+            this.btnOptions,
             this.btnRegister,
             this.btnAbount});
             this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(341, 56);
+            this.ribbonBar2.Size = new System.Drawing.Size(338, 56);
             this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar2.TabIndex = 0;
             // 
@@ -436,7 +454,6 @@ namespace SimpleCrm
             // 
             // ribbonTabItem1
             // 
-            this.ribbonTabItem1.Checked = true;
             this.ribbonTabItem1.Name = "ribbonTabItem1";
             this.ribbonTabItem1.Panel = this.ribbonPanel1;
             this.ribbonTabItem1.Text = "客户";
@@ -449,6 +466,7 @@ namespace SimpleCrm
             // 
             // ribbonTabItem2
             // 
+            this.ribbonTabItem2.Checked = true;
             this.ribbonTabItem2.Name = "ribbonTabItem2";
             this.ribbonTabItem2.Panel = this.ribbonPanel2;
             this.ribbonTabItem2.Text = "系统";
@@ -487,20 +505,20 @@ namespace SimpleCrm
             this.tabStrip1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             this.tabStrip1.Text = "tabStrip1";
             // 
-            // btnImportCustomer
+            // btnOptions
             // 
-            this.btnImportCustomer.BeginGroup = true;
-            this.btnImportCustomer.Command = this.cmdImportCustomer;
-            this.btnImportCustomer.Image = global::SimpleCrm.Properties.Resources.download;
-            this.btnImportCustomer.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnImportCustomer.Name = "btnImportCustomer";
-            this.btnImportCustomer.SubItemsExpandWidth = 14;
-            this.btnImportCustomer.Text = "导入客户";
+            this.btnOptions.BeginGroup = true;
+            this.btnOptions.Command = this.cmdOptions;
+            this.btnOptions.Image = global::SimpleCrm.Properties.Resources.configuration;
+            this.btnOptions.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnOptions.Name = "btnOptions";
+            this.btnOptions.SubItemsExpandWidth = 14;
+            this.btnOptions.Text = "选项";
             // 
-            // cmdImportCustomer
+            // cmdOptions
             // 
-            this.cmdImportCustomer.Name = "cmdImportCustomer";
-            this.cmdImportCustomer.Executed += new System.EventHandler(this.cmdImportCustomer_Executed);
+            this.cmdOptions.Name = "cmdOptions";
+            this.cmdOptions.Executed += new System.EventHandler(this.cmdOptions_Executed);
             // 
             // MainForm
             // 
@@ -508,7 +526,7 @@ namespace SimpleCrm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 528);
             this.Controls.Add(this.tabStrip1);
-            this.Controls.Add(this.ribbonControl1);
+            this.Controls.Add(this.ribbonMainForm);
             this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -518,8 +536,8 @@ namespace SimpleCrm
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.ribbonControl1.ResumeLayout(false);
-            this.ribbonControl1.PerformLayout();
+            this.ribbonMainForm.ResumeLayout(false);
+            this.ribbonMainForm.PerformLayout();
             this.ribbonPanel1.ResumeLayout(false);
             this.ribbonPanel2.ResumeLayout(false);
             this.ribbonPanel3.ResumeLayout(false);
@@ -533,7 +551,7 @@ namespace SimpleCrm
         private DevComponents.DotNetBar.Command cmdUserMain;
         private DevComponents.DotNetBar.Command cmdLovMain;
         private DevComponents.DotNetBar.Command cmbAddCustomer;
-        private DevComponents.DotNetBar.RibbonControl ribbonControl1;
+        private DevComponents.DotNetBar.RibbonControl ribbonMainForm;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel1;
         private DevComponents.DotNetBar.RibbonBar ribbonBar1;
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem1;
@@ -563,6 +581,8 @@ namespace SimpleCrm
         private DevComponents.DotNetBar.ButtonItem btnAbount;
         private DevComponents.DotNetBar.ButtonItem btnImportCustomer;
         private DevComponents.DotNetBar.Command cmdImportCustomer;
+        private DevComponents.DotNetBar.ButtonItem btnOptions;
+        private DevComponents.DotNetBar.Command cmdOptions;
     }
 }
 

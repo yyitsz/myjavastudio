@@ -34,12 +34,12 @@ namespace SimpleCrm.Utils
         private void InitializeComponent()
         {
             this.lblResultStatus = new DevComponents.DotNetBar.LabelX();
-            this.btnGo = new DevComponents.DotNetBar.ButtonX();
             this.txtPageNumber = new DevComponents.Editors.IntegerInput();
-            this.btnLast = new DevComponents.DotNetBar.ButtonX();
+            this.btnGo = new DevComponents.DotNetBar.ButtonX();
             this.btnFirst = new DevComponents.DotNetBar.ButtonX();
             this.btnPrevious = new DevComponents.DotNetBar.ButtonX();
             this.btnNext = new DevComponents.DotNetBar.ButtonX();
+            this.btnLast = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.txtPageNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,19 +58,6 @@ namespace SimpleCrm.Utils
             this.lblResultStatus.TabIndex = 63;
             this.lblResultStatus.Text = "A";
             // 
-            // btnGo
-            // 
-            this.btnGo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnGo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnGo.Enabled = false;
-            this.btnGo.Location = new System.Drawing.Point(272, 0);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(35, 25);
-            this.btnGo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnGo.TabIndex = 0;
-            this.btnGo.Text = "Go";
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
-            // 
             // txtPageNumber
             // 
             // 
@@ -78,59 +65,76 @@ namespace SimpleCrm.Utils
             // 
             this.txtPageNumber.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtPageNumber.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtPageNumber.Location = new System.Drawing.Point(307, 0);
+            this.txtPageNumber.Location = new System.Drawing.Point(332, 0);
             this.txtPageNumber.Name = "txtPageNumber";
-            this.txtPageNumber.Size = new System.Drawing.Size(36, 20);
-            this.txtPageNumber.TabIndex = 1;
+            this.txtPageNumber.Size = new System.Drawing.Size(31, 20);
+            this.txtPageNumber.TabIndex = 68;
             this.txtPageNumber.ValueChanged += new System.EventHandler(this.txtPageNumber_ValueChanged);
             // 
-            // btnLast
+            // btnGo
             // 
-            this.btnLast.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnLast.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLast.Image = global::SimpleCrm.Properties.Resources.page_last;
-            this.btnLast.Location = new System.Drawing.Point(439, 0);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(32, 25);
-            this.btnLast.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnLast.TabIndex = 5;
-            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            this.btnGo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnGo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnGo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGo.Location = new System.Drawing.Point(305, 0);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(27, 25);
+            this.btnGo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnGo.TabIndex = 69;
+            this.btnGo.Text = "GO";
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // btnFirst
             // 
             this.btnFirst.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnFirst.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnFirst.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnFirst.Image = global::SimpleCrm.Properties.Resources.page_first;
-            this.btnFirst.Location = new System.Drawing.Point(343, 0);
+            this.btnFirst.Location = new System.Drawing.Point(363, 0);
             this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(32, 25);
+            this.btnFirst.Size = new System.Drawing.Size(27, 25);
             this.btnFirst.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnFirst.TabIndex = 2;
+            this.btnFirst.TabIndex = 67;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnPrevious
             // 
             this.btnPrevious.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnPrevious.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnPrevious.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnPrevious.Image = global::SimpleCrm.Properties.Resources.page_previous;
-            this.btnPrevious.Location = new System.Drawing.Point(375, 0);
+            this.btnPrevious.Location = new System.Drawing.Point(390, 0);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(32, 25);
+            this.btnPrevious.Size = new System.Drawing.Size(27, 25);
             this.btnPrevious.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnPrevious.TabIndex = 3;
+            this.btnPrevious.TabIndex = 66;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
             this.btnNext.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNext.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnNext.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnNext.Image = global::SimpleCrm.Properties.Resources.page_next;
-            this.btnNext.Location = new System.Drawing.Point(407, 0);
+            this.btnNext.Location = new System.Drawing.Point(417, 0);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(32, 25);
+            this.btnNext.Size = new System.Drawing.Size(27, 25);
             this.btnNext.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNext.TabIndex = 4;
+            this.btnNext.TabIndex = 65;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnLast
+            // 
+            this.btnLast.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnLast.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLast.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLast.Image = global::SimpleCrm.Properties.Resources.page_last;
+            this.btnLast.Location = new System.Drawing.Point(444, 0);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(27, 25);
+            this.btnLast.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnLast.TabIndex = 64;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // PageControl
             // 
@@ -145,6 +149,7 @@ namespace SimpleCrm.Utils
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PageControl";
             this.Size = new System.Drawing.Size(471, 25);
+            this.Load += new System.EventHandler(this.PageControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPageNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,12 +158,12 @@ namespace SimpleCrm.Utils
 
         #endregion
 
-        private ButtonX btnLast;
-        private ButtonX btnFirst;
-        private ButtonX btnPrevious;
-        private ButtonX btnNext;
         private LabelX lblResultStatus;
-        private ButtonX btnGo;
+        private ButtonX btnLast;
+        private ButtonX btnNext;
+        private ButtonX btnPrevious;
+        private ButtonX btnFirst;
         private IntegerInput txtPageNumber;
+        private ButtonX btnGo;
     }
 }
