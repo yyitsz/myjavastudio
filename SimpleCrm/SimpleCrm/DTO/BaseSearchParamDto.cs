@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Dapper;
 
 namespace SimpleCrm.DTO
 {
     [Serializable]
-    public class PageSearchParamDto : IPagination
+    public class BaseSearchParamDto
     {
-        public EnquiryParam EnquiryParam { get; set; }
-
+        public int? StartPage { get; set; }
+        public int? PageSize { get; set; }
     }
 }

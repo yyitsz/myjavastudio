@@ -238,7 +238,7 @@ namespace SimpleCrm.Facade
         //    });
         //}
 
-        internal DTO.PageSearchResultDto<DTO.CustomerSearchResultDto> SearchCustomer(DTO.CustomerSearchParamDto customerSearchParamDto)
+        internal DTO.BaseSearchResultDto<DTO.CustomerSearchResultDto> SearchCustomer(DTO.CustomerSearchParamDto customerSearchParamDto)
         {
             return ExecutedInTx(conn =>
             {

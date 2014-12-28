@@ -92,7 +92,7 @@ namespace SimpleCrm.Utils
             get { return (currentPage - 1) * this.pageSize; }
         }
 
-        private int pageSize;
+        private int pageSize = 10;
 
         /// <summary>
         /// Gets or sets the size of the page.

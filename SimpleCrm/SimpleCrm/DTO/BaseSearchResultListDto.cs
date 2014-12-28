@@ -7,7 +7,7 @@ using Dapper;
 namespace SimpleCrm.DTO
 {
     [Serializable]
-    public class PageSearchResultDto<T> : IPaginationResult
+    public class BaseSearchResultDto<T>
     {
         public int? TotalRecord { get; set; }
         public List<T> Results { get; set; }

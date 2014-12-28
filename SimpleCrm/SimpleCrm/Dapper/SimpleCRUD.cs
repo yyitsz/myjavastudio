@@ -852,20 +852,6 @@ namespace Dapper
     {
         String GetUser();
     }
-
-    public class EnquiryParam
-    {
-        public int? StartPage { get; set; }
-        public int? PageSize { get; set; }
-    }
-    public interface IPagination
-    {
-        EnquiryParam EnquiryParam { get; }
-    }
-    public interface IPaginationResult
-    {
-        int? TotalRecord { set; }
-    }
 }
 
 [global::System.Serializable]

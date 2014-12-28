@@ -59,7 +59,7 @@ namespace SimpleCrm.CustomerForm
             CustomerSearchParamDto param = new CustomerSearchParamDto();
             dataBindingParam.MapToObject(param);
 
-            PageSearchResultDto<CustomerSearchResultDto> searchResult = AppFacade.Facade.SearchCustomer(param);
+            BaseSearchResultDto<CustomerSearchResultDto> searchResult = AppFacade.Facade.SearchCustomer(param);
             if (searchResult.Results != null)
             {
                 grdResult.DataSource = searchResult.Results;

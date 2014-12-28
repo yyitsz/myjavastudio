@@ -248,7 +248,7 @@ namespace SimpleCrm.DynamicSql
                 CountSql = "*";
             }
 
-            return " COUNT(" + CountSql + ") ";
+            return " COUNT(" + CountSql + ") Count";
 
         }
         public override String Eval(object context)

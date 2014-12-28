@@ -13,7 +13,10 @@ namespace SimpleCrm.Manager
 {
     public class CustomerManager : BaseRepo<Customer, long?>
     {
-        private readonly static String SQL_SEARCH_CUST = @"SELECT Customer.*,  mobileCi.ContactMethod Mobile, addressCi.ContactMethod HomeAddress
+        private readonly static String SQL_SEARCH_CUST = @"SELECT 
+@count(*) {
+  Customer.*,  mobileCi.ContactMethod Mobile, addressCi.ContactMethod HomeAddress
+}
 FROM Customer 
     LEFT JOIN ContactInfo mobileCi ON mobileCi.CustomerId = Customer.CustomerId AND mobileCi.ContactType = 'Mobile'
     LEFT JOIN ContactInfo addressCi ON addressCi.CustomerId = Customer.CustomerId AND addressCi.ContactType = 'HomeAddress'
@@ -42,17 +45,20 @@ WHERE 1=1
         }
 
 
-        internal DTO.PageSearchResultDto<DTO.CustomerSearchResultDto> SearchCustomer(DTO.CustomerSearchParamDto customerSearchParamDto)
+        internal DTO.BaseSearchResultDto<DTO.CustomerSearchResultDto> SearchCustomer(DTO.CustomerSearchParamDto customerSearchParamDto)
         {
-            String sql = SqlParser.Eval(SQL_SEARCH_CUST, customerSearchParamDto).Item1;
             if (!String.IsNullOrWhiteSpace(customerSearchParamDto.ContactMethod))
             {
                 customerSearchParamDto.ContactMethod = "%" + customerSearchParamDto.ContactMethod + "%";
             }
-            var list = Connection.Query<CustomerSearchResultDto>(sql, customerSearchParamDto);
-            PageSearchResultDto<CustomerSearchResultDto> result = new PageSearchResultDto<CustomerSearchResultDto>();
-            result.Results = list.ToList();
-            return result;
+
+            //String sql = SqlParser.Eval(SQL_SEARCH_CUST, customerSearchParamDto).Item1;
+           
+            //var list = Connection.Query<CustomerSearchResultDto>(sql, customerSearchParamDto);
+            //BaseSearchResultDto<CustomerSearchResultDto> result = new BaseSearchResultDto<CustomerSearchResultDto>();
+            //result.Results = list.ToList();
+            //return result;
+            return base.Search<BaseSearchResultDto<CustomerSearchResultDto>,CustomerSearchParamDto, CustomerSearchResultDto>(SQL_SEARCH_CUST,customerSearchParamDto);
         }
 
         public override int Save(Customer customer)

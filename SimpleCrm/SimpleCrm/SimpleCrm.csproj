@@ -259,13 +259,13 @@
     </Compile>
     <Compile Include="Dapper\DateTimeHandler.cs" />
     <Compile Include="DTO\BaseModel.cs" />
+    <Compile Include="DTO\BaseSearchParamDto.cs" />
     <Compile Include="DTO\CustomerImportDto.cs" />
     <Compile Include="DTO\SearchPendingItemParamDto.cs" />
     <Compile Include="DTO\InsurancePolicyResultDto.cs" />
-    <Compile Include="DTO\PageSearchResultListDto.cs" />
+    <Compile Include="DTO\BaseSearchResultListDto.cs" />
     <Compile Include="DTO\CustomerSearchParamDto.cs" />
     <Compile Include="DTO\CustomerSearchResultDto.cs" />
-    <Compile Include="DTO\PageSearchParamDto.cs" />
     <Compile Include="DTO\PendingItemDto.cs" />
     <Compile Include="DynamicSql\SqlParser.cs" />
     <Compile Include="InsuranceForm\InsurancePolicyListForm.cs">

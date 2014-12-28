@@ -6,6 +6,8 @@ using Dapper;
 using SimpleCrm.Model;
 using SimpleCrm.Common;
 using System.Linq;
+using SimpleCrm.DTO;
+using SimpleCrm.DynamicSql;
 
 namespace SimpleCrm.Manager
 {
@@ -17,7 +19,31 @@ namespace SimpleCrm.Manager
 
     public class BaseRepo<Tm, Tk> : BaseRepo where Tm : BaseModel
     {
-
+        public TR Search<TR, TP, TDto>(String sql, TP param)
+            where TP : BaseSearchParamDto
+            where TR : BaseSearchResultDto<TDto>, new()
+        {
+            Tuple<String, String> sqlResult = SqlParser.Eval(sql, param);
+            String selectSql = sqlResult.Item1;
+            if (param.StartPage != null && param.PageSize != null)
+            {
+                selectSql = String.Format("{0} LIMIT {1} OFFSET {2}", selectSql, param.PageSize, param.PageSize * (param.StartPage - 1));
+                if (String.IsNullOrEmpty(sqlResult.Item2) == false)
+                {
+                    String countSql = sqlResult.Item2;
+                    selectSql += ";\n" + countSql;
+                }
+            }
+            TR result = new TR();
+            Dapper.SqlMapper.GridReader gridReader = Connection.QueryMultiple(selectSql);
+            result.Results = gridReader.Read<TDto>(false).ToList();
+            if (String.IsNullOrEmpty(sqlResult.Item2) == false)
+            {
+                long count = gridReader.Read(false).First().Count;
+                result.TotalRecord = (int)count;
+            }
+            return result;
+        }
         public virtual int Create(Tm entity)
         {
             int c = Connection.Insert(entity);

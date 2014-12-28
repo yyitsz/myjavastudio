@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SimpleCrm.DTO
 {
-    public class CustomerSearchParamDto : PageSearchParamDto
+    public class CustomerSearchParamDto : BaseSearchParamDto
     {
         public String CustomerName { get; set; }
         public String IdCardNo { get; set; }
