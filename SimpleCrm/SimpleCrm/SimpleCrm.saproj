@@ -297,6 +297,14 @@
                     </Obfuscation>
                 </Merging>
             </Assembly>
+            <Assembly AssemblyName="Excel, Culture=neutral, PublicKeyToken=93517dbe6a4012fa">
+                <Merging />
+                <Embedding Embed="1" />
+            </Assembly>
+            <Assembly AssemblyName="ICSharpCode.SharpZipLib, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+                <Merging />
+                <Embedding Embed="1" />
+            </Assembly>
         </Assemblies>
     </Configuration>
 </SmartAssemblyProject>

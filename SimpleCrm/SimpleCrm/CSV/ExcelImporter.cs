@@ -258,16 +258,17 @@ namespace SimpleCrm.CSV
 
         private Excel.IExcelDataReader CreateReader()
         {
-            if (path.EndsWith("xls", StringComparison.InvariantCultureIgnoreCase))
+            FileStream stream = File.Open(path, FileMode.Open, FileAccess.Read);
+            if (path.EndsWith(".xls", StringComparison.InvariantCultureIgnoreCase))
             {
-                Excel.IExcelDataReader reader = Excel.ExcelReaderFactory.CreateBinaryReader(File.OpenRead(path));
-                reader.IsFirstRowAsColumnNames = firstRowIsHead;
+                Excel.IExcelDataReader reader = Excel.ExcelReaderFactory.CreateBinaryReader(stream);
+               // reader.IsFirstRowAsColumnNames = firstRowIsHead;
                 return reader;
             }
-            else if (path.EndsWith("xlsx", StringComparison.InvariantCultureIgnoreCase))
+            else if (path.EndsWith(".xlsx", StringComparison.InvariantCultureIgnoreCase))
             {
-                Excel.IExcelDataReader reader = Excel.ExcelReaderFactory.CreateOpenXmlReader(File.OpenRead(path));
-                reader.IsFirstRowAsColumnNames = firstRowIsHead;
+                Excel.IExcelDataReader reader = Excel.ExcelReaderFactory.CreateOpenXmlReader(stream);
+             //   reader.IsFirstRowAsColumnNames = firstRowIsHead;
                 return reader;
             }
             throw new Exception("Not support file format.");
