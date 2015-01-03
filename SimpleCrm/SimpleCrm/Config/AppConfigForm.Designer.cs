@@ -162,7 +162,7 @@
             this.Controls.Add(this.groupPanel2);
             this.DoubleBuffered = true;
             this.Name = "AppConfigForm";
-            this.Text = "AppConfigForm";
+            this.Text = "选项";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppConfigForm_FormClosing);
             this.Load += new System.EventHandler(this.AppConfigForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pgAppConfig)).EndInit();

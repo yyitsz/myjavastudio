@@ -35,7 +35,7 @@ namespace SimpleCrm.Manager
                 }
             }
             TR result = new TR();
-            Dapper.SqlMapper.GridReader gridReader = Connection.QueryMultiple(selectSql);
+            Dapper.SqlMapper.GridReader gridReader = Connection.QueryMultiple(selectSql, param);
             result.Results = gridReader.Read<TDto>(false).ToList();
             if (String.IsNullOrEmpty(sqlResult.Item2) == false)
             {

@@ -1,5 +1,5 @@
 <SmartAssemblyProject ProjectId="{15a815df-6c17-4901-a00e-03683560d3b6}" Version="2.0">
-    <MainAssemblyFileName>.\bin\Release\SimpleCrm.exe</MainAssemblyFileName>
+    <MainAssemblyFileName>..\dist\simplecrm\SimpleCrm.exe</MainAssemblyFileName>
     <FriendlyName>SimpleCrm</FriendlyName>
     <CompanyName>Limited</CompanyName>
     <Configuration Name="Release">
@@ -14,7 +14,7 @@
             <Debugging CreatePDB="1" />
         </Options>
         <ApplicationName>SimpleCrm</ApplicationName>
-        <Destination DestinationFileName="..\dist\Simple客户管理系统\SimpleCrm.exe" />
+        <Destination DestinationFileName="..\dist\simplecrm_obfuscated\SimpleCrm.exe" />
         <Assemblies>
             <Assembly AssemblyName="SimpleCrm, Culture=neutral, PublicKeyToken=null">
                 <Merging>

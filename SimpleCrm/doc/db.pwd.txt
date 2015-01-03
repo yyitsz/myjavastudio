@@ -1,2 +1,3 @@
 dbpwd: Scrm7DbPwd
 cryption: Ufvr=KjY?o
+admin/Adm1n@Pwd
