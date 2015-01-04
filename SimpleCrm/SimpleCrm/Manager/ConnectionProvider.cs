@@ -7,6 +7,8 @@ using System.Configuration;
 using System.Text.RegularExpressions;
 using SimpleCrm.Utils;
 using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace SimpleCrm.Manager
 {
@@ -15,8 +17,8 @@ namespace SimpleCrm.Manager
         private static DbProviderFactory dbProviderfactory;
         private static String pwd;
         private static String connectionStr;
-       // private static Regex pwdRegex = new Regex("Password=(.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
+        // private static Regex pwdRegex = new Regex("Password=(.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        private static Regex dataSourceRegex = new Regex("(?<=Data Source=)[^;]*(?=;)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static DbConnection GetConnection()
         {
 
@@ -36,20 +38,21 @@ namespace SimpleCrm.Manager
 
         private static void CreateFactory()
         {
-           
+
             if (dbProviderfactory == null)
             {
                 connectionStr = System.Configuration.ConfigurationManager.ConnectionStrings["simplecrm"].ConnectionString;
-                //Match match = pwdRegex.Match(connectionStr);
-                //if (match.Success)
-                //{
-                //    String pwd = match.Groups[1].Value;
-                //    if (String.IsNullOrEmpty(pwd) == false)
-                //    {
-                //        String npwd = PasswordUtil.Encrypt(pwd);
-                //        connectionStr = connectionStr.Replace(pwd, npwd);
-                //    }
-                //}
+                Match match = dataSourceRegex.Match(connectionStr);
+                if (match.Success)
+                {
+                    String ds = match.Value;
+                    if (String.IsNullOrEmpty(ds) == false)
+                    {
+                        String newds = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), ds);
+                        newds = Path.GetFullPath(newds);
+                        connectionStr = dataSourceRegex.Replace(connectionStr, newds);
+                    }
+                }
 
                 String providerName = System.Configuration.ConfigurationManager.ConnectionStrings["simplecrm"].ProviderName;
                 dbProviderfactory = DbProviderFactories.GetFactory(providerName);

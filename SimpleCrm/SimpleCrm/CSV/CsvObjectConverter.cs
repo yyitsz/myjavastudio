@@ -90,10 +90,6 @@ namespace SimpleCrm.CSV
                                 CsvConvertionException ex = new CsvConvertionException("The header [" + header + "] defined in CsvPositionAttribute can not be found in headers of file.");
                                 throw ex;
                             }
-                            else
-                            {
-                                continue;
-                            }
                         }
 
                         if (position + 1 > fields.Length)

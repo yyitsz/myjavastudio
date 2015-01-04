@@ -31,19 +31,18 @@ namespace SimpleCrm.Utils
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblMessage = new LabelX();
-            this.grbDetail = new GroupPanel();
-            this.txtDetailMessage = new TextBoxX();
-            this.btnOK = new ButtonX();
-            this.btnDetail = new ButtonX();
-            this.lblIcon = new LabelX();
+            this.lblMessage = new DevComponents.DotNetBar.LabelX();
+            this.grbDetail = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.txtDetailMessage = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.btnOK = new DevComponents.DotNetBar.ButtonX();
+            this.btnDetail = new DevComponents.DotNetBar.ButtonX();
+            this.lblIcon = new DevComponents.DotNetBar.LabelX();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnExit = new ButtonX();
-            this.btnCancel = new ButtonX();
-            this.btnNo = new ButtonX();
-            this.btnYes = new ButtonX();
-            this.btnCopy = new ButtonX();
-          
+            this.btnExit = new DevComponents.DotNetBar.ButtonX();
+            this.btnCancel = new DevComponents.DotNetBar.ButtonX();
+            this.btnNo = new DevComponents.DotNetBar.ButtonX();
+            this.btnYes = new DevComponents.DotNetBar.ButtonX();
+            this.btnCopy = new DevComponents.DotNetBar.ButtonX();
             this.grbDetail.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,13 +51,15 @@ namespace SimpleCrm.Utils
             // 
             this.lblMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-          //  this.lblMessage.AutoEllipsis = true;
+            // 
+            // 
+            // 
+            this.lblMessage.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblMessage.Location = new System.Drawing.Point(93, 11);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(342, 85);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "Info";
-           // this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // grbDetail
             // 
@@ -66,46 +67,73 @@ namespace SimpleCrm.Utils
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.grbDetail.Controls.Add(this.txtDetailMessage);
+            this.grbDetail.DisabledBackColor = System.Drawing.Color.Empty;
             this.grbDetail.Location = new System.Drawing.Point(13, 133);
             this.grbDetail.Name = "grbDetail";
             this.grbDetail.Size = new System.Drawing.Size(422, 247);
+            // 
+            // 
+            // 
+            this.grbDetail.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.grbDetail.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.grbDetail.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.grbDetail.TabIndex = 2;
             // 
             // txtDetailMessage
             // 
             this.txtDetailMessage.BackColor = System.Drawing.Color.Gainsboro;
+            // 
+            // 
+            // 
+            this.txtDetailMessage.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtDetailMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetailMessage.Location = new System.Drawing.Point(3, 0);
+            this.txtDetailMessage.Location = new System.Drawing.Point(0, 0);
             this.txtDetailMessage.Multiline = true;
             this.txtDetailMessage.Name = "txtDetailMessage";
             this.txtDetailMessage.ReadOnly = true;
             this.txtDetailMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDetailMessage.Size = new System.Drawing.Size(416, 244);
+            this.txtDetailMessage.Size = new System.Drawing.Size(422, 247);
             this.txtDetailMessage.TabIndex = 0;
             // 
             // btnOK
             // 
+            this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Location = new System.Drawing.Point(179, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 25);
+            this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
             // 
             // btnDetail
             // 
+            this.btnDetail.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDetail.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDetail.Location = new System.Drawing.Point(341, 3);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 25);
+            this.btnDetail.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnDetail.TabIndex = 0;
             this.btnDetail.Text = "Detail <<";
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
             // lblIcon
             // 
+            // 
+            // 
+            // 
+            this.lblIcon.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblIcon.Location = new System.Drawing.Point(13, 9);
             this.lblIcon.Name = "lblIcon";
             this.lblIcon.Size = new System.Drawing.Size(53, 62);
@@ -130,39 +158,49 @@ namespace SimpleCrm.Utils
             // 
             // btnExit
             // 
+            this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.btnExit.Location = new System.Drawing.Point(260, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 25);
+            this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.Visible = false;
             // 
             // btnCancel
             // 
+            this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(98, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 25);
+            this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Visible = false;
             // 
             // btnNo
             // 
+            this.btnNo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnNo.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnNo.Location = new System.Drawing.Point(17, 3);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(75, 25);
+            this.btnNo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnNo.TabIndex = 2;
             this.btnNo.Text = "No";
             this.btnNo.Visible = false;
             // 
             // btnYes
             // 
+            this.btnYes.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnYes.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnYes.Location = new System.Drawing.Point(341, 34);
@@ -174,6 +212,7 @@ namespace SimpleCrm.Utils
             // 
             // btnCopy
             // 
+            this.btnCopy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCopy.Location = new System.Drawing.Point(260, 34);
             this.btnCopy.Name = "btnCopy";
@@ -199,9 +238,7 @@ namespace SimpleCrm.Utils
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Message";
             this.Load += new System.EventHandler(this.DetaiMessageBox_Load);
-          
             this.grbDetail.ResumeLayout(false);
-            this.grbDetail.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
