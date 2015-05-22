@@ -60,6 +60,7 @@
     <Compile Include="Main\BookmarkerWriter.cs" />
     <Compile Include="Main\BookParseResult.cs" />
     <Compile Include="Main\CookieHelper.cs" />
+    <Compile Include="Main\ImageHelper.cs" />
     <Compile Include="Main\InputCode2Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +112,9 @@
     <EmbeddedResource Include="Main\InputCode2Form.resx">
       <DependentUpon>InputCode2Form.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

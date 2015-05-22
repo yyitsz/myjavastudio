@@ -88,6 +88,10 @@ namespace Mouse.Main
                             {
                                 return FileType.SmallImage;
                             }
+                            if (stream.Length < 20000 && ImageHelper.compare(stream))
+                            {
+                                return FileType.SmallImage;
+                            }
                             return FileType.Image;
                         }
                     }
