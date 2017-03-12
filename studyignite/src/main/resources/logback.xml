@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <property name="destination" value="${catalina.base:-./temp}/"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
+                %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>../logs/app.log</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>../logs/app-%d{yyyy-MM-dd}.%i.log.gz
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %X{clientIp} %X{userId} %level [%thread] %logger{40} %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <appender name="FILE_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE"/>
+    </appender>
+
+
+    <appender name="FILE_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE"/>
+    </appender>
+
+
+    <logger name="org.apache" level="INFO">
+    </logger>
+
+    <logger name="org.apache.cxf" level="INFO">
+    </logger>
+
+    <logger name="org.apache.cxf.services" level="INFO">
+    </logger>
+    <logger name="org.apache.cxf.services.AnnexServiceService" level="WARN">
+    </logger>
+    <logger name="org.apache.cxf.services.ChannelServiceService" level="WARN">
+    </logger>
+    <logger name="org.yy" level="DEBUG">
+    </logger>
+  
+    <logger name="org.hibernate.type" level="OFF">
+        <level value="OFF"/>
+    </logger>
+
+    <logger name="org.hibernate.SQL" level="OFF">
+    </logger>
+
+    <logger name="org.springframework.jms" level="INFO">
+    </logger>
+
+    <logger name="org.springframework.transaction" level="INFO">
+    </logger>
+    <logger name="org.springframework.orm.jpa" level="INFO">
+    </logger>
+    <logger name="org.springframework" level="INFO">
+    </logger>
+    <logger name="jdbc.sqlonly" level="OFF">
+    </logger>
+    <logger name="jdbc.sqltiming" level="INFO">
+    </logger>
+    <logger name="jdbc.audit" level="OFF">
+    </logger>
+    <logger name="jdbc.resultset" level="OFF">
+    </logger>
+    <logger name="jdbc.resultsettable" level="OFF">
+    </logger>
+    <logger name="jdbc.connection" level="OFF">
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="FILE_ASYNC"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
