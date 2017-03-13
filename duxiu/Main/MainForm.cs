@@ -297,6 +297,13 @@ namespace Mouse.Main
                 if (result == null)
                 {
                     LogMsg("Begin parse url " + url);
+                    int count = 0;
+                    while (this.webBrowser.ReadyState == WebBrowserReadyState.Loading
+                        && count < 5)
+                    {
+                        Thread.Sleep(1000);
+                        count++;
+                    }
                     this.webBrowser.Navigate(url);
                     // DownloadPage(url);
                 }

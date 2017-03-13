@@ -11,8 +11,9 @@ namespace RecourceConverter
 {
     public class ExcelImportUtil
     {
-        private readonly string connectionStr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};" + "Extended Properties=\"Excel 8.0;HDR=No; IMEX=1\";";
 
+      //  private readonly string connectionStr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};" + "Extended Properties=\"Excel 8.0;HDR=No; IMEX=1\";";
+        private readonly string connectionStr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};" + "Extended Properties=\"Excel 8.0;HDR=No; IMEX=1\";";
 
         private IDictionary<string, PropertyInfo> propertyCache = new Dictionary<string, PropertyInfo>();
         private IDictionary<Type, TypeConverter> converters = new Dictionary<Type, TypeConverter>();
