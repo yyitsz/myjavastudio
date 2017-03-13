@@ -329,6 +329,7 @@
     <Compile Include="MasterForm\LovMainForm.Designer.cs">
       <DependentUpon>LovMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration\DbMigrationManager.cs" />
     <Compile Include="Model\ContactInfo.cs" />
     <Compile Include="Model\AppointmentInfo.cs" />
     <Compile Include="Model\CustomerRelation.cs" />
