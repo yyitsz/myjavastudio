@@ -5,4 +5,5 @@ package org.yy.core.risk.service;
  */
 public interface RiskServer {
     long calc(long v1, long v2);
+
 }

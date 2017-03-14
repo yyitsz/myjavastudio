@@ -22,14 +22,13 @@
                             http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd
                             http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
                             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd"
-        >
+>
 
     <context:component-scan base-package="org.yy">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <context:annotation-config/>
-    <!--    <tx:annotation-driven proxy-target-class="true"/> -->
 
     <bean id="ignite" class="org.apache.ignite.IgniteSpringBean">
         <property name="configuration" ref="igniteServerConfig"/>
@@ -71,7 +70,7 @@
         <property name="prefetchBlocks" value="32"/>
     </bean>
     <bean id="igniteServerConfig" class="org.apache.ignite.configuration.IgniteConfiguration">
-        <property name="gridName" value="studyignite" />
+        <property name="gridName" value="studyignite"/>
         <property name="peerClassLoadingEnabled" value="false"/>
         <!--       <property name="marshaller">  -->
         <!--           <bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller">  -->
@@ -225,9 +224,12 @@
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean"/>
 
     <!-- cache -->
-    <!--   <cache:annotation-driven />-->
+    <cache:annotation-driven cache-manager="igniteCacheManager"/>
+    <bean id="igniteCacheManager" class="org.apache.ignite.cache.spring.SpringCacheManager" depends-on="ignite">
+        <property name="gridName" value="studyignite"/>
+    </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
     <!-- <bean id="bmsDs" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
          <property name="targetDataSource" ref="demoDataSourceTarget"/>
      </bean>

@@ -6,7 +6,10 @@ import org.apache.ignite.lang.IgniteRunnable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.yy.core.risk.service.RiskServer;
+import org.yy.core.risk.service.SystemParameterService;
 import org.yy.core.risk.task.CalcTask;
+import org.yy.core.risk.task.IgniteCallableWrapper;
+import org.yy.core.risk.task.Tuple;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +23,8 @@ public class AdminController {
 
     @Resource
     private IgniteSpringBean ignite;
+    @Resource
+    private SystemParameterService systemParameterService;
 
     @RequestMapping(path = "/test/{name}")
     @ResponseBody
@@ -32,5 +37,33 @@ public class AdminController {
     public long calc(@PathVariable("v1") Long v1, @PathVariable("v2") Long v2) {
         Long call = ignite.compute().call(new CalcTask(v1, v2));
         return call;
+    }
+
+    @RequestMapping(path = "/calc2/{v1}/{v2}")
+    @ResponseBody
+    public long calc2(@PathVariable("v1") final Long v1, @PathVariable("v2") final Long v2) {
+        Tuple<Long, Long> tuple = new Tuple<>(v1, v2);
+        Long call = ignite.compute().call(new IgniteCallableWrapper<Tuple<Long, Long>, Long>(tuple) {
+
+            @Override
+            public Long call() throws Exception {
+                Tuple<Long, Long> param = getParam();
+                return getRiskServer().calc(param.getFirst(), param.getSecond());
+            }
+        });
+        return call;
+    }
+
+    @RequestMapping(path = "/getparam/{param}")
+    @ResponseBody
+    public String getParam(@PathVariable("param") final String param) {
+
+        return systemParameterService.getIp(param);
+    }
+
+    @RequestMapping(path = "/updateparam/{param}")
+    public void updateParam(@PathVariable("param") final String param) {
+
+         systemParameterService.setIp(param, "any");
     }
 }
