@@ -26,40 +26,43 @@
 
     <context:component-scan base-package="org.yy">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
     <context:annotation-config/>
-    <mvc:annotation-driven />
-   <!-- <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <bean class="com.flinkmf.mfbms.common.utils.AuthenticationInterceptor">
-
-            </bean>
-        </mvc:interceptor>
-    </mvc:interceptors>-->
+    <mvc:annotation-driven/>
+     <mvc:interceptors>
+         <mvc:interceptor>
+             <mvc:mapping path="/**"/>
+             <bean class="org.yy.web.rest.AuthenticationInterceptor">
+             </bean>
+         </mvc:interceptor>
+     </mvc:interceptors>
     <bean id="httpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
-        <property name="supportedMediaTypes" value = "text/plain;charset=UTF-8" />
+        <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
     </bean>
-    <bean id="jaxb2MessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">
+    <bean id="jaxb2MessageConverter"
+          class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">
     </bean>
 
     <bean id="defaultMessageConverters" class="java.util.ArrayList">
         <constructor-arg>
             <list>
                 <ref bean="jaxb2MessageConverter"/>
-                <!--<ref bean="jsonConverter"/>-->
+                <ref bean="jsonConverter"/>
             </list>
         </constructor-arg>
     </bean>
-    <!--    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-            <property name="supportedMediaTypes" value="application/json" />
-            <property name="objectMapper" ref="jaxbJacksonObjectMapper" />
-        </bean>-->
+    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes" value="application/json"/>
+        <property name="objectMapper" ref="objectMapper"/>
+    </bean>
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
 
+    </bean>
 
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" >
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters" ref="defaultMessageConverters"/>
         <property name="cacheSeconds" value="0"/>
     </bean>

@@ -51,7 +51,7 @@
     </logger>
     <logger name="org.yy" level="DEBUG">
     </logger>
-  
+
     <logger name="org.hibernate.type" level="OFF">
         <level value="OFF"/>
     </logger>
