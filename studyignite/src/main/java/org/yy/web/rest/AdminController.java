@@ -5,6 +5,8 @@ import org.apache.ignite.IgniteSpringBean;
 import org.apache.ignite.lang.IgniteRunnable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.yy.core.model.Person;
+import org.yy.core.risk.service.PersonService;
 import org.yy.core.risk.service.RiskServer;
 import org.yy.core.risk.service.SystemParameterService;
 import org.yy.core.risk.task.CalcTask;
@@ -23,6 +25,9 @@ public class AdminController {
 
     @Resource
     private IgniteSpringBean ignite;
+    @Resource
+    private PersonService personService;
+
     @Resource
     private SystemParameterService systemParameterService;
 
@@ -62,8 +67,20 @@ public class AdminController {
     }
 
     @RequestMapping(path = "/updateparam/{param}")
+    @ResponseBody
     public void updateParam(@PathVariable("param") final String param) {
 
-         systemParameterService.setIp(param, "any");
+        systemParameterService.setIp(param, "any");
+    }
+
+    @RequestMapping(path = "/person/add")
+    @ResponseBody
+    public String addPerson(@RequestParam("firstName") final String firstName, @RequestParam("lastName") final String lastName) {
+
+        Person p = new Person();
+        p.setFirstName(firstName);
+        p.setLastName(lastName);
+        personService.addPerson(p);
+        return p.toString();
     }
 }

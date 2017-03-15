@@ -10,6 +10,7 @@ import javax.cache.annotation.CacheKey;
 import javax.cache.annotation.CachePut;
 import javax.cache.annotation.CacheRemove;
 import javax.cache.annotation.CacheResult;
+import java.time.LocalDateTime;
 
 
 /**
@@ -23,7 +24,7 @@ public class SystemParameterServiceImpl implements org.yy.core.risk.service.Syst
     @CacheResult(cacheName = "systemParameter")
     public String getIp(@CacheKey String hostname) {
 
-        LocalDate now = LocalDate.now();
+        LocalDateTime now = LocalDateTime.now();
 
         String ip = hostname + ", " + now;
         logger.info("Get Param: {}, {}", hostname, ip);
