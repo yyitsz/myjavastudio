@@ -22,7 +22,7 @@
                             http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd
                             http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
                             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd"
-        >
+>
 
     <context:component-scan base-package="org.yy">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
@@ -71,6 +71,11 @@
     </bean>
     <bean id="igniteServerConfig" class="org.apache.ignite.configuration.IgniteConfiguration">
         <property name="gridName" value="studyignite"/>
+        <property name="lifecycleBeans">
+            <list>
+                <bean class="org.yy.core.base.ServerMonitor"/>
+            </list>
+        </property>
         <property name="peerClassLoadingEnabled" value="false"/>
         <!--       <property name="marshaller">  -->
         <!--           <bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller">  -->
@@ -82,6 +87,14 @@
         </property>
         <property name="serviceConfiguration">
             <list>
+                <bean class="org.apache.ignite.services.ServiceConfiguration">
+                    <property name="maxPerNodeCount" value="1"/>
+                    <property name="totalCount" value="1"/>
+                    <property name="name" value="ClusterScheduleService"/>
+                    <property name="service">
+                        <bean class="org.yy.core.base.ClusterScheduleService"/>
+                    </property>
+                </bean>
             </list>
         </property>
         <property name="atomicConfiguration">
@@ -100,6 +113,8 @@
             <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
                 <property name="ipFinder">
                     <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.multicast.TcpDiscoveryMulticastIpFinder">
+
+                        <property name="multicastGroup" value="228.1.2.5"/>
                     </bean>
                 </property>
             </bean>
@@ -237,12 +252,22 @@
     </bean>
 
 
+    <!--    <bean id="studyIgniteDataSourceTarget" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+            <property name="jdbcUrl" value="jdbc:oracle:thin:@10.100.53.97:1521/orcl11g2"/>
+            <property name="username" value="studyignite"/>
+            <property name="password" value="abc123"/>
+            <property name="autoCommit" value="false"/>
+            <property name="minimumIdle" value="0"/>
+            <property name="maximumPoolSize" value="20"/>
+            <property name="idleTimeout" value="600000"/>
+            <property name="maxLifetime" value="1800000 "/>
+            <property name="connectionTimeout" value="30000"/>
+        </bean>-->
     <bean id="studyIgniteDataSourceTarget" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
         <!-- <property name="dataSourceClassName" value="org.h2.Driver"/>-->
-        <!-- <property name="jdbcUrl" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>-->
-        <property name="jdbcUrl" value="jdbc:oracle:thin:@10.100.53.97:1521/orcl11g2"/>
-        <property name="username" value="studyignite"/>
-        <property name="password" value="abc123"/>
+        <property name="jdbcUrl" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>
+        <property name="username" value="sa"/>
+        <property name="password" value=""/>
         <property name="autoCommit" value="false"/>
         <property name="minimumIdle" value="0"/>
         <property name="maximumPoolSize" value="20"/>
@@ -250,7 +275,6 @@
         <property name="maxLifetime" value="1800000 "/>
         <property name="connectionTimeout" value="30000"/>
     </bean>
-
     <bean id="jpaPropertyMap" class="org.springframework.beans.factory.config.MapFactoryBean">
         <property name="targetMapClass">
             <value>java.util.HashMap</value>
@@ -258,8 +282,8 @@
         <property name="sourceMap">
             <map>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
-                <!--entry key="hibernate.hbm2ddl.auto" value="validate" /-->
-                <!--entry key="hibernate.hbm2ddl.auto" value="create" /-->
+                <entry key="hibernate.hbm2ddl.auto" value="validate"/>
+                <entry key="hibernate.hbm2ddl.auto" value="create"/>
                 <entry key="hibernate.jdbc.batch_size" value="30"/>
                 <entry key="hibernate.query.jpaql_strict_compliance" value="true"/>
                 <!--entry key="hibernate.transaction.flush_before_completion" value="true" /-->

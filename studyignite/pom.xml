@@ -394,8 +394,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
@@ -438,6 +438,50 @@
                 </plugins>
             </build>
 
+        </profile>
+
+        <profile>
+            <id>oracle</id>
+            <properties>
+               <!-- <jdbc.driver>net.sf.log4jdbc.sql.jdbcapi.DriverSpy</jdbc.driver>-->
+                <!--<jdbc.url>jdbc:log4jdbc:oracle:thin:@10.100.53.97:1521:orcl11g2</jdbc.url>-->
+                <jdbc.driver>oracle.jdbc.pool.OracleDataSource</jdbc.driver>
+                <jdbc.url>jdbc:oracle:thin:@10.100.53.97:1521:orcl11g2</jdbc.url>
+                <jdbc.user>studyignite</jdbc.user>
+                <jdbc.password>abc123</jdbc.password>
+
+                <jdbc.minPoolSize>0</jdbc.minPoolSize>
+                <jdbc.maxPoolSize>8</jdbc.maxPoolSize>
+                <jdbc.initialPoolSize>4</jdbc.initialPoolSize>
+                <jdbc.connectionWaitTimeout>300</jdbc.connectionWaitTimeout>
+                <jdbc.maxIdleTime>3600</jdbc.maxIdleTime>
+                <hibernate.dialect>org.hibernate.dialect.Oracle10gDialect</hibernate.dialect>
+                <hibernate.showsql>true</hibernate.showsql>
+                <jpa.generateDdl>false</jpa.generateDdl>
+            </properties>
+        </profile>
+        <profile>
+            <id>tomcat</id>
+            <properties>
+                <platform.ctx>appctx-mss-app-main-standlone.xml</platform.ctx>
+            </properties>
+        </profile>
+        <profile>
+            <id>h2</id>
+            <properties>
+              <!--  <jdbc.driver>org.h2.Driver</jdbc.driver>-->
+                <jdbc.url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</jdbc.url>
+                <jdbc.user>sa</jdbc.user>
+                <jdbc.password></jdbc.password>
+                <jdbc.minPoolSize>0</jdbc.minPoolSize>
+                <jdbc.maxPoolSize>8</jdbc.maxPoolSize>
+                <jdbc.initialPoolSize>4</jdbc.initialPoolSize>
+                <jdbc.connectionWaitTimeout>300</jdbc.connectionWaitTimeout>
+                <jdbc.maxIdleTime>3600</jdbc.maxIdleTime>
+                <hibernate.dialect>org.hibernate.dialect.H2Dialect</hibernate.dialect>
+                <hibernate.showsql>true</hibernate.showsql>
+                <jpa.generateDdl>true</jpa.generateDdl>
+            </properties>
         </profile>
     </profiles>
 </project>
