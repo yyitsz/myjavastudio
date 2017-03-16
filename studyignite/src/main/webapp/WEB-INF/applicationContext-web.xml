@@ -31,41 +31,46 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
     <context:annotation-config/>
-    <mvc:annotation-driven/>
-     <mvc:interceptors>
-         <mvc:interceptor>
-             <mvc:mapping path="/**"/>
-             <bean class="org.yy.web.rest.AuthenticationInterceptor">
-             </bean>
-         </mvc:interceptor>
-     </mvc:interceptors>
-    <bean id="httpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
-        <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
-    </bean>
-    <bean id="jaxb2MessageConverter"
-          class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">
-    </bean>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean id="jaxb2MessageConverter"
+                  class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">
+            </bean>
+            <bean id="jsonConverter"
+                  class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <constructor-arg index="0" ref="objectMapper"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="org.yy.web.rest.AuthenticationInterceptor">
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <!--
+        <bean id="httpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+            <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
+        </bean>
+    -->
 
-    <bean id="defaultMessageConverters" class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="jaxb2MessageConverter"/>
-                <ref bean="jsonConverter"/>
-            </list>
-        </constructor-arg>
-    </bean>
-    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-        <property name="supportedMediaTypes" value="application/json"/>
-        <property name="objectMapper" ref="objectMapper"/>
-    </bean>
-    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
 
-    </bean>
+    <!--  <bean id="defaultMessageConverters" class="java.util.ArrayList">
+          <constructor-arg>
+              <list>
+                  <ref bean="jaxb2MessageConverter"/>
+                  <ref bean="jsonConverter"/>
+              </list>
+          </constructor-arg>
+      </bean>
 
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters" ref="defaultMessageConverters"/>
-        <property name="cacheSeconds" value="0"/>
-    </bean>
+
+      <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+          <property name="messageConverters" ref="defaultMessageConverters"/>
+          <property name="cacheSeconds" value="0"/>
+      </bean>-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
+
 
 </beans>

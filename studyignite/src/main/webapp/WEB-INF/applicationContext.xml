@@ -190,7 +190,6 @@
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="showSql" value="true"/>
                 <property name="generateDdl" value="true"/>
-                <property name="databasePlatform" value="org.hibernate.dialect.H2Dialect"/>
             </bean>
         </property>
         <property name="jpaPropertyMap" ref="jpaPropertyMap"/>
@@ -198,8 +197,8 @@
     </bean>
 
     <bean id="entityManagerFactory" parent="abstractEntityManagerFactory">
-<!--        <property name="persistenceXmlLocation" value="classpath:/META-INF/mss-persistence.xml"/>
-        <property name="persistenceUnitName" value="mss"/>-->
+        <!--        <property name="persistenceXmlLocation" value="classpath:/META-INF/mss-persistence.xml"/>
+                <property name="persistenceUnitName" value="mss"/>-->
         <property name="dataSource" ref="studyIgniteDs"/>
         <property name="packagesToScan" value="org.yy.core.model"/>
     </bean>
@@ -239,10 +238,11 @@
 
 
     <bean id="studyIgniteDataSourceTarget" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-       <!-- <property name="dataSourceClassName" value="org.h2.Driver"/>-->
-        <property name="jdbcUrl" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>
-        <property name="username" value="sa"/>
-        <property name="password" value=""/>
+        <!-- <property name="dataSourceClassName" value="org.h2.Driver"/>-->
+        <!-- <property name="jdbcUrl" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>-->
+        <property name="jdbcUrl" value="jdbc:oracle:thin:@10.100.53.97:1521/orcl11g2"/>
+        <property name="username" value="studyignite"/>
+        <property name="password" value="abc123"/>
         <property name="autoCommit" value="false"/>
         <property name="minimumIdle" value="0"/>
         <property name="maximumPoolSize" value="20"/>
@@ -257,7 +257,7 @@
         </property>
         <property name="sourceMap">
             <map>
-                <entry key="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+                <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
                 <!--entry key="hibernate.hbm2ddl.auto" value="validate" /-->
                 <!--entry key="hibernate.hbm2ddl.auto" value="create" /-->
                 <entry key="hibernate.jdbc.batch_size" value="30"/>
@@ -277,4 +277,7 @@
                       repository-impl-postfix="Ext">
         <repo:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </jpa:repositories>
+
+    <bean id="objectMapper" class="org.yy.core.base.ObjectMapperFactory">
+    </bean>
 </beans>

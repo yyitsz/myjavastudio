@@ -6,6 +6,7 @@ import org.yy.core.model.Person;
 import org.yy.core.repository.PersonRepo;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by yyi on 2017/3/15.
@@ -20,5 +21,10 @@ public class PersonServiceImpl implements org.yy.core.risk.service.PersonService
     public Person addPerson(Person p) {
         personRepo.save(p);
         return p;
+    }
+
+    @Override
+    public List<Person> getAllPerson() {
+        return personRepo.findAll();
     }
 }

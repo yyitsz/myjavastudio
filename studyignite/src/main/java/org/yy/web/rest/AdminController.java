@@ -15,6 +15,9 @@ import org.yy.core.risk.task.Tuple;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Created by yyi on 2017/3/14.
@@ -80,7 +83,17 @@ public class AdminController {
         Person p = new Person();
         p.setFirstName(firstName);
         p.setLastName(lastName);
+        p.setCreateTime(LocalDateTime.now());
+        p.setRegisterDate(LocalDate.now());
         personService.addPerson(p);
         return p.toString();
+    }
+
+    @RequestMapping(path = "/person/getall")
+    @ResponseBody
+    public  List<Person> getAllPersons() {
+
+        List<Person> persons = personService.getAllPerson();
+        return persons;
     }
 }
